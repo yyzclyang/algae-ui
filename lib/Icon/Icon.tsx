@@ -1,16 +1,15 @@
 import React from 'react';
 import './importIcons';
+import './icon.scss';
 
 interface IconProps {
   name: string;
 }
 
 const Icon: React.FunctionComponent<IconProps> = (props: IconProps) => (
-  <span id={`${props.name}`}>
-    <svg>
-      <use xlinkHref={`#${props.name}`} />
-    </svg>
-  </span>
+  <svg className="yu-ui-icon">
+    <use xlinkHref={`#${props.name}`} />
+  </svg>
 );
 
 export default Icon;
