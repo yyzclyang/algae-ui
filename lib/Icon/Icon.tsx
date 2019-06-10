@@ -1,12 +1,16 @@
 import React from 'react';
-import wechat from './icons/wechat.svg'
-
-console.log(wechat)
+import './importIcons';
 
 interface IconProps {
-  name: string
+  name: string;
 }
 
-const Icon: React.FunctionComponent<IconProps> = (props: IconProps) => (<span>{ props.name }</span>);
+const Icon: React.FunctionComponent<IconProps> = (props: IconProps) => (
+  <span id={`${props.name}`}>
+    <svg>
+      <use xlinkHref={`#${props.name}`} />
+    </svg>
+  </span>
+);
 
 export default Icon;
