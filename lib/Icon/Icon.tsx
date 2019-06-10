@@ -1,6 +1,7 @@
 import React from 'react';
 import './importIcons';
 import './icon.scss';
+import classes from '../helpers/classes';
 
 interface IconProps extends React.SVGAttributes<SVGElement> {
   name: string;
@@ -9,7 +10,7 @@ interface IconProps extends React.SVGAttributes<SVGElement> {
 const Icon: React.FunctionComponent<IconProps> = (props: IconProps) => {
   const { className, name, ...restProps } = props;
   return (
-    <svg className="yu-ui-icon" {...restProps}>
+    <svg className={classes('yu-ui-icon', className)} {...restProps}>
       <use xlinkHref={`#${name}`} />
     </svg>
   );
