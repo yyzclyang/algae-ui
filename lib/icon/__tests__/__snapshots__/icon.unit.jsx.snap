@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`icon name 为 wechat 的 Icon 1`] = `
+<svg
+  className="yu-ui-icon"
+>
+  <use
+    xlinkHref="#wechat"
+  />
+</svg>
+`;
