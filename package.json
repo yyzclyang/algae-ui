@@ -1,9 +1,12 @@
 {
-  "name": "yu-ui",
-  "version": "1.0.0",
+  "name": "yu-ui888",
+  "version": "0.0.1",
   "description": "",
   "main": "dis/lib/index.js",
   "types": "dist/lib/index",
+  "files": [
+    "/dist"
+  ],
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack-dev-server --config webpack.config.dev.js",
     "build": "cross-env NODE_ENV=production webpack --config webpack.config.prod.js",

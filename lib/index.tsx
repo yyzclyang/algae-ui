@@ -1,1 +1,1 @@
-import React from 'react';import ReactDOM from 'react-dom';import Icon from './icon';ReactDOM.render(  <Icon    onClick={(e) => {      console.log(e.currentTarget);    }}    name="wechat"    className="icon"  />,  document.getElementById('root'));
+export { default as Icon } from './icon';
