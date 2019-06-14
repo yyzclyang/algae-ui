@@ -2,6 +2,7 @@
 /.idea
 /.vscode
 /dist/*
+/test-results/
 
 # Logs
 logs
