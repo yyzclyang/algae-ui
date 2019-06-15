@@ -1,71 +1,59 @@
 #https://github.com/revolunet/create-react-app-circleci/blob/master/.circleci/config.yml
 defaults: &defaults
+  working_directory: ~/repo
   docker:
     - image: circleci/node:8
 
 version: 2
 jobs:
-  prepare:
+  test:
     <<: *defaults
     steps:
       - checkout
       - restore_cache:
           keys:
-            - v2-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-{{ checksum "package.json" }}
       - run: yarn install
+      - run: yarn ci
       - save_cache:
           paths:
             - node_modules
-          key: v2-dependencies-{{ checksum "package.json" }}
+          key: v1-dependencies-{{ checksum "package.json" }}
+      - store_test_results:
+          path: test-results
       - persist_to_workspace:
-          root: .
+          root: ~/repo
           paths:
             - node_modules
-  build:
+
+  deploy:
     <<: *defaults
     steps:
       - checkout
-      - attach_workspace:
-          at: .
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+      - run: yarn install
       - run: yarn build
       - persist_to_workspace:
-          root: .
+          root: ~/repo
           paths:
             - dist
             - package.json
             - LICENSE
             - README.md
-  test:
-    <<: *defaults
-    steps:
-      - checkout
-      - attach_workspace:
-          at: .
-      - run: yarn ci
-      - store_test_results:
-          path: test-results
-  publish:
-    <<: *defaults
-    steps:
-      - attach_workspace:
-          at: .
       - run: npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
       - run: npm publish
-
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
 workflows:
   version: 2
-  build_accept_deploy:
+  test_deploy:
     jobs:
-      - prepare
-      - test:
-          requires:
-            - prepare
-      - build:
-          requires:
-            - test
-      - publish:
-          requires:
-            - build
+      - test
+      - deploy:
           filters:
             tags:
               only: /^v[0-9]+(\.[0-9]+)*/
