@@ -1,1 +1,1 @@
-# yu-ui
+# algae-ui
