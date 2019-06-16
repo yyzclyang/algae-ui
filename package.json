@@ -15,15 +15,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/YyzclYang/yu-ui.git"
+    "url": "git+https://github.com/YyzclYang/algae-ui.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/YyzclYang/yu-ui/issues"
+    "url": "https://github.com/YyzclYang/algae-ui/issues"
   },
-  "homepage": "https://github.com/YyzclYang/yu-ui#readme",
+  "homepage": "https://github.com/YyzclYang/algae-ui#readme",
   "dependencies": {
     "react": "^16.8.6",
     "react-dom": "^16.8.6"

@@ -2,7 +2,7 @@
 
 exports[`icon 渲染一个 name 为 wechat 的 Icon 1`] = `
 <svg
-  className="yu-ui-icon"
+  className="algae-ui-icon"
 >
   <use
     xlinkHref="#wechat"
