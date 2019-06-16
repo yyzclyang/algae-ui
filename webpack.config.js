@@ -5,11 +5,14 @@ module.exports = {
     index: './lib/index.tsx'
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.jsx']
+    extensions: ['.ts', '.tsx', '.js', '.jsx'],
+    alias: {
+      ROOT: path.resolve(__dirname)
+    }
   },
   output: {
     path: path.resolve(__dirname, 'dist/lib'),
-    library: 'yu-ui',
+    library: 'algae-ui',
     libraryTarget: 'umd'
   },
   module: {
