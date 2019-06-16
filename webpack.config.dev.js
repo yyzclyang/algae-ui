@@ -3,9 +3,13 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = Object.assign({}, baseConfig, {
   mode: 'development',
+  entry: {
+    example: './example/index.tsx'
+  },
   plugins: [
     new HtmlWebpackPlugin({
-      template: 'index.html'
+      title: 'algae-ui',
+      template: './example/index.html'
     })
-  ],
+  ]
 });
