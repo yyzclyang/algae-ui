@@ -15,8 +15,8 @@ const Icon: React.FunctionComponent<IconProps> = (props: IconProps) => {
   return (
     <svg
       className={classes('algae-ui-icon', className)}
-      {...restProps}
       style={{ ...style, ...rotateStyle }}
+      {...restProps}
     >
       <use xlinkHref={`#${type}`} />
     </svg>
