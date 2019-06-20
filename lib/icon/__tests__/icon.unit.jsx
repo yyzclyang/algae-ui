@@ -33,4 +33,14 @@ describe('icon', () => {
       'rotate(180deg)'
     );
   });
+
+  it('测试自定义 rotate 优先级高于自定义 style', () => {
+    const component = mount(
+      <Icon type="wechat" style={{ transform: 'rotate(90deg)' }} rotate={180} />
+    );
+    expect(component.find('svg').get(0).props.style).toHaveProperty(
+      'transform',
+      'rotate(180deg)'
+    );
+  });
 });
