@@ -1,8 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`icon 渲染一个 name 为 wechat 的 Icon 1`] = `
+exports[`icon 渲染一个 type 为 wechat 的 Icon 1`] = `
 <svg
   className="algae-ui-icon"
+  style={Object {}}
 >
   <use
     xlinkHref="#wechat"
