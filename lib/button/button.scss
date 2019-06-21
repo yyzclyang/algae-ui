@@ -1,0 +1,22 @@
+.algae-ui-button {
+  padding: 4px 16px;
+  border-radius: 5px;
+  pointer-events: none;
+  border-width: 1px;
+  border-style: solid;
+  cursor: pointer;
+  &:focus {
+    outline: none;
+  }
+  &.primary {
+    background-color: #506dfe;
+    color: white;
+    border-color: #506dfe;
+  }
+  & > span {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+    transition: all 250ms;
+  }
+}
