@@ -1,34 +1,37 @@
 import React from 'react';
+import Icon from '../icon';
 import './button.scss';
-import classNames from 'ROOT/lib/helpers/classNames';
+import classNames from '../helpers/classNames';
 
-interface ButtonProps {
-  type?: 'default' | 'primary' | 'danger' | 'ghost';
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  buttonType?: 'default' | 'primary' | 'danger';
   className?: string;
-  style?: React.CSSProperties;
-  htmlType?: 'submit' | 'button' | 'reset';
+  icon?: string;
+  ghost?: boolean;
   children?: React.ReactText;
 }
 
 const Button: React.FunctionComponent<ButtonProps> = (props: ButtonProps) => {
-  const {
-    type = 'default',
-    className,
-    htmlType = 'button',
-    style,
-    children,
-    ...restProps
-  } = props;
+  const { buttonType, className, icon, ghost, children, ...restProps } = props;
   return (
     <button
-      className={classNames('algae-ui-button', type, className)}
-      type={htmlType}
-      style={{ ...style }}
+      className={classNames(
+        'algae-ui-button',
+        buttonType,
+        className,
+        ghost ? 'ghost' : undefined
+      )}
       {...restProps}
     >
-      <span>{children}</span>
+      {icon && <Icon type="wechat"></Icon>}
+      {children}
     </button>
   );
+};
+
+Button.defaultProps = {
+  buttonType: 'default',
+  ghost: false
 };
 
 export default Button;

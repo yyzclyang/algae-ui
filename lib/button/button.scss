@@ -5,6 +5,10 @@
   border-width: 1px;
   border-style: solid;
   cursor: pointer;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.6em;
+  transition: all 250ms;
   &:focus {
     outline: none;
   }
@@ -12,11 +16,16 @@
     background-color: #506dfe;
     color: white;
     border-color: #506dfe;
+    &.ghost {
+      background-color: transparent;
+      color: #506dfe;
+      border-color: #506dfe;
+    }
   }
-  & > span {
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 22px;
-    transition: all 250ms;
+  & > .algae-ui-icon {
+    height: 1.2em;
+    width: 1.2em;
+    margin-right: 0.5em;
+    vertical-align: -0.2em;
   }
 }
