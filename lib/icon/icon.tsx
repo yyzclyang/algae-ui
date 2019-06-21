@@ -1,7 +1,7 @@
 import React from 'react';
 import './importIcons';
 import './icon.scss';
-import classes from '../helpers/classes';
+import classNames from '../helpers/classNames';
 
 interface IconProps extends React.SVGAttributes<SVGElement> {
   type: string;
@@ -14,7 +14,7 @@ const Icon: React.FunctionComponent<IconProps> = (props: IconProps) => {
   const rotateStyle = rotate ? { transform: `rotate(${rotate}deg)` } : {};
   return (
     <svg
-      className={classes('algae-ui-icon', className)}
+      className={classNames('algae-ui-icon', className)}
       style={{ ...style, ...rotateStyle }}
       {...restProps}
     >

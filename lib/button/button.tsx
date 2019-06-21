@@ -1,6 +1,6 @@
 import React from 'react';
 import './button.scss';
-import classes from 'ROOT/lib/helpers/classes';
+import classNames from 'ROOT/lib/helpers/classNames';
 
 interface ButtonProps {
   type?: 'default' | 'primary' | 'danger' | 'ghost';
@@ -21,7 +21,7 @@ const Button: React.FunctionComponent<ButtonProps> = (props: ButtonProps) => {
   } = props;
   return (
     <button
-      className={classes('algae-ui-button', type, className)}
+      className={classNames('algae-ui-button', type, className)}
       type={htmlType}
       style={{ ...style }}
       {...restProps}
