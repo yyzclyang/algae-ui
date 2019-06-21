@@ -3,7 +3,7 @@ import { Button } from 'ROOT/lib';
 
 const ButtonExample: React.FunctionComponent = () => (
   <div>
-    <Button></Button>
+    <Button type="primary">Primary</Button>
   </div>
 );
 

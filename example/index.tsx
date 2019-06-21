@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { HashRouter as Router, Route, NavLink } from 'react-router-dom';
+import './base.scss';
 
 import IconExample from './components/IconExample';
 import ButtonExample from './components/ButtonExample';
