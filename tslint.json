@@ -25,6 +25,7 @@
     "object-literal-sort-keys": false,
     "eofline": false,
     "jsx-no-lambda": false,
+    "jsx-boolean-value": [true, "never"],
     "no-trailing-whitespace": false,
     "jsx-alignment": false,
     "jsx-wrap-multilines": false,
