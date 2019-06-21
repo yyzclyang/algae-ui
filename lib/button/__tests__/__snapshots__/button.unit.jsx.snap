@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button 渲染一个 buttonType 为 primary 的 Button 1`] = `
+<button
+  className="algae-ui-button primary"
+>
+  button
+</button>
+`;
