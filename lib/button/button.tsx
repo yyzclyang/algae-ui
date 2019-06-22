@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Icon from '../icon';
 import './button.scss';
@@ -25,11 +25,21 @@ const Button: React.FunctionComponent<ButtonProps> = (props: ButtonProps) => {
     children,
     ...restProps
   } = props;
+
+  const [animatingClassName, setAnimatingClassName] = useState<string>('');
+
   const handleClick: React.MouseEventHandler = (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
+    if (!animatingClassName) {
+      setAnimatingClassName('algae-ui-wrapperWave-animation-diffuse');
+      setTimeout(() => {
+        setAnimatingClassName('');
+      }, 300);
+    }
     onClick && onClick(e);
   };
+
   return (
     <button
       className={classNames(
@@ -37,7 +47,8 @@ const Button: React.FunctionComponent<ButtonProps> = (props: ButtonProps) => {
         `algae-ui-button-${buttonType}`,
         className,
         ghost ? 'algae-ui-button-ghost' : undefined,
-        full ? 'algae-ui-button-full' : undefined
+        full ? 'algae-ui-button-full' : undefined,
+        animatingClassName
       )}
       onClick={handleClick}
       {...restProps}
