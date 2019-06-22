@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Icon from '../icon';
 import './button.scss';
-import classNames from '../helpers/classNames';
+import { classNames } from '../utils';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   buttonType?: 'default' | 'primary' | 'danger';
@@ -50,6 +50,8 @@ const Button: React.FunctionComponent<ButtonProps> = (props: ButtonProps) => {
     </button>
   );
 };
+
+Button.displayName = 'Button';
 
 Button.defaultProps = {
   buttonType: 'default',

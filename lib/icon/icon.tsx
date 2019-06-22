@@ -1,7 +1,7 @@
 import React from 'react';
 import './importIcons';
 import './icon.scss';
-import classNames from '../helpers/classNames';
+import classNames from '../utils/classNames';
 
 interface IconProps extends React.SVGAttributes<SVGElement> {
   type: string;
@@ -22,5 +22,7 @@ const Icon: React.FunctionComponent<IconProps> = (props: IconProps) => {
     </svg>
   );
 };
+
+Icon.displayName = 'Icon';
 
 export default Icon;
