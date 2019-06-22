@@ -4,14 +4,14 @@ import Button from '../index';
 import { mount } from 'enzyme';
 
 describe('Button', () => {
-  it('渲染一个 buttonType 为 primary 的 Button', () => {
-    const json = renderer
+  it('buttonType 为 primary', () => {
+    const component = renderer
       .create(<Button buttonType="primary">button</Button>)
       .toJSON();
-    expect(json).toMatchSnapshot();
+    expect(component).toMatchSnapshot();
   });
 
-  it('渲染文本子节点', () => {
+  it('接受字符串类型子节点', () => {
     const component = mount(<Button buttonType="primary">button</Button>);
     expect(component.text()).toEqual('button');
   });
@@ -27,18 +27,20 @@ describe('Button', () => {
     expect(fn).toBeCalled();
   });
 
-  it('渲染 ghost 类型的 Button', () => {
+  it('接受 ghost', () => {
     const component = mount(
       <Button buttonType="primary" ghost>
         button
       </Button>
     );
-    expect(component.find('button').hasClass('ghost')).toEqual(true);
+    expect(component.find('button').hasClass('algae-ui-button-ghost')).toEqual(
+      true
+    );
   });
 
-  it('渲染自定义 style', () => {
+  it('接受自定义 style', () => {
     const component = mount(
-      <Button buttonType="primary" style={{ height: '40px', width: '40px' }}>
+      <Button buttonType="primary" style={{ height: '40px' }}>
         button
       </Button>
     );
@@ -47,7 +49,28 @@ describe('Button', () => {
       '40px'
     );
   });
-  it('渲染 Icon', () => {
+
+  it('接受 full', () => {
+    const component = mount(
+      <Button buttonType="primary" full>
+        button
+      </Button>
+    );
+    expect(component.find('button').hasClass('algae-ui-button-full')).toEqual(
+      true
+    );
+  });
+
+  it('接受 loading', () => {
+    const component = mount(
+      <Button buttonType="primary" loading>
+        button
+      </Button>
+    );
+    expect(component.find('svg')).toHaveLength(1);
+  });
+
+  it('接受 icon', () => {
     const component = mount(
       <Button buttonType="primary" icon="wechat">
         button
