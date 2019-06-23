@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './importIcons';
 import './icon.scss';
 import classNames from '../utils/classNames';
@@ -21,6 +22,12 @@ const Icon: React.FunctionComponent<IconProps> = (props: IconProps) => {
       <use xlinkHref={`#${type}`} />
     </svg>
   );
+};
+
+Icon.propTypes = {
+  type: PropTypes.string.isRequired,
+  rotate: PropTypes.number,
+  style: PropTypes.object
 };
 
 Icon.displayName = 'Icon';
