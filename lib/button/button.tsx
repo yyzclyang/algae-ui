@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Icon from '../icon';
-import './button.scss';
+import './style/button.scss';
 import { classNames } from '../utils';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   buttonType?: 'default' | 'primary' | 'danger';
   icon?: string;
+  iconPosition?: 'left' | 'right';
   loading?: boolean;
   ghost?: boolean;
   full?: boolean;
@@ -19,6 +20,8 @@ const Button: React.FunctionComponent<ButtonProps> = (props: ButtonProps) => {
     className,
     onClick,
     icon,
+    iconPosition,
+    disabled,
     loading,
     ghost,
     full,
@@ -31,33 +34,37 @@ const Button: React.FunctionComponent<ButtonProps> = (props: ButtonProps) => {
   const handleClick: React.MouseEventHandler = (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
-    if (!animatingClassName) {
-      setAnimatingClassName('algae-ui-wrapperWave-animation-diffuse');
+    if (!animatingClassName && !disabled) {
+      setAnimatingClassName('animation-diffuse');
       setTimeout(() => {
         setAnimatingClassName('');
       }, 300);
     }
-    onClick && onClick(e);
+    !disabled && onClick && onClick(e);
   };
 
   return (
     <button
       className={classNames(
         'algae-ui-button',
-        `algae-ui-button-${buttonType}`,
+        `${buttonType}`,
         className,
-        ghost ? 'algae-ui-button-ghost' : undefined,
-        full ? 'algae-ui-button-full' : undefined,
+        ghost ? 'ghost' : undefined,
+        full ? 'full' : undefined,
+        disabled ? 'disabled' : undefined,
         animatingClassName
       )}
       onClick={handleClick}
       {...restProps}
     >
-      {loading && (
-        <Icon className={'algae-ui-icon-loading'} type="loading"></Icon>
+      {loading && <Icon className={'animation-loading'} type="loading"></Icon>}
+      {icon && iconPosition === 'left' && (
+        <Icon type={icon} className={'left'}></Icon>
       )}
-      {icon && <Icon type="wechat"></Icon>}
       {children}
+      {icon && iconPosition === 'right' && (
+        <Icon type={icon} className={'right'}></Icon>
+      )}
     </button>
   );
 };
@@ -67,6 +74,7 @@ Button.displayName = 'Button';
 Button.defaultProps = {
   buttonType: 'default',
   loading: false,
+  iconPosition: 'left',
   ghost: false
 };
 
