@@ -1,6 +1,6 @@
 {
   "name": "algae-ui",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "",
   "main": "dis/lib/index.js",
   "types": "dist/lib/index",
