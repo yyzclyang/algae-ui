@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ButtonGroup 渲染 ButtonGroup 1`] = `
+<div
+  className="algae-ui-button-group"
+>
+  <button
+    className="algae-ui-button default"
+    onClick={[Function]}
+  >
+    Button1
+  </button>
+  <button
+    className="algae-ui-button default"
+    onClick={[Function]}
+  >
+    Button2
+  </button>
+  <button
+    className="algae-ui-button default"
+    onClick={[Function]}
+  >
+    Button3
+  </button>
+</div>
+`;

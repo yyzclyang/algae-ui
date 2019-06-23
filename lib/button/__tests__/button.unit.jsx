@@ -27,15 +27,24 @@ describe('Button', () => {
     expect(fn).toBeCalled();
   });
 
+  it('disabled 不能响应点击事件', () => {
+    const fn = jest.fn();
+    const component = mount(
+      <Button buttonType="primary" onClick={fn} disabled>
+        button
+      </Button>
+    );
+    component.find('button').simulate('click');
+    expect(fn).not.toHaveBeenCalled();
+  });
+
   it('接受 ghost', () => {
     const component = mount(
       <Button buttonType="primary" ghost>
         button
       </Button>
     );
-    expect(component.find('button').hasClass('algae-ui-button-ghost')).toEqual(
-      true
-    );
+    expect(component.find('button').hasClass('ghost')).toEqual(true);
   });
 
   it('接受自定义 style', () => {
@@ -56,9 +65,7 @@ describe('Button', () => {
         button
       </Button>
     );
-    expect(component.find('button').hasClass('algae-ui-button-full')).toEqual(
-      true
-    );
+    expect(component.find('button').hasClass('full')).toEqual(true);
   });
 
   it('接受 loading', () => {
