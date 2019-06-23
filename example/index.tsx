@@ -24,7 +24,7 @@ ReactDOM.render(
             </li>
           </ul>
         </aside>
-        <div>
+        <div className="router-page">
           <Route path="/icon" component={IconExample} />
           <Route path="/button" component={ButtonExample} />
         </div>
