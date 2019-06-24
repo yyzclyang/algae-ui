@@ -1,15 +1,16 @@
 {
   "compilerOptions": {
     "declaration": true,
+    "declarationDir": "lib",
+    "sourceMap": true,
     "baseUrl": ".",
     "module": "esnext",
     "target": "es5",
     "lib": ["es6", "dom"],
-    "sourceMap": true,
     "jsx": "react",
     "moduleResolution": "node",
     "rootDir": ".",
-    "outDir": "dist",
+    "outDir": "lib",
     "paths": {
       "ROOT/*": ["./*"]
     },
@@ -25,16 +26,10 @@
     "esModuleInterop": true,
     "noUnusedLocals": true
   },
-  "include": ["lib/**/*"],
+  "include": [ "src/**/*" ],
   "exclude": [
     "node_modules",
-    "build",
-    "dist",
-    "scripts",
-    "acceptance-tests",
-    "webpack",
-    "jest",
-    "src/setupTests.ts",
+    "lib",
     "*.js"
   ]
 }

@@ -38,7 +38,7 @@ jobs:
       - persist_to_workspace:
           root: ~/repo
           paths:
-            - dist
+            - lib
             - package.json
             - LICENSE
             - README.md

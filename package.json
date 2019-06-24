@@ -1,11 +1,11 @@
 {
   "name": "algae-ui",
   "version": "0.1.0",
-  "description": "",
-  "main": "dis/lib/index.js",
-  "types": "dist/lib/index",
+  "description": "A Component Library for React.js.",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "files": [
-    "/dist/**/*"
+    "/lib/**/*"
   ],
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack-dev-server --config webpack.config.dev.js",
@@ -17,8 +17,8 @@
     "type": "git",
     "url": "git+https://github.com/YyzclYang/algae-ui.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [ "react", "UI", "components" ],
+  "author": "YyzclYang",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/YyzclYang/algae-ui/issues"

@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
   entry: {
-    index: './lib/index.tsx'
+    index: './src/index.tsx'
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
@@ -11,10 +11,11 @@ module.exports = {
     }
   },
   output: {
-    path: path.resolve(__dirname, 'dist/lib'),
+    path: path.resolve(__dirname, 'lib'),
     library: 'algae-ui',
     libraryTarget: 'umd'
   },
+  devtool: "source-map",
   module: {
     rules: [
       {

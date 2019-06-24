@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, ButtonGroup } from 'ROOT/lib';
+import { Button, ButtonGroup } from 'ROOT/src';
 
 const ButtonExample: React.FunctionComponent = () => {
   const [loading, setLoading] = useState<boolean>(false);
