@@ -38,7 +38,8 @@ jobs:
       - persist_to_workspace:
           root: ~/repo
           paths:
-            - lib
+            - lib/index.js
+            - lib/index.d.ts
             - package.json
             - LICENSE
             - README.md
