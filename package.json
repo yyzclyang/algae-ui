@@ -1,6 +1,6 @@
 {
   "name": "algae-ui",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A Component Library for React.js.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -17,7 +17,11 @@
     "type": "git",
     "url": "git+https://github.com/YyzclYang/algae-ui.git"
   },
-  "keywords": [ "react", "UI", "components" ],
+  "keywords": [
+    "react",
+    "UI",
+    "components"
+  ],
   "author": "YyzclYang",
   "license": "ISC",
   "bugs": {
