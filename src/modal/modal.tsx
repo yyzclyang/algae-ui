@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import './style/modal.scss';
-import { Icon } from '../index';
+import { Icon, Button } from '../index';
 import { classNames } from '../utils';
 
 interface ModalProps {
@@ -30,8 +30,12 @@ const Modal: React.FunctionComponent<ModalProps> = (props: ModalProps) => {
         </header>
         <main>{children}</main>
         <footer>
-          <button>ok</button>
-          <button>cancel</button>
+          <Button ghost style={{ width: '6em' }}>
+            cancel
+          </Button>
+          <Button buttonType="success" style={{ width: '6em' }}>
+            OK
+          </Button>
         </footer>
       </div>
     </React.Fragment>
