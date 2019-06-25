@@ -1,42 +1,51 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import './style/modal.scss';
-import { Icon, Button } from '../index';
+import { Icon } from '../index';
 import { classNames } from '../utils';
 
 interface ModalProps {
   visible: boolean;
   className?: string;
+  onClose: React.MouseEventHandler;
+  closeOnClickMask?: boolean;
+  buttons?: React.ReactElement[];
   children: React.ReactNode;
 }
 
 const Modal: React.FunctionComponent<ModalProps> = (props: ModalProps) => {
-  const { className, children } = props;
-  const [visible, setVisible] = useState<boolean>(props.visible);
+  const {
+    visible,
+    className,
+    buttons,
+    onClose,
+    closeOnClickMask,
+    children
+  } = props;
+  const onClickClose: React.MouseEventHandler = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    onClose(e);
+  };
+
+  const onClickMask: React.MouseEventHandler = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    closeOnClickMask && onClose(e);
+  };
+
   return visible ? (
     <React.Fragment>
-      <div className="algae-ui-modal-mask"></div>
+      <div className="algae-ui-modal-mask" onClick={onClickMask}></div>
       <div className={classNames('algae-ui-modal', className)}>
         <header className="algae-ui-header">
           <span>提示</span>
-          <div
-            className="algae-ui-close"
-            onClick={() => {
-              setVisible(false);
-            }}
-          >
+          <div className="algae-ui-close" onClick={onClickClose}>
             <Icon type="close" style={{ width: '12px', height: '12px' }} />
           </div>
         </header>
         <main>{children}</main>
-        <footer>
-          <Button ghost style={{ width: '6em' }}>
-            cancel
-          </Button>
-          <Button buttonType="success" style={{ width: '6em' }}>
-            OK
-          </Button>
-        </footer>
+        <footer>{buttons}</footer>
       </div>
     </React.Fragment>
   ) : null;
@@ -46,12 +55,16 @@ Modal.displayName = 'Modal';
 
 Modal.defaultProps = {
   visible: false,
+  closeOnClickMask: false,
   children: null
 };
 
 Modal.propTypes = {
   visible: PropTypes.bool.isRequired,
   className: PropTypes.string,
+  onClose: PropTypes.func.isRequired,
+  closeOnClickMask: PropTypes.bool,
+  buttons: PropTypes.array,
   children: PropTypes.node.isRequired
 };
 
