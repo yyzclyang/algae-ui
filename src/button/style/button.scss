@@ -97,6 +97,23 @@
       }
     }
   }
+  &.success {
+    background: $bg;
+    color: $success;
+    border-color: transparentize(#999999, 0.5);
+    &.ghost {
+      border-color: $success;
+    }
+    &:hover {
+      background: $success;
+      color: #ffffff;
+      border-color: $success;
+      &.ghost {
+        color: transparentize($success, 0.15);
+        border-color: transparentize($success, 0.25);
+      }
+    }
+  }
   &.danger {
     background: $bg;
     color: $danger;

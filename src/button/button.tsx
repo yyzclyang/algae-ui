@@ -5,7 +5,7 @@ import './style/button.scss';
 import { classNames } from '../utils';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  buttonType?: 'default' | 'primary' | 'danger';
+  buttonType?: 'default' | 'primary' | 'success' | 'danger';
   icon?: string;
   iconPosition?: 'left' | 'right';
   loading?: boolean;
@@ -79,7 +79,7 @@ Button.defaultProps = {
 };
 
 Button.propTypes = {
-  buttonType: PropTypes.oneOf(['default', 'primary', 'danger']),
+  buttonType: PropTypes.oneOf(['default', 'primary', 'success', 'danger']),
   icon: PropTypes.string,
   loading: PropTypes.bool,
   ghost: PropTypes.bool,

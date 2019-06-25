@@ -39,6 +39,10 @@ const ButtonExample: React.FunctionComponent = () => {
       <Button buttonType="danger" ghost>
         Danger Ghost
       </Button>
+      <Button buttonType="success">Success</Button>
+      <Button buttonType="success" ghost>
+        Success Ghost
+      </Button>
       <ButtonGroup>
         <Button>Button1</Button>
         <Button>Button2</Button>
