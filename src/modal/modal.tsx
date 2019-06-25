@@ -17,15 +17,17 @@ const Modal: React.FunctionComponent<ModalProps> = (props: ModalProps) => {
     <React.Fragment>
       <div className="algae-ui-modal-mask"></div>
       <div className={classNames('algae-ui-modal', className)}>
-        <div
-          className="algae-ui-close"
-          onClick={() => {
-            setVisible(false);
-          }}
-        >
-          <Icon type="close"></Icon>
-        </div>
-        <header className="algae-ui-header">提示</header>
+        <header className="algae-ui-header">
+          <span>提示</span>
+          <div
+            className="algae-ui-close"
+            onClick={() => {
+              setVisible(false);
+            }}
+          >
+            <Icon type="close" style={{ width: '12px', height: '12px' }} />
+          </div>
+        </header>
         <main>{children}</main>
         <footer>
           <button>ok</button>
