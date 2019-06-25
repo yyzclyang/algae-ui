@@ -1,3 +1,11 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 // 主题色。重点文案、主按钮颜色
 $theme: #506dfe;
 
