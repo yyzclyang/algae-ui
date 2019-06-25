@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import './style/modal.scss';
 import { Icon } from '../index';
@@ -34,7 +35,7 @@ const Modal: React.FunctionComponent<ModalProps> = (props: ModalProps) => {
     closeOnClickMask && onClose(e);
   };
 
-  return visible ? (
+  const modalDom = visible ? (
     <React.Fragment>
       <div className="algae-ui-modal-mask" onClick={onClickMask}></div>
       <div className={classNames('algae-ui-modal', className)}>
@@ -49,6 +50,8 @@ const Modal: React.FunctionComponent<ModalProps> = (props: ModalProps) => {
       </div>
     </React.Fragment>
   ) : null;
+
+  return ReactDOM.createPortal(modalDom, document.body);
 };
 
 Modal.displayName = 'Modal';
