@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Modal } from 'ROOT/src';
 import { Button } from 'ROOT/src';
+import { confirm } from 'ROOT/src/modal';
 
 const ModalExample: React.FunctionComponent = () => {
   const [visible, setVisible] = useState<boolean>(false);
@@ -27,6 +28,22 @@ const ModalExample: React.FunctionComponent = () => {
           Modal Message
         </Modal>
       )}
+      <Button
+        buttonType="primary"
+        onClick={() =>
+          confirm({
+            content: 'confirm',
+            onOk: () => {
+              console.log('你点击了 OK');
+            },
+            onCancel: () => {
+              console.log('你点击了 cancel');
+            }
+          })
+        }
+      >
+        confirm
+      </Button>
     </div>
   );
 };
