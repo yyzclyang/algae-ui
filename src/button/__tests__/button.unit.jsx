@@ -27,6 +27,36 @@ describe('Button', () => {
     expect(fn).toBeCalled();
   });
 
+  it('点击后出现点击动画', () => {
+    const fn = jest.fn();
+    const component = mount(
+      <Button buttonType="primary" onClick={fn}>
+        button
+      </Button>
+    );
+    component.find('button').simulate('click');
+    setTimeout(() => {
+      expect(component.find('button').hasClass('animation-diffuse')).toEqual(
+        true
+      );
+    }, 10);
+  });
+
+  it('点击后 300ms 点击动画消失', () => {
+    const fn = jest.fn();
+    const component = mount(
+      <Button buttonType="primary" onClick={fn}>
+        button
+      </Button>
+    );
+    component.find('button').simulate('click');
+    setTimeout(() => {
+      expect(component.find('button').hasClass('animation-diffuse')).toEqual(
+        false
+      );
+    }, 301);
+  });
+
   it('disabled 不能响应点击事件', () => {
     const fn = jest.fn();
     const component = mount(
