@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import Modal from './modal';
-import Button from 'ROOT/src/button';
+import Button from '../button';
 
 interface ConfirmProps {
   content: string;
