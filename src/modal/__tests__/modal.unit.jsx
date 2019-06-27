@@ -37,7 +37,7 @@ describe('Modal', () => {
   it('点击 Cancel 按钮 Modal 消失', () => {
     let visible = true;
     const onClose = () => (visible = false);
-    const component = mount(
+    mount(
       <Modal
         visible={visible}
         onClose={onClose}
@@ -65,7 +65,7 @@ describe('Modal', () => {
   it('点击 OK 按钮 Modal 消失', () => {
     let visible = true;
     const onClose = () => (visible = false);
-    const component = mount(
+    mount(
       <Modal
         visible={visible}
         onClose={onClose}
@@ -93,7 +93,7 @@ describe('Modal', () => {
   it('点击 Cancel 按钮 Modal 消失', () => {
     let visible = true;
     const onClose = () => (visible = false);
-    const component = mount(
+    mount(
       <Modal
         visible={visible}
         onClose={onClose}
@@ -111,6 +111,37 @@ describe('Modal', () => {
     );
     ReactTestUtils.Simulate.click(
       document.querySelectorAll('.algae-ui-close')[0]
+    );
+    setTimeout(() => {
+      expect(
+        document.body.querySelectorAll('.algae-ui-modal-mask').length
+      ).toBe(0);
+      expect(document.body.querySelectorAll('.algae-ui-modal').length).toBe(0);
+    }, 100);
+  });
+
+  it('设置 closeOnClickMask 为 true 后，点击 Modal 浮层 Modal 消失', () => {
+    let visible = true;
+    const onClose = () => (visible = false);
+    mount(
+      <Modal
+        visible={visible}
+        closeOnClickMask
+        onClose={onClose}
+        buttons={[
+          <Button id="btn1" key="btn1" ghost onClick={onClose}>
+            Cancel
+          </Button>,
+          <Button id="btn2" key="btn2" buttonType="success" onClick={onClose}>
+            OK
+          </Button>
+        ]}
+      >
+        Modal Message
+      </Modal>
+    );
+    ReactTestUtils.Simulate.click(
+      document.querySelectorAll('.algae-ui-modal-mask')[0]
     );
     setTimeout(() => {
       expect(
