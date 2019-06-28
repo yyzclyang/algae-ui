@@ -5,12 +5,13 @@ import Modal from './modal';
 import Button from '../button';
 
 interface ConfirmProps {
+  title?: string;
   content: string;
   onOk?: React.MouseEventHandler;
   onCancel?: React.MouseEventHandler;
 }
 
-const confirm = ({ content, onOk, onCancel }: ConfirmProps) => {
+const confirm = ({ title = '提示', content, onOk, onCancel }: ConfirmProps) => {
   const onClose = () => {
     ReactDOM.render(React.cloneElement(component, { visible: false }), div);
     ReactDOM.unmountComponentAtNode(div);
@@ -34,6 +35,7 @@ const confirm = ({ content, onOk, onCancel }: ConfirmProps) => {
   const component = (
     <Modal
       visible
+      title={title}
       onClose={onClose}
       buttons={[
         <Button key="btn1" ghost onClick={onOkClick}>
@@ -51,9 +53,12 @@ const confirm = ({ content, onOk, onCancel }: ConfirmProps) => {
   const div = document.createElement('div');
   document.body.append(div);
   ReactDOM.render(component, div);
+
+  return onClose;
 };
 
 confirm.prototype = {
+  title: PropTypes.string,
   content: PropTypes.string.isRequired,
   onOk: PropTypes.func,
   onCancel: PropTypes.func

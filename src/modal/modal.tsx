@@ -8,6 +8,7 @@ import { classNames } from '../utils';
 interface ModalProps {
   visible: boolean;
   className?: string;
+  title?: string;
   onClose: React.MouseEventHandler;
   closeOnClickMask?: boolean;
   buttons?: React.ReactElement[];
@@ -18,6 +19,7 @@ const Modal: React.FunctionComponent<ModalProps> = (props: ModalProps) => {
   const {
     visible,
     className,
+    title,
     buttons,
     onClose,
     closeOnClickMask,
@@ -37,10 +39,10 @@ const Modal: React.FunctionComponent<ModalProps> = (props: ModalProps) => {
 
   const modalDom = visible ? (
     <React.Fragment>
-      <div className="algae-ui-modal-mask" onClick={onClickMask}></div>
+      <div className="algae-ui-modal-mask" onClick={onClickMask} />
       <div className={classNames('algae-ui-modal', className)}>
         <header className="algae-ui-header">
-          <span>提示</span>
+          <span>{title}</span>
           <div className="algae-ui-close" onClick={onClickClose}>
             <Icon type="close" style={{ width: '12px', height: '12px' }} />
           </div>
@@ -58,6 +60,7 @@ Modal.displayName = 'Modal';
 
 Modal.defaultProps = {
   visible: false,
+  title: '温馨提示',
   closeOnClickMask: false,
   children: null
 };
@@ -65,6 +68,7 @@ Modal.defaultProps = {
 Modal.propTypes = {
   visible: PropTypes.bool.isRequired,
   className: PropTypes.string,
+  title: PropTypes.string,
   onClose: PropTypes.func.isRequired,
   closeOnClickMask: PropTypes.bool,
   buttons: PropTypes.array,
