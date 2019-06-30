@@ -1,0 +1,11 @@
+@import '../../../src/style/theme';
+
+.example {
+  display: flex;
+  flex-direction: column;
+  height: 500px;
+  border: 1px solid black;
+  & * {
+    border: 1px solid blue;
+  }
+}

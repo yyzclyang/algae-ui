@@ -6,6 +6,7 @@ import './base.scss';
 import IconExample from './components/IconExample';
 import ButtonExample from './components/ButtonExample';
 import ModalExample from './components/ModalExample';
+import LayoutExample from './components/LayoutExample';
 
 ReactDOM.render(
   <Router>
@@ -26,12 +27,16 @@ ReactDOM.render(
             <li>
               <NavLink to="/modal">Modal</NavLink>
             </li>
+            <li>
+              <NavLink to="/layout">Layout</NavLink>
+            </li>
           </ul>
         </aside>
         <div className="router-page">
           <Route path="/icon" component={IconExample} />
           <Route path="/button" component={ButtonExample} />
           <Route path="/modal" component={ModalExample} />
+          <Route path="/layout" component={LayoutExample} />
         </div>
       </main>
     </div>
