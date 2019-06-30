@@ -1,0 +1,17 @@
+@import '../../style/theme';
+
+.algae-ui-layout {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  &.algae-ui-layout-hasSide {
+    flex-direction: row;
+    & > .algae-ui-layout {
+      flex-direction: column;
+    }
+  }
+  & & {
+    flex-direction: row;
+    flex-grow: 1;
+  }
+}
