@@ -81,23 +81,23 @@
     &.ghost {
     }
     &:hover {
-      color: $theme;
-      border-color: $theme;
+      color: $theme-color;
+      border-color: $theme-color;
     }
   }
   &.primary {
-    background: $theme;
+    background: $theme-color;
     color: #ffffff;
-    border-color: $theme;
+    border-color: $theme-color;
     &.ghost {
-      color: $theme;
+      color: $theme-color;
     }
     &:hover {
       color: transparentize(#ffffff, 0.15);
-      background: transparentize($theme, 0.25);
-      border-color: transparentize($theme, 0.25);
+      background: transparentize($theme-color, 0.25);
+      border-color: transparentize($theme-color, 0.25);
       &.ghost {
-        color: transparentize($theme, 0.25);
+        color: transparentize($theme-color, 0.25);
       }
     }
   }
