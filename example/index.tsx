@@ -14,15 +14,15 @@ const logo = require('./logo.png');
 
 ReactDOM.render(
   <Router>
-    <Layout className="page">
-      <Header className="header">
+    <Layout className="site-page">
+      <Header className="site-header">
         <div className="logo">
-          <img src={logo}  alt="logo" />
+          <img src={logo} alt="logo" />
           <span>Algae UI</span>
         </div>
       </Header>
-      <Layout>
-        <Side>
+      <Layout className="site-main">
+        <Side className="site-side">
           <h2>组件</h2>
           <ul>
             <li>
@@ -39,14 +39,14 @@ ReactDOM.render(
             </li>
           </ul>
         </Side>
-        <Content className="router-page">
+        <Content className="side-content">
           <Route path="/icon" component={IconExample} />
           <Route path="/button" component={ButtonExample} />
           <Route path="/modal" component={ModalExample} />
           <Route path="/layout" component={LayoutExample} />
         </Content>
       </Layout>
-      <Footer>footer</Footer>
+      <Footer className="site-footer">&copy; YyzclYang</Footer>
     </Layout>
   </Router>,
   document.getElementById('root')
