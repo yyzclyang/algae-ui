@@ -1,5 +1,10 @@
 import React, { useState } from 'react';
 import { Button, ButtonGroup } from 'ROOT/src';
+import './style.scss';
+// import Highlight, { defaultProps } from 'prism-react-renderer';
+// import oceanicNext from 'prism-react-renderer/themes/oceanicNext';
+//
+// const code = require('!!raw-loader!./button.example.tsx');
 
 const ButtonExample: React.FunctionComponent = () => {
   const [loading, setLoading] = useState<boolean>(false);
@@ -48,6 +53,24 @@ const ButtonExample: React.FunctionComponent = () => {
         <Button>Button2</Button>
         <Button>Button3</Button>
       </ButtonGroup>
+      {/*<Highlight*/}
+      {/*  {...defaultProps}*/}
+      {/*  code={code.default}*/}
+      {/*  language="jsx"*/}
+      {/*  theme={oceanicNext}*/}
+      {/*>*/}
+      {/*  {({ className, style, tokens, getLineProps, getTokenProps }) => (*/}
+      {/*    <pre className={className} style={style}>*/}
+      {/*      {tokens.map((line, i) => (*/}
+      {/*        <div key={i} {...getLineProps({ line, key: i })}>*/}
+      {/*          {line.map((token, key) => (*/}
+      {/*            <span key={key} {...getTokenProps({ token, key })} />*/}
+      {/*          ))}*/}
+      {/*        </div>*/}
+      {/*      ))}*/}
+      {/*    </pre>*/}
+      {/*  )}*/}
+      {/*</Highlight>*/}
     </div>
   );
 };

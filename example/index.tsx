@@ -9,7 +9,6 @@ import ButtonExample from './components/ButtonExample';
 import ModalExample from './components/ModalExample';
 import LayoutExample from './components/LayoutExample';
 
-// tslint:disable-next-line:no-var-requires
 const logo = require('./logo.png');
 
 ReactDOM.render(
