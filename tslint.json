@@ -7,6 +7,7 @@
     "whitespace": false,
     "no-empty-interface": false,
     "space-before-function-paren": false,
+    "no-var-requires": false,
     "no-namespace": false,
     "label-position": false,
     "quotemark": [true, "single", "jsx-double"],
