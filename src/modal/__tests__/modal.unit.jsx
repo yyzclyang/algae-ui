@@ -28,10 +28,10 @@ describe('Modal', () => {
   it('渲染一个 Modal', () => {
     const component = mount(modal);
     expect(component.innerText).toBe(undefined);
-    expect(document.body.querySelectorAll('.algae-ui-modal-mask').length).toBe(
+    expect(document.body.querySelectorAll('.algae-ui-dialog-mask').length).toBe(
       1
     );
-    expect(document.body.querySelectorAll('.algae-ui-modal').length).toBe(1);
+    expect(document.body.querySelectorAll('.algae-ui-dialog').length).toBe(1);
   });
 
   it('点击 Cancel 按钮 Modal 消失', () => {
@@ -50,9 +50,9 @@ describe('Modal', () => {
     ReactTestUtils.Simulate.click(document.querySelectorAll('#btn2')[0]);
     setTimeout(() => {
       expect(
-        document.body.querySelectorAll('.algae-ui-modal-mask').length
+        document.body.querySelectorAll('.algae-ui-dialog-mask').length
       ).toBe(0);
-      expect(document.body.querySelectorAll('.algae-ui-modal').length).toBe(0);
+      expect(document.body.querySelectorAll('.algae-ui-dialog').length).toBe(0);
     }, 100);
   });
 
@@ -63,22 +63,22 @@ describe('Modal', () => {
     );
     setTimeout(() => {
       expect(
-        document.body.querySelectorAll('.algae-ui-modal-mask').length
+        document.body.querySelectorAll('.algae-ui-dialog-mask').length
       ).toBe(0);
-      expect(document.body.querySelectorAll('.algae-ui-modal').length).toBe(0);
+      expect(document.body.querySelectorAll('.algae-ui-dialog').length).toBe(0);
     }, 100);
   });
 
   it('设置 closeOnClickMask 为 true 后，点击 Modal 浮层 Modal 消失', () => {
     mount(modal);
     ReactTestUtils.Simulate.click(
-      document.querySelectorAll('.algae-ui-modal-mask')[0]
+      document.querySelectorAll('.algae-ui-dialog-mask')[0]
     );
     setTimeout(() => {
       expect(
-        document.body.querySelectorAll('.algae-ui-modal-mask').length
+        document.body.querySelectorAll('.algae-ui-dialog-mask').length
       ).toBe(0);
-      expect(document.body.querySelectorAll('.algae-ui-modal').length).toBe(0);
+      expect(document.body.querySelectorAll('.algae-ui-dialog').length).toBe(0);
     }, 100);
   });
 });
