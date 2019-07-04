@@ -33,6 +33,7 @@ const ModalExample: React.FunctionComponent = () => {
         onClick={() =>
           confirm({
             content: 'confirm',
+            iconType: 'like',
             onOk: () => {
               console.log('你点击了 OK');
             },
