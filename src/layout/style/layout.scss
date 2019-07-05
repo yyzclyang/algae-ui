@@ -5,7 +5,7 @@
   flex-direction: column;
   flex-grow: 1;
   &.algae-ui-layout-hasSide {
-    flex-direction: row;
+    flex-direction: row !important;
     & > .algae-ui-layout {
       flex-direction: column;
     }

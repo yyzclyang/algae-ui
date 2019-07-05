@@ -8,4 +8,7 @@
   & * {
     border: 1px solid blue;
   }
+  & > .algae-ui-layout {
+    flex-direction: column;
+  }
 }
