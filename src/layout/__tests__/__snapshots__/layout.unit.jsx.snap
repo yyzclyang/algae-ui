@@ -49,17 +49,3 @@ exports[`Layout 渲染 Side 1`] = `
   </div>
 </div>
 `;
-
-exports[`Layout 渲染包含 Side 的 Layout 1`] = `
-<div
-  className="algae-ui-layout"
->
-  <div
-    className="algae-ui-layout-side"
-  >
-    <div>
-      Side
-    </div>
-  </div>
-</div>
-`;
