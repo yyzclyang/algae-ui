@@ -115,4 +115,13 @@ describe('Button', () => {
     );
     expect(component.find('svg')).toHaveLength(1);
   });
+
+  it('接受 icon，并且 iconPosition 设为 right', () => {
+    const component = mount(
+      <Button buttonType="primary" icon="wechat" iconPosition="right">
+        button
+      </Button>
+    );
+    expect(component.find('svg').hasClass('right')).toEqual(true);
+  });
 });

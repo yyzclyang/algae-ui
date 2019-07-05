@@ -57,13 +57,13 @@ const Button: React.FunctionComponent<ButtonProps> = (props: ButtonProps) => {
       onClick={handleClick}
       {...restProps}
     >
-      {loading && <Icon className={'animation-loading'} type="loading"></Icon>}
+      {loading && <Icon className={'animation-loading'} type="loading" />}
       {icon && iconPosition === 'left' && (
-        <Icon type={icon} className={'left'}></Icon>
+        <Icon type={icon} className={'left'} />
       )}
       {children}
       {icon && iconPosition === 'right' && (
-        <Icon type={icon} className={'right'}></Icon>
+        <Icon type={icon} className={'right'} />
       )}
     </button>
   );
