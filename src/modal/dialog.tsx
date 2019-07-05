@@ -41,7 +41,10 @@ const Dialog: React.FunctionComponent<DialogProps> = (props: DialogProps) => {
 
   const dialogDom = visible ? (
     <React.Fragment>
-      <div className="algae-ui-dialog-mask" onClick={onClickMask} />
+      <div
+        className={classNames('algae-ui-dialog-mask', className)}
+        onClick={onClickMask}
+      />
       <div className={classNames('algae-ui-dialog', className)}>
         <header className="algae-ui-header">
           <span>{title}</span>
