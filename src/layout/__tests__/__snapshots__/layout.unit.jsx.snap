@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Layout 渲染 Content 1`] = `
+<div
+  className="algae-ui-layout-content"
+>
+  <div>
+    Content
+  </div>
+</div>
+`;
+
+exports[`Layout 渲染 Footer 1`] = `
+<div
+  className="algae-ui-layout-footer"
+>
+  <div>
+    Footer
+  </div>
+</div>
+`;
+
+exports[`Layout 渲染 Header 1`] = `
+<div
+  className="algae-ui-layout-header"
+>
+  <div>
+    Header
+  </div>
+</div>
+`;
+
+exports[`Layout 渲染 Layout 1`] = `
+<div
+  className="algae-ui-layout"
+>
+  <div>
+    Layout
+  </div>
+</div>
+`;
+
+exports[`Layout 渲染 Side 1`] = `
+<div
+  className="algae-ui-layout-side"
+>
+  <div>
+    Side
+  </div>
+</div>
+`;
+
+exports[`Layout 渲染包含 Side 的 Layout 1`] = `
+<div
+  className="algae-ui-layout"
+>
+  <div
+    className="algae-ui-layout-side"
+  >
+    <div>
+      Side
+    </div>
+  </div>
+</div>
+`;
