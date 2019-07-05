@@ -28,20 +28,12 @@ const ConfirmDialog: React.FunctionComponent<ConfirmDialogProps> = (
     title,
     className,
     buttons,
-    onClose,
-    closeOnClickMask,
     children
   } = props;
 
-  const onClickMask: React.MouseEventHandler = (
-    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
-  ) => {
-    closeOnClickMask && onClose(e);
-  };
-
   const dialogDom = visible ? (
     <React.Fragment>
-      <div className="algae-ui-confirm-dialog-mask" onClick={onClickMask} />
+      <div className="algae-ui-confirm-dialog-mask" />
       <div className={classNames('algae-ui-confirm-dialog', className)}>
         <main>
           {iconType && (
@@ -49,7 +41,7 @@ const ConfirmDialog: React.FunctionComponent<ConfirmDialogProps> = (
               <Icon type={iconType} style={iconStyle} />
             </div>
           )}
-          <div className="info">
+          <div className="confirm-dialog-message">
             <div className="title">{title}</div>
             <div className="content">{children}</div>
           </div>
