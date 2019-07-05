@@ -74,7 +74,9 @@ describe('Button', () => {
         button
       </Button>
     );
-    expect(component.find('button').hasClass('ghost')).toEqual(true);
+    expect(component.find('button').hasClass('algae-ui-button-ghost')).toEqual(
+      true
+    );
   });
 
   it('接受自定义 style', () => {
@@ -95,7 +97,9 @@ describe('Button', () => {
         button
       </Button>
     );
-    expect(component.find('button').hasClass('full')).toEqual(true);
+    expect(component.find('button').hasClass('algae-ui-button-full')).toEqual(
+      true
+    );
   });
 
   it('接受 loading', () => {

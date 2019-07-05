@@ -58,9 +58,7 @@ describe('Modal', () => {
       1
     );
     expect(document.body.querySelectorAll('.algae-ui-dialog').length).toBe(1);
-    ReactTestUtils.Simulate.click(
-      document.querySelectorAll('.algae-ui-close')[0]
-    );
+    ReactTestUtils.Simulate.click(document.querySelectorAll('.close')[0]);
   });
 
   it('渲染一个 modalWithInvisible 的 Modal', () => {
@@ -109,9 +107,7 @@ describe('Modal', () => {
 
   it('点击 Close 按钮 Modal 消失', () => {
     mount(modal);
-    ReactTestUtils.Simulate.click(
-      document.querySelectorAll('.algae-ui-close')[0]
-    );
+    ReactTestUtils.Simulate.click(document.querySelectorAll('.close')[0]);
     setTimeout(() => {
       expect(
         document.body.querySelectorAll('.algae-ui-dialog-mask').length

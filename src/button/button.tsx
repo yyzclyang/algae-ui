@@ -35,7 +35,7 @@ const Button: React.FunctionComponent<ButtonProps> = (props: ButtonProps) => {
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
     if (!animatingClassName && !disabled) {
-      setAnimatingClassName('animation-diffuse');
+      setAnimatingClassName('algae-ui-button-animation-diffuse');
       setTimeout(() => {
         setAnimatingClassName('');
       }, 300);
@@ -47,11 +47,11 @@ const Button: React.FunctionComponent<ButtonProps> = (props: ButtonProps) => {
     <button
       className={classNames(
         'algae-ui-button',
-        `${buttonType}`,
+        `algae-ui-button-${buttonType}`,
         className,
-        ghost ? 'ghost' : undefined,
-        full ? 'full' : undefined,
-        disabled ? 'disabled' : undefined,
+        ghost ? 'algae-ui-button-ghost' : undefined,
+        full ? 'algae-ui-button-full' : undefined,
+        disabled ? 'algae-ui-button-disabled' : undefined,
         animatingClassName
       )}
       onClick={handleClick}

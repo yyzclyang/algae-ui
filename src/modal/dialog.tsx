@@ -46,10 +46,10 @@ const Dialog: React.FunctionComponent<DialogProps> = (props: DialogProps) => {
         onClick={onClickMask}
       />
       <div className={classNames('algae-ui-dialog', className)}>
-        <header className="algae-ui-header">
+        <header className="header">
           <span>{title}</span>
           {closable ? (
-            <div className="algae-ui-close" onClick={onClickClose}>
+            <div className="close" onClick={onClickClose}>
               <Icon type="close" style={{ width: '12px', height: '12px' }} />
             </div>
           ) : (

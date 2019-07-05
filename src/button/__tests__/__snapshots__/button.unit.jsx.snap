@@ -2,7 +2,7 @@
 
 exports[`Button buttonType 为 primary 1`] = `
 <button
-  className="algae-ui-button primary"
+  className="algae-ui-button algae-ui-button-primary"
   onClick={[Function]}
 >
   button

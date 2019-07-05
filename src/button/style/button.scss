@@ -22,13 +22,13 @@
   &:focus {
     outline: none;
   }
-  &.disabled {
+  &.algae-ui-button-disabled {
     cursor: not-allowed !important;
     color: rgba(0, 0, 0, 0.3) !important;
     background: $bg !important;
     border-color: #d9d9d9 !important;
   }
-  &.animation-diffuse {
+  &.algae-ui-button-animation-diffuse {
     position: relative;
     &::before {
       content: '';
@@ -42,7 +42,7 @@
       bottom: -1px;
       right: -1px;
       opacity: 0.4;
-      animation: diffuse 0.3s ease-in-out forwards;
+      animation: algae-ui-button-diffuse 0.3s ease-in-out forwards;
       flex-shrink: 0;
       border: {
         radius: inherit;
@@ -52,11 +52,11 @@
       }
     }
   }
-  &.full {
+  &.algae-ui-button-full {
     margin-left: 0 !important;
     margin-right: 0 !important;
   }
-  &.ghost {
+  &.algae-ui-button-ghost {
     background: transparent !important;
   }
   & > .algae-ui-icon {
@@ -74,62 +74,62 @@
       animation: spin 1.5s infinite;
     }
   }
-  &.default {
+  &.algae-ui-button-default {
     background: #ffffff;
     color: black;
     border-color: transparentize(#999999, 0.5);
-    &.ghost {
+    &.algae-ui-button-ghost {
     }
     &:hover {
       color: $theme-color;
       border-color: $theme-color;
     }
   }
-  &.primary {
+  &.algae-ui-button-primary {
     background: $theme-color;
     color: #ffffff;
     border-color: $theme-color;
-    &.ghost {
+    &.algae-ui-button-ghost {
       color: $theme-color;
     }
     &:hover {
       color: transparentize(#ffffff, 0.15);
       background: transparentize($theme-color, 0.25);
       border-color: transparentize($theme-color, 0.25);
-      &.ghost {
+      &.algae-ui-button-ghost {
         color: transparentize($theme-color, 0.25);
       }
     }
   }
-  &.success {
+  &.algae-ui-button-success {
     background: $bg;
     color: $success;
     border-color: transparentize(#999999, 0.5);
-    &.ghost {
+    &.algae-ui-button-ghost {
       border-color: $success;
     }
     &:hover {
       background: $success;
       color: #ffffff;
       border-color: $success;
-      &.ghost {
+      &.algae-ui-button-ghost {
         color: transparentize($success, 0.15);
         border-color: transparentize($success, 0.25);
       }
     }
   }
-  &.danger {
+  &.algae-ui-button-danger {
     background: $bg;
     color: $danger;
     border-color: transparentize(#999999, 0.5);
-    &.ghost {
+    &.algae-ui-button-ghost {
       border-color: $danger;
     }
     &:hover {
       background: $danger;
       color: #ffffff;
       border-color: $danger;
-      &.ghost {
+      &.algae-ui-button-ghost {
         color: transparentize($danger, 0.15);
         border-color: transparentize($danger, 0.25);
       }
@@ -146,7 +146,7 @@
   }
 }
 
-@keyframes diffuse {
+@keyframes algae-ui-button-diffuse {
   to {
     top: -0.5em;
     left: -0.5em;

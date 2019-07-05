@@ -5,19 +5,19 @@ exports[`ButtonGroup 渲染 ButtonGroup 1`] = `
   className="algae-ui-button-group"
 >
   <button
-    className="algae-ui-button default"
+    className="algae-ui-button algae-ui-button-default"
     onClick={[Function]}
   >
     Button1
   </button>
   <button
-    className="algae-ui-button default"
+    className="algae-ui-button algae-ui-button-default"
     onClick={[Function]}
   >
     Button2
   </button>
   <button
-    className="algae-ui-button default"
+    className="algae-ui-button algae-ui-button-default"
     onClick={[Function]}
   >
     Button3
