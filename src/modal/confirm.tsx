@@ -83,55 +83,96 @@ ConfirmDialog.propTypes = {
   children: PropTypes.node.isRequired
 };
 
-export interface ConfirmProps {
+interface ConfirmButtonProps {
+  buttonType?: 'default' | 'primary' | 'success' | 'danger';
+  ghost?: boolean;
+  onClick: React.MouseEventHandler;
   content: string;
+}
+
+export interface ConfirmProps {
+  type?: string;
+  title?: string;
+  content: React.ReactNode;
   iconType?: string;
   iconStyle?: React.CSSProperties;
-  onOk?: React.MouseEventHandler;
-  onCancel?: React.MouseEventHandler;
+  okButton?: ConfirmButtonProps;
+  cancelButton?: ConfirmButtonProps;
+}
+
+export interface UpdateProps {
+  title: string;
+  content: React.ReactNode;
 }
 
 const confirm = ({
+  type,
+  title,
   content,
   iconType,
   iconStyle,
-  onOk,
-  onCancel
+  okButton,
+  cancelButton
 }: ConfirmProps) => {
   const onClose = () => {
-    ReactDOM.render(React.cloneElement(component, { visible: false }), div);
+    ReactDOM.render(React.cloneElement(confirmCom, { visible: false }), div);
     ReactDOM.unmountComponentAtNode(div);
     div.remove();
+  };
+
+  const update = ({ title, content }: UpdateProps) => {
+    ReactDOM.render(React.cloneElement(confirmCom, { title }, content), div);
   };
 
   const onOkClick: React.MouseEventHandler = (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
     onClose();
-    onOk && onOk(e);
+    okButton && okButton.onClick(e);
   };
 
   const onCancelClick: React.MouseEventHandler = (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
     onClose();
-    onCancel && onCancel(e);
+    cancelButton && cancelButton.onClick(e);
   };
 
-  const component = (
+  const OkButton: Button[] = !!okButton
+    ? [
+        <Button
+          key="btn1"
+          buttonType={okButton.buttonType}
+          ghost={okButton.ghost}
+          onClick={onOkClick}
+        >
+          {okButton.content}
+        </Button>
+      ]
+    : [];
+  const CancelButton: Button[] = !!cancelButton
+    ? [
+        <Button
+          key="btn2"
+          buttonType={cancelButton.buttonType}
+          ghost={cancelButton.ghost}
+          onClick={onCancelClick}
+        >
+          {cancelButton.content}
+        </Button>
+      ]
+    : [];
+  const buttons = CancelButton.concat(OkButton);
+
+  const confirmCom = (
     <ConfirmDialog
       visible
+      className={type}
+      title={title}
       iconType={iconType}
       iconStyle={iconStyle}
       onClose={onClose}
-      buttons={[
-        <Button key="btn1" ghost onClick={onCancelClick}>
-          cancel
-        </Button>,
-        <Button key="btn2" buttonType="success" onClick={onOkClick}>
-          OK
-        </Button>
-      ]}
+      buttons={buttons}
     >
       {content}
     </ConfirmDialog>
@@ -139,17 +180,28 @@ const confirm = ({
 
   const div = document.createElement('div');
   document.body.append(div);
-  ReactDOM.render(component, div);
+  ReactDOM.render(confirmCom, div);
 
-  return onClose;
+  return {
+    destroy: onClose,
+    update
+  };
+};
+
+const confirmButton = {
+  buttonType: PropTypes.oneOf(['default', 'primary', 'success', 'danger']),
+  ghost: PropTypes.bool,
+  onClick: PropTypes.func.isRequired,
+  content: PropTypes.string.isRequired
 };
 
 confirm.prototype = {
-  content: PropTypes.string.isRequired,
+  title: PropTypes.string,
+  content: PropTypes.node.isRequired,
   iconType: PropTypes.string,
   iconStyle: PropTypes.object,
-  onOk: PropTypes.func,
-  onCancel: PropTypes.func
+  okButton: PropTypes.shape(confirmButton),
+  cancelButton: PropTypes.shape(confirmButton)
 };
 
 export default confirm;
