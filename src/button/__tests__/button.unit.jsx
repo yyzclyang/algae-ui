@@ -35,11 +35,10 @@ describe('Button', () => {
       </Button>
     );
     component.find('button').simulate('click');
-    setTimeout(() => {
-      expect(component.find('button').hasClass('animation-diffuse')).toEqual(
-        true
-      );
-    }, 10);
+
+    expect(
+      component.find('button').hasClass('algae-ui-button-animation-diffuse')
+    ).toEqual(true);
   });
 
   it('点击后 300ms 点击动画消失', () => {
@@ -50,11 +49,13 @@ describe('Button', () => {
       </Button>
     );
     component.find('button').simulate('click');
+    jest.useFakeTimers();
     setTimeout(() => {
-      expect(component.find('button').hasClass('animation-diffuse')).toEqual(
-        false
-      );
+      expect(
+        document.body.querySelectorAll('.algae-ui-button-animation-diffuse')
+      ).toHaveLength(0);
     }, 301);
+    jest.runAllTimers();
   });
 
   it('disabled 不能响应点击事件', () => {
