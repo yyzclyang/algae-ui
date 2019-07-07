@@ -20,7 +20,7 @@ a {
 
 .site-header {
   padding: 8px 0 8px 40px;
-  border-bottom: 1px solid $division;
+  box-shadow: rgb(240, 241, 242) 0 2px 8px;
   & > .logo {
     display: flex;
     align-items: center;
@@ -67,7 +67,6 @@ a {
 }
 
 .side-content {
-  background: #f2f3f7;
   padding: 32px 16px;
 }
 
