@@ -13,12 +13,14 @@ const IconExample: React.FunctionComponent = () => (
       data={[
         ['type', '图标类型。', 'string', '-'],
         [
-          'index.scss',
-          '设置图标的样式，例如 fontSize 和 color',
+          'style',
+          <>
+            设置图标的样式，例如<code>fontSize</code>和<code>color</code>。
+          </>,
           'CSSProperties',
           '-'
         ],
-        ['rotate', '图标旋转角度', 'number', '-']
+        ['rotate', '图标旋转角度。', 'number', '-']
       ]}
     />
   </div>

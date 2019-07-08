@@ -1,0 +1,47 @@
+@import '../../../src/style/theme';
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  & td {
+    text-align: left;
+    min-height: 3em;
+    line-height: 3em;
+    padding-left: 16px;
+    &:nth-child(1) {
+      width: 20%;
+    }
+    &:nth-child(2) {
+      width: 45%;
+    }
+    &:nth-child(3) {
+      width: 20%;
+    }
+    &:nth-child(4) {
+      width: 15%;
+    }
+  }
+  & > thead > tr > td {
+    font-size: 16px;
+    color: $assistant-color;
+    border-bottom: 2px solid $division;
+    background: $bg;
+  }
+  & > tbody > tr > td {
+    font-size: 14px;
+    color: $secondary-color;
+    border-bottom: 1px solid $division;
+    &:nth-child(1) {
+      font-weight: 500;
+    }
+    &:nth-child(3) {
+      color: $strong;
+    }
+    & > code {
+      margin: 0 4px;
+      padding: 4px 4px;
+      background: $bg;
+      border-radius: 4px;
+    }
+  }
+}

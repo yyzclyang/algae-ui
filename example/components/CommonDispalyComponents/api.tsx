@@ -1,7 +1,7 @@
 import React from 'react';
-import './index.scss';
+import './api.scss';
 
-type Api = string[];
+type Api = Array<string | React.ReactNode>;
 
 interface ApiProps {
   data: Api[];
@@ -9,31 +9,26 @@ interface ApiProps {
 
 const Api: React.FunctionComponent<ApiProps> = (props: ApiProps) => {
   const { data } = props;
-  const parameterType = [
-    ['parameter', '参数'],
-    ['explain', '说明'],
-    ['type', '类型'],
-    ['default', '默认值']
-  ];
+  const parameterType = ['参数', '说明', '类型', '默认值'];
   return (
-    <ul>
-      <li className="table-header">
-        {parameterType.map((item, index) => (
-          <span key={index} className={item[0]}>
-            {item[1]}
-          </span>
-        ))}
-      </li>
-      {data.map((api) => (
-        <li key={api[0]} className="table-body">
-          {api.map((item, index) => (
-            <span key={index} className={parameterType[index][0]}>
-              {item}
-            </span>
+    <table>
+      <thead>
+        <tr>
+          {parameterType.map((item, index) => (
+            <td key={index}>{item}</td>
           ))}
-        </li>
-      ))}
-    </ul>
+        </tr>
+      </thead>
+      <tbody>
+        {data.map((api, index) => (
+          <tr key={index}>
+            {api.map((item, index) => (
+              <td key={index}>{item}</td>
+            ))}
+          </tr>
+        ))}
+      </tbody>
+    </table>
   );
 };
 

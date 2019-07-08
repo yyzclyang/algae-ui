@@ -1,13 +1,5 @@
 @import '../src/style/theme';
 
-*,
-*::after,
-*::before {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
 a {
   text-decoration: none;
   color: inherit;
@@ -50,6 +42,7 @@ a {
     min-width: 12em;
     & > li {
       & > a {
+        width: 100%;
         padding: 16px 0 16px 40px;
         color: $secondary-color;
         display: block;
