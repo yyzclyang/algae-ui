@@ -31,7 +31,6 @@ const IconDisplay: React.FunctionComponent<IconDisplayProps> = (
           </ul>
         </>
       ))}
-      }
     </div>
   );
 };
