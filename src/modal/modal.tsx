@@ -61,6 +61,7 @@ type modalType = 'info' | 'success' | 'error' | 'warning';
 interface ModalFuncExpandProps {
   type: modalType;
   iconType: string;
+  iconStyle?: React.CSSProperties;
   defaultButtonType: ButtonType;
   defaultButtonText: string;
 }
@@ -70,12 +71,19 @@ const modalExpandFunc = (
   customConfig: ModalFuncExpandProps
 ) => {
   const { title, content, buttonType, buttonText, onClick } = baseConfig;
-  const { type, iconType, defaultButtonType, defaultButtonText } = customConfig;
+  const {
+    type,
+    iconType,
+    iconStyle,
+    defaultButtonType,
+    defaultButtonText
+  } = customConfig;
   return confirm({
     type,
     title,
     content,
     iconType,
+    iconStyle,
     okButton: {
       buttonType: buttonType || defaultButtonType,
       content: buttonText || defaultButtonText,
@@ -90,6 +98,7 @@ Modal.info = (props) => {
   const defaultConfig = {
     type: 'info' as modalType,
     iconType: 'info-circle',
+    iconStyle: { fill: '#1890ff' },
     defaultButtonType: 'primary' as ButtonType,
     defaultButtonText: '知道了'
   };
@@ -101,6 +110,7 @@ Modal.success = (props) => {
   const defaultConfig = {
     type: 'success' as modalType,
     iconType: 'check-circle',
+    iconStyle: { fill: '#52c41a' },
     defaultButtonType: 'success' as ButtonType,
     defaultButtonText: '知道了'
   };
@@ -112,6 +122,7 @@ Modal.error = (props) => {
   const defaultConfig = {
     type: 'error' as modalType,
     iconType: 'close-circle',
+    iconStyle: { fill: '#f5222d' },
     defaultButtonType: 'danger' as ButtonType,
     defaultButtonText: '知道了'
   };
@@ -123,6 +134,7 @@ Modal.warning = (props) => {
   const defaultConfig = {
     type: 'warning' as modalType,
     iconType: 'warning-circle',
+    iconStyle: { fill: '#faad14' },
     defaultButtonType: 'default' as ButtonType,
     defaultButtonText: '知道了'
   };
