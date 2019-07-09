@@ -1,0 +1,52 @@
+@import '../../../src/style/theme';
+
+.icon-display {
+  & > h2 {
+    margin: 16px 0;
+  }
+  & > h3 {
+    margin: 8px 0;
+  }
+  & > ul.icon-group {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    & > li.icon-single {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100px;
+      width: 167px;
+      cursor: pointer;
+      &:hover {
+        background: transparentize($theme-color, 0.25);
+        border-radius: 8px;
+        color: white;
+        & > .algae-ui-icon {
+          animation: icon-hover 0.3s linear forwards;
+        }
+      }
+      & > .algae-ui-icon {
+        width: 2em;
+        height: 2em;
+        fill: black;
+      }
+      & > span {
+        font-size: 12px;
+        margin-top: 8px;
+      }
+    }
+  }
+}
+
+@keyframes icon-hover {
+  0% {
+    transform: scale(1);
+    fill: black;
+  }
+  100% {
+    transform: scale(1.2);
+    fill: white;
+  }
+}
