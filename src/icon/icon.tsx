@@ -5,15 +5,23 @@ import './icon.scss';
 import classNames from '../utils/classNames';
 
 interface IconProps extends React.SVGAttributes<SVGElement> {
-  type: string;
+  type?: string;
+  component?: React.ReactElement;
   style?: React.CSSProperties;
   rotate?: number;
 }
 
 const Icon: React.FunctionComponent<IconProps> = (props: IconProps) => {
-  const { className, type, style, rotate, ...restProps } = props;
+  const { className, type, component, style, rotate, ...restProps } = props;
   const rotateStyle = rotate ? { transform: `rotate(${rotate}deg)` } : {};
-  return (
+
+  return !!component ? (
+    React.cloneElement(component, {
+      className: classNames('algae-ui-icon', className),
+      style: { ...style, ...rotateStyle },
+      ...restProps
+    })
+  ) : (
     <svg
       className={classNames('algae-ui-icon', className)}
       style={{ ...style, ...rotateStyle }}
@@ -25,7 +33,8 @@ const Icon: React.FunctionComponent<IconProps> = (props: IconProps) => {
 };
 
 Icon.propTypes = {
-  type: PropTypes.string.isRequired,
+  type: PropTypes.string,
+  component: PropTypes.element,
   rotate: PropTypes.number,
   style: PropTypes.object
 };
