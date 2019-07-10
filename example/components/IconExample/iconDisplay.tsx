@@ -18,18 +18,18 @@ const IconDisplay: React.FunctionComponent<IconDisplayProps> = (
   return (
     <div className="icon-display">
       <h2>图标列表</h2>
-      {iconDisplayData.map(({ title, data }) => (
-        <>
+      {iconDisplayData.map(({ title, data }, index) => (
+        <React.Fragment key={index}>
           <h3>{title}</h3>
-          <ul className="icon-group">
+          <ul>
             {data.map((type, index) => (
-              <li key={index} className="icon-single">
+              <li key={index}>
                 <Icon type={type} />
                 <span className="icon-type">{type}</span>
               </li>
             ))}
           </ul>
-        </>
+        </React.Fragment>
       ))}
     </div>
   );
