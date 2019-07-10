@@ -1,20 +1,11 @@
 import React from 'react';
-import { renderToString } from 'react-dom/server';
+import reactElementToJSXString from 'react-element-to-jsx-string';
 import Highlight, { defaultProps } from 'prism-react-renderer';
 import oceanicNext from 'prism-react-renderer/themes/oceanicNext';
 import './codeDemo.scss';
 
-interface CodeDemoProps {
-  title: string;
-  content: string;
-  children: React.ReactNode;
-}
-
-const CodeDemo: React.FunctionComponent<CodeDemoProps> = (
-  props: CodeDemoProps
-) => {
+const CodeDemo = (props) => {
   const { title, content, children } = props;
-  console.log(children);
   return (
     <div>
       <div>{children}</div>
@@ -23,7 +14,7 @@ const CodeDemo: React.FunctionComponent<CodeDemoProps> = (
       <div>
         <Highlight
           {...defaultProps}
-          code={renderToString(children as React.ReactElement)}
+          code={reactElementToJSXString(<div>{children}</div>)}
           language="jsx"
           theme={oceanicNext}
         >
