@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Icon from '../icon';
 import './style/button.scss';
@@ -30,15 +30,26 @@ const Button: React.FunctionComponent<ButtonProps> = (props: ButtonProps) => {
   } = props;
 
   const [animatingClassName, setAnimatingClassName] = useState<string>('');
+  const [resetAnimationClock, setResetAnimationClock] = useState<
+    ReturnType<typeof setTimeout>
+  >();
+  useEffect(() => {
+    return () => {
+      resetAnimationClock && clearTimeout(resetAnimationClock);
+    };
+  }, [resetAnimationClock]);
 
   const handleClick: React.MouseEventHandler = (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
     if (!animatingClassName && !disabled) {
       setAnimatingClassName('algae-ui-button-animation-diffuse');
-      setTimeout(() => {
-        setAnimatingClassName('');
-      }, 300);
+
+      setResetAnimationClock(
+        setTimeout(() => {
+          setAnimatingClassName('');
+        }, 300)
+      );
     }
     !disabled && onClick && onClick(e);
   };
