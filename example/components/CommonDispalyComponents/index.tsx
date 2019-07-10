@@ -1,3 +1,4 @@
 import Api from './api';
+import CodeDemo from './codeDemo';
 
-export { Api };
+export { Api, CodeDemo };

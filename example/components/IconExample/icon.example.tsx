@@ -1,11 +1,9 @@
 import React from 'react';
-import Highlight, { defaultProps } from 'prism-react-renderer';
-import oceanicNext from 'prism-react-renderer/themes/oceanicNext';
 import { Api } from '../CommonDispalyComponents';
+import { CodeDemo } from '../CommonDispalyComponents';
 import IconDisplay, { IconData } from './iconDisplay';
+import { Icon } from 'ROOT/src';
 import './icon.example.scss';
-
-const code = require('!!raw-loader!./icon.example.tsx');
 
 const IconExample: React.FunctionComponent = () => {
   const iconDisplayData: IconData[] = [
@@ -95,24 +93,10 @@ const IconExample: React.FunctionComponent = () => {
           ['rotate', '图标旋转角度。', 'number', '-']
         ]}
       />
-      <Highlight
-        {...defaultProps}
-        code={code.default}
-        language="jsx"
-        theme={oceanicNext}
-      >
-        {({ className, style, tokens, getLineProps, getTokenProps }) => (
-          <pre className={className} style={style}>
-            {tokens.map((line, i) => (
-              <div key={i} {...getLineProps({ line, key: i })}>
-                {line.map((token, key) => (
-                  <span key={key} {...getTokenProps({ token, key })} />
-                ))}
-              </div>
-            ))}
-          </pre>
-        )}
-      </Highlight>
+      <CodeDemo title="1" content="123">
+        <Icon type="left" />
+        <Icon type="right" />
+      </CodeDemo>
     </div>
   );
 };
