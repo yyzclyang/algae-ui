@@ -3,6 +3,7 @@ import Highlight, { defaultProps } from 'prism-react-renderer';
 import oceanicNext from 'prism-react-renderer/themes/oceanicNext';
 import { Api } from '../CommonDispalyComponents';
 import IconDisplay, { IconData } from './iconDisplay';
+import './icon.example.scss';
 
 const code = require('!!raw-loader!./icon.example.tsx');
 

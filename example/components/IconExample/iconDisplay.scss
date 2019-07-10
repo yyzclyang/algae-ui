@@ -1,12 +1,6 @@
-@import '../../../src/style/theme';
+@import '../style/base';
 
 .icon-display {
-  & > h2 {
-    margin: 16px 0;
-  }
-  & > h3 {
-    margin: 8px 0;
-  }
   & > ul {
     list-style: none;
     display: flex;
