@@ -6,12 +6,12 @@ import classNames from '../utils/classNames';
 
 interface SvgProps extends React.SVGAttributes<SVGElement> {
   type?: string;
-  component?: React.ReactElement;
+  component?: React.ReactSVGElement;
   style?: React.CSSProperties;
   rotate?: number;
 }
 
-const Svg: React.FunctionComponent<SvgProps> = (props: SvgProps) => {
+const SvgIcon: React.FunctionComponent<SvgProps> = (props: SvgProps) => {
   const { className, type, component, style, rotate, ...restProps } = props;
   const rotateStyle = rotate ? { transform: `rotate(${rotate}deg)` } : {};
 
@@ -32,7 +32,7 @@ const Svg: React.FunctionComponent<SvgProps> = (props: SvgProps) => {
   );
 };
 
-Svg.displayName = 'SvgIcon';
+SvgIcon.displayName = 'SvgIcon';
 
 interface IconProps extends SvgProps {}
 
@@ -54,7 +54,7 @@ class Icon extends React.Component<IconProps> {
   ) => React.FunctionComponent<SvgProps>;
 
   render() {
-    return <Svg {...this.props} />;
+    return <SvgIcon {...this.props} />;
   }
 }
 
@@ -64,7 +64,7 @@ Icon.createFromIconfontCN = ({ scriptUrl }) => {
   script.src = scriptUrl;
   document.body.appendChild(script);
 
-  return Svg;
+  return SvgIcon;
 };
 
 export default Icon;
