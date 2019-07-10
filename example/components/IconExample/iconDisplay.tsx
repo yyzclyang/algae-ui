@@ -1,6 +1,43 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import copy from 'copy-to-clipboard';
 import { Icon } from 'ROOT/src';
 import './iconDisplay.scss';
+
+interface IconItemProps {
+  type: string;
+}
+
+const IconItem: React.FunctionComponent<IconItemProps> = (props) => {
+  const { type } = props;
+
+  const [copyVisible, setCopyVisible] = useState<boolean>(false);
+  const [resetCopyVisibleClock, setResetCopyVisibleClock] = useState<
+    ReturnType<typeof setTimeout>
+  >();
+  useEffect(() => {
+    return () => {
+      resetCopyVisibleClock && clearTimeout(resetCopyVisibleClock);
+    };
+  }, [resetCopyVisibleClock]);
+
+  return (
+    <div
+      onClick={() => {
+        copy(`<Icon type="${type}" />`);
+        setCopyVisible(true);
+        setResetCopyVisibleClock(
+          setTimeout(() => {
+            setCopyVisible(false);
+          }, 1000)
+        );
+      }}
+      className={copyVisible ? 'active' : ''}
+    >
+      <Icon type={type} />
+      <span className="icon-type">{type}</span>
+    </div>
+  );
+};
 
 interface IconDisplayProps {
   iconDisplayData: IconData[];
@@ -24,8 +61,7 @@ const IconDisplay: React.FunctionComponent<IconDisplayProps> = (
           <ul>
             {data.map((type, index) => (
               <li key={index}>
-                <Icon type={type} />
-                <span className="icon-type">{type}</span>
+                <IconItem type={type} />
               </li>
             ))}
           </ul>
