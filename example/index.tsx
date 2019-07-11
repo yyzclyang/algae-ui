@@ -4,12 +4,12 @@ import { HashRouter as Router, Route, NavLink } from 'react-router-dom';
 import './index.scss';
 import Layout, { Content, Footer, Header, Side } from '../src/layout';
 
-import IconExample from './components/IconExample';
-import ButtonExample from './components/ButtonExample';
-import ModalExample from './components/ModalExample';
-import LayoutExample from './components/LayoutExample';
+import IconExample from './componentExample/IconExample';
+import ButtonExample from './componentExample/ButtonExample';
+import ModalExample from './componentExample/ModalExample';
+import LayoutExample from './componentExample/LayoutExample';
 
-const logo = require('./logo.png');
+const logo = require('./img/logo.png');
 
 ReactDOM.render(
   <Router>
