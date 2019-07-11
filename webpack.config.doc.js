@@ -15,7 +15,7 @@ module.exports = Object.assign({}, baseConfig, {
       title: 'algae-ui',
       template: './example/index.html',
       filename: 'index.html',
-      favicon: './example/logo.ico'
+      favicon: './example/img/logo.ico'
     })
   ]
 });
