@@ -6,7 +6,7 @@ import classNames from '../utils/classNames';
 
 interface SvgProps extends React.SVGAttributes<SVGElement> {
   type?: string;
-  component?: React.ReactSVGElement;
+  component?: React.ReactElement;
   style?: React.CSSProperties;
   rotate?: number;
 }
