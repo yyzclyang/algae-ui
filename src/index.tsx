@@ -7,3 +7,4 @@ export { default as Layout } from './layout';
 export { Header, Content, Footer, Side } from './layout';
 
 export { default as Modal } from './modal';
+export { confirm } from './modal';
