@@ -81,7 +81,7 @@ const IconExample: React.FunctionComponent = () => {
     }
   ];
   return (
-    <div>
+    <div className="icon-example-page">
       <h1>Icon 图标</h1>
       <p>语义化的矢量图形。</p>
       <h2>图标列表</h2>

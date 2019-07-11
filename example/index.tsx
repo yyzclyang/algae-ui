@@ -7,7 +7,7 @@ import {
   Redirect
 } from 'react-router-dom';
 import './index.scss';
-import Layout, { Content, Footer, Header, Side } from '../src/layout';
+import { Layout, Content, Footer, Header, Side, Icon } from 'ROOT/src';
 
 import Introduction from './pages/Introduction';
 
@@ -25,6 +25,11 @@ ReactDOM.render(
         <div className="logo">
           <img src={logo} alt="logo" />
           <span>Algae UI</span>
+        </div>
+        <div className="github">
+          <a href="https://github.com/YyzclYang/algae-ui" target="_blank">
+            <Icon type="github" className="github-icon" />
+          </a>
         </div>
       </Header>
       <Layout className="site-main">

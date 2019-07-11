@@ -30,6 +30,8 @@ a {
 }
 
 .site-header {
+  display: flex;
+  justify-content: space-between;
   padding: 8px 0 8px 40px;
   box-shadow: rgb(240, 241, 242) 0 2px 8px;
   & > .logo {
@@ -41,6 +43,15 @@ a {
     }
     & > span {
       margin-left: 16px;
+    }
+  }
+  & > .github {
+    margin-right: 40px;
+    display: flex;
+    align-items: center;
+    & .github-icon {
+      width: 48px;
+      height: 48px;
     }
   }
 }
