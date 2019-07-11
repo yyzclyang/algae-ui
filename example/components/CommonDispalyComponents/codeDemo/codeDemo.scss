@@ -1,1 +1,68 @@
 @import '../../style/base';
+
+.code-demo {
+  border: 1px solid $division;
+  border-radius: 4px;
+  & > .component-list {
+    padding: 24px 16px;
+  }
+  & > .title {
+    font-size: 14px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    &:before {
+      content: '';
+      display: block;
+      width: 14px;
+      height: 1px;
+      margin-right: 4px;
+      background: $division;
+    }
+    &:after {
+      content: '';
+      display: block;
+      flex-grow: 1;
+      height: 1px;
+      margin-left: 10px;
+      background: $division;
+    }
+  }
+  & > .content {
+    padding: 8px 16px;
+    & > span {
+      font-size: 12px;
+      & > code {
+        margin: 0 4px;
+        padding: 4px 4px;
+        background: $bg;
+        border-radius: 4px;
+      }
+      & > a {
+        color: $theme-color;
+        margin: 0 4px;
+        padding: 4px 4px;
+      }
+    }
+  }
+  & > .code-control {
+    border-top: 1px dashed $division;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    & > svg {
+      height: 1em;
+      width: 1em;
+      margin: 12px 8px;
+      fill: #666666;
+      cursor: pointer;
+    }
+  }
+  & > .code {
+    border-top: 1px dashed $division;
+    padding: 16px;
+    background: transparentize(#f2f3f7, 0.75);
+    overflow-x: auto;
+    display: block;
+  }
+}
