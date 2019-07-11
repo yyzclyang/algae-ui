@@ -23,10 +23,10 @@ describe('icon', () => {
 
   it('测试 createFromIconfontCN 引入 Icon', () => {
     const IconFont = Icon.createFromIconfontCN({
-      scriptUrl: '//at.alicdn.com/t/font_1286458_vm99hu3qsqn.js'
+      scriptUrl: '//at.alicdn.com/t/font_1286458_yno7x32gand.js'
     });
 
-    const json = renderer.create(<IconFont type="clear" />).toJSON();
+    const json = renderer.create(<IconFont type="icon-clear" />).toJSON();
     expect(json).toMatchSnapshot();
   });
 

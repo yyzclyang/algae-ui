@@ -6,7 +6,7 @@ exports[`icon 测试 createFromIconfontCN 引入 Icon 1`] = `
   style={Object {}}
 >
   <use
-    xlinkHref="#clear"
+    xlinkHref="#icon-clear"
   />
 </svg>
 `;
