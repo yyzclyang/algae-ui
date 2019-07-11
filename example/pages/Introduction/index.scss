@@ -1,0 +1,42 @@
+@import '../../style/base';
+
+code {
+  margin: 0 4px;
+  padding: 4px 4px;
+  background: $bg;
+  border-radius: 4px;
+}
+
+a {
+  color: $theme-color;
+  margin: 0 4px;
+  padding: 4px 4px;
+}
+
+section {
+  margin: 32px 0;
+}
+
+.introduction-page {
+  padding: 0 16px;
+}
+
+.introduction {
+  & > p {
+    margin-bottom: 16px;
+  }
+  & > .logo {
+    display: flex;
+    align-items: center;
+    margin: 8px 0;
+    & > img {
+      width: 100px;
+      height: 100px;
+    }
+    & > span {
+      font-size: 24px;
+      color: $secondary-color;
+      margin: 0 16px;
+    }
+  }
+}

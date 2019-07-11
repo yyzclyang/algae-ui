@@ -1,8 +1,15 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { HashRouter as Router, Route, NavLink } from 'react-router-dom';
+import {
+  HashRouter as Router,
+  Route,
+  NavLink,
+  Redirect
+} from 'react-router-dom';
 import './index.scss';
 import Layout, { Content, Footer, Header, Side } from '../src/layout';
+
+import Introduction from './pages/Introduction';
 
 import IconExample from './componentExample/IconExample';
 import ButtonExample from './componentExample/ButtonExample';
@@ -22,6 +29,11 @@ ReactDOM.render(
       </Header>
       <Layout className="site-main">
         <Side className="site-side">
+          <ul>
+            <li>
+              <NavLink to="/introduction">Algae-UI of React</NavLink>
+            </li>
+          </ul>
           <h2>组件</h2>
           <ul>
             <li>
@@ -39,6 +51,8 @@ ReactDOM.render(
           </ul>
         </Side>
         <Content className="side-content">
+          <Redirect to="/introduction" />
+          <Route path="/introduction" component={Introduction} />
           <Route path="/icon" component={IconExample} />
           <Route path="/button" component={ButtonExample} />
           <Route path="/modal" component={ModalExample} />
