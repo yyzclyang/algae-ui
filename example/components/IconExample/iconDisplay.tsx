@@ -54,7 +54,6 @@ const IconDisplay: React.FunctionComponent<IconDisplayProps> = (
   const { iconDisplayData } = props;
   return (
     <div className="icon-display">
-      <h2>图标列表</h2>
       {iconDisplayData.map(({ title, data }, index) => (
         <React.Fragment key={index}>
           <h3>{title}</h3>
