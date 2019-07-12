@@ -10,6 +10,7 @@ import './index.scss';
 import { Layout, Content, Footer, Header, Side, Icon } from 'ROOT/src';
 
 import Introduction from './pages/Introduction';
+import GetStart from './pages/getStart';
 
 import IconExample from './componentExample/IconExample';
 import ButtonExample from './componentExample/ButtonExample';
@@ -38,6 +39,9 @@ ReactDOM.render(
             <li>
               <NavLink to="/introduction">Algae-UI of React</NavLink>
             </li>
+            <li>
+              <NavLink to="/get-start">开始使用</NavLink>
+            </li>
           </ul>
           <h2>组件</h2>
           <ul>
@@ -58,6 +62,7 @@ ReactDOM.render(
         <Content className="side-content">
           <Redirect to="/introduction" />
           <Route path="/introduction" component={Introduction} />
+          <Route path="/get-start" component={GetStart} />
           <Route path="/icon" component={IconExample} />
           <Route path="/button" component={ButtonExample} />
           <Route path="/modal" component={ModalExample} />
