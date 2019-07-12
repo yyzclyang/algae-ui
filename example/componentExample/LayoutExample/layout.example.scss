@@ -1,0 +1,40 @@
+@import '../../style/base';
+
+ul {
+  margin-left: 24px;
+  & > li {
+    margin: 8px 0;
+  }
+}
+
+.layout-list {
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+  & *:not(.algae-ui-layout) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  & > .algae-ui-layout {
+    flex-direction: column;
+    & * {
+      color: white;
+    }
+  }
+  & .algae-ui-layout-header {
+    background: #7dbcea;
+    height: 50px;
+  }
+  & .algae-ui-layout-footer {
+    background: #7dbcea;
+    height: 50px;
+  }
+  & .algae-ui-layout-side {
+    background: #3ba0e9;
+    width: 100px;
+  }
+  & .algae-ui-layout-content {
+    background: #108ee9;
+  }
+}
