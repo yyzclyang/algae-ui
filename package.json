@@ -9,7 +9,7 @@
   ],
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack-dev-server --config webpack.config.dev.js",
-    "build": "cross-env NODE_ENV=production webpack --config webpack.config.prod.js && rm -rf lib/src",
+    "build": "rm -rf lib && cross-env NODE_ENV=production webpack --config webpack.config.prod.js && mv -f lib/src/* lib && rm -rf lib/src",
     "doc": "cross-env NODE_ENV=production webpack --config webpack.config.doc.js && rm -rf lib && rm -rf docs/index.js.map",
     "test": "cross-env NODE_ENV=test jest --config=jest.config.js --runInBand",
     "ci": "cross-env NODE_ENV=test JEST_JUNIT_OUTPUT=./test-results/jest/results.xml jest --config=jest.config.ci.js"
@@ -56,7 +56,6 @@
     "copy-to-clipboard": "^3.2.0",
     "cross-env": "^5.2.0",
     "css-loader": "^2.1.1",
-    "dts-bundle-webpack": "^1.0.2",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
     "file-loader": "^4.0.0",
