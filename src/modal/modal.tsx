@@ -27,7 +27,6 @@ class Modal extends React.Component<ModalProps> {
   static displayName = 'Modal';
   static defaultProps = {
     visible: false,
-    title: '温馨提示',
     closeOnClickMask: false,
     children: null
   };
@@ -58,7 +57,7 @@ Modal.alert = (props) => {
 
 type modalType = 'info' | 'success' | 'error' | 'warning';
 
-interface ModalFuncExpandProps {
+interface ModalFuncBaseProps {
   type: modalType;
   iconType: string;
   iconStyle?: React.CSSProperties;
@@ -67,17 +66,17 @@ interface ModalFuncExpandProps {
 }
 
 const modalExpandFunc = (
-  baseConfig: ModalFuncProps,
-  customConfig: ModalFuncExpandProps
+  baseConfig: ModalFuncBaseProps,
+  customConfig: ModalFuncProps
 ) => {
-  const { title, content, buttonType, buttonText, onClick } = baseConfig;
+  const { title, content, buttonType, buttonText, onClick } = customConfig;
   const {
     type,
     iconType,
     iconStyle,
     defaultButtonType,
     defaultButtonText
-  } = customConfig;
+  } = baseConfig;
   return confirm({
     type,
     title,
@@ -103,7 +102,7 @@ Modal.info = (props) => {
     defaultButtonText: '知道了'
   };
 
-  return modalExpandFunc(props, defaultConfig);
+  return modalExpandFunc(defaultConfig, props);
 };
 
 Modal.success = (props) => {
@@ -115,7 +114,7 @@ Modal.success = (props) => {
     defaultButtonText: '知道了'
   };
 
-  return modalExpandFunc(props, defaultConfig);
+  return modalExpandFunc(defaultConfig, props);
 };
 
 Modal.error = (props) => {
@@ -127,7 +126,7 @@ Modal.error = (props) => {
     defaultButtonText: '知道了'
   };
 
-  return modalExpandFunc(props, defaultConfig);
+  return modalExpandFunc(defaultConfig, props);
 };
 
 Modal.warning = (props) => {
@@ -139,7 +138,7 @@ Modal.warning = (props) => {
     defaultButtonText: '知道了'
   };
 
-  return modalExpandFunc(props, defaultConfig);
+  return modalExpandFunc(defaultConfig, props);
 };
 
 export default Modal;

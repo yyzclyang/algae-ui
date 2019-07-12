@@ -70,7 +70,6 @@ Dialog.displayName = 'Dialog';
 Dialog.defaultProps = {
   visible: false,
   closable: true,
-  title: '温馨提示',
   closeOnClickMask: false,
   children: null
 };
