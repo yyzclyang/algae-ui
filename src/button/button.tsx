@@ -68,20 +68,17 @@ const Button: React.FunctionComponent<ButtonProps> = (props: ButtonProps) => {
       onClick={handleClick}
       {...restProps}
     >
-      {loading && (
+      {iconPosition === 'right' && children}
+      {loading ? (
         <Icon
           className={'animation-loading'}
           type="loading"
           style={{ fill: 'inherit' }}
         />
-      )}
-      {icon && iconPosition === 'left' && (
-        <Icon type={icon} className={'left'} />
-      )}
-      {children}
-      {icon && iconPosition === 'right' && (
-        <Icon type={icon} className={'right'} />
-      )}
+      ) : icon ? (
+        <Icon type={icon} className={iconPosition} />
+      ) : null}
+      {iconPosition === 'left' && children}
     </button>
   );
 };
