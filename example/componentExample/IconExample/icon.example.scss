@@ -4,22 +4,10 @@
   padding: 0 16px;
 }
 
-.code-demonstration {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  & > .code-demo-column {
-    width: 48%;
-    min-width: 360px;
-    & > .code-demo {
-      margin-bottom: 20px;
-      & > .component-list {
-        & > div[class|='icon'] {
-          & > svg {
-            margin: 0 4px;
-          }
-        }
-      }
+.component-list {
+  & > div[class|='icon'] {
+    & > svg {
+      margin: 0 4px;
     }
   }
 }

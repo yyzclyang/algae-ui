@@ -18,10 +18,25 @@ h2 {
 h3 {
   margin: 8px 0;
 }
-
+p {
+  line-height: 1.5;
+}
 a {
   text-decoration: none;
   color: inherit;
+}
+
+.code-demonstration {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  & > .code-demo-column {
+    width: 48%;
+    min-width: 360px;
+    & > .code-demo {
+      margin-bottom: 20px;
+    }
+  }
 }
 
 .site-page {

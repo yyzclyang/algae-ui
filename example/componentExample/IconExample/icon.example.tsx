@@ -4,12 +4,12 @@ import { CodeDemo } from '../CommonDispalyComponents';
 import IconDisplay, { IconData } from './iconDisplay';
 import './icon.example.scss';
 
-import CodeDemo1 from './iconCodeDemo1';
-const code1 = require('!!raw-loader!./iconCodeDemo1.tsx');
-import CodeDemo2 from './iconCodeDemo2';
-const code2 = require('!!raw-loader!./iconCodeDemo2.tsx');
-import CodeDemo3 from './iconCodeDemo3';
-const code3 = require('!!raw-loader!./iconCodeDemo3.tsx');
+import CodeDemo1 from './icon.codeDemo1';
+const code1 = require('!!raw-loader!./icon.codeDemo1.tsx');
+import CodeDemo2 from './icon.codeDemo2';
+const code2 = require('!!raw-loader!./icon.codeDemo2.tsx');
+import CodeDemo3 from './icon.codeDemo3';
+const code3 = require('!!raw-loader!./icon.codeDemo3.tsx');
 
 const IconExample: React.FunctionComponent = () => {
   const iconDisplayData: IconData[] = [
@@ -94,13 +94,13 @@ const IconExample: React.FunctionComponent = () => {
           <CodeDemo
             title="基本用法"
             content={
-              <>
+              <p>
                 使用
                 <code>{`<Icon />`}</code>标签声明组件，指定图标对应的
                 <code>type</code>属性。可以通过<code>rotate</code>
                 属性来设置图标的旋转角度，也可以传入<code>style</code>
                 来控制图标的样式。
-              </>
+              </p>
             }
             code={code1.default}
           >
@@ -109,7 +109,7 @@ const IconExample: React.FunctionComponent = () => {
           <CodeDemo
             title="使用 iconfont.cn"
             content={
-              <>
+              <p>
                 对于使用
                 <a href="https://www.iconfont.cn/" target="_Blank">
                   iconfont.cn
@@ -117,7 +117,7 @@ const IconExample: React.FunctionComponent = () => {
                 的用户，通过设置<code>createFromIconfontCN</code>
                 方法参数对象中的<code>scriptUrl </code>字段，
                 即可轻松地使用已有项目中的图标。
-              </>
+              </p>
             }
             code={code3.default}
           >
@@ -128,10 +128,10 @@ const IconExample: React.FunctionComponent = () => {
           <CodeDemo
             title="自定义图标"
             content={
-              <>
+              <p>
                 使用<code>component</code>
                 属性可以传入一个自定义的组件进行渲染，满足个性化的需求。
-              </>
+              </p>
             }
             code={code2.default}
           >
