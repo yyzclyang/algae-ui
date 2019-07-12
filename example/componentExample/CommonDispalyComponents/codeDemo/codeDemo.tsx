@@ -38,8 +38,8 @@ const CodeDemo: React.FunctionComponent<CodeDemoProps> = (
       </div>
       <div className="code-control">
         {!copyFlagVisible && (
-          <Icon
-            type="copy"
+          <div
+            className="copy"
             onClick={() => {
               copy(code);
               setCopyFlagVisible(true);
@@ -49,24 +49,34 @@ const CodeDemo: React.FunctionComponent<CodeDemoProps> = (
                 }, 2000)
               );
             }}
-          />
+          >
+            <Icon type="copy" />
+          </div>
         )}
-        {copyFlagVisible && <Icon type="check" style={{ fill: '#20baa4' }} />}
+        {copyFlagVisible && (
+          <div className="check">
+            <Icon type="check" style={{ fill: '#20baa4' }} />
+          </div>
+        )}
         {!codeVisible && (
-          <Icon
-            type="code-show"
+          <div
+            className="code-show"
             onClick={() => {
               setCodeVisible(true);
             }}
-          />
+          >
+            <Icon type="code-show" />
+          </div>
         )}
         {codeVisible && (
-          <Icon
-            type="code-hidden"
+          <div
+            className="code-hidden"
             onClick={() => {
               setCodeVisible(false);
             }}
-          />
+          >
+            <Icon type="code-hidden" />
+          </div>
         )}
       </div>
       <>
