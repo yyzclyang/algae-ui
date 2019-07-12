@@ -15,12 +15,15 @@ h1 {
 h2 {
   margin: 16px 0;
 }
+
 h3 {
   margin: 8px 0;
 }
+
 p {
   line-height: 1.5;
 }
+
 a {
   text-decoration: none;
   color: inherit;
@@ -91,6 +94,7 @@ a {
         padding: 16px 0 16px 40px;
         color: $secondary-color;
         display: block;
+        margin: 0;
         &:hover {
           color: $theme-color;
         }

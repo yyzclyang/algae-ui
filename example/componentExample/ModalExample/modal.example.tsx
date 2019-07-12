@@ -1,6 +1,7 @@
 import React from 'react';
 import { CodeDemo } from '../CommonDispalyComponents';
 import { Api } from '../CommonDispalyComponents';
+import './modal.example.scss';
 
 import CodeDemo1 from './modal.codeDemo1';
 const code1 = require('!!raw-loader!./modal.codeDemo1.tsx');
