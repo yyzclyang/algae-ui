@@ -9,6 +9,14 @@
     }
     &:not(:first-child) {
       margin-left: -1px;
+      &.algae-ui-button-primary {
+        border-left-color: white;
+      }
+    }
+    &:not(:last-child) {
+      &.algae-ui-button-primary {
+        border-right-color: white;
+      }
     }
     &:first-child {
       margin-left: 8px;
