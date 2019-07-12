@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button } from 'ROOT/src';
+import { Button } from 'algae-ui/lib';
 
 export default () => {
   const [loading, setLoading] = useState<boolean>(false);

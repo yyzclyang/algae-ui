@@ -1,6 +1,5 @@
 import React from 'react';
-import { Button } from 'ROOT/src';
-import { Modal } from 'ROOT/src';
+import { Modal, Button } from 'algae-ui/lib';
 
 export default () => {
   const info = () =>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, ButtonGroup } from 'ROOT/src';
+import { Button, ButtonGroup } from 'algae-ui/lib';
 
 export default () => {
   return (

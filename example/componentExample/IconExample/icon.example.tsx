@@ -154,7 +154,9 @@ const IconExample: React.FunctionComponent = () => {
           ['rotate', '图标旋转角度。', 'number', '-']
         ]}
       />
-      <p>支持原生的其他所有属性。</p>
+      <p>
+        支持原生<code>svg</code>的其他所有属性。
+      </p>
     </div>
   );
 };

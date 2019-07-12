@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { Modal } from 'ROOT/src';
-import { Button } from 'ROOT/src';
+import { Modal, Button } from 'algae-ui/lib';
 
 export default () => {
   const [visible, setVisible] = useState<boolean>(false);

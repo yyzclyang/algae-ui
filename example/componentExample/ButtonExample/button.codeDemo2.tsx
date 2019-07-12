@@ -1,6 +1,5 @@
 import React from 'react';
-import { Button } from 'ROOT/src';
-import { Icon } from 'ROOT/src';
+import { Button, Icon } from 'algae-ui/lib';
 
 export default () => {
   return (

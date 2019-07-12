@@ -1,7 +1,5 @@
 import React from 'react';
-import { Modal } from 'ROOT/src';
-import { confirm } from 'ROOT/src';
-import { Button } from 'ROOT/src';
+import { Modal, confirm, Button } from 'algae-ui/lib';
 
 export default () => {
   const showModal = () =>

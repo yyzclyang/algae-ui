@@ -1,5 +1,5 @@
 import React from 'react';
-import { Layout, Header, Content, Footer } from 'ROOT/src';
+import { Layout, Header, Content, Footer } from 'algae-ui/lib';
 
 export default () => {
   return (

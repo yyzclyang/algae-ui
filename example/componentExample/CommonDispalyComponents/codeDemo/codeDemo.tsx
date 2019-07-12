@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import copy from 'copy-to-clipboard';
 import Highlight, { defaultProps } from 'prism-react-renderer';
 import oceanicNext from './customTheme';
-import { Icon } from 'ROOT/src';
+import { Icon } from 'algae-ui/lib';
 import './codeDemo.scss';
 
 interface CodeDemoProps {

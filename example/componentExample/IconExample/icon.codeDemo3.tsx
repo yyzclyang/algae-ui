@@ -1,5 +1,5 @@
 import React from 'react';
-import { Icon } from 'ROOT/src';
+import { Icon } from 'algae-ui/lib';
 
 export default () => {
   const IconFont = Icon.createFromIconfontCN({
