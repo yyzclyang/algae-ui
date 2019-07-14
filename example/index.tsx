@@ -10,7 +10,7 @@ import './index.scss';
 import { Layout, Content, Footer, Header, Side, Icon } from 'ROOT/src';
 
 import Introduction from './pages/Introduction';
-import GetStart from './pages/getStart';
+import GetStart from './pages/GetStart';
 
 import IconExample from './componentExample/IconExample';
 import ButtonExample from './componentExample/ButtonExample';
