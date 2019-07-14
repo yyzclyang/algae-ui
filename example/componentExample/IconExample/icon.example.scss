@@ -2,12 +2,11 @@
 
 .icon-example-page {
   padding: 0 16px;
-}
-
-.component-list {
-  & > div[class|='icon'] {
-    & > svg {
-      margin: 0 4px;
+  & .component-list {
+    & > div[class|='icon'] {
+      & > svg {
+        margin: 0 4px;
+      }
     }
   }
 }

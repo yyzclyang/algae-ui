@@ -1,6 +1,8 @@
 @import '../../style/base';
 
-div.button-list.ghost {
-  background: $bg;
-  padding: 16px 0;
+.button-example-page {
+  & div.button-list.ghost {
+    background: $bg;
+    padding: 16px 0;
+  }
 }

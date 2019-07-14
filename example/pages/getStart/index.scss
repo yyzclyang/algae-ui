@@ -1,10 +1,12 @@
 @import '../../style/base';
 
-.install {
-  margin: 16px 0;
-  background: $bg;
-  border-radius: 4px;
-  & > p {
-    padding: 4px 8px;
+.get-start-page {
+  & .install {
+    margin: 16px 0;
+    background: $bg;
+    border-radius: 4px;
+    & > p {
+      padding: 4px 8px;
+    }
   }
 }

@@ -29,6 +29,13 @@ a {
   color: inherit;
 }
 
+code {
+  margin: 0 4px;
+  padding: 4px 4px;
+  background: $bg;
+  border-radius: 4px;
+}
+
 .code-demonstration {
   display: flex;
   flex-wrap: wrap;
