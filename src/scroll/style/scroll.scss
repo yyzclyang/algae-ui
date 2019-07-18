@@ -1,0 +1,13 @@
+@import '../../style/theme';
+
+.algae-ui-scroll-wrapper {
+  overflow: hidden;
+  position: relative;
+  & > .algae-ui-scroll {
+    overflow: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+  }
+}
