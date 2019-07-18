@@ -16,6 +16,7 @@ import IconExample from './componentExample/IconExample';
 import ButtonExample from './componentExample/ButtonExample';
 import ModalExample from './componentExample/ModalExample';
 import LayoutExample from './componentExample/LayoutExample';
+import ScrollExample from './componentExample/ScrollExample';
 
 const logo = require('./img/logo.png');
 
@@ -57,6 +58,9 @@ ReactDOM.render(
             <li>
               <NavLink to="/layout">Layout</NavLink>
             </li>
+            <li>
+              <NavLink to="/scroll">Scroll</NavLink>
+            </li>
           </ul>
         </Side>
         <Content className="side-content">
@@ -67,6 +71,7 @@ ReactDOM.render(
           <Route path="/button" component={ButtonExample} />
           <Route path="/modal" component={ModalExample} />
           <Route path="/layout" component={LayoutExample} />
+          <Route path="/scroll" component={ScrollExample} />
         </Content>
       </Layout>
       <Footer className="site-footer">&copy; YyzclYang</Footer>
