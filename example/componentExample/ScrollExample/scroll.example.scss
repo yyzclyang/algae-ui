@@ -1,0 +1,9 @@
+@import '../../style/base';
+
+.scroll-example-list {
+  & > .scroll-example1 {
+    height: 300px;
+    border: 1px solid black;
+    border-radius: 8px;
+  }
+}

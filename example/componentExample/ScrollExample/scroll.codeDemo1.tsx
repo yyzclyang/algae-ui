@@ -4,7 +4,7 @@ import { Scroll } from 'ROOT/src';
 export default () => {
   return (
     <div className="scroll-example-list">
-      <Scroll style={{ height: '300px' }}>
+      <Scroll className="scroll-example1">
         <p>1</p>
         <p>2</p>
         <p>3</p>

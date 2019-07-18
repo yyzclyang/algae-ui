@@ -1,5 +1,6 @@
 import React from 'react';
 import { CodeDemo } from '../CommonDispalyComponents';
+import './scroll.example.scss';
 
 import CodeDemo1 from './scroll.codeDemo1';
 const code1 = require('!!raw-loader!./scroll.codeDemo1.tsx');
