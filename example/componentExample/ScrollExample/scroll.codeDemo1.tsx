@@ -4,7 +4,7 @@ import { Scroll } from 'ROOT/src';
 export default () => {
   return (
     <div className="scroll-example-list">
-      <Scroll className="scroll-example1">
+      <Scroll className="scroll-example1" verticalGap={4}>
         <p>1</p>
         <p>2</p>
         <p>3</p>
