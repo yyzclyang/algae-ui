@@ -8,6 +8,7 @@ interface ScrollProps extends React.HTMLAttributes<HTMLDivElement> {
   rightGap?: number;
   scrollBarWidth?: number;
   scrollBarColor?: string;
+  onScroll?: React.UIEventHandler<Element>;
 }
 
 const Scroll: React.FunctionComponent<ScrollProps> = (props: ScrollProps) => {
@@ -18,6 +19,7 @@ const Scroll: React.FunctionComponent<ScrollProps> = (props: ScrollProps) => {
     rightGap,
     scrollBarWidth,
     scrollBarColor,
+    onScroll,
     ...rest
   } = props;
 
@@ -46,7 +48,7 @@ const Scroll: React.FunctionComponent<ScrollProps> = (props: ScrollProps) => {
     }
   }, [setScrollWrapperHeight, scrollWrapperHeight]);
 
-  const onScroll = (e: React.UIEvent<Element>) => {
+  const scroll = (e: React.UIEvent<Element>) => {
     const scrollTop = e.currentTarget.scrollTop;
     const scrollBarCanMove =
       scrollWrapperHeight - scrollBarHeight - 2 * verticalGap;
@@ -54,19 +56,20 @@ const Scroll: React.FunctionComponent<ScrollProps> = (props: ScrollProps) => {
     const scrollBarTop =
       scrollBarCanMove * (scrollTop / scrollCanMove) + verticalGap;
     setScrollBarTop(scrollBarTop);
+    onScroll && onScroll(e);
   };
 
   return (
     <div
       className={classNames('algae-ui-scroll-wrapper', className)}
-      {...rest}
       ref={scrollWrapperRef}
     >
       <div
         className={classNames('algae-ui-scroll')}
         style={{ right: -getScrollBarWidth() }}
         ref={scrollRef}
-        onScroll={onScroll}
+        onScroll={scroll}
+        {...rest}
       >
         {children}
       </div>
@@ -97,7 +100,8 @@ Scroll.propTypes = {
   verticalGap: PropTypes.number,
   rightGap: PropTypes.number,
   scrollBarWidth: PropTypes.number,
-  scrollBarColor: PropTypes.string
+  scrollBarColor: PropTypes.string,
+  onScroll: PropTypes.func
 };
 
 export default Scroll;
