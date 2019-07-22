@@ -1,0 +1,37 @@
+@import '../../style/theme';
+
+.algae-ui-input-wrapper {
+  position: relative;
+  & > .algae-ui-input {
+    width: 100%;
+    outline: none;
+    border: 1px solid $division;
+    border-radius: 4px;
+    padding: 8px 12px;
+    font-size: 16px;
+    &:hover {
+      animation: algae-ui-input-hover 0.5s ease-in-out forwards;
+    }
+    &:focus {
+      border: 1px solid transparentize($theme-color, 0.25);
+      box-shadow: 0 0 0 2px transparentize($theme-color, 0.75);
+    }
+  }
+  & > .algae-ui-input-icon {
+    position: absolute;
+    transform: translateY(-50%);
+    top: 50%;
+    right: 8px;
+    width: 1em;
+    height: 1em;
+    fill: $fill;
+  }
+}
+
+@keyframes algae-ui-input-hover {
+  0% {
+  }
+  100% {
+    border: 1px solid transparentize($theme-color, 0.25);
+  }
+}
