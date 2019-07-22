@@ -1,18 +1,18 @@
 import React from 'react';
 import { CodeDemo } from '../CommonDispalyComponents';
-import './scroll.example.scss';
+import './input.example.scss';
 
-import CodeDemo1 from './scroll.codeDemo1';
-const code1 = require('!!raw-loader!./scroll.codeDemo1.tsx');
+import CodeDemo1 from './input.codeDemo1';
+const code1 = require('!!raw-loader!./input.codeDemo1.tsx');
 
-const ScrollExample: React.FunctionComponent = () => {
+const InputExample: React.FunctionComponent = () => {
   return (
-    <div className="scroll-example-page">
-      <h1>Scroll 滚动条</h1>
-      <p>自定义滚动条</p>
+    <div className="input-example-page">
+      <h1>Input 输入框</h1>
+      <p>通过鼠标或键盘输入内容，是最基础的表单域的包装。</p>
       <section>
         <h2>何时使用</h2>
-        <p>需要美化原生滚动条时。</p>
+        <p>需要用户输入表单内容时。</p>
       </section>
       <section>
         <h2>代码演示</h2>
@@ -20,7 +20,7 @@ const ScrollExample: React.FunctionComponent = () => {
           <div className="code-demo-column">
             <CodeDemo
               title="基础使用"
-              content={<p>第一个滚动条</p>}
+              content={<p>第一个输入框</p>}
               code={code1.default}
             >
               <CodeDemo1 />
@@ -32,4 +32,4 @@ const ScrollExample: React.FunctionComponent = () => {
   );
 };
 
-export default ScrollExample;
+export default InputExample;
