@@ -11,33 +11,36 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   clearFun?: React.MouseEventHandler<SVGAElement>;
 }
 
-const Input: React.FunctionComponent<InputProps> = (props: InputProps) => {
-  const { className, allowClear, clearFun, ...rest } = props;
+class Input extends React.Component<InputProps> {
+  static displayName = Input;
+  static propTypes = {
+    value: PropTypes.string,
+    onChange: PropTypes.func,
+    allowClear: PropTypes.bool
+  };
+  static defaultProps = {
+    allowClear: false
+  };
 
-  return (
-    <div className="algae-ui-input-wrapper">
-      <input
-        type="text"
-        className={classNames('algae-ui-input', className)}
-        {...rest}
-      />
-      {allowClear && (
-        <Icon type="clear" className="algae-ui-input-icon" onClick={clearFun} />
-      )}
-    </div>
-  );
-};
-
-Input.displayName = 'Input';
-
-Input.propTypes = {
-  value: PropTypes.string,
-  onChange: PropTypes.func,
-  allowClear: PropTypes.bool
-};
-
-Input.defaultProps = {
-  allowClear: false
-};
+  render() {
+    const { className, allowClear, clearFun, ...rest } = this.props;
+    return (
+      <div className="algae-ui-input-wrapper">
+        <input
+          type="text"
+          className={classNames('algae-ui-input', className)}
+          {...rest}
+        />
+        {allowClear && (
+          <Icon
+            type="clear"
+            className="algae-ui-input-icon"
+            onClick={clearFun}
+          />
+        )}
+      </div>
+    );
+  }
+}
 
 export default Input;
