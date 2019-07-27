@@ -8,7 +8,7 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   value?: string;
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
   allowClear?: boolean;
-  clearFun?: React.MouseEventHandler<SVGAElement>;
+  clearFn?: React.MouseEventHandler<SVGAElement>;
 }
 
 class Input extends React.Component<InputProps> {
@@ -16,30 +16,56 @@ class Input extends React.Component<InputProps> {
   static propTypes = {
     value: PropTypes.string,
     onChange: PropTypes.func,
-    allowClear: PropTypes.bool
+    allowClear: PropTypes.bool,
+    clearFn: PropTypes.func
   };
   static defaultProps = {
     allowClear: false
   };
 
-  render() {
-    const { className, allowClear, clearFun, ...rest } = this.props;
+  inputNode: HTMLInputElement;
+  saveInputNode = (node: HTMLInputElement) => {
+    this.inputNode = node;
+  };
+
+  clearIconClick: React.MouseEventHandler = (
+    e: React.MouseEvent<SVGAElement>
+  ) => {
+    const { clearFn } = this.props;
+    this.inputNode.focus();
+    clearFn && clearFn(e);
+  };
+
+  renderInput() {
+    const { className, allowClear, clearFn, ...rest } = this.props;
+    const hasSufNode: boolean = !!allowClear;
+    const inputStyle = hasSufNode ? { paddingRight: '32px' } : {};
     return (
-      <div className="algae-ui-input-wrapper">
+      <span className="algae-ui-input-wrapper">
         <input
           type="text"
           className={classNames('algae-ui-input', className)}
+          style={{ ...inputStyle }}
+          ref={this.saveInputNode}
           {...rest}
         />
-        {allowClear && (
-          <Icon
-            type="clear"
-            className="algae-ui-input-icon"
-            onClick={clearFun}
-          />
+        {hasSufNode && (
+          <span className="algae-ui-input-suffix">
+            {this.props.value && (
+              <Icon
+                type="clear"
+                className="algae-ui-input-icon"
+                onClick={this.clearIconClick}
+              />
+            )}
+          </span>
         )}
-      </div>
+      </span>
     );
+  }
+
+  render() {
+    return this.renderInput();
   }
 }
 
