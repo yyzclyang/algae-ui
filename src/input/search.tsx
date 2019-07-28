@@ -2,7 +2,7 @@ import React from 'react';
 import Input from './input';
 import Button from '../button';
 
-interface SearchProps {
+interface SearchProps extends React.InputHTMLAttributes<HTMLInputElement> {
   onSearch?: () => void;
   searchButton?: string | boolean;
   value?: string;
