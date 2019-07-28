@@ -1,7 +1,9 @@
 @import '../../style/base';
 
 .input-example-page {
-  & .algae-ui-input {
-    width: 300px;
+  & .input-example-list {
+    & .algae-ui-input {
+      width: 300px;
+    }
   }
 }

@@ -7,6 +7,7 @@ export default () => {
   return (
     <div className="input-example-list">
       <Search
+        placeholder="search input"
         searchButton="Search"
         value={value1}
         onChange={(e) => {
@@ -17,7 +18,9 @@ export default () => {
         }}
       />
       <br />
+      <br />
       <Search
+        placeholder="search input"
         searchButton
         value={value2}
         onChange={(e) => {
