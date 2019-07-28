@@ -4,11 +4,14 @@ import { Icon } from '../index';
 import classNames from '../utils/classNames';
 import './style/input.scss';
 
-interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+export interface InputProps
+  extends React.InputHTMLAttributes<HTMLInputElement> {
   value?: string;
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
   allowClear?: boolean;
   clearFn?: React.MouseEventHandler<SVGAElement>;
+  wrapperClassName?: string;
+  inputAfterNode?: React.ReactNode;
 }
 
 class Input extends React.Component<InputProps> {
@@ -17,7 +20,9 @@ class Input extends React.Component<InputProps> {
     value: PropTypes.string,
     onChange: PropTypes.func,
     allowClear: PropTypes.bool,
-    clearFn: PropTypes.func
+    clearFn: PropTypes.func,
+    wrapperClassName: PropTypes.string,
+    inputAfterNode: PropTypes.node
   };
   static defaultProps = {
     allowClear: false
@@ -28,7 +33,7 @@ class Input extends React.Component<InputProps> {
     this.inputNode = node;
   };
 
-  clearIconClick: React.MouseEventHandler = (
+  clearIconOnClick: React.MouseEventHandler = (
     e: React.MouseEvent<SVGAElement>
   ) => {
     const { clearFn } = this.props;
@@ -37,15 +42,23 @@ class Input extends React.Component<InputProps> {
   };
 
   renderInput() {
-    const { className, allowClear, clearFn, ...rest } = this.props;
+    const {
+      className,
+      allowClear,
+      clearFn,
+      wrapperClassName,
+      inputAfterNode,
+      style,
+      ...rest
+    } = this.props;
     const hasSufNode: boolean = !!allowClear;
     const inputStyle = hasSufNode ? { paddingRight: '32px' } : {};
     return (
-      <span className="algae-ui-input-wrapper">
+      <span className={classNames('algae-ui-input-wrapper', wrapperClassName)}>
         <input
           type="text"
           className={classNames('algae-ui-input', className)}
-          style={{ ...inputStyle }}
+          style={{ ...inputStyle, ...style }}
           ref={this.saveInputNode}
           {...rest}
         />
@@ -55,10 +68,13 @@ class Input extends React.Component<InputProps> {
               <Icon
                 type="clear"
                 className="algae-ui-input-icon"
-                onClick={this.clearIconClick}
+                onClick={this.clearIconOnClick}
               />
             )}
           </span>
+        )}
+        {inputAfterNode && (
+          <span className="algae-ui-input-after">{inputAfterNode}</span>
         )}
       </span>
     );
