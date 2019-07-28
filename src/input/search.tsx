@@ -1,16 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Input from './input';
 import Button from '../button';
 
 interface SearchProps extends React.InputHTMLAttributes<HTMLInputElement> {
-  onSearch?: () => void;
+  onSearch?: (arg: string) => void;
   searchButton?: string | boolean;
   value?: string;
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
 }
 
 const Search: React.FunctionComponent<SearchProps> = (props: SearchProps) => {
-  const { onSearch, searchButton, ...rest } = props;
+  const { onSearch, searchButton, value, onChange, ...rest } = props;
+  const [inputValue, setInputValue] = useState<string>('');
   const searchNode =
     typeof searchButton === 'string' ? (
       <Button
@@ -23,7 +24,7 @@ const Search: React.FunctionComponent<SearchProps> = (props: SearchProps) => {
           borderTopLeftRadius: 0
         }}
         onClick={() => {
-          onSearch && onSearch();
+          onSearch && onSearch(inputValue);
         }}
       >
         {searchButton}
@@ -40,7 +41,7 @@ const Search: React.FunctionComponent<SearchProps> = (props: SearchProps) => {
           borderTopLeftRadius: 0
         }}
         onClick={() => {
-          onSearch && onSearch();
+          onSearch && onSearch(inputValue);
         }}
       />
     ) : null;
@@ -50,7 +51,15 @@ const Search: React.FunctionComponent<SearchProps> = (props: SearchProps) => {
     : {};
 
   return (
-    <Input {...rest} inputAfterNode={searchNode} style={{ ...inputStyle }} />
+    <Input
+      value={inputValue}
+      onChange={(e) => {
+        setInputValue(e.currentTarget.value);
+      }}
+      inputAfterNode={searchNode}
+      style={{ ...inputStyle }}
+      {...rest}
+    />
   );
 };
 
