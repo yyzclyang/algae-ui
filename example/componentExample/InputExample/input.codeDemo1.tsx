@@ -4,7 +4,7 @@ import { Input } from 'ROOT/src';
 export default () => {
   return (
     <div className="input-example-list">
-      <Input placeholder="base usage" allowClear />
+      <Input placeholder="base usage" />
     </div>
   );
 };

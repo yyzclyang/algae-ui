@@ -4,6 +4,8 @@ import './input.example.scss';
 
 import CodeDemo1 from './input.codeDemo1';
 const code1 = require('!!raw-loader!./input.codeDemo1.tsx');
+import CodeDemo2 from './input.codeDemo2';
+const code2 = require('!!raw-loader!./input.codeDemo2.tsx');
 
 const InputExample: React.FunctionComponent = () => {
   return (
@@ -24,6 +26,15 @@ const InputExample: React.FunctionComponent = () => {
               code={code1.default}
             >
               <CodeDemo1 />
+            </CodeDemo>
+          </div>
+          <div className="code-demo-column">
+            <CodeDemo
+              title="带清除图标"
+              content={<p>带清除图标的输入框，点击触发的函数需单独传入。</p>}
+              code={code2.default}
+            >
+              <CodeDemo2 />
             </CodeDemo>
           </div>
         </div>
