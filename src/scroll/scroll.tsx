@@ -29,15 +29,19 @@ const Scroll: React.FunctionComponent<ScrollProps> = (props: ScrollProps) => {
   const [scrollBarTop, setScrollBarTop] = useState<number>(verticalGap);
 
   const scrollWrapperRef = useCallback((element) => {
-    const height = element.clientHeight;
-    if (height !== scrollWrapperHeight) {
-      setScrollWrapperHeight(height);
+    if (element !== null) {
+      const height = element.clientHeight;
+      if (height !== scrollWrapperHeight) {
+        setScrollWrapperHeight(height);
+      }
     }
   }, []);
   const scrollRef = useCallback((element) => {
-    const height = element.scrollHeight;
-    if (height !== scrollHeight) {
-      setScrollHeight(height);
+    if (element !== null) {
+      const height = element.scrollHeight;
+      if (height !== scrollHeight) {
+        setScrollHeight(height);
+      }
     }
   }, []);
 
