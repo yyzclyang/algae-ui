@@ -6,6 +6,8 @@ import CodeDemo1 from './input.codeDemo1';
 const code1 = require('!!raw-loader!./input.codeDemo1.tsx');
 import CodeDemo2 from './input.codeDemo2';
 const code2 = require('!!raw-loader!./input.codeDemo2.tsx');
+import CodeDemo3 from './input.codeDemo3';
+const code3 = require('!!raw-loader!./input.codeDemo3.tsx');
 
 const InputExample: React.FunctionComponent = () => {
   return (
@@ -26,6 +28,13 @@ const InputExample: React.FunctionComponent = () => {
               code={code1.default}
             >
               <CodeDemo1 />
+            </CodeDemo>
+            <CodeDemo
+              title="搜索框"
+              content={<p>带有搜索按钮的输入框。</p>}
+              code={code3.default}
+            >
+              <CodeDemo3 />
             </CodeDemo>
           </div>
           <div className="code-demo-column">
