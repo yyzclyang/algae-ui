@@ -50,12 +50,17 @@ const Search: React.FunctionComponent<SearchProps> = (props: SearchProps) => {
     ? { borderBottomRightRadius: 0, borderTopRightRadius: 0 }
     : {};
 
+  const inputOnChange: React.ChangeEventHandler<HTMLInputElement> = (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setInputValue(e.currentTarget.value);
+    onChange && onChange(e);
+  };
+
   return (
     <Input
       value={inputValue}
-      onChange={(e) => {
-        setInputValue(e.currentTarget.value);
-      }}
+      onChange={inputOnChange}
       inputAfterNode={searchNode}
       style={{ ...inputStyle }}
       {...rest}
