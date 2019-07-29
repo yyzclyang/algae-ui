@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input 渲染一个 Input 1`] = `
+<span
+  className="algae-ui-input-wrapper"
+>
+  <input
+    className="algae-ui-input"
+    style={Object {}}
+    type="text"
+  />
+</span>
+`;

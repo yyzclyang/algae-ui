@@ -1,0 +1,84 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Search 渲染一个 Search 1`] = `
+<span
+  className="algae-ui-input-wrapper"
+>
+  <input
+    className="algae-ui-input"
+    onChange={[Function]}
+    style={
+      Object {
+        "borderBottomRightRadius": 0,
+        "borderTopRightRadius": 0,
+      }
+    }
+    type="text"
+    value=""
+  />
+  <span
+    className="algae-ui-input-after"
+  >
+    <button
+      className="algae-ui-button algae-ui-button-primary"
+      onClick={[Function]}
+      style={
+        Object {
+          "borderBottomLeftRadius": 0,
+          "borderTopLeftRadius": 0,
+          "height": "100%",
+          "margin": 0,
+          "marginLeft": "-1px",
+        }
+      }
+    >
+      Search
+    </button>
+  </span>
+</span>
+`;
+
+exports[`Search 渲染一个 Search2 1`] = `
+<span
+  className="algae-ui-input-wrapper"
+>
+  <input
+    className="algae-ui-input"
+    onChange={[Function]}
+    style={
+      Object {
+        "borderBottomRightRadius": 0,
+        "borderTopRightRadius": 0,
+      }
+    }
+    type="text"
+    value=""
+  />
+  <span
+    className="algae-ui-input-after"
+  >
+    <button
+      className="algae-ui-button algae-ui-button-primary"
+      onClick={[Function]}
+      style={
+        Object {
+          "borderBottomLeftRadius": 0,
+          "borderTopLeftRadius": 0,
+          "height": "100%",
+          "margin": 0,
+          "marginLeft": "-1px",
+        }
+      }
+    >
+      <svg
+        className="algae-ui-icon left"
+        style={Object {}}
+      >
+        <use
+          xlinkHref="#search"
+        />
+      </svg>
+    </button>
+  </span>
+</span>
+`;
