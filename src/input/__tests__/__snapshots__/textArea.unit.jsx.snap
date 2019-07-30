@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TextArea 渲染一个 TextArea 1`] = `
+<textarea
+  className="algae-ui-textarea"
+  cols={32}
+  rows={4}
+/>
+`;
