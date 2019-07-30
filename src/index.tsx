@@ -12,4 +12,4 @@ export { confirm } from './modal';
 export { default as Scroll } from './scroll';
 
 export { default as Input } from './input';
-export { Search } from './input';
+export { Search, TextArea } from './input';
