@@ -8,6 +8,8 @@ import CodeDemo2 from './input.codeDemo2';
 const code2 = require('!!raw-loader!./input.codeDemo2.tsx');
 import CodeDemo3 from './input.codeDemo3';
 const code3 = require('!!raw-loader!./input.codeDemo3.tsx');
+import CodeDemo4 from './input.codeDemo4';
+const code4 = require('!!raw-loader!./input.codeDemo4.tsx');
 
 const InputExample: React.FunctionComponent = () => {
   return (
@@ -44,6 +46,13 @@ const InputExample: React.FunctionComponent = () => {
               code={code2.default}
             >
               <CodeDemo2 />
+            </CodeDemo>
+            <CodeDemo
+              title="文本域"
+              content={<p>用于多行文本输入。</p>}
+              code={code4.default}
+            >
+              <CodeDemo4 />
             </CodeDemo>
           </div>
         </div>
