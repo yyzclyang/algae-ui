@@ -6,7 +6,7 @@ export default () => {
   return (
     <div className="input-example-list">
       <TextArea
-        defaultValue="default"
+        defaultValue="default input"
         value={value}
         onChange={(e) => {
           setValue(e.currentTarget.value);
