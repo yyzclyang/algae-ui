@@ -1,0 +1,11 @@
+@import '../../style/theme';
+
+.algae-ui-affix-wrapper {
+  display: inline-block;
+  & > .algae-ui-affix {
+    display: inline-block;
+    &.algae-ui-affix-active {
+      position: fixed;
+    }
+  }
+}
