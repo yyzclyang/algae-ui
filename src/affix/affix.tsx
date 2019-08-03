@@ -6,6 +6,7 @@ import './style/affix.scss';
 interface AffixProps {
   offsetTop?: number;
   className?: string;
+  onChange?: (arg1?: boolean) => void;
   children: React.ReactNode;
 }
 interface State {
@@ -16,7 +17,8 @@ interface State {
 class Affix extends React.Component<AffixProps, State> {
   static displayName = 'Affix';
   static propTypes = {
-    offsetTop: PropTypes.number
+    offsetTop: PropTypes.number,
+    onChange: PropTypes.func
   };
   static defaultProps = { offsetTop: 0 };
 
@@ -55,11 +57,15 @@ class Affix extends React.Component<AffixProps, State> {
 
   scrollHandle: EventListenerOrEventListenerObject = () => {
     const { top } = this.affixWrapperEl.getBoundingClientRect();
-    const { offsetTop } = this.props;
-    if (top <= offsetTop!) {
-      this.setState({ isActive: true });
-    } else {
-      this.setState({ isActive: false });
+    const { offsetTop, onChange } = this.props;
+    if (top <= offsetTop! && !this.state.isActive) {
+      this.setState({ isActive: true }, () => {
+        onChange && onChange(this.state.isActive);
+      });
+    } else if (top > offsetTop! && this.state.isActive) {
+      this.setState({ isActive: false }, () => {
+        onChange && onChange(this.state.isActive);
+      });
     }
   };
 
