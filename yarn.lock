@@ -1616,10 +1616,10 @@ ajv@^6.1.0, ajv@^6.5.5:
     json-schema-traverse "^0.4.1"
     uri-js "^4.2.2"
 
-algae-ui@^0.1.4:
-  version "0.1.4"
-  resolved "https://registry.yarnpkg.com/algae-ui/-/algae-ui-0.1.4.tgz#b6b7e996c07ffa67e40bcef062ee2bd5208cf0ef"
-  integrity sha512-VmZmM7ta1NZIWH1JuQTq+alyROyRCJ0JxRtIsRdxHl9bFK1/1v9yMDNWHP/97FC86cuZOiPRIpVBGvf9RwXmDw==
+algae-ui@^0.1.5:
+  version "0.1.5"
+  resolved "https://registry.yarnpkg.com/algae-ui/-/algae-ui-0.1.5.tgz#16bef51513cc02e753ab76d91453f6c40ab6adb7"
+  integrity sha512-RX80Skpq8N1y+3iqicHIlwatq7+0vtGQk2NbFfjl8pmZRT9lXYQrYIUHyA9X4pZJHswZowe83kPsy97qhvbe+A==
   dependencies:
     prop-types "^15.7.2"
     react "^16.8.6"

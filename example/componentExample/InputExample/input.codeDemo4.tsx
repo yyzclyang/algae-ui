@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { TextArea } from 'ROOT/src';
+import { TextArea } from 'algae-ui/lib';
 
 export default () => {
   const [value, setValue] = useState<string>('');

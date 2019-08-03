@@ -1,5 +1,5 @@
 import React from 'react';
-import { Scroll } from 'ROOT/src';
+import { Scroll } from 'algae-ui/lib';
 
 export default () => {
   return (

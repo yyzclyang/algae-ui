@@ -1,5 +1,5 @@
 import React from 'react';
-import { Search } from 'ROOT/src';
+import { Search } from 'algae-ui/lib';
 
 export default () => {
   return (

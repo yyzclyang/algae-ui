@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Input } from 'ROOT/src';
+import { Input } from 'algae-ui/lib';
 
 export default () => {
   const [value, setValue] = useState<string>('');

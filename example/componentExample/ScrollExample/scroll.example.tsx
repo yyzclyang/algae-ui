@@ -73,7 +73,7 @@ const ScrollExample: React.FunctionComponent = () => {
                 <code>Scroll</code>滚动时的回调
               </>,
               'React.UIEventHandler',
-              ''
+              '-'
             ]
           ]}
         />
