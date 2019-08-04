@@ -14,4 +14,4 @@ export { default as Scroll } from './scroll';
 export { default as Input } from './input';
 export { Search, TextArea } from './input';
 
-export { Affix } from './affix';
+export { default as Affix } from './affix';
