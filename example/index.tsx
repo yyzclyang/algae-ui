@@ -19,6 +19,7 @@ import LayoutExample from './componentExample/LayoutExample';
 import ScrollExample from './componentExample/ScrollExample';
 import InputExample from './componentExample/InputExample';
 import AffixExample from './componentExample/AffixExample';
+import SwitchExample from './componentExample/SwitchExample';
 
 const logo = require('./img/logo.png');
 
@@ -69,6 +70,9 @@ ReactDOM.render(
             <li>
               <NavLink to="/affix">Affix</NavLink>
             </li>
+            <li>
+              <NavLink to="/switch">Switch</NavLink>
+            </li>
           </ul>
         </Side>
         <Content className="side-content">
@@ -82,6 +86,7 @@ ReactDOM.render(
           <Route path="/scroll" component={ScrollExample} />
           <Route path="/input" component={InputExample} />
           <Route path="/affix" component={AffixExample} />
+          <Route path="/switch" component={SwitchExample} />
         </Content>
       </Layout>
       <Footer className="site-footer">&copy; YyzclYang</Footer>
