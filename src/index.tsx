@@ -15,3 +15,5 @@ export { default as Input } from './input';
 export { Search, TextArea } from './input';
 
 export { default as Affix } from './affix';
+
+export { default as Switch } from './switch';

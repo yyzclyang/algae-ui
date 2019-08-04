@@ -1,0 +1,41 @@
+@import '../../style/theme';
+
+.algae-ui-switch-button {
+  width: 40px;
+  height: 20px;
+  border: {
+    radius: 10px;
+    width: 0;
+  }
+  overflow: hidden;
+  outline: none;
+  & > .algae-ui-switch {
+    width: 40px;
+    height: 20px;
+    background: red;
+    background: transparentize($fill, 0.5);
+    position: relative;
+
+    &.algae-ui-switch-checked {
+      background: transparentize($theme-color, 0.25);
+      &::after {
+        transform: translateX(100%);
+        margin-left: 3px;
+      }
+    }
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      height: 18px;
+      width: 18px;
+      background: #ffffff;
+      top: 1px;
+      margin-left: 1px;
+      border: {
+        radius: 50%;
+      }
+      transition: all 0.3s linear;
+    }
+  }
+}
