@@ -1,0 +1,115 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Switch 渲染一个 loading 状态的 Switch 1`] = `
+<button
+  className="algae-ui-switch"
+  disabled={false}
+  onClick={[Function]}
+>
+  <div
+    className="algae-ui-switch-animation-node"
+  >
+    <svg
+      className="algae-ui-icon"
+      style={Object {}}
+    >
+      <use
+        xlinkHref="#loading"
+      />
+    </svg>
+  </div>
+  <span
+    className="algae-ui-switch-inner"
+  >
+    
+  </span>
+</button>
+`;
+
+exports[`Switch 渲染一个基本的 Switch 1`] = `
+<button
+  className="algae-ui-switch"
+  disabled={false}
+  onClick={[Function]}
+>
+  <div
+    className="algae-ui-switch-animation-node"
+  >
+    
+  </div>
+  <span
+    className="algae-ui-switch-inner"
+  >
+    
+  </span>
+</button>
+`;
+
+exports[`Switch 渲染一个禁用的 Switch 1`] = `
+<button
+  className="algae-ui-switch algae-ui-switch-disabled"
+  disabled={true}
+  onClick={[Function]}
+>
+  <div
+    className="algae-ui-switch-animation-node"
+  >
+    
+  </div>
+  <span
+    className="algae-ui-switch-inner"
+  >
+    
+  </span>
+</button>
+`;
+
+exports[`Switch 渲染一个选中状态内容为 React.Element 的 Switch 1`] = `
+<button
+  className="algae-ui-switch algae-ui-switch-checked"
+  disabled={false}
+  onClick={[Function]}
+>
+  <div
+    className="algae-ui-switch-animation-node"
+  >
+    
+  </div>
+  <span
+    className="algae-ui-switch-inner"
+  >
+    <svg
+      className="algae-ui-icon"
+      style={
+        Object {
+          "height": "12px",
+          "width": "12px",
+        }
+      }
+    >
+      <use
+        xlinkHref="#check"
+      />
+    </svg>
+  </span>
+</button>
+`;
+
+exports[`Switch 渲染一个选中状态内容为 string 的 Switch 1`] = `
+<button
+  className="algae-ui-switch algae-ui-switch-checked"
+  disabled={false}
+  onClick={[Function]}
+>
+  <div
+    className="algae-ui-switch-animation-node"
+  >
+    
+  </div>
+  <span
+    className="algae-ui-switch-inner"
+  >
+    开
+  </span>
+</button>
+`;
