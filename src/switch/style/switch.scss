@@ -1,44 +1,77 @@
 @import '../../style/theme';
 
-.algae-ui-switch-button {
-  width: 40px;
+.algae-ui-switch {
+  width: 42px;
   height: 20px;
   border: {
     radius: 10px;
     width: 0;
   }
+  background: transparentize($fill, 0.5);
   overflow: hidden;
   outline: none;
-  &.algae-ui-switch-button-disabled {
+  position: relative;
+  &.algae-ui-switch-disabled {
     cursor: not-allowed;
+    opacity: 0.5;
   }
-  & > .algae-ui-switch {
-    width: 40px;
-    height: 20px;
-    background: red;
-    background: transparentize($fill, 0.5);
-    padding: 0 1px;
-    pointer-events: none;
-    position: relative;
-    &.algae-ui-switch-checked {
-      background: transparentize($theme-color, 0.25);
-      &::after {
-        transform: translateX(100%);
-        margin-left: 2px;
+  &.algae-ui-switch-checked {
+    background: transparentize($theme-color, 0.25);
+    & > .algae-ui-switch-animation-node {
+      transform: translateX(100%);
+      margin-left: 5px;
+      & > .algae-ui-icon {
+        fill: transparentize($theme-color, 0.25);
       }
     }
-    &::after {
-      content: '';
-      display: block;
-      position: absolute;
-      height: 18px;
-      width: 18px;
-      background: #ffffff;
-      top: 1px;
-      border: {
-        radius: 50%;
-      }
-      transition: all 0.3s linear;
+    & > .algae-ui-switch-inner {
+      transform: translateX(-100%);
     }
+  }
+
+  & > .algae-ui-switch-animation-node {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    background: #ffffff;
+    top: 1px;
+    border: {
+      radius: 50%;
+    }
+    margin-left: 1px;
+    transition: all 0.3s linear;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    & > .algae-ui-icon {
+      height: 16px;
+      width: 16px;
+      animation: spin 1.5s infinite;
+      fill: transparentize($fill, 0.5);
+    }
+  }
+
+  & > .algae-ui-switch-inner {
+    position: absolute;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 18px;
+    top: 1px;
+    color: #ffffff;
+    fill: #ffffff;
+    font: {
+      size: 12px;
+    }
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }
