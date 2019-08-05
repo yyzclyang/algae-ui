@@ -9,18 +9,22 @@
   }
   overflow: hidden;
   outline: none;
+  &.algae-ui-switch-button-disabled {
+    cursor: not-allowed;
+  }
   & > .algae-ui-switch {
     width: 40px;
     height: 20px;
     background: red;
     background: transparentize($fill, 0.5);
+    padding: 0 1px;
+    pointer-events: none;
     position: relative;
-
     &.algae-ui-switch-checked {
       background: transparentize($theme-color, 0.25);
       &::after {
         transform: translateX(100%);
-        margin-left: 3px;
+        margin-left: 2px;
       }
     }
     &::after {
@@ -31,7 +35,6 @@
       width: 18px;
       background: #ffffff;
       top: 1px;
-      margin-left: 1px;
       border: {
         radius: 50%;
       }
