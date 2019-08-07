@@ -20,6 +20,7 @@ import ScrollExample from './componentExample/ScrollExample';
 import InputExample from './componentExample/InputExample';
 import AffixExample from './componentExample/AffixExample';
 import SwitchExample from './componentExample/SwitchExample';
+import RadioExample from './componentExample/RadioExample';
 
 const logo = require('./img/logo.png');
 
@@ -73,6 +74,9 @@ ReactDOM.render(
             <li>
               <NavLink to="/switch">Switch</NavLink>
             </li>
+            <li>
+              <NavLink to="/radio">Radio</NavLink>
+            </li>
           </ul>
         </Side>
         <Content className="side-content">
@@ -87,6 +91,7 @@ ReactDOM.render(
           <Route path="/input" component={InputExample} />
           <Route path="/affix" component={AffixExample} />
           <Route path="/switch" component={SwitchExample} />
+          <Route path="/radio" component={RadioExample} />
         </Content>
       </Layout>
       <Footer className="site-footer">&copy; YyzclYang</Footer>
