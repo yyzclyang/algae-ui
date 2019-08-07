@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import classNames from '../utils/classNames';
 import './style/radio.scss';
 
 interface RadioProps extends React.InputHTMLAttributes<HTMLInputElement> {
   className?: string;
   value?: string;
+  defaultChecked?: boolean;
   checked?: boolean;
   disabled?: boolean;
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
@@ -15,13 +17,18 @@ const Radio: React.FunctionComponent<RadioProps> = (props: RadioProps) => {
   const {
     className,
     checked,
+    defaultChecked,
     disabled,
     onChange,
     children,
     ...restProps
   } = props;
   const [radioChecked, setRadioChecked] = useState<boolean>(
-    checked !== undefined ? checked : false
+    checked !== undefined
+      ? checked
+      : defaultChecked !== undefined
+      ? defaultChecked
+      : false
   );
 
   const radioOnChange: React.ChangeEventHandler = (
@@ -54,6 +61,21 @@ const Radio: React.FunctionComponent<RadioProps> = (props: RadioProps) => {
       ) : null}
     </label>
   );
+};
+
+Radio.displayName = 'Radio';
+
+Radio.propTypes = {
+  className: PropTypes.string,
+  checked: PropTypes.bool,
+  defaultChecked: PropTypes.bool,
+  disabled: PropTypes.bool,
+  onChange: PropTypes.func,
+  children: PropTypes.node
+};
+
+Radio.defaultProps = {
+  disabled: false
 };
 
 export default Radio;
