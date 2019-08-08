@@ -35,7 +35,7 @@ ReactDOM.render(
 
 > 本库使用了 `React` 的新特性 [`Hook`](https://reactjs.org/docs/hooks-intro.html)，请保证使用的 `React` 版本在 `v16.8` 及以上。
 > 
-> 本库的更改了一些全局默认样式，请保持一致，代码如下：
+> 本库更改了一些全局默认样式，请保持一致，代码如下：
 
 ```css
 *,
