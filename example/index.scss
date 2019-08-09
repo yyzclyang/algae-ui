@@ -53,16 +53,23 @@ code {
 .site-page {
   background: #ffffff;
   min-height: 100vh;
+  overflow: hidden;
 }
 
-.site-header {
+.site-side {
+  background: #ffffff;
+  height: 100vh;
+  padding-bottom: 24px;
   display: flex;
-  justify-content: space-between;
-  padding: 8px 0 8px 40px;
-  box-shadow: rgb(240, 241, 242) 0 2px 8px;
+  flex-direction: column;
+  box-shadow: 8px 0 4px 0 rgb(240, 241, 242);
+  z-index: 1;
   & > .logo {
+    height: 80px;
     display: flex;
+    padding-left: 40px;
     align-items: center;
+    box-shadow: rgb(240, 241, 242) 0 2px 8px;
     & > img {
       width: 48px;
       height: 48px;
@@ -71,6 +78,53 @@ code {
       margin-left: 16px;
     }
   }
+  & > .side-content {
+    flex-grow: 1;
+    min-width: 16em;
+    & h2 {
+      padding: 8px 0 8px 40px;
+      font-size: 20px;
+    }
+    & ul {
+      list-style: none;
+      min-width: 16em;
+      &:first-child {
+        padding-top: 12px;
+      }
+      & > li {
+        & > a {
+          width: 100%;
+          padding: 16px 0 16px 40px;
+          color: $secondary-color;
+          display: block;
+          margin: 0;
+          &:hover {
+            color: $theme-color;
+          }
+          &.active {
+            color: $theme-color;
+            background: #f7f7f7;
+            border-left: 3px solid $theme-color;
+          }
+        }
+      }
+    }
+  }
+}
+
+.site-main {
+  background: #f4f4f7;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.main-header {
+  display: flex;
+  justify-content: flex-end;
+  padding: 8px 0 8px 40px;
+  border-bottom: 1px solid transparentize($division, 0.5);
+  box-shadow: rgb(240, 241, 242) 0 2px 8px;
+  z-index: 1;
   & > .github {
     margin-right: 40px;
     display: flex;
@@ -82,46 +136,11 @@ code {
   }
 }
 
-.site-main {
-  padding-top: 24px;
-}
-
-.site-side {
-  margin-right: 16px;
-  border-right: 1px solid $division;
-  & > h2 {
-    padding: 8px 0 8px 40px;
-    font-size: 20px;
-  }
-  & > ul {
-    list-style: none;
-    min-width: 12em;
-    & > li {
-      & > a {
-        width: 100%;
-        padding: 16px 0 16px 40px;
-        color: $secondary-color;
-        display: block;
-        margin: 0;
-        &:hover {
-          color: $theme-color;
-        }
-        &.active {
-          color: $theme-color;
-          background: transparentize($theme-color, 0.85);
-          border-right: 3px solid $theme-color;
-        }
-      }
-    }
-  }
-}
-
-.side-content {
+.main-content {
   padding: 32px 16px;
-  overflow: hidden;
 }
 
-.site-footer {
+.main-footer {
   text-align: center;
   padding: 16px 0;
   margin-top: 16px;
