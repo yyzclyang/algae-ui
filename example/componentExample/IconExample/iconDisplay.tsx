@@ -55,7 +55,7 @@ const IconDisplay: React.FunctionComponent<IconDisplayProps> = (
   return (
     <div className="icon-display">
       {iconDisplayData.map(({ title, data }, index) => (
-        <React.Fragment key={index}>
+        <div className="icons" key={index}>
           <h3>{title}</h3>
           <ul>
             {data.map((type, index) => (
@@ -64,7 +64,7 @@ const IconDisplay: React.FunctionComponent<IconDisplayProps> = (
               </li>
             ))}
           </ul>
-        </React.Fragment>
+        </div>
       ))}
     </div>
   );

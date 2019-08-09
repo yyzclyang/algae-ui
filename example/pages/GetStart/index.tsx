@@ -7,15 +7,17 @@ const code = require('!!raw-loader!./start.codeDemo.tsx');
 
 export default () => (
   <div className="get-start-page">
-    <h1>开始使用</h1>
-    <p>
-      <code>algae-ui</code>已发布至 NPM，您可以使用<code>npm</code>/
-      <code>yarn</code>来安装
-    </p>
-    <div className="install">
-      <p>$ npm i algae-ui</p>
-      <p>$ yarn add algae-ui</p>
-    </div>
+    <section>
+      <h1>开始使用</h1>
+      <p>
+        <code>algae-ui</code>已发布至 NPM，您可以使用<code>npm</code>/
+        <code>yarn</code>来安装
+      </p>
+      <div className="install">
+        <p>$ npm i algae-ui</p>
+        <p>$ yarn add algae-ui</p>
+      </div>
+    </section>
     <section>
       <h2>简单示例</h2>
       <div className="get-start-example">

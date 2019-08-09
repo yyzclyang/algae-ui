@@ -9,8 +9,10 @@ const code1 = require('!!raw-loader!./scroll.codeDemo1.tsx');
 const ScrollExample: React.FunctionComponent = () => {
   return (
     <div className="scroll-example-page">
-      <h1>Scroll 滚动条</h1>
-      <p>自定义滚动条</p>
+      <section>
+        <h1>Scroll 滚动条</h1>
+        <p>自定义滚动条</p>
+      </section>
       <section>
         <h2>何时使用</h2>
         <p>需要美化原生滚动条时。</p>

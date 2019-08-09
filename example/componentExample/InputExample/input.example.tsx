@@ -15,8 +15,10 @@ const code4 = require('!!raw-loader!./input.codeDemo4.tsx');
 const InputExample: React.FunctionComponent = () => {
   return (
     <div className="input-example-page">
-      <h1>Input 输入框</h1>
-      <p>通过鼠标或键盘输入内容，是最基础的表单域的包装。</p>
+      <section>
+        <h1>Input 输入框</h1>
+        <p>通过鼠标或键盘输入内容，是最基础的表单域的包装。</p>
+      </section>
       <section>
         <h2>何时使用</h2>
         <p>需要用户输入表单内容时。</p>

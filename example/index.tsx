@@ -40,35 +40,34 @@ ReactDOM.render(
             <li>
               <NavLink to="/get-start">开始使用</NavLink>
             </li>
+            <li>
+              <div className="component-list component-list-switch">组件</div>
+            </li>
           </ul>
-          <h2>组件</h2>
-          <ul>
+          <ul className="component-list-ul">
             <li>
-              <NavLink to="/icon">Icon</NavLink>
+              <div className="component-group component-list">通用</div>
+              <NavLink to="/icon">Icon 图标</NavLink>
+              <NavLink to="/button">Button 按钮</NavLink>
             </li>
             <li>
-              <NavLink to="/button">Button</NavLink>
+              <div className="component-group component-list">布局</div>
+              <NavLink to="/layout">Layout 布局</NavLink>
+              <NavLink to="/scroll">Scroll 滚动条</NavLink>
             </li>
             <li>
-              <NavLink to="/modal">Modal</NavLink>
+              <div className="component-group component-list">导航</div>
+              <NavLink to="/affix">Affix 固钉</NavLink>
             </li>
             <li>
-              <NavLink to="/layout">Layout</NavLink>
+              <div className="component-group component-list">数据录入</div>
+              <NavLink to="/input">Input 输入框</NavLink>
+              <NavLink to="/switch">Switch 开关</NavLink>
+              <NavLink to="/radio">Radio 单选框</NavLink>
             </li>
             <li>
-              <NavLink to="/scroll">Scroll</NavLink>
-            </li>
-            <li>
-              <NavLink to="/input">Input</NavLink>
-            </li>
-            <li>
-              <NavLink to="/affix">Affix</NavLink>
-            </li>
-            <li>
-              <NavLink to="/switch">Switch</NavLink>
-            </li>
-            <li>
-              <NavLink to="/radio">Radio</NavLink>
+              <div className="component-group component-list">反馈</div>
+              <NavLink to="/modal">Modal 对话框</NavLink>
             </li>
           </ul>
         </Scroll>
@@ -87,11 +86,11 @@ ReactDOM.render(
           <Route path="/get-start" component={GetStart} />
           <Route path="/icon" component={IconExample} />
           <Route path="/button" component={ButtonExample} />
-          <Route path="/modal" component={ModalExample} />
           <Route path="/layout" component={LayoutExample} />
           <Route path="/scroll" component={ScrollExample} />
-          <Route path="/input" component={InputExample} />
           <Route path="/affix" component={AffixExample} />
+          <Route path="/input" component={InputExample} />
+          <Route path="/modal" component={ModalExample} />
           <Route path="/switch" component={SwitchExample} />
           <Route path="/radio" component={RadioExample} />
         </Content>

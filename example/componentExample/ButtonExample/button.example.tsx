@@ -19,8 +19,10 @@ const code6 = require('!!raw-loader!./button.codeDemo6.tsx');
 const ButtonExample: React.FunctionComponent = () => {
   return (
     <div className="button-example-page">
-      <h1>Button 按钮</h1>
-      <p>用于开始一个即时操作。</p>
+      <section>
+        <h1>Button 按钮</h1>
+        <p>用于开始一个即时操作。</p>
+      </section>
       <section>
         <h2>何时使用</h2>
         <p>响应用户点击行为，触发相应业务逻辑。</p>

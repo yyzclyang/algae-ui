@@ -1,41 +1,49 @@
 @import '../../style/base';
 
 .icon-display {
-  & > ul {
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    & > li > div {
+  & > .icons {
+    margin: 8px 0;
+    border-top: {
+      style: dashed;
+      width: 1px;
+      color: #669bf1;
+    }
+    & > ul {
+      list-style: none;
       display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100px;
-      width: 167px;
-      cursor: pointer;
-      &:hover {
-        background: transparentize($theme-color, 0.25);
-        border-radius: 8px;
-        color: white;
-        & > .algae-ui-icon {
-          animation: icon-hover 0.3s linear forwards;
+      flex-wrap: wrap;
+      & > li > div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100px;
+        width: 167px;
+        cursor: pointer;
+        &:hover {
+          background: transparentize($theme-color, 0.25);
+          border-radius: 8px;
+          color: white;
+          & > .algae-ui-icon {
+            animation: icon-hover 0.3s linear forwards;
+          }
         }
-      }
-      &.active::after {
-        content: 'copyed';
-        display: block;
-        position: absolute;
-        color: white;
-        animation: copy-visible 0.5s linear forwards;
-      }
-      & > .algae-ui-icon {
-        width: 2em;
-        height: 2em;
-        fill: black;
-      }
-      & > span {
-        font-size: 12px;
-        margin-top: 8px;
+        &.active::after {
+          content: 'copyed';
+          display: block;
+          position: absolute;
+          color: white;
+          animation: copy-visible 0.5s linear forwards;
+        }
+        & > .algae-ui-icon {
+          width: 2em;
+          height: 2em;
+          fill: black;
+        }
+        & > span {
+          font-size: 12px;
+          margin-top: 8px;
+        }
       }
     }
   }

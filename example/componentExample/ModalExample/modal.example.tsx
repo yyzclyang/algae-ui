@@ -13,8 +13,10 @@ const code3 = require('!!raw-loader!./modal.codeDemo3.tsx');
 const ModalExample: React.FunctionComponent = () => {
   return (
     <div className="modal-example-page">
-      <h1>Modal 对话框</h1>
-      <p>模态对话框</p>
+      <section>
+        <h1>Modal 对话框</h1>
+        <p>模态对话框</p>
+      </section>
       <section>
         <h2>何时使用</h2>
         <p>在保留当前页面状态的情况下，告知用户并承载相关操作。</p>

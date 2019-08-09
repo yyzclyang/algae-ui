@@ -12,8 +12,10 @@ const code3 = require('!!raw-loader!./layout.codeDemo3.tsx');
 const LayoutExample: React.FunctionComponent = () => {
   return (
     <div className="layout-example-page">
-      <h1>Layout 布局</h1>
-      <p>用于协助进行页面布局。</p>
+      <section>
+        <h1>Layout 布局</h1>
+        <p>用于协助进行页面布局。</p>
+      </section>
       <section>
         <h2>组件概述</h2>
         <ul>

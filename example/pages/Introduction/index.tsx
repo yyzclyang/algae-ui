@@ -6,8 +6,8 @@ const react = require('../../img/react.png');
 
 const Introduction: React.FunctionComponent = () => (
   <div className="introduction-page">
-    <h1>Algae-UI of React</h1>
     <section className="introduction">
+      <h1>Algae-UI of React</h1>
       <p>
         <code>algae-ui</code>是为 React 制作的一套 UI 组件库，主要用来学习。
       </p>

@@ -11,8 +11,10 @@ const code2 = require('!!raw-loader!./radio.codeDemo2.tsx');
 const RadioExample: React.FunctionComponent = () => {
   return (
     <div className="radio-example-page">
-      <h1>Radio 单选框</h1>
-      <p>单选框</p>
+      <section>
+        <h1>Radio 单选框</h1>
+        <p>单选框</p>
+      </section>
       <section>
         <h2>何时使用</h2>
         <p>用于在多个备选项中选中单个状态。</p>
