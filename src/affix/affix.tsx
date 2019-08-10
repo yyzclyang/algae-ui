@@ -6,6 +6,7 @@ import './style/affix.scss';
 interface AffixProps {
   offsetTop?: number;
   className?: string;
+  target?: HTMLElement | Window;
   onChange?: (arg1?: boolean) => void;
   children: React.ReactNode;
 }
@@ -20,7 +21,7 @@ class Affix extends React.Component<AffixProps, State> {
     offsetTop: PropTypes.number,
     onChange: PropTypes.func
   };
-  static defaultProps = { offsetTop: 0 };
+  static defaultProps = { offsetTop: 0, target: window };
 
   affixWrapperEl: HTMLDivElement;
   affixEl: HTMLDivElement;
@@ -30,12 +31,14 @@ class Affix extends React.Component<AffixProps, State> {
   };
 
   componentDidMount(): void {
-    window.addEventListener('scroll', this.scrollHandle);
+    this.props.target &&
+      this.props.target.addEventListener('scroll', this.scrollHandle);
     this.setAffixWrapperElSize(this.affixEl.getBoundingClientRect());
   }
 
   componentWillUnmount(): void {
-    window.removeEventListener('scroll', this.scrollHandle);
+    this.props.target &&
+      this.props.target.removeEventListener('scroll', this.scrollHandle);
   }
 
   saveAffixWrapperEl = (el: HTMLDivElement) => {
