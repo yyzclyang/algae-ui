@@ -20,6 +20,7 @@ const Scroll: React.FunctionComponent<ScrollProps> = (props: ScrollProps) => {
     scrollBarWidth,
     scrollBarColor,
     onScroll,
+    style,
     ...rest
   } = props;
 
@@ -67,6 +68,7 @@ const Scroll: React.FunctionComponent<ScrollProps> = (props: ScrollProps) => {
     <div
       className={classNames('algae-ui-scroll-wrapper', className)}
       ref={scrollWrapperRef}
+      style={style}
     >
       <div
         className={classNames('algae-ui-scroll')}
