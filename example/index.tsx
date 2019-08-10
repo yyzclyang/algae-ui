@@ -23,16 +23,19 @@ import SwitchExample from './componentExample/SwitchExample';
 import RadioExample from './componentExample/RadioExample';
 
 import './img/logo.svg';
+import './img/logo_text.svg';
 
 ReactDOM.render(
   <Router>
     <Layout className="site-page">
       <Side className="site-side">
         <div className="logo">
-          <svg>
+          <svg className="logo_img">
             <use xlinkHref="#logo" />
           </svg>
-          <span>Algae UI</span>
+          <svg className="logo_text">
+            <use xlinkHref="#logo_text" />
+          </svg>
         </div>
         <Scroll className="side-content" rightGap={0}>
           <ul>

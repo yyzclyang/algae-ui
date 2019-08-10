@@ -7,16 +7,42 @@
   margin: 0;
   padding: 0;
 }
+body {
+  font-size: 14px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC',
+    'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial,
+    sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+}
 
 h1 {
   margin: 24px 0;
+  font: {
+    size: 30px;
+    family: Avenir, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC',
+      'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial,
+      sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+      sans-serif;
+  }
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: Avenir, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue',
+    Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Segoe UI Symbol', sans-serif;
 }
 
 h2 {
   margin: 16px 0;
+  font-size: 24px;
 }
 
 h3 {
+  font-size: 18px;
   margin: 8px 0;
 }
 
@@ -35,6 +61,8 @@ code {
   padding: 4px 4px;
   background: $bg;
   border-radius: 4px;
+  font-family: inherit;
+  color: inherit;
 }
 
 section {
@@ -79,14 +107,19 @@ section {
     Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
     'Segoe UI Symbol', sans-serif;
   & > .logo {
-    height: 70px;
+    height: 64px;
+    padding: 0 40px;
     display: flex;
-    padding-left: 40px;
+    justify-content: space-between;
     align-items: center;
     box-shadow: rgb(240, 241, 242) 0 2px 8px;
-    & > img {
-      width: 48px;
-      height: 48px;
+    & > .logo_img {
+      width: 36px;
+      height: 36px;
+    }
+    & > .logo_text {
+      width: 85px;
+      height: 36px;
     }
     & > span {
       margin-left: 16px;
@@ -160,21 +193,24 @@ section {
 .main-header {
   display: flex;
   justify-content: flex-end;
-  padding: 8px 0 8px 40px;
+  padding: 16px 0 16px 40px;
   box-shadow: #eaebef 0 2px 8px;
   & > .github {
     margin-right: 40px;
     display: flex;
     align-items: center;
-    & .github-icon {
-      width: 48px;
-      height: 48px;
+    & > a {
+      line-height: 0;
+      & > .github-icon {
+        width: 32px;
+        height: 32px;
+      }
     }
   }
 }
 
 .main-content {
-  padding: 32px 16px;
+  padding: 32px;
 }
 
 .main-footer {

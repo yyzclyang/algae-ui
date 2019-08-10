@@ -6,7 +6,7 @@
     border-top: {
       style: dashed;
       width: 1px;
-      color: #669bf1;
+      color: $division;
     }
     & > ul {
       list-style: none;
@@ -43,6 +43,8 @@
         & > span {
           font-size: 12px;
           margin-top: 8px;
+          font-family: 'Lucida Console', Consolas, Monaco, 'Andale Mono',
+            'Ubuntu Mono', monospace;
         }
       }
     }
