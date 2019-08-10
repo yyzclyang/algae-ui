@@ -56,6 +56,14 @@ const LayoutExample: React.FunctionComponent = () => {
               0
             ],
             [
+              'target',
+              <>
+                设置<code>Affix</code>需要监听其滚动事件的元素
+              </>,
+              'HTMLElement | Window',
+              'window'
+            ],
+            [
               'onChange',
               <>
                 固定状态触发时的回调函数，参数为固定状态的<code>boolean</code>值
