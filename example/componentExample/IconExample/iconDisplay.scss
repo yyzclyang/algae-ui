@@ -20,6 +20,7 @@
         height: 100px;
         width: 167px;
         cursor: pointer;
+        position: relative;
         &:hover {
           background: transparentize($theme-color, 0.25);
           border-radius: 8px;
