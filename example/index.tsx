@@ -22,14 +22,16 @@ import AffixExample from './componentExample/AffixExample';
 import SwitchExample from './componentExample/SwitchExample';
 import RadioExample from './componentExample/RadioExample';
 
-const logo = require('./img/logo.png');
+import './img/logo.svg';
 
 ReactDOM.render(
   <Router>
     <Layout className="site-page">
       <Side className="site-side">
         <div className="logo">
-          <img src={logo} alt="logo" />
+          <svg>
+            <use xlinkHref="#logo" />
+          </svg>
           <span>Algae UI</span>
         </div>
         <Scroll className="side-content" rightGap={0}>

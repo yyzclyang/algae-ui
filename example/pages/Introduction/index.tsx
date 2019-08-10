@@ -1,8 +1,8 @@
 import React from 'react';
 import './index.scss';
 
-const logo = require('../../img/logo.png');
-const react = require('../../img/react.png');
+import '../../img/logo.svg';
+import '../../img/react.svg';
 
 const Introduction: React.FunctionComponent = () => (
   <div className="introduction-page">
@@ -12,9 +12,13 @@ const Introduction: React.FunctionComponent = () => (
         <code>algae-ui</code>是为 React 制作的一套 UI 组件库，主要用来学习。
       </p>
       <div className="logo">
-        <img src={logo} alt="logo" />
+        <svg>
+          <use xlinkHref="#logo" />
+        </svg>
         <span>&</span>
-        <img src={react} alt="react" />
+        <svg>
+          <use xlinkHref="#react" />
+        </svg>
       </div>
     </section>
     <section>
