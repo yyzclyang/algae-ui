@@ -1,10 +1,14 @@
 import React from 'react';
-import { Scroll } from 'algae-ui/lib';
+import { Scroll } from 'ROOT/src';
 
 export default () => {
   return (
     <div className="scroll-example-list">
-      <Scroll className="scroll-example1" verticalGap={4}>
+      <Scroll
+        className="scroll-example1"
+        verticalGap={4}
+        style={{ height: '300px' }}
+      >
         <p>1</p>
         <p>2</p>
         <p>3</p>

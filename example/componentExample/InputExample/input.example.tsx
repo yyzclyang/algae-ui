@@ -114,7 +114,7 @@ const InputExample: React.FunctionComponent = () => {
         <h3>Search</h3>
         <p>
           <code>Search</code>为一个带有搜索按钮的输入框，是从<code>Input</code>
-          的基础上拓展来的，所以出了以下的<code>API</code>，还支持
+          的基础上拓展来的，所以除了以下的<code>API</code>，还支持
           <code>Input</code>所有的<code>API</code>。
         </p>
         <Api
