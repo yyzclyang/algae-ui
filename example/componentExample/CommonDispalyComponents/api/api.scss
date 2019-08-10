@@ -2,8 +2,13 @@
 
 table {
   margin: 16px 0;
-  border-collapse: collapse;
+  border: {
+    collapse: collapse;
+    radius: 4px;
+  }
   width: 100%;
+  box-shadow: 0 1px 4px 1px #e3e6f5;
+  background: #ffffff;
   & td {
     text-align: left;
     min-height: 3em;
@@ -24,24 +29,22 @@ table {
   & > thead > tr > td {
     font-size: 16px;
     color: $assistant-color;
-    border-bottom: 2px solid $division;
-    background: $bg;
+    border-bottom: 1px solid #ecedef;
   }
-  & > tbody > tr > td {
-    font-size: 14px;
-    color: $secondary-color;
-    border-bottom: 1px solid $division;
-    &:nth-child(1) {
-      font-weight: 500;
+  & > tbody > tr {
+    &:nth-child(2n + 1) {
+      background: #f9fafc;
     }
-    &:nth-child(3) {
-      color: $strong;
-    }
-    & > code {
-      margin: 0 4px;
-      padding: 4px 4px;
-      background: $bg;
-      border-radius: 4px;
+    & > td {
+      font-size: 14px;
+      color: #8e9aad;
+      &:nth-child(1) {
+        font-weight: 500;
+        color: $secondary-color;
+      }
+      &:nth-child(3) {
+        color: $theme-color;
+      }
     }
   }
 }
