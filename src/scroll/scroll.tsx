@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { classNames, getScrollBarWidth } from '../utils';
 import './style/scroll.scss';
@@ -29,29 +29,40 @@ const Scroll: React.FunctionComponent<ScrollProps> = (props: ScrollProps) => {
   const [scrollBarHeight, setScrollBarHeight] = useState<number>(0);
   const [scrollBarTop, setScrollBarTop] = useState<number>(verticalGap);
 
-  const scrollWrapperRef = useCallback((element) => {
-    if (element !== null) {
-      const height = element.clientHeight;
-      if (height !== scrollWrapperHeight) {
-        setScrollWrapperHeight(height);
-      }
-    }
-  }, []);
-  const scrollRef = useCallback((element) => {
-    if (element !== null) {
-      const height = element.scrollHeight;
-      if (height !== scrollHeight) {
-        setScrollHeight(height);
-      }
-    }
+  const scrollWrapperEl = useRef<null | HTMLDivElement>(null);
+  const scrollEl = useRef<null | HTMLDivElement>(null);
+
+  useEffect(() => {
+    setScrollWrapperHeight(scrollWrapperEl.current!.scrollHeight);
+    setScrollHeight(scrollEl.current!.scrollHeight);
+
+    const resizeCallback = () => {
+      setScrollWrapperHeight(scrollWrapperEl.current!.scrollHeight);
+      setScrollHeight(scrollEl.current!.scrollHeight);
+    };
+
+    // 监听 Scroll 的 style 变化
+    const mutationObserver = new MutationObserver(resizeCallback);
+    mutationObserver.observe(scrollWrapperEl.current as Node, {
+      attributes: true,
+      attributeFilter: ['style'],
+      attributeOldValue: true
+    });
+    window.addEventListener('resize', resizeCallback);
+
+    return () => {
+      mutationObserver.disconnect();
+      mutationObserver.takeRecords();
+      window.removeEventListener('resize', resizeCallback);
+    };
   }, []);
 
   useEffect(() => {
     const height = (scrollWrapperHeight / scrollHeight) * scrollWrapperHeight;
     if (height !== scrollBarHeight) {
-      setScrollBarHeight(height);
+      setScrollBarHeight(scrollWrapperHeight < scrollHeight ? height : 0);
     }
-  }, [setScrollWrapperHeight, scrollWrapperHeight]);
+  }, [scrollWrapperHeight, scrollHeight]);
 
   const scroll = (e: React.UIEvent<Element>) => {
     const scrollTop = e.currentTarget.scrollTop;
@@ -67,13 +78,13 @@ const Scroll: React.FunctionComponent<ScrollProps> = (props: ScrollProps) => {
   return (
     <div
       className={classNames('algae-ui-scroll-wrapper', className)}
-      ref={scrollWrapperRef}
+      ref={scrollWrapperEl}
       style={style}
     >
       <div
         className={classNames('algae-ui-scroll')}
         style={{ right: -getScrollBarWidth() }}
-        ref={scrollRef}
+        ref={scrollEl}
         onScroll={scroll}
         {...rest}
       >
