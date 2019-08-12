@@ -6,13 +6,14 @@ import './style/affix.scss';
 interface AffixProps {
   offsetTop?: number;
   className?: string;
-  target?: HTMLElement | Window;
+  target?: () => HTMLElement | Window | null;
   onChange?: (arg1?: boolean) => void;
   children: React.ReactNode;
 }
 interface State {
   isActive: boolean;
   affixWrapperElStyle?: React.CSSProperties;
+  prevTarget: HTMLElement | Window | null;
 }
 
 class Affix extends React.Component<AffixProps, State> {
@@ -21,24 +22,65 @@ class Affix extends React.Component<AffixProps, State> {
     offsetTop: PropTypes.number,
     onChange: PropTypes.func
   };
-  static defaultProps = { offsetTop: 0, target: window };
+  static defaultProps = {
+    offsetTop: 0,
+    target: () => (typeof window !== 'undefined' ? window : null)
+  };
 
   affixWrapperEl: HTMLDivElement;
   affixEl: HTMLDivElement;
 
   state: State = {
-    isActive: false
+    isActive: false,
+    prevTarget: null
   };
 
+  timer: number;
+  target: HTMLElement | Window | null;
+
   componentDidMount(): void {
-    this.props.target &&
-      this.props.target.addEventListener('scroll', this.scrollHandle);
+    this.timer = setTimeout(() => {
+      (this.props.target!() as HTMLElement).addEventListener(
+        'scroll',
+        this.scrollHandle
+      );
+    });
     this.setAffixWrapperElSize(this.affixEl.getBoundingClientRect());
   }
 
+  componentDidUpdate(
+    prevProps: Readonly<AffixProps>,
+    prevState: Readonly<State>,
+    snapshot?: any
+  ): void {
+    const { prevTarget } = this.state;
+    const newTarget = this.props.target!() || null;
+    if (prevTarget !== newTarget) {
+      this.target && clearTimeout(this.timer);
+      if (prevTarget) {
+        (prevTarget as HTMLElement).removeEventListener(
+          'scroll',
+          this.scrollHandle
+        );
+      }
+      this.timer = setTimeout(() => {
+        (this.props.target!() as HTMLElement).addEventListener(
+          'scroll',
+          this.scrollHandle
+        );
+      });
+      this.setState({ prevTarget: newTarget });
+    }
+  }
+
   componentWillUnmount(): void {
-    this.props.target &&
-      this.props.target.removeEventListener('scroll', this.scrollHandle);
+    this.timer && clearTimeout(this.timer);
+    if (this.state.prevTarget) {
+      (this.state.prevTarget as HTMLElement).removeEventListener(
+        'scroll',
+        this.scrollHandle
+      );
+    }
   }
 
   saveAffixWrapperEl = (el: HTMLDivElement) => {
@@ -58,14 +100,26 @@ class Affix extends React.Component<AffixProps, State> {
     });
   };
 
+  getContainerRect = () => {
+    const { target } = this.props;
+    if (target && target() !== window) {
+      return (target() as HTMLElement).getBoundingClientRect();
+    } else {
+      return {
+        top: 0
+      };
+    }
+  };
+
   scrollHandle: EventListenerOrEventListenerObject = () => {
+    const { top: containerTop } = this.getContainerRect();
     const { top } = this.affixWrapperEl.getBoundingClientRect();
     const { offsetTop, onChange } = this.props;
-    if (top <= offsetTop! && !this.state.isActive) {
+    if (top - containerTop <= offsetTop! && !this.state.isActive) {
       this.setState({ isActive: true }, () => {
         onChange && onChange(this.state.isActive);
       });
-    } else if (top > offsetTop! && this.state.isActive) {
+    } else if (top - containerTop > offsetTop! && this.state.isActive) {
       this.setState({ isActive: false }, () => {
         onChange && onChange(this.state.isActive);
       });
@@ -87,7 +141,16 @@ class Affix extends React.Component<AffixProps, State> {
             className,
             this.state.isActive ? 'algae-ui-affix-active' : ''
           )}
-          style={{ top: offsetTop + 'px' }}
+          style={
+            this.state.isActive
+              ? {
+                  top:
+                    (offsetTop ? offsetTop : 0) +
+                    this.getContainerRect().top +
+                    'px'
+                }
+              : {}
+          }
           ref={this.saveAffixEl}
         >
           {children}
