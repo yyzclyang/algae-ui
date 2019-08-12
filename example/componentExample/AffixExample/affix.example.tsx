@@ -7,6 +7,8 @@ import CodeDemo1 from './affix.codeDemo1';
 const code1 = require('!!raw-loader!./affix.codeDemo1.tsx');
 import CodeDemo2 from './affix.codeDemo2';
 const code2 = require('!!raw-loader!./affix.codeDemo2.tsx');
+import CodeDemo3 from './affix.codeDemo3';
+const code3 = require('!!raw-loader!./affix.codeDemo3.tsx');
 
 const LayoutExample: React.FunctionComponent = () => {
   return (
@@ -30,6 +32,18 @@ const LayoutExample: React.FunctionComponent = () => {
               code={code1.default}
             >
               <CodeDemo1 />
+            </CodeDemo>
+            <CodeDemo
+              title="滚动容器"
+              content={
+                <p>
+                  设置<code>Affix</code>需要监听的元素，默认为
+                  <code>window</code>。
+                </p>
+              }
+              code={code3.default}
+            >
+              <CodeDemo3 />
             </CodeDemo>
           </div>
           <div className="code-demo-column">
@@ -58,10 +72,11 @@ const LayoutExample: React.FunctionComponent = () => {
             [
               'target',
               <>
-                设置<code>Affix</code>需要监听其滚动事件的元素
+                返回值为需要设置<code>Affix</code>
+                监听其滚动事件的元素的一个函数。
               </>,
-              'HTMLElement | Window',
-              'window'
+              '() => HTMLElement',
+              '() => window'
             ],
             [
               'onChange',

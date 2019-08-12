@@ -7,7 +7,7 @@ export default () => {
     <div className="affix-example-list">
       <Affix
         offsetTop={200}
-        target={el as HTMLElement}
+        target={() => el as HTMLElement}
         onChange={(isAffixed) => {
           console.log(isAffixed);
         }}
