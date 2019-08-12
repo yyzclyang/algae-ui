@@ -2,6 +2,12 @@ import React from 'react';
 import Scroll from '../index';
 import { mount } from 'enzyme';
 
+global.MutationObserver = class {
+  constructor(callback) {}
+  disconnect() {}
+  observe(element, initObject) {}
+};
+
 describe('Scroll', () => {
   it('渲染 Scroll', () => {
     const component = mount(
