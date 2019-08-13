@@ -34,15 +34,19 @@ const Radio: React.FunctionComponent<RadioProps> = (props: RadioProps) => {
   const radioOnChange: React.ChangeEventHandler = (
     e: React.ChangeEvent<HTMLInputElement>
   ) => {
-    setRadioChecked(checked !== undefined ? checked : true);
     onChange && onChange(e);
+    setRadioChecked(true);
   };
 
   return (
     <label
       className={classNames(
         'algae-ui-radio-wrapper',
-        radioChecked ? 'algae-ui-radio-checked' : '',
+        (checked !== undefined
+        ? checked
+        : radioChecked)
+          ? 'algae-ui-radio-checked'
+          : '',
         disabled ? 'algae-ui-radio-disabled' : ''
       )}
     >
@@ -50,6 +54,7 @@ const Radio: React.FunctionComponent<RadioProps> = (props: RadioProps) => {
         <input
           className="algae-ui-radio-input"
           type="radio"
+          checked={checked !== undefined ? checked : radioChecked}
           disabled={disabled}
           onChange={radioOnChange}
           {...restProps}
