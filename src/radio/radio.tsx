@@ -21,6 +21,7 @@ const Radio: React.FunctionComponent<RadioProps> = (props: RadioProps) => {
     disabled,
     onChange,
     children,
+    style,
     ...restProps
   } = props;
   const [radioChecked, setRadioChecked] = useState<boolean>(
@@ -49,6 +50,7 @@ const Radio: React.FunctionComponent<RadioProps> = (props: RadioProps) => {
           : '',
         disabled ? 'algae-ui-radio-disabled' : ''
       )}
+      style={style}
     >
       <span className={classNames('algae-ui-radio', className)}>
         <input
