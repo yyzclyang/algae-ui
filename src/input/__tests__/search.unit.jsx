@@ -16,6 +16,11 @@ describe('Search', () => {
     expect(component).toMatchSnapshot();
   });
 
+  it('渲染一个 Search3', () => {
+    const component = renderer.create(<Search />).toJSON();
+    expect(component).toMatchSnapshot();
+  });
+
   it('点击 SearchButton 触发 onSearch', () => {
     const fn = jest.fn();
     const component = mount(<Search searchButton="Search" onSearch={fn} />);

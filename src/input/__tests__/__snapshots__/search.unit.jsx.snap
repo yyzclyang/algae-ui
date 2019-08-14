@@ -82,3 +82,17 @@ exports[`Search 渲染一个 Search2 1`] = `
   </span>
 </span>
 `;
+
+exports[`Search 渲染一个 Search3 1`] = `
+<span
+  className="algae-ui-input-wrapper"
+>
+  <input
+    className="algae-ui-input"
+    onChange={[Function]}
+    style={Object {}}
+    type="text"
+    value=""
+  />
+</span>
+`;
