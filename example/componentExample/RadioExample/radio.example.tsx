@@ -75,7 +75,61 @@ const RadioExample: React.FunctionComponent = () => {
       </section>
       <section>
         <h2>API</h2>
-        <Api data={[]} />
+        <h3>Radio</h3>
+        <p>
+          <code>Radio</code>拓展自
+          <code>&lt;input type="radio" /&gt;</code>，除了以下 <code>Api</code>
+          ，还支持<code>input</code>的其他<code>Api</code>。
+        </p>
+        <Api
+          data={[
+            ['checked', '是否选中。', 'boolean', '-'],
+            ['defaultChecked', '是否默认选中。', 'boolean', '-'],
+            ['disabled', '是否禁用。', 'boolean', 'false'],
+            ['onChange', '点击选取时的回调', 'React.ChangeEventHandler', '-']
+          ]}
+        />
+        <h3>RadioGroup</h3>
+        <p>
+          单选框组合，用于包裹一组<code>Radio</code>。
+        </p>
+        <Api
+          data={[
+            [
+              'value',
+              <>
+                用于设置当前激活的<code>Radio</code>
+              </>,
+              'string',
+              '-'
+            ],
+            [
+              'name',
+              <>
+                为被包裹的<code>Radio</code>添加<code>name</code>属性
+              </>,
+              'string',
+              '-'
+            ],
+            [
+              'disabled',
+              <>
+                禁用所有的子<code>Radio</code>
+              </>,
+              'boolean',
+              '-'
+            ],
+            [
+              'options',
+              <>
+                配置模式设置子<code>Radio</code>。
+              </>,
+              'Array<{ label: string, value: string, disabled?: boolean } | string>',
+              '-'
+            ],
+            ['onChange', '选项变化时的回调', 'React.ChangeEventHandler', '-']
+          ]}
+        />
       </section>
     </div>
   );

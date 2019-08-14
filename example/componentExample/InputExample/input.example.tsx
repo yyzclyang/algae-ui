@@ -62,7 +62,7 @@ const InputExample: React.FunctionComponent = () => {
       </section>
       <section>
         <h2>API</h2>
-        <h2>Input</h2>
+        <h3>Input</h3>
         <p>
           <code>Input</code>为一个单独的输入框。拓展自<code>input</code>
           ，除了以下<code>API</code>，还支持<code>input</code>的所有
