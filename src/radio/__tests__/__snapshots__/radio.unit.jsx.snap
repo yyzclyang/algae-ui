@@ -1,0 +1,100 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Radio 不传递子节点 1`] = `
+<label
+  className="algae-ui-radio-wrapper algae-ui-radio-disabled"
+>
+  <span
+    className="algae-ui-radio"
+  >
+    <input
+      checked={false}
+      className="algae-ui-radio-input"
+      disabled={true}
+      onChange={[Function]}
+      type="radio"
+    />
+    <span
+      className="algae-ui-radio-inner"
+    />
+  </span>
+</label>
+`;
+
+exports[`Radio 接受 checked 1`] = `
+<label
+  className="algae-ui-radio-wrapper algae-ui-radio-checked"
+>
+  <span
+    className="algae-ui-radio"
+  >
+    <input
+      checked={true}
+      className="algae-ui-radio-input"
+      disabled={false}
+      onChange={[Function]}
+      type="radio"
+    />
+    <span
+      className="algae-ui-radio-inner"
+    />
+  </span>
+  <span
+    className="algae-ui-radio-text"
+  >
+    radio
+  </span>
+</label>
+`;
+
+exports[`Radio 接受 disabled 1`] = `
+<label
+  className="algae-ui-radio-wrapper algae-ui-radio-disabled"
+>
+  <span
+    className="algae-ui-radio"
+  >
+    <input
+      checked={false}
+      className="algae-ui-radio-input"
+      disabled={true}
+      onChange={[Function]}
+      type="radio"
+    />
+    <span
+      className="algae-ui-radio-inner"
+    />
+  </span>
+  <span
+    className="algae-ui-radio-text"
+  >
+    radio
+  </span>
+</label>
+`;
+
+exports[`Radio 渲染一个 Radio 1`] = `
+<label
+  className="algae-ui-radio-wrapper"
+>
+  <span
+    className="algae-ui-radio"
+  >
+    <input
+      checked={false}
+      className="algae-ui-radio-input"
+      disabled={false}
+      onChange={[Function]}
+      type="radio"
+    />
+    <span
+      className="algae-ui-radio-inner"
+    />
+  </span>
+  <span
+    className="algae-ui-radio-text"
+  >
+    radio
+  </span>
+</label>
+`;

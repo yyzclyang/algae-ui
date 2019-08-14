@@ -1,0 +1,409 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RadioGroup children 为 string 1`] = `
+<div
+  className="algae-ui-radio-group"
+>
+  radio
+</div>
+`;
+
+exports[`RadioGroup 接受 name disabled 1`] = `
+<div
+  className="algae-ui-radio-group algae-ui-radio-group-disabled"
+>
+  <label
+    className="algae-ui-radio-wrapper algae-ui-radio-disabled"
+  >
+    <span
+      className="algae-ui-radio"
+    >
+      <input
+        checked={false}
+        className="algae-ui-radio-input"
+        disabled={true}
+        name="test"
+        onChange={[Function]}
+        type="radio"
+      />
+      <span
+        className="algae-ui-radio-inner"
+      />
+    </span>
+    <span
+      className="algae-ui-radio-text"
+    >
+      radio1
+    </span>
+  </label>
+  <label
+    className="algae-ui-radio-wrapper algae-ui-radio-disabled"
+  >
+    <span
+      className="algae-ui-radio"
+    >
+      <input
+        checked={false}
+        className="algae-ui-radio-input"
+        disabled={true}
+        name="test"
+        onChange={[Function]}
+        type="radio"
+      />
+      <span
+        className="algae-ui-radio-inner"
+      />
+    </span>
+    <span
+      className="algae-ui-radio-text"
+    >
+      radio2
+    </span>
+  </label>
+</div>
+`;
+
+exports[`RadioGroup 接受 value 1`] = `
+<div
+  className="algae-ui-radio-group"
+>
+  <label
+    className="algae-ui-radio-wrapper algae-ui-radio-checked"
+  >
+    <span
+      className="algae-ui-radio"
+    >
+      <input
+        checked={true}
+        className="algae-ui-radio-input"
+        disabled={false}
+        onChange={[Function]}
+        type="radio"
+        value="1"
+      />
+      <span
+        className="algae-ui-radio-inner"
+      />
+    </span>
+    <span
+      className="algae-ui-radio-text"
+    >
+      radio1
+    </span>
+  </label>
+  <label
+    className="algae-ui-radio-wrapper"
+  >
+    <span
+      className="algae-ui-radio"
+    >
+      <input
+        checked={false}
+        className="algae-ui-radio-input"
+        disabled={false}
+        onChange={[Function]}
+        type="radio"
+        value="2"
+      />
+      <span
+        className="algae-ui-radio-inner"
+      />
+    </span>
+    <span
+      className="algae-ui-radio-text"
+    >
+      radio2
+    </span>
+  </label>
+</div>
+`;
+
+exports[`RadioGroup 根据 options 来渲染 RadioGroup 1`] = `
+<div
+  className="algae-ui-radio-group"
+>
+  <label
+    className="algae-ui-radio-wrapper"
+  >
+    <span
+      className="algae-ui-radio"
+    >
+      <input
+        checked={false}
+        className="algae-ui-radio-input"
+        disabled={false}
+        onChange={[Function]}
+        type="radio"
+        value="a"
+      />
+      <span
+        className="algae-ui-radio-inner"
+      />
+    </span>
+    <span
+      className="algae-ui-radio-text"
+    >
+      a
+    </span>
+  </label>
+  <label
+    className="algae-ui-radio-wrapper"
+  >
+    <span
+      className="algae-ui-radio"
+    >
+      <input
+        checked={false}
+        className="algae-ui-radio-input"
+        disabled={false}
+        onChange={[Function]}
+        type="radio"
+        value="b"
+      />
+      <span
+        className="algae-ui-radio-inner"
+      />
+    </span>
+    <span
+      className="algae-ui-radio-text"
+    >
+      b
+    </span>
+  </label>
+  <label
+    className="algae-ui-radio-wrapper algae-ui-radio-disabled"
+  >
+    <span
+      className="algae-ui-radio"
+    >
+      <input
+        checked={false}
+        className="algae-ui-radio-input"
+        disabled={true}
+        onChange={[Function]}
+        type="radio"
+        value="c"
+      />
+      <span
+        className="algae-ui-radio-inner"
+      />
+    </span>
+    <span
+      className="algae-ui-radio-text"
+    >
+      c
+    </span>
+  </label>
+</div>
+`;
+
+exports[`RadioGroup 根据 options 来渲染 RadioGroup 2`] = `
+<div
+  className="algae-ui-radio-group algae-ui-radio-group-disabled"
+>
+  <label
+    className="algae-ui-radio-wrapper algae-ui-radio-disabled"
+  >
+    <span
+      className="algae-ui-radio"
+    >
+      <input
+        checked={false}
+        className="algae-ui-radio-input"
+        disabled={true}
+        onChange={[Function]}
+        type="radio"
+        value="a"
+      />
+      <span
+        className="algae-ui-radio-inner"
+      />
+    </span>
+    <span
+      className="algae-ui-radio-text"
+    >
+      a
+    </span>
+  </label>
+  <label
+    className="algae-ui-radio-wrapper algae-ui-radio-disabled"
+  >
+    <span
+      className="algae-ui-radio"
+    >
+      <input
+        checked={false}
+        className="algae-ui-radio-input"
+        disabled={true}
+        onChange={[Function]}
+        type="radio"
+        value="b"
+      />
+      <span
+        className="algae-ui-radio-inner"
+      />
+    </span>
+    <span
+      className="algae-ui-radio-text"
+    >
+      b
+    </span>
+  </label>
+  <label
+    className="algae-ui-radio-wrapper algae-ui-radio-disabled"
+  >
+    <span
+      className="algae-ui-radio"
+    >
+      <input
+        checked={false}
+        className="algae-ui-radio-input"
+        disabled={true}
+        onChange={[Function]}
+        type="radio"
+        value="c"
+      />
+      <span
+        className="algae-ui-radio-inner"
+      />
+    </span>
+    <span
+      className="algae-ui-radio-text"
+    >
+      c
+    </span>
+  </label>
+</div>
+`;
+
+exports[`RadioGroup 渲染一个 RadioGroup 1`] = `
+<div
+  className="algae-ui-radio-group"
+>
+  <label
+    className="algae-ui-radio-wrapper"
+  >
+    <span
+      className="algae-ui-radio"
+    >
+      <input
+        checked={false}
+        className="algae-ui-radio-input"
+        disabled={false}
+        onChange={[Function]}
+        type="radio"
+      />
+      <span
+        className="algae-ui-radio-inner"
+      />
+    </span>
+    <span
+      className="algae-ui-radio-text"
+    >
+      radio1
+    </span>
+  </label>
+  <label
+    className="algae-ui-radio-wrapper"
+  >
+    <span
+      className="algae-ui-radio"
+    >
+      <input
+        checked={false}
+        className="algae-ui-radio-input"
+        disabled={false}
+        onChange={[Function]}
+        type="radio"
+      />
+      <span
+        className="algae-ui-radio-inner"
+      />
+    </span>
+    <span
+      className="algae-ui-radio-text"
+    >
+      radio2
+    </span>
+  </label>
+</div>
+`;
+
+exports[`RadioGroup 配置模式接受 value 1`] = `
+<div
+  className="algae-ui-radio-group"
+>
+  <label
+    className="algae-ui-radio-wrapper"
+  >
+    <span
+      className="algae-ui-radio"
+    >
+      <input
+        checked={false}
+        className="algae-ui-radio-input"
+        disabled={false}
+        onChange={[Function]}
+        type="radio"
+        value="a"
+      />
+      <span
+        className="algae-ui-radio-inner"
+      />
+    </span>
+    <span
+      className="algae-ui-radio-text"
+    >
+      a
+    </span>
+  </label>
+  <label
+    className="algae-ui-radio-wrapper algae-ui-radio-checked"
+  >
+    <span
+      className="algae-ui-radio"
+    >
+      <input
+        checked={true}
+        className="algae-ui-radio-input"
+        disabled={false}
+        onChange={[Function]}
+        type="radio"
+        value="b"
+      />
+      <span
+        className="algae-ui-radio-inner"
+      />
+    </span>
+    <span
+      className="algae-ui-radio-text"
+    >
+      b
+    </span>
+  </label>
+  <label
+    className="algae-ui-radio-wrapper algae-ui-radio-disabled"
+  >
+    <span
+      className="algae-ui-radio"
+    >
+      <input
+        checked={false}
+        className="algae-ui-radio-input"
+        disabled={true}
+        onChange={[Function]}
+        type="radio"
+        value="c"
+      />
+      <span
+        className="algae-ui-radio-inner"
+      />
+    </span>
+    <span
+      className="algae-ui-radio-text"
+    >
+      c
+    </span>
+  </label>
+</div>
+`;
