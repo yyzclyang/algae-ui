@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import classNames from '../utils/classNames';
 import './style/radio.scss';
@@ -25,29 +25,32 @@ const Radio: React.FunctionComponent<RadioProps> = (props: RadioProps) => {
     ...restProps
   } = props;
   const [radioChecked, setRadioChecked] = useState<boolean>(
-    checked !== undefined
-      ? checked
-      : defaultChecked !== undefined
-      ? defaultChecked
-      : false
+    checked !== undefined ? checked : defaultChecked!
   );
+
+  useEffect(() => {
+    if (checked !== undefined) {
+      setRadioChecked(checked);
+    }
+  }, [checked]);
 
   const radioOnChange: React.ChangeEventHandler = (
     e: React.ChangeEvent<HTMLInputElement>
   ) => {
+    if (disabled) {
+      return;
+    }
     onChange && onChange(e);
-    setRadioChecked(true);
+    if (checked === undefined) {
+      setRadioChecked(true);
+    }
   };
 
   return (
     <label
       className={classNames(
         'algae-ui-radio-wrapper',
-        (checked !== undefined
-        ? checked
-        : radioChecked)
-          ? 'algae-ui-radio-checked'
-          : '',
+        radioChecked ? 'algae-ui-radio-checked' : '',
         disabled ? 'algae-ui-radio-disabled' : ''
       )}
       style={style}
@@ -56,7 +59,7 @@ const Radio: React.FunctionComponent<RadioProps> = (props: RadioProps) => {
         <input
           className="algae-ui-radio-input"
           type="radio"
-          checked={checked !== undefined ? checked : radioChecked}
+          checked={radioChecked}
           disabled={disabled}
           onChange={radioOnChange}
           {...restProps}
@@ -82,6 +85,7 @@ Radio.propTypes = {
 };
 
 Radio.defaultProps = {
+  defaultChecked: false,
   disabled: false
 };
 
