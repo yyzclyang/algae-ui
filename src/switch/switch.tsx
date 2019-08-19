@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import classNames from '../utils/classNames';
 import { Icon } from '../index';
@@ -28,25 +28,33 @@ const Switch: React.FunctionComponent<SwitchProps> = (props: SwitchProps) => {
     checkedEl,
     uncheckedEl
   } = props;
-  const [switchChecked, setSwitchChecked] = useState<boolean>(() => {
-    return checked !== undefined
-      ? checked
-      : defaultChecked !== undefined
-      ? defaultChecked
-      : false;
-  });
+  const [switchChecked, setSwitchChecked] = useState<boolean>(
+    checked !== undefined ? checked : defaultChecked!
+  );
+
+  useEffect(() => {
+    if (checked !== undefined) {
+      setSwitchChecked(checked);
+      onChange && onChange(checked);
+    }
+  }, [checked]);
 
   const onClickHandle: React.MouseEventHandler = (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
+    if (disabled) {
+      return;
+    }
     toggleCheck();
     onClick && onClick(e);
   };
 
   const toggleCheck = () => {
-    const newSwitchChecked = checked !== undefined ? checked : !switchChecked;
-    setSwitchChecked(newSwitchChecked);
-    onChange && onChange(!switchChecked);
+    const newSwitchChecked = checked === undefined ? !switchChecked : !checked;
+    if (checked === undefined) {
+      setSwitchChecked(newSwitchChecked);
+    }
+    onChange && onChange(newSwitchChecked);
   };
 
   const renderNode = (
@@ -102,6 +110,7 @@ Switch.propTypes = {
 };
 
 Switch.defaultProps = {
+  defaultChecked: false,
   disabled: false,
   loading: false
 };
