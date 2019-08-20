@@ -42,7 +42,7 @@ const Radio: React.FunctionComponent<RadioProps> = (props: RadioProps) => {
     }
     onChange && onChange(e);
     if (checked === undefined) {
-      setRadioChecked(true);
+      setRadioChecked(e.target.checked);
     }
   };
 
