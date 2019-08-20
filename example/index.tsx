@@ -1,11 +1,6 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import {
-  HashRouter as Router,
-  Route,
-  NavLink,
-  Redirect
-} from 'react-router-dom';
+import { HashRouter as Router, Route, NavLink } from 'react-router-dom';
 import './index.scss';
 import { Layout, Content, Footer, Header, Side, Icon, Scroll } from 'ROOT/src';
 
@@ -21,6 +16,7 @@ import InputExample from './componentExample/InputExample';
 import AffixExample from './componentExample/AffixExample';
 import SwitchExample from './componentExample/SwitchExample';
 import RadioExample from './componentExample/RadioExample';
+import CheckboxExample from './componentExample/CheckboxExample';
 
 import './img/logo.svg';
 import './img/logo_text.svg';
@@ -69,6 +65,7 @@ ReactDOM.render(
               <NavLink to="/input">Input 输入框</NavLink>
               <NavLink to="/switch">Switch 开关</NavLink>
               <NavLink to="/radio">Radio 单选框</NavLink>
+              <NavLink to="/checkbox">Checkbox 多选框</NavLink>
             </li>
             <li>
               <div className="component-group component-list">反馈</div>
@@ -86,7 +83,6 @@ ReactDOM.render(
           </div>
         </Header>
         <Content className="main-content">
-          <Redirect to="/introduction" />
           <Route path="/introduction" component={Introduction} />
           <Route path="/get-start" component={GetStart} />
           <Route path="/icon" component={IconExample} />
@@ -98,6 +94,7 @@ ReactDOM.render(
           <Route path="/modal" component={ModalExample} />
           <Route path="/switch" component={SwitchExample} />
           <Route path="/radio" component={RadioExample} />
+          <Route path="/checkbox" component={CheckboxExample} />
         </Content>
         <Footer className="main-footer">&copy; YyzclYang</Footer>
       </Layout>
