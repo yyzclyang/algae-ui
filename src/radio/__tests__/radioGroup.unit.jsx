@@ -1,7 +1,7 @@
 import React from 'react';
 import * as renderer from 'react-test-renderer';
+import { mount } from 'enzyme';
 import Radio, { RadioGroup } from '../index';
-// import { mount } from 'enzyme';
 
 describe('RadioGroup', () => {
   it('渲染一个 RadioGroup', () => {
@@ -71,5 +71,16 @@ describe('RadioGroup', () => {
       .create(<RadioGroup value="b" options={options} />)
       .toJSON();
     expect(component).toMatchSnapshot();
+  });
+
+  it('点击子 Checkbox 触发 onChange', () => {
+    const fn = jest.fn();
+    const component = mount(
+      <RadioGroup onChange={fn}>
+        <Radio value="a">radio1</Radio>
+      </RadioGroup>
+    );
+    component.find('input').simulate('change');
+    expect(fn).toBeCalled();
   });
 });

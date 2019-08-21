@@ -30,4 +30,15 @@ describe('Radio', () => {
     component.find('input').simulate('change');
     expect(fn).toBeCalled();
   });
+
+  it('disabled 时不可响应 onChange 事件', () => {
+    const fn = jest.fn();
+    const component = mount(
+      <Radio disabled onChange={fn}>
+        radio
+      </Radio>
+    );
+    component.find('input').simulate('change');
+    expect(fn).not.toBeCalled();
+  });
 });
