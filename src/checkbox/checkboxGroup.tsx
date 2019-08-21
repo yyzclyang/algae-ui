@@ -113,13 +113,15 @@ const CheckboxGroup: React.FunctionComponent<CheckboxGroupProps> = (
 };
 
 CheckboxGroup.displayName = 'CheckboxGroup';
-
 CheckboxGroup.propTypes = {
   className: PropTypes.string,
   value: PropTypes.array,
   onChange: PropTypes.func,
   disabled: PropTypes.bool,
   options: PropTypes.array
+};
+CheckboxGroup.defaultProps = {
+  disabled: false
 };
 
 export default CheckboxGroup;
