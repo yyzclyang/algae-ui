@@ -1,0 +1,360 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RadioGroup children 为 string 1`] = `
+<div
+  className="algae-ui-checkbox-group"
+>
+  radio
+</div>
+`;
+
+exports[`RadioGroup 接受 name disabled 1`] = `
+<div
+  className="algae-ui-checkbox-group algae-ui-checkbox-group-disabled"
+>
+  <label
+    className="algae-ui-checkbox-wrapper algae-ui-checkbox-disabled"
+  >
+    <span
+      className="algae-ui-checkbox"
+    >
+      <input
+        checked={false}
+        className="algae-ui-checkbox-input"
+        disabled={true}
+        name="test"
+        onChange={[Function]}
+        type="checkbox"
+      />
+    </span>
+    <span
+      className="algae-ui-checkbox-text"
+    >
+      radio1
+    </span>
+  </label>
+  <label
+    className="algae-ui-checkbox-wrapper algae-ui-checkbox-disabled"
+  >
+    <span
+      className="algae-ui-checkbox"
+    >
+      <input
+        checked={false}
+        className="algae-ui-checkbox-input"
+        disabled={true}
+        name="test"
+        onChange={[Function]}
+        type="checkbox"
+      />
+    </span>
+    <span
+      className="algae-ui-checkbox-text"
+    >
+      radio2
+    </span>
+  </label>
+</div>
+`;
+
+exports[`RadioGroup 接受 value 1`] = `
+<div
+  className="algae-ui-checkbox-group"
+>
+  <label
+    className="algae-ui-checkbox-wrapper algae-ui-checkbox-checked"
+  >
+    <span
+      className="algae-ui-checkbox"
+    >
+      <input
+        checked={true}
+        className="algae-ui-checkbox-input"
+        onChange={[Function]}
+        type="checkbox"
+        value="1"
+      />
+    </span>
+    <span
+      className="algae-ui-checkbox-text"
+    >
+      radio1
+    </span>
+  </label>
+  <label
+    className="algae-ui-checkbox-wrapper"
+  >
+    <span
+      className="algae-ui-checkbox"
+    >
+      <input
+        checked={false}
+        className="algae-ui-checkbox-input"
+        onChange={[Function]}
+        type="checkbox"
+        value="2"
+      />
+    </span>
+    <span
+      className="algae-ui-checkbox-text"
+    >
+      radio2
+    </span>
+  </label>
+</div>
+`;
+
+exports[`RadioGroup 根据 options 来渲染 RadioGroup 1`] = `
+<div
+  className="algae-ui-checkbox-group"
+>
+  <label
+    className="algae-ui-checkbox-wrapper"
+  >
+    <span
+      className="algae-ui-checkbox"
+    >
+      <input
+        checked={false}
+        className="algae-ui-checkbox-input"
+        disabled={false}
+        onChange={[Function]}
+        type="checkbox"
+        value="a"
+      />
+    </span>
+    <span
+      className="algae-ui-checkbox-text"
+    >
+      a
+    </span>
+  </label>
+  <label
+    className="algae-ui-checkbox-wrapper"
+  >
+    <span
+      className="algae-ui-checkbox"
+    >
+      <input
+        checked={false}
+        className="algae-ui-checkbox-input"
+        disabled={false}
+        onChange={[Function]}
+        type="checkbox"
+        value="b"
+      />
+    </span>
+    <span
+      className="algae-ui-checkbox-text"
+    >
+      b
+    </span>
+  </label>
+  <label
+    className="algae-ui-checkbox-wrapper algae-ui-checkbox-disabled"
+  >
+    <span
+      className="algae-ui-checkbox"
+    >
+      <input
+        checked={false}
+        className="algae-ui-checkbox-input"
+        disabled={true}
+        onChange={[Function]}
+        type="checkbox"
+        value="c"
+      />
+    </span>
+    <span
+      className="algae-ui-checkbox-text"
+    >
+      c
+    </span>
+  </label>
+</div>
+`;
+
+exports[`RadioGroup 根据 options 来渲染 RadioGroup 2`] = `
+<div
+  className="algae-ui-checkbox-group algae-ui-checkbox-group-disabled"
+>
+  <label
+    className="algae-ui-checkbox-wrapper algae-ui-checkbox-disabled"
+  >
+    <span
+      className="algae-ui-checkbox"
+    >
+      <input
+        checked={false}
+        className="algae-ui-checkbox-input"
+        disabled={true}
+        onChange={[Function]}
+        type="checkbox"
+        value="a"
+      />
+    </span>
+    <span
+      className="algae-ui-checkbox-text"
+    >
+      a
+    </span>
+  </label>
+  <label
+    className="algae-ui-checkbox-wrapper algae-ui-checkbox-disabled"
+  >
+    <span
+      className="algae-ui-checkbox"
+    >
+      <input
+        checked={false}
+        className="algae-ui-checkbox-input"
+        disabled={true}
+        onChange={[Function]}
+        type="checkbox"
+        value="b"
+      />
+    </span>
+    <span
+      className="algae-ui-checkbox-text"
+    >
+      b
+    </span>
+  </label>
+  <label
+    className="algae-ui-checkbox-wrapper algae-ui-checkbox-disabled"
+  >
+    <span
+      className="algae-ui-checkbox"
+    >
+      <input
+        checked={false}
+        className="algae-ui-checkbox-input"
+        disabled={true}
+        onChange={[Function]}
+        type="checkbox"
+        value="c"
+      />
+    </span>
+    <span
+      className="algae-ui-checkbox-text"
+    >
+      c
+    </span>
+  </label>
+</div>
+`;
+
+exports[`RadioGroup 渲染一个 RadioGroup 1`] = `
+<div
+  className="algae-ui-checkbox-group"
+>
+  <label
+    className="algae-ui-checkbox-wrapper"
+  >
+    <span
+      className="algae-ui-checkbox"
+    >
+      <input
+        checked={false}
+        className="algae-ui-checkbox-input"
+        onChange={[Function]}
+        type="checkbox"
+      />
+    </span>
+    <span
+      className="algae-ui-checkbox-text"
+    >
+      radio1
+    </span>
+  </label>
+  <label
+    className="algae-ui-checkbox-wrapper"
+  >
+    <span
+      className="algae-ui-checkbox"
+    >
+      <input
+        checked={false}
+        className="algae-ui-checkbox-input"
+        onChange={[Function]}
+        type="checkbox"
+      />
+    </span>
+    <span
+      className="algae-ui-checkbox-text"
+    >
+      radio2
+    </span>
+  </label>
+</div>
+`;
+
+exports[`RadioGroup 配置模式接受 value 1`] = `
+<div
+  className="algae-ui-checkbox-group"
+>
+  <label
+    className="algae-ui-checkbox-wrapper algae-ui-checkbox-checked"
+  >
+    <span
+      className="algae-ui-checkbox"
+    >
+      <input
+        checked={true}
+        className="algae-ui-checkbox-input"
+        disabled={false}
+        onChange={[Function]}
+        type="checkbox"
+        value="a"
+      />
+    </span>
+    <span
+      className="algae-ui-checkbox-text"
+    >
+      a
+    </span>
+  </label>
+  <label
+    className="algae-ui-checkbox-wrapper"
+  >
+    <span
+      className="algae-ui-checkbox"
+    >
+      <input
+        checked={false}
+        className="algae-ui-checkbox-input"
+        disabled={false}
+        onChange={[Function]}
+        type="checkbox"
+        value="b"
+      />
+    </span>
+    <span
+      className="algae-ui-checkbox-text"
+    >
+      b
+    </span>
+  </label>
+  <label
+    className="algae-ui-checkbox-wrapper algae-ui-checkbox-disabled"
+  >
+    <span
+      className="algae-ui-checkbox"
+    >
+      <input
+        checked={false}
+        className="algae-ui-checkbox-input"
+        disabled={true}
+        onChange={[Function]}
+        type="checkbox"
+        value="c"
+      />
+    </span>
+    <span
+      className="algae-ui-checkbox-text"
+    >
+      c
+    </span>
+  </label>
+</div>
+`;

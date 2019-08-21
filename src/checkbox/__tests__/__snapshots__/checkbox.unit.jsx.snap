@@ -1,0 +1,108 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Checkbox 不传递子节点 1`] = `
+<label
+  className="algae-ui-checkbox-wrapper algae-ui-checkbox-disabled"
+>
+  <span
+    className="algae-ui-checkbox"
+  >
+    <input
+      checked={false}
+      className="algae-ui-checkbox-input"
+      disabled={true}
+      onChange={[Function]}
+      type="checkbox"
+    />
+  </span>
+</label>
+`;
+
+exports[`Checkbox 接受 checked 1`] = `
+<label
+  className="algae-ui-checkbox-wrapper algae-ui-checkbox-checked"
+>
+  <span
+    className="algae-ui-checkbox"
+  >
+    <input
+      checked={true}
+      className="algae-ui-checkbox-input"
+      onChange={[Function]}
+      type="checkbox"
+    />
+  </span>
+  <span
+    className="algae-ui-checkbox-text"
+  >
+    radio
+  </span>
+</label>
+`;
+
+exports[`Checkbox 接受 disabled 1`] = `
+<label
+  className="algae-ui-checkbox-wrapper algae-ui-checkbox-disabled"
+>
+  <span
+    className="algae-ui-checkbox"
+  >
+    <input
+      checked={false}
+      className="algae-ui-checkbox-input"
+      disabled={true}
+      onChange={[Function]}
+      type="checkbox"
+    />
+  </span>
+  <span
+    className="algae-ui-checkbox-text"
+  >
+    radio
+  </span>
+</label>
+`;
+
+exports[`Checkbox 接受 indeterminate 1`] = `
+<label
+  className="algae-ui-checkbox-wrapper algae-ui-checkbox-indeterminate"
+>
+  <span
+    className="algae-ui-checkbox"
+  >
+    <input
+      checked={false}
+      className="algae-ui-checkbox-input"
+      onChange={[Function]}
+      type="checkbox"
+    />
+  </span>
+  <span
+    className="algae-ui-checkbox-text"
+  >
+    radio
+  </span>
+</label>
+`;
+
+exports[`Checkbox 渲染一个 Checkbox 1`] = `
+<label
+  className="algae-ui-checkbox-wrapper"
+>
+  <span
+    className="algae-ui-checkbox"
+  >
+    <input
+      checked={false}
+      className="algae-ui-checkbox-input"
+      onChange={[Function]}
+      type="checkbox"
+    />
+  </span>
+  <span
+    className="algae-ui-checkbox-text"
+  >
+    radio
+  </span>
+</label>
+`;
