@@ -54,6 +54,13 @@ describe('Switch', () => {
     expect(fn).toBeCalled();
   });
 
+  it('disabled 点击时不可触发 onChange 事件', () => {
+    const fn = jest.fn();
+    const component = mount(<Switch disabled onChange={fn} />);
+    component.find('button').simulate('click');
+    expect(fn).not.toBeCalled();
+  });
+
   it('点击时改变 Switch 的状态', () => {
     let checked = false;
     const component = mount(
