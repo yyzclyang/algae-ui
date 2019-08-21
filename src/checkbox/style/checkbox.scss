@@ -36,6 +36,28 @@
       opacity: 0;
     }
   }
+  &.algae-ui-checkbox-indeterminate {
+    & > .algae-ui-checkbox {
+      position: relative;
+      &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 1px;
+        background: transparentize($theme-color, 0.15);
+      }
+    }
+    &.algae-ui-checkbox-disabled {
+      & > .algae-ui-checkbox::after {
+        background: transparentize($fill, 0.25);
+      }
+    }
+  }
   &.algae-ui-checkbox-checked {
     & > .algae-ui-checkbox {
       border-width: 0;
@@ -44,13 +66,37 @@
         content: '';
         display: block;
         position: absolute;
-        height: 8px;
-        width: 12px;
-        top: 2px;
-        left: 2px;
+        height: 6px;
+        width: 10px;
+        top: 3px;
+        left: 3px;
         transform: rotate(-45deg);
         border-bottom: 2px solid #ffffff;
         border-left: 2px solid #ffffff;
+      }
+    }
+  }
+  &.algae-ui-checkbox-disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+    &:hover {
+      & > .algae-ui-checkbox {
+        animation: none;
+      }
+    }
+    & > .algae-ui-checkbox {
+      cursor: not-allowed;
+      & > .algae-ui-checkbox-input {
+        cursor: not-allowed;
+      }
+    }
+  }
+  &.algae-ui-checkbox-checked.algae-ui-checkbox-disabled {
+    & > .algae-ui-checkbox {
+      background: transparentize($fill, 0.75);
+      border-width: 1px;
+      &::after {
+        border-color: $secondary-color;
       }
     }
   }

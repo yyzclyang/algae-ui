@@ -6,10 +6,12 @@ import './style/checkbox.scss';
 
 const sc = scopedClassMaker('algae-ui-checkbox');
 
-interface CheckboxProps {
+interface CheckboxProps extends React.InputHTMLAttributes<HTMLInputElement> {
+  value?: string;
   checked?: boolean;
   defaultChecked?: boolean;
   disabled?: boolean;
+  indeterminate?: boolean;
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
   children?: string;
 }
@@ -17,7 +19,15 @@ interface CheckboxProps {
 const Checkbox: React.FunctionComponent<CheckboxProps> = (
   props: CheckboxProps
 ) => {
-  const { checked, defaultChecked, disabled, onChange, children } = props;
+  const {
+    checked,
+    defaultChecked,
+    disabled,
+    indeterminate,
+    onChange,
+    children,
+    ...restProps
+  } = props;
   const [checkboxChecked, setCheckboxChecked] = useState<boolean>(
     checked !== undefined ? checked : defaultChecked!
   );
@@ -45,7 +55,8 @@ const Checkbox: React.FunctionComponent<CheckboxProps> = (
       className={classNames(
         sc('wrapper'),
         checkboxChecked ? sc('checked') : '',
-        disabled ? sc('disabled') : ''
+        disabled ? sc('disabled') : '',
+        indeterminate ? sc('indeterminate') : ''
       )}
     >
       <span className={sc()}>
@@ -55,6 +66,7 @@ const Checkbox: React.FunctionComponent<CheckboxProps> = (
           checked={checkboxChecked}
           onChange={checkboxOnChange}
           type="checkbox"
+          {...restProps}
         />
       </span>
       {children ? <span className={sc('text')}>{children}</span> : null}
@@ -64,14 +76,17 @@ const Checkbox: React.FunctionComponent<CheckboxProps> = (
 
 Checkbox.displayName = 'Checkbox';
 Checkbox.propTypes = {
+  value: PropTypes.string,
   checked: PropTypes.bool,
   defaultChecked: PropTypes.bool,
   disabled: PropTypes.bool,
+  indeterminate: PropTypes.bool,
   onChange: PropTypes.func,
   children: PropTypes.string
 };
 Checkbox.defaultProps = {
-  defaultChecked: false
+  defaultChecked: false,
+  indeterminate: false
 };
 
 export default Checkbox;
