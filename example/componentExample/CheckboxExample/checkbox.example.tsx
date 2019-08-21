@@ -81,7 +81,68 @@ const CheckboxExample: React.FunctionComponent = () => {
       </section>
       <section>
         <h2>API</h2>
-        <Api data={[]} />
+        <h3>Checkbox</h3>
+        <p>
+          <code>Checkbox</code>拓展自
+          <code>&lt;input type="checkbox" /&gt;</code>，除了以下
+          <code>Api</code>
+          ，还支持<code>input</code>的其他<code>Api</code>。
+        </p>
+        <Api
+          data={[
+            ['checked', '是否选中', 'boolean', '-'],
+            ['defaultChecked', '默认是否选中', 'boolean', 'false'],
+            ['disabled', '是否禁用', 'boolean', 'false'],
+            [
+              'indeterminate',
+              '设置半选中模式，用于设置全选框',
+              'boolean',
+              'false'
+            ],
+            ['onChange', '选取时的回调', 'React.ChangeEventHandler', '-']
+          ]}
+        />
+        <h3>CheckboxGroup</h3>
+        <p>
+          用于设置一组<code>Checkbox</code>。
+        </p>
+        <Api
+          data={[
+            [
+              'value',
+              <>
+                用于设置当前激活的<code>Checkbox</code>
+              </>,
+              'string',
+              '-'
+            ],
+            [
+              'name',
+              <>
+                为被包裹的<code>Checkbox</code>添加<code>name</code>属性
+              </>,
+              'string',
+              '-'
+            ],
+            [
+              'disabled',
+              <>
+                禁用所有的子<code>Checkbox</code>
+              </>,
+              'boolean',
+              'false'
+            ],
+            [
+              'options',
+              <>
+                使用配置模式配置子<code>Checkbox</code>。
+              </>,
+              'Array<{ label: string, value: string, disabled?: boolean } | string>',
+              '-'
+            ],
+            ['onChange', '选项变化时的回调', 'React.ChangeEventHandler', '-']
+          ]}
+        />
       </section>
     </div>
   );
