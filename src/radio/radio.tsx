@@ -51,11 +51,12 @@ const Radio: React.FunctionComponent<RadioProps> = (props: RadioProps) => {
       className={classNames(
         'algae-ui-radio-wrapper',
         radioChecked ? 'algae-ui-radio-checked' : '',
-        disabled ? 'algae-ui-radio-disabled' : ''
+        disabled ? 'algae-ui-radio-disabled' : '',
+        className
       )}
       style={style}
     >
-      <span className={classNames('algae-ui-radio', className)}>
+      <span className={classNames('algae-ui-radio')}>
         <input
           className="algae-ui-radio-input"
           type="radio"
