@@ -20,6 +20,7 @@ const Checkbox: React.FunctionComponent<CheckboxProps> = (
   props: CheckboxProps
 ) => {
   const {
+    className,
     checked,
     defaultChecked,
     disabled,
@@ -56,7 +57,8 @@ const Checkbox: React.FunctionComponent<CheckboxProps> = (
         sc('wrapper'),
         checkboxChecked ? sc('checked') : '',
         disabled ? sc('disabled') : '',
-        indeterminate ? sc('indeterminate') : ''
+        indeterminate ? sc('indeterminate') : '',
+        className
       )}
     >
       <span className={sc()}>
