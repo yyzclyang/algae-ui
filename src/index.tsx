@@ -23,3 +23,5 @@ export { RadioGroup } from './radio';
 
 export { default as Checkbox } from './checkbox';
 export { CheckboxGroup } from './checkbox';
+
+export { default as Rate } from './rate';
