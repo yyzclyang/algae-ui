@@ -17,6 +17,7 @@ import AffixExample from './componentExample/AffixExample';
 import SwitchExample from './componentExample/SwitchExample';
 import RadioExample from './componentExample/RadioExample';
 import CheckboxExample from './componentExample/CheckboxExample';
+import RateExample from './componentExample/RateExample';
 
 import './img/logo.svg';
 import './img/logo_text.svg';
@@ -66,6 +67,7 @@ ReactDOM.render(
               <NavLink to="/switch">Switch 开关</NavLink>
               <NavLink to="/radio">Radio 单选框</NavLink>
               <NavLink to="/checkbox">Checkbox 多选框</NavLink>
+              <NavLink to="/rate">Rate 评分</NavLink>
             </li>
             <li>
               <div className="component-group component-list">反馈</div>
@@ -95,6 +97,7 @@ ReactDOM.render(
           <Route path="/switch" component={SwitchExample} />
           <Route path="/radio" component={RadioExample} />
           <Route path="/checkbox" component={CheckboxExample} />
+          <Route path="/rate" component={RateExample} />
         </Content>
         <Footer className="main-footer">&copy; YyzclYang</Footer>
       </Layout>

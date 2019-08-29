@@ -1,0 +1,13 @@
+@import '../../style/base';
+
+.rate-example-list {
+  & > .rate-example {
+    display: flex;
+    align-items: center;
+    & > .tips {
+      margin-left: 8px;
+      font-size: 14px;
+      color: $medium-color;
+    }
+  }
+}
