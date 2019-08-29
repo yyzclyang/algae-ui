@@ -1,1 +1,40 @@
 @import '../../style/theme';
+
+.algae-ui-rate-star-wrapper {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 1.8em;
+  height: 1.8em;
+  &.algae-ui-rate-star-wrapper-tips {
+    position: relative;
+    &:hover {
+      &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: -85%;
+        width: 1em;
+        height: 1em;
+        background: black;
+        border-radius: 1px;
+        transform: rotate(45deg);
+      }
+      &::after {
+        content: attr(data-tips);
+        display: block;
+        font-size: 14px;
+        min-width: 6em;
+        text-align: center;
+        padding: 4px 1em;
+        position: absolute;
+        top: -40%;
+        left: 50%;
+        transform: translate(-50%, -100%);
+        background: black;
+        color: white;
+        border-radius: 4px;
+      }
+    }
+  }
+}

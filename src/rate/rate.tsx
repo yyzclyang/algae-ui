@@ -26,6 +26,9 @@ const Rate: React.FunctionComponent<RateProps> = (props: RateProps) => {
     count,
     value,
     defaultValue,
+    tips,
+    allowClear,
+    allowHalf,
     onChange,
     onHoverChange
   } = props;
@@ -45,14 +48,20 @@ const Rate: React.FunctionComponent<RateProps> = (props: RateProps) => {
     onHoverChange && onHoverChange(hoverRateValue);
   }, [hoverRateValue]);
 
-  const renderStar = (count: number, rateStarValue: number) => {
+  const renderStar = (count: number, rateStarsValue: number) => {
     const starMouseEnterGenerator = (
       index: number
     ): React.MouseEventHandler<SVGSVGElement> => (
       e: React.MouseEvent<SVGSVGElement>
     ) => {
-      if (hoverRateValue !== index + 1) {
-        setHoverRateValue(index + 1);
+      const currentStarValue = !allowHalf
+        ? 1
+        : e.nativeEvent.offsetX / e.currentTarget.clientWidth > 0.5
+        ? 1
+        : 0.5;
+      const newRateValue = index + currentStarValue;
+      if (hoverRateValue !== newRateValue) {
+        setHoverRateValue(newRateValue);
       }
     };
 
@@ -61,18 +70,15 @@ const Rate: React.FunctionComponent<RateProps> = (props: RateProps) => {
     ): React.MouseEventHandler<SVGSVGElement> => (
       e: React.MouseEvent<SVGSVGElement>
     ) => {
-      if (hoverRateValue !== index + 1) {
-        setHoverRateValue(index + 1);
+      const currentStarValue = !allowHalf
+        ? 1
+        : e.nativeEvent.offsetX / e.currentTarget.clientWidth > 0.5
+        ? 1
+        : 0.5;
+      const newRateValue = index + currentStarValue;
+      if (hoverRateValue !== newRateValue) {
+        setHoverRateValue(newRateValue);
       }
-    };
-
-    const starMouseLeaveGenerator = (
-      index: number
-    ): React.MouseEventHandler<SVGSVGElement> => (
-      e: React.MouseEvent<SVGSVGElement>
-    ) => {
-      //TODO 离开后 0.3s 内不 hover 下一个 star 执行
-      setHoverRateValue(0);
     };
 
     const starOnClickGenerator = (
@@ -80,32 +86,62 @@ const Rate: React.FunctionComponent<RateProps> = (props: RateProps) => {
     ): React.MouseEventHandler<SVGSVGElement> => (
       e: React.MouseEvent<SVGSVGElement>
     ) => {
+      const currentStarValue = !allowHalf
+        ? 1
+        : e.nativeEvent.offsetX / e.currentTarget.clientWidth > 0.5
+        ? 1
+        : 0.5;
+      const newRateValue =
+        allowClear && index + currentStarValue === rateValue
+          ? 0
+          : index + currentStarValue;
+
       if (value === undefined) {
-        setRateValue(index + 1);
+        setRateValue(newRateValue);
       }
-      onChange && onChange(index + 1);
+      onChange && onChange(newRateValue);
     };
 
     return Array.from({ length: count }).map((v, i) => {
+      const currentStarValue =
+        (hoverRateValue ? hoverRateValue : rateStarsValue) - i;
       const type =
-        (hoverRateValue ? hoverRateValue : rateStarValue) - i > 0
-          ? 'full'
+        currentStarValue > 0
+          ? allowHalf
+            ? currentStarValue > 0.5
+              ? 'full'
+              : 'half'
+            : 'full'
           : 'none';
+      const starTips = tips ? tips[i] : undefined;
       return (
-        <Star
+        <span
           key={i}
-          type={type}
-          onMouseEnter={starMouseEnterGenerator(i)}
-          onMouseMove={starMouseMoveGenerator(i)}
-          onMouseLeave={starMouseLeaveGenerator(i)}
-          onClick={starOnClickGenerator(i)}
-        />
+          data-tips={starTips ? starTips : undefined}
+          className={classNames(
+            sc('star-wrapper'),
+            starTips ? sc('star-wrapper-tips') : ''
+          )}
+        >
+          <Star
+            type={type}
+            onMouseEnter={starMouseEnterGenerator(i)}
+            onMouseMove={starMouseMoveGenerator(i)}
+            onClick={starOnClickGenerator(i)}
+          />
+        </span>
       );
     });
   };
 
+  const rateMouseLeave: React.MouseEventHandler<HTMLDivElement> = (
+    e: React.MouseEvent<HTMLDivElement>
+  ) => {
+    setHoverRateValue(0);
+  };
+
   return (
-    <div className={classNames(sc(), className)}>
+    <div className={classNames(sc(), className)} onMouseLeave={rateMouseLeave}>
       {renderStar(count!, rateValue)}
     </div>
   );

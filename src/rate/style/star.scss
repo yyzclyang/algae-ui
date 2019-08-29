@@ -1,5 +1,9 @@
-.algae-ui-rate-start {
+.algae-ui-rate-star {
   width: 1.4em;
   height: 1.4em;
   cursor: pointer;
+  transition: all 0.3s;
+  &:hover {
+    transform: scale(1.2);
+  }
 }

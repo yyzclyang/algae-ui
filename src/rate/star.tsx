@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from '../utils/classNames';
 import './style/star.scss';
 
 export type StarTypeValue = 'none' | 'half' | 'full';
@@ -10,11 +11,11 @@ interface StarProps extends React.SVGAttributes<SVGElement> {
 }
 
 const Star: React.FunctionComponent<StarProps> = (props: StarProps) => {
-  const { type, style, ...restProps } = props;
+  const { type, style, className, ...restProps } = props;
 
   return (
     <svg
-      className="algae-ui-rate-start"
+      className={classNames('algae-ui-rate-star', className)}
       viewBox="0 0 1072 1024"
       width="209.375"
       height="200"
