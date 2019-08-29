@@ -26,6 +26,7 @@ const Rate: React.FunctionComponent<RateProps> = (props: RateProps) => {
     count,
     value,
     defaultValue,
+    disabled,
     tips,
     allowClear,
     allowHalf,
@@ -54,6 +55,9 @@ const Rate: React.FunctionComponent<RateProps> = (props: RateProps) => {
     ): React.MouseEventHandler<SVGSVGElement> => (
       e: React.MouseEvent<SVGSVGElement>
     ) => {
+      if (disabled) {
+        return;
+      }
       const currentStarValue = !allowHalf
         ? 1
         : e.nativeEvent.offsetX / e.currentTarget.clientWidth > 0.5
@@ -70,6 +74,9 @@ const Rate: React.FunctionComponent<RateProps> = (props: RateProps) => {
     ): React.MouseEventHandler<SVGSVGElement> => (
       e: React.MouseEvent<SVGSVGElement>
     ) => {
+      if (disabled) {
+        return;
+      }
       const currentStarValue = !allowHalf
         ? 1
         : e.nativeEvent.offsetX / e.currentTarget.clientWidth > 0.5
@@ -86,6 +93,9 @@ const Rate: React.FunctionComponent<RateProps> = (props: RateProps) => {
     ): React.MouseEventHandler<SVGSVGElement> => (
       e: React.MouseEvent<SVGSVGElement>
     ) => {
+      if (disabled) {
+        return;
+      }
       const currentStarValue = !allowHalf
         ? 1
         : e.nativeEvent.offsetX / e.currentTarget.clientWidth > 0.5
@@ -113,7 +123,7 @@ const Rate: React.FunctionComponent<RateProps> = (props: RateProps) => {
               : 'half'
             : 'full'
           : 'none';
-      const starTips = tips ? tips[i] : undefined;
+      const starTips = tips ? tips[Math.ceil(i)] : undefined;
       return (
         <span
           key={i}
@@ -137,11 +147,17 @@ const Rate: React.FunctionComponent<RateProps> = (props: RateProps) => {
   const rateMouseLeave: React.MouseEventHandler<HTMLDivElement> = (
     e: React.MouseEvent<HTMLDivElement>
   ) => {
+    if (disabled) {
+      return;
+    }
     setHoverRateValue(0);
   };
 
   return (
-    <div className={classNames(sc(), className)} onMouseLeave={rateMouseLeave}>
+    <div
+      className={classNames(sc(), disabled ? sc('disabled') : '', className)}
+      onMouseLeave={rateMouseLeave}
+    >
       {renderStar(count!, rateValue)}
     </div>
   );
