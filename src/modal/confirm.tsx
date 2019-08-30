@@ -130,7 +130,7 @@ const confirm = ({
     cancelButton && cancelButton.onClick(e);
   };
 
-  const OkButton: Button[] = !!okButton
+  const OkButton: React.ReactElement[] = !!okButton
     ? [
         <Button
           key="btn1"
@@ -142,7 +142,7 @@ const confirm = ({
         </Button>
       ]
     : [];
-  const CancelButton: Button[] = !!cancelButton
+  const CancelButton: React.ReactElement[] = !!cancelButton
     ? [
         <Button
           key="btn2"
