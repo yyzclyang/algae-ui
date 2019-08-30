@@ -1,5 +1,5 @@
-import classNames from './classNames';
-import scopedClassMaker from './scopedClassMaker';
-import getScrollBarWidth from './getScrollBarWidth';
-
-export { classNames, scopedClassMaker, getScrollBarWidth };
+export { default as classNames } from './classNames';
+export { default as scopedClassMaker } from './scopedClassMaker';
+export { default as getScrollBarWidth } from './getScrollBarWidth';
+export { default as useUpdate } from './useUpdate';
+export { default as useControlState } from './useControlState';
