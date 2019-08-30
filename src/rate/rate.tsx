@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Star from './star';
+import { useControlState } from '../utils';
 import classNames from '../utils/classNames';
 import scopedClassMaker from '../utils/scopedClassMaker';
 import './style/rate.scss';
@@ -36,16 +37,11 @@ const Rate: React.FunctionComponent<RateProps> = (props: RateProps) => {
     onHoverChange
   } = props;
 
-  const [rateValue, setRateValue] = useState<number>(
-    value !== undefined ? value : defaultValue!
+  const [rateValue, setRateValue] = useControlState<number>(
+    defaultValue!,
+    value
   );
   const [hoverRateValue, setHoverRateValue] = useState<number>(0);
-
-  useEffect(() => {
-    if (value !== undefined) {
-      setRateValue(value);
-    }
-  }, [value]);
 
   const renderStar = (count: number, rateStarsValue: number) => {
     const starMouseEnterGenerator = (
@@ -106,9 +102,7 @@ const Rate: React.FunctionComponent<RateProps> = (props: RateProps) => {
           ? 0
           : index + currentStarValue;
 
-      if (value === undefined) {
-        setRateValue(newRateValue);
-      }
+      setRateValue(newRateValue);
       onChange && onChange(newRateValue);
     };
 
