@@ -73,14 +73,17 @@ section {
     radius: 4px;
   }
   box-shadow: 0 1px 4px 1px #e3e6f5;
+  min-width: 392px;
 }
 
 .code-demonstration {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  margin: 0 -16px;
   & > .code-demo-column {
-    width: 48%;
+    flex-grow: 1;
+    margin: 0 16px;
     min-width: 360px;
     & > .code-demo {
       margin-bottom: 20px;
