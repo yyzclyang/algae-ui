@@ -2,10 +2,10 @@
 
 .algae-ui-rate {
   &.algae-ui-rate-disabled {
-    cursor: not-allowed;
+    cursor: default;
     & > .algae-ui-rate-star-wrapper {
       & > .algae-ui-rate-star {
-        cursor: not-allowed;
+        cursor: default;
         &:hover {
           transform: scale(1);
         }
