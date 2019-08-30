@@ -72,7 +72,31 @@ const RateExample: React.FunctionComponent = () => {
       </section>
       <section>
         <h2>API</h2>
-        <Api data={[]} />
+        <Api
+          data={[
+            ['className', '自定义类名', 'string', '-'],
+            ['style', '自定义样式', 'React.CSSProperties', '-'],
+            ['count', '星星的总数', 'number', '5'],
+            ['value', '当前激活的星星个数，受控值', 'number', '-'],
+            ['defaultValue', '默认激活的星星个数', 'number', '0'],
+            ['disabled', '星星状态只读，不可改变', 'boolean', 'false'],
+            ['tips', '自定义每个星星的提示信息', 'string[]', '-'],
+            [
+              'allowClear',
+              '是否允许再次点击相同的星星时清除状态',
+              'boolean',
+              'false'
+            ],
+            ['allowHalf', '是否允许激活半颗星星', 'boolean', 'false'],
+            ['onChange', '点击星星时的回调', '(value: number) => void', '-'],
+            [
+              'onHoverChange',
+              '鼠标滑过星星时激活数量变化的回调',
+              '(value: number) => void',
+              '-'
+            ]
+          ]}
+        />
       </section>
     </div>
   );
