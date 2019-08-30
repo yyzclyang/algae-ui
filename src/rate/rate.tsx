@@ -9,6 +9,7 @@ const sc = scopedClassMaker('algae-ui-rate');
 
 interface RateProps {
   className?: string;
+  style?: React.CSSProperties;
   count?: number;
   value?: number;
   defaultValue?: number;
@@ -23,6 +24,7 @@ interface RateProps {
 const Rate: React.FunctionComponent<RateProps> = (props: RateProps) => {
   const {
     className,
+    style,
     count,
     value,
     defaultValue,
@@ -45,10 +47,6 @@ const Rate: React.FunctionComponent<RateProps> = (props: RateProps) => {
     }
   }, [value]);
 
-  useEffect(() => {
-    onHoverChange && onHoverChange(hoverRateValue);
-  }, [hoverRateValue]);
-
   const renderStar = (count: number, rateStarsValue: number) => {
     const starMouseEnterGenerator = (
       index: number
@@ -66,6 +64,7 @@ const Rate: React.FunctionComponent<RateProps> = (props: RateProps) => {
       const newRateValue = index + currentStarValue;
       if (hoverRateValue !== newRateValue) {
         setHoverRateValue(newRateValue);
+        onHoverChange && onHoverChange(hoverRateValue);
       }
     };
 
@@ -85,6 +84,7 @@ const Rate: React.FunctionComponent<RateProps> = (props: RateProps) => {
       const newRateValue = index + currentStarValue;
       if (hoverRateValue !== newRateValue) {
         setHoverRateValue(newRateValue);
+        onHoverChange && onHoverChange(hoverRateValue);
       }
     };
 
@@ -151,11 +151,13 @@ const Rate: React.FunctionComponent<RateProps> = (props: RateProps) => {
       return;
     }
     setHoverRateValue(0);
+    onHoverChange && onHoverChange(0);
   };
 
   return (
     <div
       className={classNames(sc(), disabled ? sc('disabled') : '', className)}
+      style={style}
       onMouseLeave={rateMouseLeave}
     >
       {renderStar(count!, rateValue)}
@@ -166,11 +168,23 @@ const Rate: React.FunctionComponent<RateProps> = (props: RateProps) => {
 Rate.displayName = 'Rate';
 Rate.propTypes = {
   className: PropTypes.string,
-  count: PropTypes.number
+  style: PropTypes.object,
+  count: PropTypes.number,
+  value: PropTypes.number,
+  defaultValue: PropTypes.number,
+  disabled: PropTypes.bool,
+  tips: PropTypes.array,
+  allowClear: PropTypes.bool,
+  allowHalf: PropTypes.bool,
+  onChange: PropTypes.func,
+  onHoverChange: PropTypes.func
 };
 Rate.defaultProps = {
   count: 5,
-  defaultValue: 0
+  defaultValue: 0,
+  disabled: false,
+  allowClear: false,
+  allowHalf: false
 };
 
 export default Rate;
