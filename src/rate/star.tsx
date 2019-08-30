@@ -15,7 +15,11 @@ const Star: React.FunctionComponent<StarProps> = (props: StarProps) => {
 
   return (
     <svg
-      className={classNames('algae-ui-rate-star', className)}
+      className={classNames(
+        'algae-ui-rate-star',
+        `algae-ui-rate-star-${type}`,
+        className
+      )}
       viewBox="0 0 1072 1024"
       width="209.375"
       height="200"
