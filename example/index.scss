@@ -82,7 +82,7 @@ section {
   justify-content: space-between;
   margin: 0 -16px;
   & > .code-demo-column {
-    flex-grow: 1;
+    flex: 1;
     margin: 0 16px;
     min-width: 360px;
     & > .code-demo {

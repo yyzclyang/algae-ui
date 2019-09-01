@@ -114,7 +114,7 @@
   & > .code {
     border-top: 1px dashed $division;
     padding: 16px;
-    background: transparentize(#f2f3f7, 0.75);
+    background: transparentize($bg, 0.75);
     overflow-x: auto;
     display: block;
   }
