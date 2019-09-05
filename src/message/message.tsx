@@ -11,7 +11,7 @@ interface MessageExpandFunctionProps {
 const messageExpandFunction = (props: MessageExpandFunctionProps) => {
   const { message, iconStyle, ...restProps } = props;
 
-  const onClose = () => {
+  const onClose = (callback?: () => void) => {
     ReactDOM.render(
       React.cloneElement(MessageCom, {
         className: 'algae-ui-message-hidden'
@@ -25,6 +25,7 @@ const messageExpandFunction = (props: MessageExpandFunctionProps) => {
       );
       ReactDOM.unmountComponentAtNode(messageMountNode);
       messageMountNode.remove();
+      callback && callback();
     }, 300);
   };
 
@@ -65,7 +66,11 @@ const messageExpandFunction = (props: MessageExpandFunctionProps) => {
 };
 
 export type MessageType = 'info' | 'success' | 'error' | 'warning' | 'loading';
-type messageFunction = (message: string, delay?: number) => () => void;
+type messageFunction = (
+  message: string,
+  delay?: number,
+  closeCallback?: () => void
+) => () => void;
 type messageFunctionGenerator = (type: MessageType) => messageFunction;
 const messagePropsList = {
   info: {
@@ -79,7 +84,7 @@ const messagePropsList = {
 };
 
 const messageFunctionGenerator: messageFunctionGenerator = (type) => {
-  return (message, delay) => {
+  return (message, delay = 3000, closeCallback) => {
     const props = {
       iconType: messagePropsList[type].iconType,
       iconStyle: {
@@ -96,8 +101,8 @@ const messageFunctionGenerator: messageFunctionGenerator = (type) => {
     // delay 不为 0 时，自动销毁
     if (delay !== 0) {
       setTimeout(() => {
-        destroy();
-      }, delay || 3000);
+        destroy(closeCallback);
+      }, delay);
     }
     return destroy;
   };
