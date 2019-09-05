@@ -22,12 +22,17 @@
   border-radius: 4px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   pointer-events: all;
+  &.algae-ui-message-visible {
+    animation: visible 0.3s linear forwards;
+  }
+  &.algae-ui-message-hidden {
+    animation: hidden 0.3s linear forwards;
+  }
   & > &-content {
     color: $medium-color;
     margin-left: 8px;
   }
 }
-
 
 @keyframes spin {
   0% {
@@ -35,5 +40,27 @@
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes visible {
+  0% {
+    transform: translateY(-50%);
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes hidden {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-50%);
+    opacity: 0.3;
   }
 }

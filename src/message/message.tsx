@@ -13,11 +13,19 @@ const messageExpandFunction = (props: MessageExpandFunctionProps) => {
 
   const onClose = () => {
     ReactDOM.render(
-      React.cloneElement(MessageCom, { visible: false }),
+      React.cloneElement(MessageCom, {
+        className: 'algae-ui-message-hidden'
+      }),
       messageMountNode
     );
-    ReactDOM.unmountComponentAtNode(messageMountNode);
-    messageMountNode.remove();
+    setTimeout(() => {
+      ReactDOM.render(
+        React.cloneElement(MessageCom, { visible: false }),
+        messageMountNode
+      );
+      ReactDOM.unmountComponentAtNode(messageMountNode);
+      messageMountNode.remove();
+    }, 300);
   };
 
   const container = document.getElementsByClassName(
@@ -30,6 +38,7 @@ const messageExpandFunction = (props: MessageExpandFunctionProps) => {
 
   const MessageCom = (
     <MessageDialog
+      className="algae-ui-message-visible"
       visible
       container={messageContainer}
       iconStyle={{
@@ -49,8 +58,8 @@ const messageExpandFunction = (props: MessageExpandFunctionProps) => {
   return { destroy: onClose };
 };
 
-type messageFunction = (message: string, delay?: number) => () => void;
 type MessageType = 'info' | 'success' | 'error' | 'warning' | 'loading';
+type messageFunction = (message: string, delay?: number) => () => void;
 type messageFunctionGenerator = (type: MessageType) => messageFunction;
 const messagePropsList = {
   info: {
@@ -78,7 +87,8 @@ const messageFunctionGenerator: messageFunctionGenerator = (type) => {
     };
 
     const { destroy } = messageExpandFunction(props);
-    if (!!delay) {
+    // delay 不为 0 时，自动销毁
+    if (delay !== 0) {
       setTimeout(() => {
         destroy();
       }, delay || 3000);
