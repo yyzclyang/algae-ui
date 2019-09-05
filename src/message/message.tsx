@@ -64,7 +64,7 @@ const messageExpandFunction = (props: MessageExpandFunctionProps) => {
   return { destroy: onClose };
 };
 
-type MessageType = 'info' | 'success' | 'error' | 'warning' | 'loading';
+export type MessageType = 'info' | 'success' | 'error' | 'warning' | 'loading';
 type messageFunction = (message: string, delay?: number) => () => void;
 type messageFunctionGenerator = (type: MessageType) => messageFunction;
 const messagePropsList = {

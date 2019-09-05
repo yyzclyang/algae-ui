@@ -27,3 +27,4 @@ export { CheckboxGroup } from './checkbox';
 export { default as Rate } from './rate';
 
 export { default as message } from './message';
+export { MessageType } from './message';
