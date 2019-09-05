@@ -1,0 +1,10 @@
+@import '../../style/base';
+
+.message-example-page {
+  & ul {
+    margin-left: 24px;
+    & > li {
+      margin: 8px 0;
+    }
+  }
+}

@@ -18,6 +18,7 @@ import SwitchExample from './componentExample/SwitchExample';
 import RadioExample from './componentExample/RadioExample';
 import CheckboxExample from './componentExample/CheckboxExample';
 import RateExample from './componentExample/RateExample';
+import MessageExample from './componentExample/MessageExample';
 
 import './img/logo.svg';
 import './img/logo_text.svg';
@@ -72,6 +73,7 @@ ReactDOM.render(
             <li>
               <div className="component-group component-list">反馈</div>
               <NavLink to="/modal">Modal 对话框</NavLink>
+              <NavLink to="/message">Message 消息</NavLink>
             </li>
           </ul>
         </Scroll>
@@ -98,6 +100,7 @@ ReactDOM.render(
           <Route path="/radio" component={RadioExample} />
           <Route path="/checkbox" component={CheckboxExample} />
           <Route path="/rate" component={RateExample} />
+          <Route path="/message" component={MessageExample} />
         </Content>
         <Footer className="main-footer">&copy; YyzclYang</Footer>
       </Layout>

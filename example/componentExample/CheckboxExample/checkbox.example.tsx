@@ -18,7 +18,7 @@ const code6 = require('!!raw-loader!./checkbox.codeDemo6.tsx');
 
 const CheckboxExample: React.FunctionComponent = () => {
   return (
-    <div className="switch-example-page">
+    <div className="checkbox-example-page">
       <section>
         <h1>Checkbox 多选框</h1>
         <p>多选框</p>
