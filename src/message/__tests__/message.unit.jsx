@@ -3,14 +3,14 @@ import message from '../index';
 
 describe('message', () => {
   it('message.info', function(done) {
-    message.info('info');
+    message.info('info', 500);
     expect(document.body.querySelectorAll('.algae-ui-message').length).toBe(1);
     setTimeout(() => {
       expect(document.body.querySelectorAll('.algae-ui-message').length).toBe(
         0
       );
       done();
-    }, 4000);
+    }, 2000);
   });
 
   it('带回调的 message', (done) => {
