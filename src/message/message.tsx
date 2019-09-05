@@ -31,7 +31,13 @@ const messageExpandFunction = (props: MessageExpandFunctionProps) => {
   const container = document.getElementsByClassName(
     'algae-ui-message-container'
   )[0];
-  const messageContainer = container || document.createElement('div');
+  const messageContainer =
+    container ||
+    (() => {
+      const container = document.createElement('div');
+      container.className = 'algae-ui-message-container';
+      return container;
+    })();
   if (!container) {
     document.body.append(messageContainer);
   }
