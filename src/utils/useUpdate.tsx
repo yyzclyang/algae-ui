@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 const useUpdate = (
   effect: React.EffectCallback,
   deps?: React.DependencyList
-) => {
+): void => {
   const [isFirst, setIsFirst] = useState<boolean>(true);
   return useEffect(() => {
     if (isFirst) {

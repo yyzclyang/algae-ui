@@ -1,0 +1,37 @@
+@import './theme';
+
+.algae-ui-animation-diffuse {
+  position: relative;
+  &::before {
+    content: '';
+    display: block;
+    background: inherit;
+    pointer-events: none;
+    position: absolute;
+    z-index: 1;
+    top: -1px;
+    left: -1px;
+    bottom: -1px;
+    right: -1px;
+    opacity: 0.4;
+    animation: algae-ui-diffuse-animation 0.3s ease-in-out forwards;
+    flex-shrink: 0;
+    border: {
+      radius: inherit;
+      width: 0;
+      style: solid;
+      color: inherit;
+    }
+  }
+}
+
+@keyframes algae-ui-diffuse-animation {
+  to {
+    top: -0.5em;
+    left: -0.5em;
+    bottom: -0.5em;
+    right: -0.5em;
+    border-width: 0.5em;
+    opacity: 0;
+  }
+}
