@@ -28,30 +28,7 @@
     background: $bg !important;
     border-color: #d9d9d9 !important;
   }
-  &.algae-ui-button-animation-diffuse {
-    position: relative;
-    &::before {
-      content: '';
-      display: block;
-      background: inherit;
-      pointer-events: none;
-      position: absolute;
-      z-index: 1;
-      top: -1px;
-      left: -1px;
-      bottom: -1px;
-      right: -1px;
-      opacity: 0.4;
-      animation: algae-ui-button-diffuse 0.3s ease-in-out forwards;
-      flex-shrink: 0;
-      border: {
-        radius: inherit;
-        width: 0;
-        style: solid;
-        color: inherit;
-      }
-    }
-  }
+
   &.algae-ui-button-full {
     margin-left: 0 !important;
     margin-right: 0 !important;
@@ -77,7 +54,7 @@
   &.algae-ui-button-default {
     background: #ffffff;
     color: black;
-    border-color: transparentize(#999999, 0.5);
+    border-color: transparentize($fill, 0.5);
     &.algae-ui-button-ghost {
     }
     &:hover {
@@ -93,7 +70,7 @@
       color: $theme-color;
     }
     &:hover {
-      color: transparentize(#ffffff, 0.15);
+      color: transparentize($white, 0.15);
       background: transparentize($theme-color, 0.25);
       border-color: transparentize($theme-color, 0.25);
       &.algae-ui-button-ghost {
@@ -104,7 +81,7 @@
   &.algae-ui-button-success {
     background: $bg;
     color: $success;
-    border-color: transparentize(#999999, 0.5);
+    border-color: transparentize($fill, 0.5);
     &.algae-ui-button-ghost {
       border-color: $success;
     }
@@ -121,7 +98,7 @@
   &.algae-ui-button-danger {
     background: $bg;
     color: $danger;
-    border-color: transparentize(#999999, 0.5);
+    border-color: transparentize($fill, 0.5);
     &.algae-ui-button-ghost {
       border-color: $danger;
     }
@@ -143,16 +120,5 @@
   }
   100% {
     transform: rotate(360deg);
-  }
-}
-
-@keyframes algae-ui-button-diffuse {
-  to {
-    top: -0.5em;
-    left: -0.5em;
-    bottom: -0.5em;
-    right: -0.5em;
-    border-width: 0.5em;
-    opacity: 0;
   }
 }

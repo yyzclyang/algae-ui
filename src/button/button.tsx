@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import Icon from '../icon';
 import './style/button.scss';
-import { classNames } from '../utils';
+import { classNames, useDiffuseAnimation } from '../utils';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   buttonType?: 'default' | 'primary' | 'success' | 'danger';
@@ -29,27 +29,13 @@ const Button: React.FunctionComponent<ButtonProps> = (props: ButtonProps) => {
     ...restProps
   } = props;
 
-  const [animatingClassName, setAnimatingClassName] = useState<string>('');
-  const [resetAnimationClock, setResetAnimationClock] = useState<
-    ReturnType<typeof setTimeout>
-  >();
-  useEffect(() => {
-    return () => {
-      resetAnimationClock && clearTimeout(resetAnimationClock);
-    };
-  }, [resetAnimationClock]);
+  const [diffuseClassName, setDiffuseClassName] = useDiffuseAnimation();
 
   const handleClick: React.MouseEventHandler = (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
-    if (!animatingClassName && !disabled) {
-      setAnimatingClassName('algae-ui-button-animation-diffuse');
-
-      setResetAnimationClock(
-        setTimeout(() => {
-          setAnimatingClassName('');
-        }, 300)
-      );
+    if (!diffuseClassName && !disabled) {
+      setDiffuseClassName();
     }
     !disabled && onClick && onClick(e);
   };
@@ -63,7 +49,7 @@ const Button: React.FunctionComponent<ButtonProps> = (props: ButtonProps) => {
         ghost ? 'algae-ui-button-ghost' : undefined,
         full ? 'algae-ui-button-full' : undefined,
         disabled ? 'algae-ui-button-disabled' : undefined,
-        animatingClassName
+        diffuseClassName
       )}
       onClick={handleClick}
       {...restProps}

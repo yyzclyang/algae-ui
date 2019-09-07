@@ -37,7 +37,7 @@ describe('Button', () => {
     component.find('button').simulate('click');
 
     expect(
-      component.find('button').hasClass('algae-ui-button-animation-diffuse')
+      component.find('button').hasClass('algae-ui-animation-diffuse')
     ).toEqual(true);
   });
 
@@ -52,7 +52,7 @@ describe('Button', () => {
     jest.useFakeTimers();
     setTimeout(() => {
       expect(
-        document.body.querySelectorAll('.algae-ui-button-animation-diffuse')
+        document.body.querySelectorAll('.algae-ui-animation-diffuse')
       ).toHaveLength(0);
     }, 301);
     jest.runAllTimers();
