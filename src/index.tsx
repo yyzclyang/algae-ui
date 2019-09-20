@@ -28,3 +28,5 @@ export { default as Rate } from './rate';
 
 export { default as message } from './message';
 export { MessageType } from './message';
+
+export { default as Form } from './form';
