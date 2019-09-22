@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Input } from 'ROOT/src';
-import { scopedClassMaker, classNames } from 'ROOT/src/utils';
+import Input from '../input';
+import { scopedClassMaker, classNames } from '../utils';
 import Validator, { ValidateMessages } from './validator';
 import './style/form.scss';
 
