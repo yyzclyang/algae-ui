@@ -19,6 +19,7 @@ import RadioExample from './componentExample/RadioExample';
 import CheckboxExample from './componentExample/CheckboxExample';
 import RateExample from './componentExample/RateExample';
 import MessageExample from './componentExample/MessageExample';
+import FormExample from './componentExample/FormExample';
 
 import './img/logo.svg';
 import './img/logo_text.svg';
@@ -69,6 +70,7 @@ ReactDOM.render(
               <NavLink to="/radio">Radio 单选框</NavLink>
               <NavLink to="/checkbox">Checkbox 多选框</NavLink>
               <NavLink to="/rate">Rate 评分</NavLink>
+              <NavLink to="/form">Form 表单</NavLink>
             </li>
             <li>
               <div className="component-group component-list">反馈</div>
@@ -101,6 +103,7 @@ ReactDOM.render(
           <Route path="/checkbox" component={CheckboxExample} />
           <Route path="/rate" component={RateExample} />
           <Route path="/message" component={MessageExample} />
+          <Route path="/form" component={FormExample} />
         </Content>
         <Footer className="main-footer">&copy; YyzclYang</Footer>
       </Layout>
