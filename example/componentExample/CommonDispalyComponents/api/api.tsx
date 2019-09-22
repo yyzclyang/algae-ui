@@ -11,7 +11,7 @@ const Api: React.FunctionComponent<ApiProps> = (props: ApiProps) => {
   const { data } = props;
   const parameterType = ['参数', '说明', '类型', '默认值'];
   return (
-    <table>
+    <table className="algae-ui-api">
       <thead>
         <tr>
           {parameterType.map((item, index) => (
