@@ -1,10 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Input } from 'ROOT/src';
+import { scopedClassMaker, classNames } from 'ROOT/src/utils';
+import Validator, { ErrorMessages } from './validator';
 import './style/form.scss';
 
-interface Field {
+const sc = scopedClassMaker('algae-ui-form');
+
+type RuleType = 'required' | 'minLength' | 'maxLength' | 'pattern';
+
+interface MatchTest {
+  required: boolean;
+  minLength: number;
+  maxLength: number;
+  pattern: RegExp;
+}
+
+export interface Rule {
+  type: RuleType;
+  match: MatchTest[RuleType];
+  message: string;
+}
+
+export interface Field {
   type: string;
   label: string;
   input: { type: string };
+  rules?: Rule[];
 }
 
 export interface FormValue {
@@ -22,8 +43,11 @@ interface FormProps {
 const Form: React.FunctionComponent<FormProps> = (props: FormProps) => {
   const { value, fields, buttons, onChange } = props;
 
+  const [errorMessages, setErrorMessages] = useState<ErrorMessages>({});
+
   const onSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
+    setErrorMessages(Validator(value, fields));
     props.onSubmit(e);
   };
 
@@ -36,15 +60,16 @@ const Form: React.FunctionComponent<FormProps> = (props: FormProps) => {
   };
 
   return (
-    <form onSubmit={onSubmit}>
+    <form onSubmit={onSubmit} className={classNames(sc())}>
       {fields.map((field) => (
-        <div key={field.type}>
+        <div key={field.type} className={classNames(sc('row'))}>
           {field.label}
-          <input
+          <Input
             type={field.input.type}
             value={value[field.type]}
             onChange={onFormChange.bind(null, field.type)}
           />
+          {errorMessages[field.type]}
         </div>
       ))}
       <div>{buttons}</div>
