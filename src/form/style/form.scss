@@ -1,6 +1,9 @@
 @import '../../style/theme';
 
 .algae-ui-form {
+  &-table {
+    border-collapse: collapse;
+  }
   &-row {
     &:last-child {
       > td {
@@ -10,9 +13,34 @@
     &-label {
     }
     & > td {
-      padding-bottom: 32px;
+      padding-bottom: 8px;
+      vertical-align: top;
+      line-height: 36px;
       & + td {
         padding-left: 16px;
+      }
+    }
+    &-content::after {
+      content: attr(data-error);
+      display: block;
+      height: 24px;
+      line-height: 24px;
+    }
+    &-validate {
+      &-error {
+        &::after {
+          color: $danger;
+        }
+      }
+      &-warning {
+        &::after {
+          color: $warning;
+        }
+      }
+      &-success {
+        &::after {
+          color: $success;
+        }
       }
     }
   }

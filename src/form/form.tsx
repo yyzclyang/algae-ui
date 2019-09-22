@@ -1,23 +1,27 @@
 import React, { useState } from 'react';
 import { Input } from 'ROOT/src';
 import { scopedClassMaker, classNames } from 'ROOT/src/utils';
-import Validator, { ErrorMessages } from './validator';
+import Validator, { ValidateMessages } from './validator';
 import './style/form.scss';
 
 const sc = scopedClassMaker('algae-ui-form');
 
-type RuleType = 'required' | 'minLength' | 'maxLength' | 'pattern';
+type RuleType = 'required' | 'minLength' | 'maxLength' | 'pattern' | 'custom';
+
+export type MessageType = 'success' | 'warning' | 'error';
 
 interface MatchTest {
   required: boolean;
   minLength: number;
   maxLength: number;
   pattern: RegExp;
+  custom: (value: string) => boolean;
 }
 
 export interface Rule {
   type: RuleType;
   match: MatchTest[RuleType];
+  messageType?: MessageType;
   message: string;
 }
 
@@ -29,7 +33,7 @@ export interface Field {
 }
 
 export interface FormValue {
-  [key: string]: any;
+  [key: string]: string;
 }
 
 interface FormProps {
@@ -43,11 +47,13 @@ interface FormProps {
 const Form: React.FunctionComponent<FormProps> = (props: FormProps) => {
   const { value, fields, buttons, onChange } = props;
 
-  const [errorMessages, setErrorMessages] = useState<ErrorMessages>({});
+  const [validateMessages, setValidateMessages] = useState<ValidateMessages>(
+    {}
+  );
 
   const onSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
-    setErrorMessages(Validator(value, fields));
+    setValidateMessages(Validator(value, fields));
     props.onSubmit(e);
   };
 
@@ -61,7 +67,7 @@ const Form: React.FunctionComponent<FormProps> = (props: FormProps) => {
 
   return (
     <form onSubmit={onSubmit} className={classNames(sc())}>
-      <table>
+      <table className={classNames(sc('table'))}>
         <tbody>
           {fields.map((field) => (
             <tr key={field.type} className={classNames(sc('row'))}>
@@ -70,14 +76,27 @@ const Form: React.FunctionComponent<FormProps> = (props: FormProps) => {
                   {field.label}
                 </span>
               </td>
-              <td>
+              <td
+                className={classNames(
+                  sc('row-content'),
+                  validateMessages[field.type] &&
+                    validateMessages[field.type].length > 0
+                    ? sc('row-validate-' + validateMessages[field.type][0].type)
+                    : ''
+                )}
+                data-error={
+                  validateMessages[field.type] &&
+                  validateMessages[field.type].length > 0
+                    ? validateMessages[field.type][0].message
+                    : ''
+                }
+              >
                 <Input
                   className={classNames(sc('row-input'))}
                   type={field.input.type}
                   value={value[field.type]}
                   onChange={onFormChange.bind(null, field.type)}
                 />
-                {errorMessages[field.type] && errorMessages[field.type][0]}
               </td>
             </tr>
           ))}
