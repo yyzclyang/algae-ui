@@ -1,1 +1,19 @@
 @import '../../style/theme';
+
+.algae-ui-form {
+  &-row {
+    &:last-child {
+      > td {
+        padding-bottom: 0;
+      }
+    }
+    &-label {
+    }
+    & > td {
+      padding-bottom: 32px;
+      & + td {
+        padding-left: 16px;
+      }
+    }
+  }
+}

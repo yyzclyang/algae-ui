@@ -61,18 +61,32 @@ const Form: React.FunctionComponent<FormProps> = (props: FormProps) => {
 
   return (
     <form onSubmit={onSubmit} className={classNames(sc())}>
-      {fields.map((field) => (
-        <div key={field.type} className={classNames(sc('row'))}>
-          {field.label}
-          <Input
-            type={field.input.type}
-            value={value[field.type]}
-            onChange={onFormChange.bind(null, field.type)}
-          />
-          {errorMessages[field.type]}
-        </div>
-      ))}
-      <div>{buttons}</div>
+      <table>
+        <tbody>
+          {fields.map((field) => (
+            <tr key={field.type} className={classNames(sc('row'))}>
+              <td>
+                <span className={classNames(sc('row-label'))}>
+                  {field.label}
+                </span>
+              </td>
+              <td>
+                <Input
+                  className={classNames(sc('row-input'))}
+                  type={field.input.type}
+                  value={value[field.type]}
+                  onChange={onFormChange.bind(null, field.type)}
+                />
+                {errorMessages[field.type] && errorMessages[field.type][0]}
+              </td>
+            </tr>
+          ))}
+          <tr className={classNames(sc('row'))}>
+            <td />
+            <td>{buttons}</td>
+          </tr>
+        </tbody>
+      </table>
     </form>
   );
 };
