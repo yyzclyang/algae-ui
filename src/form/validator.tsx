@@ -1,39 +1,61 @@
-import { FormValue, Field, Rule } from './form';
+import { FormValue, Field, Rule, MessageType } from './form';
 
-export interface ErrorMessages {
-  [key: string]: string[];
+interface ValidateMessage {
+  type: MessageType;
+  message: string;
 }
 
-const Validator = (formValue: FormValue, fields: Field[]): ErrorMessages =>
+export interface ValidateMessages {
+  [key: string]: ValidateMessage[];
+}
+
+const Validator = (formValue: FormValue, fields: Field[]): ValidateMessages =>
   fields
     .map((field) => ({
       [field.type]: field.rules
         ? field.rules
             .map((rule) => ValidateMethod(formValue[field.type], rule))
-            .filter(Boolean)
+            .filter((validateMessage) => validateMessage.message !== '')
         : []
     }))
-    .reduce(
-      (errorMessages, errorMessage) => ({ ...errorMessages, ...errorMessage }),
-      {}
-    );
+    .reduce((messages, message) => ({ ...messages, ...message }), {});
 
-const ValidateMethod = (data: any, rule: Rule): string => {
+const ValidateMethod = (data: any, rule: Rule): ValidateMessage => {
   switch (rule.type) {
     case 'required': {
-      return !data ? rule.message : '';
+      return {
+        type: rule.messageType || 'error',
+        message: !data ? rule.message : ''
+      };
     }
     case 'minLength': {
-      return data.length < rule.match ? rule.message : '';
+      return {
+        type: rule.messageType || 'error',
+        message: data.length < rule.match ? rule.message : ''
+      };
     }
     case 'maxLength': {
-      return data.length > rule.match ? rule.message : '';
+      return {
+        type: rule.messageType || 'error',
+        message: data.length > rule.match ? rule.message : ''
+      };
     }
     case 'pattern': {
-      return !(rule.match as RegExp).test(data) ? rule.message : '';
+      return {
+        type: rule.messageType || 'error',
+        message: !(rule.match as RegExp).test(data) ? rule.message : ''
+      };
+    }
+    case 'custom': {
+      return {
+        type: rule.messageType || 'error',
+        message: !(rule.match as (value: string) => boolean)(data)
+          ? rule.message
+          : ''
+      };
     }
     default:
-      return '';
+      return { type: rule.messageType || 'error', message: '' };
   }
 };
 
