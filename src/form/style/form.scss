@@ -21,7 +21,7 @@
       }
     }
     &-content::after {
-      content: attr(data-error);
+      content: attr(data-validate);
       display: block;
       height: 24px;
       line-height: 24px;
@@ -31,15 +31,30 @@
         &::after {
           color: $danger;
         }
+        & > .algae-ui-input-wrapper {
+          & > .algae-ui-form-row-input {
+            border-color: $danger;
+          }
+        }
       }
       &-warning {
         &::after {
           color: $warning;
         }
+        & > .algae-ui-input-wrapper {
+          & > .algae-ui-form-row-input {
+            border-color: $warning;
+          }
+        }
       }
       &-success {
         &::after {
           color: $success;
+        }
+        & > .algae-ui-input-wrapper {
+          & > .algae-ui-form-row-input {
+            border-color: $success;
+          }
         }
       }
     }

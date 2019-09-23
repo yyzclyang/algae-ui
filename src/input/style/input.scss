@@ -12,9 +12,9 @@
     border-radius: 4px;
     border: 1px solid $division;
     box-shadow: 0 0 0 2px transparentize($theme-color, 1);
-    transition: box-shadow 0.25s;
+    transition: all 0.5s;
     &:hover {
-      animation: algae-ui-input-hover 0.5s ease-in-out forwards;
+      border: 1px solid transparentize($theme-color, 0.25);
     }
     &:focus {
       border: 1px solid transparentize($theme-color, 0.25);
@@ -40,13 +40,5 @@
   & > .algae-ui-input-after {
     display: inline-block;
     height: 100%;
-  }
-}
-
-@keyframes algae-ui-input-hover {
-  0% {
-  }
-  100% {
-    border: 1px solid transparentize($theme-color, 0.25);
   }
 }
