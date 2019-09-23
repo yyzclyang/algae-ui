@@ -1,7 +1,13 @@
 import React, { useState } from 'react';
 import Input, { InputProps } from '../input/input';
-import { scopedClassMaker, classNames, isNonEmptyArray } from '../utils';
-import Validator, { ValidateMessages } from './validator';
+import {
+  scopedClassMaker,
+  classNames,
+  isNonEmptyArray,
+  validator,
+  ValidateMessages
+} from '../utils';
+
 import './style/form.scss';
 
 const sc = scopedClassMaker('algae-ui-form');
@@ -53,7 +59,7 @@ const Form: React.FunctionComponent<FormProps> = (props: FormProps) => {
 
   const onSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
-    setValidateMessages(Validator(value, fields));
+    setValidateMessages(validator(value, fields));
     props.onSubmit(e);
   };
 

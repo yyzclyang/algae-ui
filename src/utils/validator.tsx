@@ -1,4 +1,4 @@
-import { FormValue, Field, Rule, MessageType } from './form';
+import { FormValue, Field, Rule, MessageType } from '../form/form';
 
 interface ValidateMessage {
   type: MessageType;
@@ -15,10 +15,16 @@ const Validator = (formValue: FormValue, fields: Field[]): ValidateMessages =>
       [field.type]: field.rules
         ? field.rules
             .map((rule) => ValidateMethod(formValue[field.type], rule))
-            .filter((validateMessage) => validateMessage.message !== '')
+            .filter((validateMessage) => validateMessage.message)
         : []
     }))
-    .reduce((messages, message) => ({ ...messages, ...message }), {});
+    .reduce(
+      (validateMessages, validateMessage) => ({
+        ...validateMessages,
+        ...validateMessage
+      }),
+      {}
+    );
 
 const ValidateMethod = (data: any, rule: Rule): ValidateMessage => {
   switch (rule.type) {
