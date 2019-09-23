@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import Input from '../input';
-import { scopedClassMaker, classNames } from '../utils';
+import Input, { InputProps } from '../input/input';
+import { scopedClassMaker, classNames, isNonEmptyArray } from '../utils';
 import Validator, { ValidateMessages } from './validator';
 import './style/form.scss';
 
@@ -28,7 +28,7 @@ export interface Rule {
 export interface Field {
   type: string;
   label: string;
-  input: { type: string };
+  input: InputProps;
   rules?: Rule[];
 }
 
@@ -79,21 +79,19 @@ const Form: React.FunctionComponent<FormProps> = (props: FormProps) => {
               <td
                 className={classNames(
                   sc('row-content'),
-                  validateMessages[field.type] &&
-                    validateMessages[field.type].length > 0
+                  isNonEmptyArray(validateMessages[field.type])
                     ? sc('row-validate-' + validateMessages[field.type][0].type)
                     : ''
                 )}
-                data-error={
-                  validateMessages[field.type] &&
-                  validateMessages[field.type].length > 0
+                data-validate={
+                  isNonEmptyArray(validateMessages[field.type])
                     ? validateMessages[field.type][0].message
                     : ''
                 }
               >
                 <Input
+                  {...field.input}
                   className={classNames(sc('row-input'))}
-                  type={field.input.type}
                   value={value[field.type]}
                   onChange={onFormChange.bind(null, field.type)}
                 />
