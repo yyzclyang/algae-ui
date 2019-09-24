@@ -29,15 +29,21 @@ const validator = (
         )
       )
     )
-  ).then((allValidateMessages) => {
-    const result: ValidateMessageGroup = {};
-    allValidateMessages.map((validateMessages) => {
-      result[validateMessages[0].message] = validateMessages
-        .slice(1)
-        .filter((validateMessage) => validateMessage.message);
-    });
-    return result;
-  });
+  ).then((allValidateMessages) =>
+    allValidateMessages
+      .map((validateMessages) => ({
+        [validateMessages[0].message]: validateMessages
+          .slice(1)
+          .filter((validateMessage) => validateMessage.message)
+      }))
+      .reduce(
+        (validateMessageGroup, singleValidateMessageGroup) => ({
+          ...validateMessageGroup,
+          ...singleValidateMessageGroup
+        }),
+        {}
+      )
+  );
 
 const validateMethod = (data: any, rule: Rule): Promise<ValidateMessage> => {
   switch (rule.type) {

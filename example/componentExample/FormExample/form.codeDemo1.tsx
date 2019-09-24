@@ -15,8 +15,14 @@ export default () => {
       input: { type: 'text' },
       rules: [
         {
-          type: 'required',
-          match: true,
+          type: 'custom',
+          match: (value) => {
+            return new Promise((resolve, reject) => {
+              setTimeout(() => {
+                value.length < 8 ? resolve() : reject();
+              }, 2000);
+            });
+          },
           messageType: 'warning',
           message: '不能为空'
         },
@@ -35,7 +41,11 @@ export default () => {
         {
           type: 'custom',
           match: (value) => {
-            return value.length > 5;
+            return new Promise((resolve, reject) => {
+              setTimeout(() => {
+                value.length < 7 ? resolve() : reject();
+              }, 2000);
+            });
           },
           messageType: 'success',
           message: '不能为空'
