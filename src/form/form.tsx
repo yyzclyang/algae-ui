@@ -5,7 +5,7 @@ import {
   classNames,
   isNonEmptyArray,
   validator,
-  ValidateMessages
+  ValidateMessageGroup
 } from '../utils';
 
 import './style/form.scss';
@@ -21,7 +21,7 @@ interface MatchTest {
   minLength: number;
   maxLength: number;
   pattern: RegExp;
-  custom: (value: string) => boolean;
+  custom: (value: string) => boolean | Promise<boolean>;
 }
 
 export interface Rule {
@@ -53,13 +53,13 @@ interface FormProps {
 const Form: React.FunctionComponent<FormProps> = (props: FormProps) => {
   const { value, fields, buttons, onChange } = props;
 
-  const [validateMessages, setValidateMessages] = useState<ValidateMessages>(
-    {}
-  );
+  const [validateMessages, setValidateMessages] = useState<
+    ValidateMessageGroup
+  >({});
 
   const onSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
-    setValidateMessages(validator(value, fields));
+    validator(value, fields).then(setValidateMessages);
     props.onSubmit(e);
   };
 

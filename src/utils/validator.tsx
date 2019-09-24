@@ -5,64 +5,94 @@ interface ValidateMessage {
   message: string;
 }
 
-export interface ValidateMessages {
+export interface ValidateMessageGroup {
   [key: string]: ValidateMessage[];
 }
 
-const Validator = (formValue: FormValue, fields: Field[]): ValidateMessages =>
-  fields
-    .map((field) => ({
-      [field.type]: field.rules
-        ? field.rules
-            .map((rule) => ValidateMethod(formValue[field.type], rule))
-            .filter((validateMessage) => validateMessage.message)
-        : []
-    }))
-    .reduce(
-      (validateMessages, validateMessage) => ({
-        ...validateMessages,
-        ...validateMessage
-      }),
-      {}
-    );
+const validator = (
+  formValue: FormValue,
+  fields: Field[]
+): Promise<ValidateMessageGroup> =>
+  Promise.all(
+    fields.map((field) =>
+      Promise.all(
+        [
+          Promise.resolve({ type: 'success', message: field.type }) as Promise<
+            ValidateMessage
+          >
+        ].concat(
+          field.rules
+            ? field.rules.map((rule) =>
+                validateMethod(formValue[field.type], rule)
+              )
+            : []
+        )
+      )
+    )
+  ).then((allValidateMessages) => {
+    const result: ValidateMessageGroup = {};
+    allValidateMessages.map((validateMessages) => {
+      result[validateMessages[0].message] = validateMessages
+        .slice(1)
+        .filter((validateMessage) => validateMessage.message);
+    });
+    return result;
+  });
 
-const ValidateMethod = (data: any, rule: Rule): ValidateMessage => {
+const validateMethod = (data: any, rule: Rule): Promise<ValidateMessage> => {
   switch (rule.type) {
     case 'required': {
-      return {
+      return Promise.resolve({
         type: rule.messageType || 'error',
         message: !data ? rule.message : ''
-      };
+      });
     }
     case 'minLength': {
-      return {
+      return Promise.resolve({
         type: rule.messageType || 'error',
         message: data.length < rule.match ? rule.message : ''
-      };
+      });
     }
     case 'maxLength': {
-      return {
+      return Promise.resolve({
         type: rule.messageType || 'error',
         message: data.length > rule.match ? rule.message : ''
-      };
+      });
     }
     case 'pattern': {
-      return {
+      return Promise.resolve({
         type: rule.messageType || 'error',
         message: !(rule.match as RegExp).test(data) ? rule.message : ''
-      };
+      });
     }
     case 'custom': {
-      return {
-        type: rule.messageType || 'error',
-        message: !(rule.match as (value: string) => boolean)(data)
-          ? rule.message
-          : ''
-      };
+      const matchResult = (rule.match as (
+        value: string
+      ) => string | Promise<boolean>)(data);
+
+      return matchResult instanceof Promise
+        ? matchResult.then(
+            () => {
+              return { type: rule.messageType || 'error', message: '' };
+            },
+            () => {
+              return {
+                type: rule.messageType || 'error',
+                message: rule.message
+              };
+            }
+          )
+        : Promise.resolve({
+            type: rule.messageType || 'error',
+            message: !matchResult ? rule.message : ''
+          });
     }
     default:
-      return { type: rule.messageType || 'error', message: '' };
+      return Promise.resolve({
+        type: rule.messageType || 'error',
+        message: ''
+      });
   }
 };
 
-export default Validator;
+export default validator;
