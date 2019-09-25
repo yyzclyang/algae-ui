@@ -30,4 +30,4 @@ export { default as message } from './message';
 export { MessageType } from './message';
 
 export { default as Form } from './form';
-export { FormValue } from './form';
+export { FormValue, Field } from './form';

@@ -53,13 +53,13 @@ interface FormProps {
 const Form: React.FunctionComponent<FormProps> = (props: FormProps) => {
   const { value, fields, buttons, onChange } = props;
 
-  const [validateMessages, setValidateMessages] = useState<
+  const [validateMessageGroup, setValidateMessageGroup] = useState<
     ValidateMessageGroup
   >({});
 
   const onSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
-    validator(value, fields).then(setValidateMessages);
+    validator(value, fields).then(setValidateMessageGroup);
     props.onSubmit(e);
   };
 
@@ -67,8 +67,7 @@ const Form: React.FunctionComponent<FormProps> = (props: FormProps) => {
     type: string,
     e: React.ChangeEvent<HTMLInputElement>
   ) => {
-    const newFormValue = { ...value, [type]: e.currentTarget.value };
-    onChange(newFormValue);
+    onChange({ ...value, [type]: e.currentTarget.value });
   };
 
   return (
@@ -85,13 +84,16 @@ const Form: React.FunctionComponent<FormProps> = (props: FormProps) => {
               <td
                 className={classNames(
                   sc('row-content'),
-                  isNonEmptyArray(validateMessages[field.type])
-                    ? sc('row-validate-' + validateMessages[field.type][0].type)
+                  isNonEmptyArray(validateMessageGroup[field.type])
+                    ? sc(
+                        'row-validate-' +
+                          validateMessageGroup[field.type][0].type
+                      )
                     : ''
                 )}
                 data-validate={
-                  isNonEmptyArray(validateMessages[field.type])
-                    ? validateMessages[field.type][0].message
+                  isNonEmptyArray(validateMessageGroup[field.type])
+                    ? validateMessageGroup[field.type][0].message
                     : ''
                 }
               >
