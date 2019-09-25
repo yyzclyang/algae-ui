@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import { Button, Form } from 'ROOT/src';
-import { FormValue } from 'ROOT/src';
-import { Field } from '../../../src/form/form';
+import { Button, Form, FormValue, Field } from 'ROOT/src';
 
 export default () => {
   const [formData, setFormData] = useState<FormValue>({
     username: '',
     password: ''
   });
+  const usernames = ['jack jack', 'tom tom tom', 'fck fck fck'];
+
   const [fields] = useState<Field[]>([
     {
       type: 'username',
@@ -15,21 +15,26 @@ export default () => {
       input: { type: 'text' },
       rules: [
         {
-          type: 'custom',
-          match: (value) => {
-            return new Promise((resolve, reject) => {
-              setTimeout(() => {
-                value.length < 8 ? resolve() : reject();
-              }, 2000);
-            });
-          },
-          messageType: 'warning',
+          type: 'required',
+          match: true,
           message: '不能为空'
         },
         {
           type: 'minLength',
           match: 6,
           message: '不能少于 6 个字'
+        },
+        {
+          type: 'custom',
+          match: (value) => {
+            return new Promise((resolve, reject) => {
+              setTimeout(() => {
+                usernames.includes(value) ? reject() : resolve();
+              }, 2000);
+            });
+          },
+          messageType: 'warning',
+          message: '用户名已存在'
         }
       ]
     },
@@ -39,15 +44,8 @@ export default () => {
       input: { type: 'password' },
       rules: [
         {
-          type: 'custom',
-          match: (value) => {
-            return new Promise((resolve, reject) => {
-              setTimeout(() => {
-                value.length < 7 ? resolve() : reject();
-              }, 2000);
-            });
-          },
-          messageType: 'success',
+          type: 'required',
+          match: true,
           message: '不能为空'
         },
         {
