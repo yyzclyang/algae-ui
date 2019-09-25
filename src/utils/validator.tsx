@@ -93,7 +93,7 @@ const validateMethod = (data: string, rule: Rule): Promise<ValidateMessage> => {
     default:
       return Promise.resolve({
         type: rule.messageType || 'error',
-        message: ''
+        message: rule.message
       });
   }
 };
