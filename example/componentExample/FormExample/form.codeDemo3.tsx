@@ -11,12 +11,30 @@ export default () => {
     {
       type: 'username',
       label: '用户名',
-      input: { type: 'text' }
+      input: { type: 'text' },
+      rules: [
+        {
+          type: 'custom',
+          match: (value) => {
+            return !!value && value.length % 2 === 0;
+          },
+          messageType: 'warning',
+          message: '长度必须为大于 0 的偶数'
+        }
+      ]
     },
     {
       type: 'password',
       label: '密码',
-      input: { type: 'password' }
+      input: { type: 'password' },
+      rules: [
+        {
+          type: 'required',
+          match: true,
+          messageType: 'warning',
+          message: '不能为空'
+        }
+      ]
     }
   ]);
 
