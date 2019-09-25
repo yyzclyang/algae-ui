@@ -36,21 +36,18 @@ const validator = (
           .slice(1)
           .filter((validateMessage) => validateMessage.message)
       }))
-      .reduce(
-        (validateMessageGroup, singleValidateMessageGroup) => ({
-          ...validateMessageGroup,
-          ...singleValidateMessageGroup
-        }),
-        {}
-      )
+      .reduce((validateMessageGroup, singleValidateMessageGroup) => ({
+        ...validateMessageGroup,
+        ...singleValidateMessageGroup
+      }))
   );
 
-const validateMethod = (data: any, rule: Rule): Promise<ValidateMessage> => {
+const validateMethod = (data: string, rule: Rule): Promise<ValidateMessage> => {
   switch (rule.type) {
     case 'required': {
       return Promise.resolve({
         type: rule.messageType || 'error',
-        message: !data ? rule.message : ''
+        message: rule.match && !data ? rule.message : ''
       });
     }
     case 'minLength': {
