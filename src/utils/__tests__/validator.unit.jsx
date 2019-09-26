@@ -108,7 +108,6 @@ describe('validator 函数', () => {
       }
     ];
     validator(formData, fields).then((validateMessageGroup) => {
-      console.log(validateMessageGroup);
       expect(validateMessageGroup.username.length).toEqual(3);
       expect(validateMessageGroup.password.length).toEqual(4);
       done();
