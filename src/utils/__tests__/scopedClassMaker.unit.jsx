@@ -36,10 +36,4 @@ describe('scopedClassMaker 函数', () => {
     const result = scopedClass(undefined);
     expect(result).toBe('algae-ui');
   });
-
-  it('接受 prefix 为 "algae-ui"，suffix 为 null', () => {
-    const scopedClass = scopedClassMaker('algae-ui');
-    const result = scopedClass(null);
-    expect(result).toBe('algae-ui');
-  });
 });
