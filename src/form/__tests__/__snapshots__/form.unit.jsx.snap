@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Form 渲染一个 Form 1`] = `
+<form
+  className="algae-ui-form"
+  onSubmit={[Function]}
+>
+  <table
+    className="algae-ui-form-table"
+  >
+    <tbody>
+      <tr
+        className="algae-ui-form-row"
+      >
+        <td>
+          <span
+            className="algae-ui-form-row-label"
+          >
+            用户名
+          </span>
+        </td>
+        <td
+          className="algae-ui-form-row-content"
+          data-validate=""
+        >
+          <span
+            className="algae-ui-input-wrapper"
+          >
+            <input
+              className="algae-ui-input algae-ui-form-row-input"
+              onChange={[Function]}
+              style={Object {}}
+              type="text"
+              value=""
+            />
+          </span>
+        </td>
+      </tr>
+      <tr
+        className="algae-ui-form-row"
+      >
+        <td />
+        <td>
+          <button
+            className="algae-ui-button algae-ui-button-primary algae-ui-button-full"
+            onClick={[Function]}
+            type="submit"
+          >
+            提交
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</form>
+`;
