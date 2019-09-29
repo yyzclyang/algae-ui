@@ -105,6 +105,33 @@ const SwitchExample: React.FunctionComponent = () => {
             ]
           ]}
         />
+        <h3>Field</h3>
+        <p>
+          <code>Field</code>是输入框的检测规程，其类型如下：
+        </p>
+        <Api
+          data={[
+            [
+              'type',
+              '检测的类型',
+              'required | minLength | maxLength | pattern | custom',
+              '-'
+            ],
+            [
+              'match',
+              '具体的检测规则',
+              'boolean | number | number | RegExp | (value: string) => boolean | Promise<boolean>',
+              '-'
+            ],
+            [
+              'messageType',
+              '当检测结果为假时提示消息的类型',
+              ' success | warning | error',
+              'error'
+            ],
+            ['message', '当检测结果为假时提示消息的内容', 'string', '-']
+          ]}
+        />
       </section>
     </div>
   );
