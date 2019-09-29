@@ -65,14 +65,11 @@ const validateMethod = (data: string, rule: Rule): Promise<ValidateMessage> => {
     case 'pattern': {
       return Promise.resolve({
         type: rule.messageType || 'error',
-        message: !(rule.match as RegExp).test(data) ? rule.message : ''
+        message: !rule.match.test(data) ? rule.message : ''
       });
     }
     case 'custom': {
-      const matchResult = (rule.match as (
-        value: string
-      ) => string | Promise<boolean>)(data);
-
+      const matchResult = rule.match(data);
       return matchResult instanceof Promise
         ? matchResult.then(
             () => {
@@ -90,11 +87,6 @@ const validateMethod = (data: string, rule: Rule): Promise<ValidateMessage> => {
             message: !matchResult ? rule.message : ''
           });
     }
-    default:
-      return Promise.resolve({
-        type: rule.messageType || 'error',
-        message: rule.message
-      });
   }
 };
 

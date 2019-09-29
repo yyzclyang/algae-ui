@@ -12,24 +12,19 @@ import './style/form.scss';
 
 const sc = scopedClassMaker('algae-ui-form');
 
-type RuleType = 'required' | 'minLength' | 'maxLength' | 'pattern' | 'custom';
-
 export type MessageType = 'success' | 'warning' | 'error';
 
-interface MatchTest {
-  required: boolean;
-  minLength: number;
-  maxLength: number;
-  pattern: RegExp;
-  custom: (value: string) => boolean | Promise<boolean>;
-}
-
-export interface Rule {
-  type: RuleType;
-  match: MatchTest[RuleType];
+export type Rule = (
+  | { type: 'required'; match: boolean }
+  | { type: 'minLength' | 'maxLength'; match: number }
+  | { type: 'pattern'; match: RegExp }
+  | {
+      type: 'custom';
+      match: (value: string) => boolean | Promise<boolean>;
+    }) & {
   messageType?: MessageType;
   message: string;
-}
+};
 
 export interface Field {
   type: string;

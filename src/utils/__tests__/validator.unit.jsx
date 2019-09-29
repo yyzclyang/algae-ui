@@ -98,18 +98,13 @@ describe('validator 函数', () => {
               return new Promise((resolve, reject) => reject());
             },
             message: 'Promise'
-          },
-          {
-            type: 'xxx',
-            match: true,
-            message: '错误'
           }
         ]
       }
     ];
     validator(formData, fields).then((validateMessageGroup) => {
       expect(validateMessageGroup.username.length).toEqual(3);
-      expect(validateMessageGroup.password.length).toEqual(4);
+      expect(validateMessageGroup.password.length).toEqual(3);
       done();
     });
   });
