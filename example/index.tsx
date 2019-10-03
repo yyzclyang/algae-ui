@@ -20,6 +20,7 @@ import CheckboxExample from './componentExample/CheckboxExample';
 import RateExample from './componentExample/RateExample';
 import MessageExample from './componentExample/MessageExample';
 import FormExample from './componentExample/FormExample';
+import AvatarExample from './componentExample/AvatarExample';
 
 import './img/logo.svg';
 import './img/logo_text.svg';
@@ -73,6 +74,10 @@ ReactDOM.render(
               <NavLink to="/form">Form 表单</NavLink>
             </li>
             <li>
+              <div className="component-group component-list">数据展示</div>
+              <NavLink to="/avatar">Avatar 头像</NavLink>
+            </li>
+            <li>
               <div className="component-group component-list">反馈</div>
               <NavLink to="/modal">Modal 对话框</NavLink>
               <NavLink to="/message">Message 消息</NavLink>
@@ -104,6 +109,7 @@ ReactDOM.render(
           <Route path="/rate" component={RateExample} />
           <Route path="/message" component={MessageExample} />
           <Route path="/form" component={FormExample} />
+          <Route path="/avatar" component={AvatarExample} />
         </Content>
         <Footer className="main-footer">&copy; YyzclYang</Footer>
       </Layout>
