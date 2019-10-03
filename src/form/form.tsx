@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import Input, { InputProps } from '../input/input';
 import {
   scopedClassMaker,
@@ -109,6 +110,23 @@ const Form: React.FunctionComponent<FormProps> = (props: FormProps) => {
       </table>
     </form>
   );
+};
+
+Form.displayName = 'Form';
+
+Form.propTypes = {
+  value: PropTypes.objectOf(PropTypes.string.isRequired).isRequired,
+  fields: PropTypes.arrayOf(
+    PropTypes.shape({
+      type: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
+      input: PropTypes.object.isRequired,
+      rules: PropTypes.array
+    }).isRequired
+  ).isRequired,
+  buttons: PropTypes.node,
+  onSubmit: PropTypes.func.isRequired,
+  onChange: PropTypes.func.isRequired
 };
 
 export default Form;
