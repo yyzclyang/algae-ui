@@ -1,0 +1,250 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Badge 渲染 count 为 0 的 Badge 1`] = `
+<span
+  className="algae-ui-badge-wrapper"
+>
+  <span
+    className="algae-ui-avatar algae-ui-avatar-square"
+    style={
+      Object {
+        "height": "32px",
+        "width": "32px",
+      }
+    }
+  >
+    <svg
+      className="algae-ui-icon algae-ui-avatar-icon"
+      fill="#FFFFFF"
+      style={
+        Object {
+          "fontSize": "14px",
+        }
+      }
+    >
+      <use
+        xlinkHref="#avatar"
+      />
+    </svg>
+  </span>
+  <span
+    className="algae-ui-badge algae-ui-badge-has-children"
+    style={
+      Object {
+        "background": "",
+      }
+    }
+  >
+    <span
+      className="algae-ui-badge-content"
+    >
+      0
+    </span>
+  </span>
+</span>
+`;
+
+exports[`Badge 渲染图标型 Badge 1`] = `
+<span
+  className="algae-ui-badge-wrapper"
+>
+  <span
+    className="algae-ui-avatar algae-ui-avatar-square"
+    style={
+      Object {
+        "height": "32px",
+        "width": "32px",
+      }
+    }
+  >
+    <svg
+      className="algae-ui-icon algae-ui-avatar-icon"
+      fill="#FFFFFF"
+      style={
+        Object {
+          "fontSize": "14px",
+        }
+      }
+    >
+      <use
+        xlinkHref="#avatar"
+      />
+    </svg>
+  </span>
+  <span
+    className="algae-ui-badge algae-ui-badge-has-children"
+    style={
+      Object {
+        "background": "#FFFFFF",
+      }
+    }
+  >
+    <svg
+      className="algae-ui-icon"
+      style={
+        Object {
+          "fill": "#e23c39",
+          "fontSize": "12px",
+        }
+      }
+    >
+      <use
+        xlinkHref="#warning-circle"
+      />
+    </svg>
+  </span>
+</span>
+`;
+
+exports[`Badge 渲染封顶数字的 Badge 1`] = `
+<span
+  className="algae-ui-badge-wrapper"
+>
+  <span
+    className="algae-ui-avatar algae-ui-avatar-square"
+    style={
+      Object {
+        "height": "32px",
+        "width": "32px",
+      }
+    }
+  >
+    <svg
+      className="algae-ui-icon algae-ui-avatar-icon"
+      fill="#FFFFFF"
+      style={
+        Object {
+          "fontSize": "14px",
+        }
+      }
+    >
+      <use
+        xlinkHref="#avatar"
+      />
+    </svg>
+  </span>
+  <span
+    className="algae-ui-badge algae-ui-badge-has-children"
+    style={
+      Object {
+        "background": "",
+      }
+    }
+  >
+    <span
+      className="algae-ui-badge-content"
+    >
+      10+
+    </span>
+  </span>
+</span>
+`;
+
+exports[`Badge 渲染小红点型 Badge 1`] = `
+<span
+  className="algae-ui-badge-wrapper"
+>
+  <span
+    className="algae-ui-avatar algae-ui-avatar-square"
+    style={
+      Object {
+        "height": "32px",
+        "width": "32px",
+      }
+    }
+  >
+    <svg
+      className="algae-ui-icon algae-ui-avatar-icon"
+      fill="#FFFFFF"
+      style={
+        Object {
+          "fontSize": "14px",
+        }
+      }
+    >
+      <use
+        xlinkHref="#avatar"
+      />
+    </svg>
+  </span>
+  <span
+    className="algae-ui-badge algae-ui-badge-has-children algae-ui-badge-dot"
+    style={
+      Object {
+        "background": "",
+      }
+    }
+  >
+    <span
+      className="algae-ui-badge-content"
+    />
+  </span>
+</span>
+`;
+
+exports[`Badge 渲染普通 Badge 1`] = `
+<span
+  className="algae-ui-badge-wrapper"
+>
+  <span
+    className="algae-ui-avatar algae-ui-avatar-square"
+    style={
+      Object {
+        "height": "32px",
+        "width": "32px",
+      }
+    }
+  >
+    <svg
+      className="algae-ui-icon algae-ui-avatar-icon"
+      fill="#FFFFFF"
+      style={
+        Object {
+          "fontSize": "14px",
+        }
+      }
+    >
+      <use
+        xlinkHref="#avatar"
+      />
+    </svg>
+  </span>
+  <span
+    className="algae-ui-badge algae-ui-badge-has-children"
+    style={
+      Object {
+        "background": "",
+      }
+    }
+  >
+    <span
+      className="algae-ui-badge-content"
+    >
+      5
+    </span>
+  </span>
+</span>
+`;
+
+exports[`Badge 渲染独立的 Badge 1`] = `
+<span
+  className="algae-ui-badge-wrapper"
+>
+  <span
+    className="algae-ui-badge"
+    style={
+      Object {
+        "background": "#FFFFFF",
+        "boxShadow": "0 0 0 1px #d9d9d9 inset",
+        "color": "#8F8F8F",
+      }
+    }
+  >
+    <span
+      className="algae-ui-badge-content"
+    >
+      0
+    </span>
+  </span>
+</span>
+`;
