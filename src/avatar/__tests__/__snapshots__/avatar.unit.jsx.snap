@@ -1,0 +1,128 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Avatar 渲染方形的 Avatar 1`] = `
+<span
+  className="algae-ui-avatar algae-ui-avatar-square"
+  style={
+    Object {
+      "height": "32px",
+      "width": "32px",
+    }
+  }
+>
+  <svg
+    className="algae-ui-icon algae-ui-avatar-icon"
+    fill="#FFFFFF"
+    style={
+      Object {
+        "fontSize": "14px",
+      }
+    }
+  >
+    <use
+      xlinkHref="#avatar"
+    />
+  </svg>
+</span>
+`;
+
+exports[`Avatar 渲染自定义图片的 Avatar 1`] = `
+<span
+  className="algae-ui-avatar algae-ui-avatar-circle"
+  style={
+    Object {
+      "background": "transparent",
+      "height": "32px",
+      "width": "32px",
+    }
+  }
+>
+  <img
+    alt="头像"
+    className="algae-ui-avatar-image"
+    src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+  />
+</span>
+`;
+
+exports[`Avatar 渲染自定义尺寸的 Avatar 1`] = `
+<span
+  className="algae-ui-avatar algae-ui-avatar-square"
+  style={
+    Object {
+      "height": "48px",
+      "width": "48px",
+    }
+  }
+>
+  <svg
+    className="algae-ui-icon algae-ui-avatar-icon"
+    fill="#FFFFFF"
+    style={
+      Object {
+        "fontSize": "21px",
+      }
+    }
+  >
+    <use
+      xlinkHref="#avatar"
+    />
+  </svg>
+</span>
+`;
+
+exports[`Avatar 渲染自定义文案的 Avatar 1`] = `
+<span
+  className="algae-ui-avatar algae-ui-avatar-circle"
+  style={
+    Object {
+      "height": "32px",
+      "width": "32px",
+    }
+  }
+>
+  User
+</span>
+`;
+
+exports[`Avatar 渲染自定义样式的 Avatar 1`] = `
+<span
+  className="algae-ui-avatar algae-ui-avatar-circle"
+  style={
+    Object {
+      "background": "#FADFC9",
+      "color": "red",
+      "height": "32px",
+      "width": "32px",
+    }
+  }
+>
+  U
+</span>
+`;
+
+exports[`Avatar 渲染默认 Avatar 1`] = `
+<span
+  className="algae-ui-avatar algae-ui-avatar-circle"
+  style={
+    Object {
+      "height": "32px",
+      "width": "32px",
+    }
+  }
+>
+  <svg
+    className="algae-ui-icon algae-ui-avatar-icon"
+    fill="#FFFFFF"
+    style={
+      Object {
+        "fontSize": "14px",
+      }
+    }
+  >
+    <use
+      xlinkHref="#avatar"
+    />
+  </svg>
+</span>
+`;
