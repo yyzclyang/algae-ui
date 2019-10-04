@@ -33,3 +33,5 @@ export { default as Form } from './form';
 export { FormValue, Field } from './form';
 
 export { default as Avatar } from './avatar';
+
+export { default as Badge } from './badge';

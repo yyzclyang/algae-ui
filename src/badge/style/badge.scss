@@ -1,0 +1,37 @@
+@import '../../style/theme';
+
+.algae-ui-badge-wrapper {
+  position: relative;
+  display: inline-block;
+  & > .algae-ui-badge {
+    border-radius: 8px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: 16px;
+    min-width: 16px;
+    background: #e23c39;
+    color: #ffffff;
+    overflow: hidden;
+    vertical-align: middle;
+    &.algae-ui-badge-has-children,
+    &.algae-ui-badge-dot {
+      position: absolute;
+      top: 0;
+      right: 0;
+      transform: translate(50%, -50%);
+    }
+    &.algae-ui-badge-dot {
+      min-width: 8px;
+      height: 8px;
+      & .algae-ui-badge-content {
+        padding: 0;
+      }
+    }
+  }
+  & .algae-ui-badge-content {
+    font-size: 12px;
+    padding: 0 4px;
+    line-height: 16px;
+  }
+}
