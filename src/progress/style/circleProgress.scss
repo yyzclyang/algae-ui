@@ -1,0 +1,23 @@
+@import '../../style/theme';
+
+.algae-ui-progress-circle {
+  display: inline-block;
+  position: relative;
+  line-height: 0;
+  & circle {
+    -webkit-transition: stroke-dasharray 0.3s;
+    transition: stroke-dasharray 0.3s;
+  }
+  & > .algae-ui-progress-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 16px;
+  }
+  & > .algae-ui-progress-text {
+    color: $secondary-color;
+  }
+  & > .algae-ui-progress-icon {
+  }
+}
