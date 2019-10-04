@@ -1,0 +1,31 @@
+@import '../../style/theme';
+
+.algae-ui-progress-normal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 8px;
+  & > .algae-ui-progress-rail {
+    flex-grow: 1;
+    height: 8px;
+    border-radius: 4px;
+    overflow: hidden;
+    & > .algae-ui-progress {
+      height: 100%;
+      transition: all 0.3s cubic-bezier(0.08, 0.82, 0.17, 1) 0s;
+    }
+  }
+  & > .algae-ui-progress-content {
+    margin-left: 8px;
+  }
+  & > .algae-ui-progress-text {
+    color: $secondary-color;
+  }
+  & > .algae-ui-progress-icon {
+    line-height: 0;
+    border-radius: 50%;
+    overflow: hidden;
+    fill: #ffffff;
+    font-size: 12px;
+  }
+}
