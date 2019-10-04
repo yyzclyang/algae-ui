@@ -21,6 +21,7 @@ import RateExample from './componentExample/RateExample';
 import MessageExample from './componentExample/MessageExample';
 import FormExample from './componentExample/FormExample';
 import AvatarExample from './componentExample/AvatarExample';
+import BadgeExample from './componentExample/BadgeExample';
 
 import './img/logo.svg';
 import './img/logo_text.svg';
@@ -76,6 +77,7 @@ ReactDOM.render(
             <li>
               <div className="component-group component-list">数据展示</div>
               <NavLink to="/avatar">Avatar 头像</NavLink>
+              <NavLink to="/badge">Badge 徽标数</NavLink>
             </li>
             <li>
               <div className="component-group component-list">反馈</div>
@@ -110,6 +112,7 @@ ReactDOM.render(
           <Route path="/message" component={MessageExample} />
           <Route path="/form" component={FormExample} />
           <Route path="/avatar" component={AvatarExample} />
+          <Route path="/badge" component={BadgeExample} />
         </Content>
         <Footer className="main-footer">&copy; YyzclYang</Footer>
       </Layout>

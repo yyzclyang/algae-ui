@@ -8,7 +8,7 @@ const code1 = require('!!raw-loader!./avatar.codeDemo1.tsx');
 import CodeDemo2 from './avatar.codeDemo2';
 const code2 = require('!!raw-loader!./avatar.codeDemo2.tsx');
 
-const ButtonExample: React.FunctionComponent = () => {
+const AvatarExample: React.FunctionComponent = () => {
   return (
     <div className="avatar-example-page">
       <section>
@@ -66,4 +66,4 @@ const ButtonExample: React.FunctionComponent = () => {
   );
 };
 
-export default ButtonExample;
+export default AvatarExample;
