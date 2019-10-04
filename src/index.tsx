@@ -35,3 +35,5 @@ export { FormValue, Field } from './form';
 export { default as Avatar } from './avatar';
 
 export { default as Badge } from './badge';
+
+export { default as Progress } from './progress';
