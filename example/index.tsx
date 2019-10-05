@@ -22,6 +22,7 @@ import MessageExample from './componentExample/MessageExample';
 import FormExample from './componentExample/FormExample';
 import AvatarExample from './componentExample/AvatarExample';
 import BadgeExample from './componentExample/BadgeExample';
+import ProgressExample from './componentExample/ProgressExample';
 
 import './img/logo.svg';
 import './img/logo_text.svg';
@@ -73,6 +74,7 @@ ReactDOM.render(
               <NavLink to="/checkbox">Checkbox 多选框</NavLink>
               <NavLink to="/rate">Rate 评分</NavLink>
               <NavLink to="/form">Form 表单</NavLink>
+              <NavLink to="/progress">Progress 进度条</NavLink>
             </li>
             <li>
               <div className="component-group component-list">数据展示</div>
@@ -113,6 +115,7 @@ ReactDOM.render(
           <Route path="/form" component={FormExample} />
           <Route path="/avatar" component={AvatarExample} />
           <Route path="/badge" component={BadgeExample} />
+          <Route path="/progress" component={ProgressExample} />
         </Content>
         <Footer className="main-footer">&copy; YyzclYang</Footer>
       </Layout>
