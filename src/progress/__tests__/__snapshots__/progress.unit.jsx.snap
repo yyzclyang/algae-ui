@@ -1,0 +1,796 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Progress 渲染仪表盘类型的 Progress 1`] = `
+<span
+  className="algae-ui-progress-container"
+>
+  <div
+    className="algae-ui-progress-circle algae-ui-progress-dashboard"
+  >
+    <svg
+      height="120"
+      viewBox="0 0 200 200"
+      width="120"
+    >
+      <circle
+        cx={100}
+        cy={100}
+        fill="none"
+        r={88}
+        stroke="#E5E5E5"
+        strokeDasharray="414.69023027385265 552.9203070318035"
+        strokeLinecap="round"
+        strokeWidth={12}
+        transform="matrix(-0.7071067811865475, 0.7071067811865476, -0.7071067811865476, -0.7071067811865475, 241.4213562373095, 99.99999999999999)"
+      />
+      <circle
+        cx={100}
+        cy={100}
+        fill="none"
+        r={88}
+        stroke="#506DFE"
+        strokeDasharray="124.4070690821558 552.9203070318035"
+        strokeLinecap="round"
+        strokeWidth={12}
+        transform="matrix(-0.7071067811865475, 0.7071067811865476, -0.7071067811865476, -0.7071067811865475, 241.4213562373095, 99.99999999999999)"
+      />
+    </svg>
+    <span
+      className="algae-ui-progress-text algae-ui-progress-content"
+    >
+      30%
+    </span>
+  </div>
+</span>
+`;
+
+exports[`Progress 渲染圆形 Progress 1`] = `
+Array [
+  <span
+    className="algae-ui-progress-container"
+  >
+    <div
+      className="algae-ui-progress-circle"
+    >
+      <svg
+        height="120"
+        viewBox="0 0 200 200"
+        width="120"
+      >
+        <circle
+          cx={100}
+          cy={100}
+          fill="none"
+          r={88}
+          stroke="#E5E5E5"
+          strokeLinecap="round"
+          strokeWidth={12}
+        />
+        <circle
+          cx={100}
+          cy={100}
+          fill="none"
+          r={88}
+          stroke="#506DFE"
+          strokeDasharray="165.87609210954108 552.9203070318035"
+          strokeLinecap="round"
+          strokeWidth={12}
+          transform="matrix(6.123233995736766e-17, -1, 1, 6.123233995736766e-17, 0, 200)"
+        />
+      </svg>
+      <span
+        className="algae-ui-progress-text algae-ui-progress-content"
+      >
+        30%
+      </span>
+    </div>
+  </span>,
+  <span
+    className="algae-ui-progress-container"
+  >
+    <div
+      className="algae-ui-progress-circle"
+    >
+      <svg
+        height="120"
+        viewBox="0 0 200 200"
+        width="120"
+      >
+        <circle
+          cx={100}
+          cy={100}
+          fill="none"
+          r={88}
+          stroke="#E5E5E5"
+          strokeLinecap="round"
+          strokeWidth={12}
+        />
+        <circle
+          cx={100}
+          cy={100}
+          fill="none"
+          r={88}
+          stroke="#20BAA4"
+          strokeDasharray="165.87609210954108 552.9203070318035"
+          strokeLinecap="round"
+          strokeWidth={12}
+          transform="matrix(6.123233995736766e-17, -1, 1, 6.123233995736766e-17, 0, 200)"
+        />
+      </svg>
+      <span
+        className="algae-ui-progress-icon algae-ui-progress-content"
+      >
+        <svg
+          className="algae-ui-icon"
+          style={
+            Object {
+              "fill": "#52c41a",
+            }
+          }
+        >
+          <use
+            xlinkHref="#check"
+          />
+        </svg>
+      </span>
+    </div>
+  </span>,
+  <span
+    className="algae-ui-progress-container"
+  >
+    <div
+      className="algae-ui-progress-circle"
+    >
+      <svg
+        height="120"
+        viewBox="0 0 200 200"
+        width="120"
+      >
+        <circle
+          cx={100}
+          cy={100}
+          fill="none"
+          r={88}
+          stroke="#E5E5E5"
+          strokeLinecap="round"
+          strokeWidth={12}
+        />
+        <circle
+          cx={100}
+          cy={100}
+          fill="none"
+          r={88}
+          stroke="#F53F4A"
+          strokeDasharray="165.87609210954108 552.9203070318035"
+          strokeLinecap="round"
+          strokeWidth={12}
+          transform="matrix(6.123233995736766e-17, -1, 1, 6.123233995736766e-17, 0, 200)"
+        />
+      </svg>
+      <span
+        className="algae-ui-progress-icon algae-ui-progress-content"
+      >
+        <svg
+          className="algae-ui-icon"
+          style={
+            Object {
+              "fill": "#f5222d",
+            }
+          }
+        >
+          <use
+            xlinkHref="#close"
+          />
+        </svg>
+      </span>
+    </div>
+  </span>,
+]
+`;
+
+exports[`Progress 渲染方形边缘 Progress 1`] = `
+Array [
+  <span
+    className="algae-ui-progress-container"
+  >
+    <div
+      className="algae-ui-progress-normal"
+    >
+      <div
+        className="algae-ui-progress-rail"
+        style={
+          Object {
+            "background": "#E5E5E5",
+          }
+        }
+      >
+        <div
+          className="algae-ui-progress"
+          style={
+            Object {
+              "background": "#506DFE",
+              "borderRadius": "0",
+              "width": "30%",
+            }
+          }
+        />
+      </div>
+      <span
+        className="algae-ui-progress-text algae-ui-progress-content"
+      >
+        30%
+      </span>
+    </div>
+  </span>,
+  <span
+    className="algae-ui-progress-container"
+  >
+    <div
+      className="algae-ui-progress-circle"
+    >
+      <svg
+        height="120"
+        viewBox="0 0 200 200"
+        width="120"
+      >
+        <circle
+          cx={100}
+          cy={100}
+          fill="none"
+          r={88}
+          stroke="#E5E5E5"
+          strokeLinecap="square"
+          strokeWidth={12}
+        />
+        <circle
+          cx={100}
+          cy={100}
+          fill="none"
+          r={88}
+          stroke="#506DFE"
+          strokeDasharray="276.46015351590177 552.9203070318035"
+          strokeLinecap="square"
+          strokeWidth={12}
+          transform="matrix(6.123233995736766e-17, -1, 1, 6.123233995736766e-17, 0, 200)"
+        />
+      </svg>
+      <span
+        className="algae-ui-progress-text algae-ui-progress-content"
+      >
+        50%
+      </span>
+    </div>
+  </span>,
+  <span
+    className="algae-ui-progress-container"
+  >
+    <div
+      className="algae-ui-progress-circle algae-ui-progress-dashboard"
+    >
+      <svg
+        height="120"
+        viewBox="0 0 200 200"
+        width="120"
+      >
+        <circle
+          cx={100}
+          cy={100}
+          fill="none"
+          r={88}
+          stroke="#E5E5E5"
+          strokeDasharray="414.69023027385265 552.9203070318035"
+          strokeLinecap="square"
+          strokeWidth={12}
+          transform="matrix(-0.7071067811865475, 0.7071067811865476, -0.7071067811865476, -0.7071067811865475, 241.4213562373095, 99.99999999999999)"
+        />
+        <circle
+          cx={100}
+          cy={100}
+          fill="none"
+          r={88}
+          stroke="#506DFE"
+          strokeDasharray="207.34511513692632 552.9203070318035"
+          strokeLinecap="square"
+          strokeWidth={12}
+          transform="matrix(-0.7071067811865475, 0.7071067811865476, -0.7071067811865476, -0.7071067811865475, 241.4213562373095, 99.99999999999999)"
+        />
+      </svg>
+      <span
+        className="algae-ui-progress-text algae-ui-progress-content"
+      >
+        50%
+      </span>
+    </div>
+  </span>,
+]
+`;
+
+exports[`Progress 渲染普通 Progress 1`] = `
+Array [
+  <span
+    className="algae-ui-progress-container"
+  >
+    <div
+      className="algae-ui-progress-normal"
+    >
+      <div
+        className="algae-ui-progress-rail"
+        style={
+          Object {
+            "background": "#E5E5E5",
+          }
+        }
+      >
+        <div
+          className="algae-ui-progress"
+          style={
+            Object {
+              "background": "#506DFE",
+              "borderRadius": "4px",
+              "width": "30%",
+            }
+          }
+        />
+      </div>
+      <span
+        className="algae-ui-progress-text algae-ui-progress-content"
+      >
+        30%
+      </span>
+    </div>
+  </span>,
+  <span
+    className="algae-ui-progress-container"
+  >
+    <div
+      className="algae-ui-progress-normal"
+    >
+      <div
+        className="algae-ui-progress-rail"
+        style={
+          Object {
+            "background": "#E5E5E5",
+          }
+        }
+      >
+        <div
+          className="algae-ui-progress"
+          style={
+            Object {
+              "background": "#F53F4A",
+              "borderRadius": "4px",
+              "width": "20%",
+            }
+          }
+        />
+      </div>
+      <span
+        className="algae-ui-progress-icon algae-ui-progress-content"
+      >
+        <svg
+          className="algae-ui-icon"
+          style={
+            Object {
+              "background": "#f5222d",
+            }
+          }
+        >
+          <use
+            xlinkHref="#close-circle"
+          />
+        </svg>
+      </span>
+    </div>
+  </span>,
+  <span
+    className="algae-ui-progress-container"
+  >
+    <div
+      className="algae-ui-progress-normal"
+    >
+      <div
+        className="algae-ui-progress-rail"
+        style={
+          Object {
+            "background": "#E5E5E5",
+          }
+        }
+      >
+        <div
+          className="algae-ui-progress"
+          style={
+            Object {
+              "background": "#20BAA4",
+              "borderRadius": "4px",
+              "width": "70%",
+            }
+          }
+        />
+      </div>
+      <span
+        className="algae-ui-progress-icon algae-ui-progress-content"
+      >
+        <svg
+          className="algae-ui-icon"
+          style={
+            Object {
+              "background": "#52c41a",
+            }
+          }
+        >
+          <use
+            xlinkHref="#check-circle"
+          />
+        </svg>
+      </span>
+    </div>
+  </span>,
+  <span
+    className="algae-ui-progress-container"
+  >
+    <div
+      className="algae-ui-progress-normal"
+    >
+      <div
+        className="algae-ui-progress-rail"
+        style={
+          Object {
+            "background": "#E5E5E5",
+          }
+        }
+      >
+        <div
+          className="algae-ui-progress"
+          style={
+            Object {
+              "background": "#506DFE",
+              "borderRadius": "4px",
+              "width": "50%",
+            }
+          }
+        />
+      </div>
+    </div>
+  </span>,
+]
+`;
+
+exports[`Progress 渲染百分比错误的 Progress 1`] = `
+Array [
+  <span
+    className="algae-ui-progress-container"
+  >
+    <div
+      className="algae-ui-progress-normal"
+    >
+      <div
+        className="algae-ui-progress-rail"
+        style={
+          Object {
+            "background": "#E5E5E5",
+          }
+        }
+      >
+        <div
+          className="algae-ui-progress"
+          style={
+            Object {
+              "background": "#506DFE",
+              "borderRadius": "4px",
+              "width": "0%",
+            }
+          }
+        />
+      </div>
+      <span
+        className="algae-ui-progress-text algae-ui-progress-content"
+      >
+        0%
+      </span>
+    </div>
+  </span>,
+  <span
+    className="algae-ui-progress-container"
+  >
+    <div
+      className="algae-ui-progress-normal"
+    >
+      <div
+        className="algae-ui-progress-rail"
+        style={
+          Object {
+            "background": "#E5E5E5",
+          }
+        }
+      >
+        <div
+          className="algae-ui-progress"
+          style={
+            Object {
+              "background": "#506DFE",
+              "borderRadius": "4px",
+              "width": "100%",
+            }
+          }
+        />
+      </div>
+      <span
+        className="algae-ui-progress-text algae-ui-progress-content"
+      >
+        100%
+      </span>
+    </div>
+  </span>,
+  <span
+    className="algae-ui-progress-container"
+  >
+    <div
+      className="algae-ui-progress-circle"
+    >
+      <svg
+        height="120"
+        viewBox="0 0 200 200"
+        width="120"
+      >
+        <circle
+          cx={100}
+          cy={100}
+          fill="none"
+          r={88}
+          stroke="#E5E5E5"
+          strokeLinecap="round"
+          strokeWidth={12}
+        />
+        <circle
+          cx={100}
+          cy={100}
+          fill="none"
+          r={88}
+          stroke="#506DFE"
+          strokeDasharray="0 552.9203070318035"
+          strokeLinecap="round"
+          strokeWidth={12}
+          transform="matrix(6.123233995736766e-17, -1, 1, 6.123233995736766e-17, 0, 200)"
+        />
+      </svg>
+      <span
+        className="algae-ui-progress-text algae-ui-progress-content"
+      >
+        0%
+      </span>
+    </div>
+  </span>,
+  <span
+    className="algae-ui-progress-container"
+  >
+    <div
+      className="algae-ui-progress-circle"
+    >
+      <svg
+        height="120"
+        viewBox="0 0 200 200"
+        width="120"
+      >
+        <circle
+          cx={100}
+          cy={100}
+          fill="none"
+          r={88}
+          stroke="#E5E5E5"
+          strokeLinecap="round"
+          strokeWidth={12}
+        />
+        <circle
+          cx={100}
+          cy={100}
+          fill="none"
+          r={88}
+          stroke="#506DFE"
+          strokeDasharray="552.9203070318035 552.9203070318035"
+          strokeLinecap="round"
+          strokeWidth={12}
+          transform="matrix(6.123233995736766e-17, -1, 1, 6.123233995736766e-17, 0, 200)"
+        />
+      </svg>
+      <span
+        className="algae-ui-progress-text algae-ui-progress-content"
+      >
+        100%
+      </span>
+    </div>
+  </span>,
+]
+`;
+
+exports[`Progress 渲染自定义文案的 Progress 1`] = `
+Array [
+  <span
+    className="algae-ui-progress-container"
+  >
+    <div
+      className="algae-ui-progress-normal"
+    >
+      <div
+        className="algae-ui-progress-rail"
+        style={
+          Object {
+            "background": "#E5E5E5",
+          }
+        }
+      >
+        <div
+          className="algae-ui-progress"
+          style={
+            Object {
+              "background": "#506DFE",
+              "borderRadius": "4px",
+              "width": "30%",
+            }
+          }
+        />
+      </div>
+      <span
+        className="algae-ui-progress-text algae-ui-progress-content"
+      >
+        自定义
+      </span>
+    </div>
+  </span>,
+  <span
+    className="algae-ui-progress-container"
+  >
+    <div
+      className="algae-ui-progress-circle"
+    >
+      <svg
+        height="120"
+        viewBox="0 0 200 200"
+        width="120"
+      >
+        <circle
+          cx={100}
+          cy={100}
+          fill="none"
+          r={88}
+          stroke="#E5E5E5"
+          strokeLinecap="round"
+          strokeWidth={12}
+        />
+        <circle
+          cx={100}
+          cy={100}
+          fill="none"
+          r={88}
+          stroke="#506DFE"
+          strokeDasharray="276.46015351590177 552.9203070318035"
+          strokeLinecap="round"
+          strokeWidth={12}
+          transform="matrix(6.123233995736766e-17, -1, 1, 6.123233995736766e-17, 0, 200)"
+        />
+      </svg>
+      <span
+        className="algae-ui-progress-text algae-ui-progress-content"
+      >
+        自定义
+      </span>
+    </div>
+  </span>,
+  <span
+    className="algae-ui-progress-container"
+  >
+    <div
+      className="algae-ui-progress-circle algae-ui-progress-dashboard"
+    >
+      <svg
+        height="120"
+        viewBox="0 0 200 200"
+        width="120"
+      >
+        <circle
+          cx={100}
+          cy={100}
+          fill="none"
+          r={88}
+          stroke="#E5E5E5"
+          strokeDasharray="414.69023027385265 552.9203070318035"
+          strokeLinecap="round"
+          strokeWidth={12}
+          transform="matrix(-0.7071067811865475, 0.7071067811865476, -0.7071067811865476, -0.7071067811865475, 241.4213562373095, 99.99999999999999)"
+        />
+        <circle
+          cx={100}
+          cy={100}
+          fill="none"
+          r={88}
+          stroke="#506DFE"
+          strokeDasharray="207.34511513692632 552.9203070318035"
+          strokeLinecap="round"
+          strokeWidth={12}
+          transform="matrix(-0.7071067811865475, 0.7071067811865476, -0.7071067811865476, -0.7071067811865475, 241.4213562373095, 99.99999999999999)"
+        />
+      </svg>
+      <span
+        className="algae-ui-progress-text algae-ui-progress-content"
+      >
+        自定义
+      </span>
+    </div>
+  </span>,
+]
+`;
+
+exports[`Progress 渲染自定义颜色 Progress 1`] = `
+Array [
+  <span
+    className="algae-ui-progress-container"
+  >
+    <div
+      className="algae-ui-progress-normal"
+    >
+      <div
+        className="algae-ui-progress-rail"
+        style={
+          Object {
+            "background": "#cccccc",
+          }
+        }
+      >
+        <div
+          className="algae-ui-progress"
+          style={
+            Object {
+              "background": "#ffa30a",
+              "borderRadius": "4px",
+              "width": "30%",
+            }
+          }
+        />
+      </div>
+      <span
+        className="algae-ui-progress-text algae-ui-progress-content"
+      >
+        30%
+      </span>
+    </div>
+  </span>,
+  <span
+    className="algae-ui-progress-container"
+  >
+    <div
+      className="algae-ui-progress-circle"
+    >
+      <svg
+        height="120"
+        viewBox="0 0 200 200"
+        width="120"
+      >
+        <circle
+          cx={100}
+          cy={100}
+          fill="none"
+          r={88}
+          stroke="#cccccc"
+          strokeLinecap="round"
+          strokeWidth={12}
+        />
+        <circle
+          cx={100}
+          cy={100}
+          fill="none"
+          r={88}
+          stroke="#ffa30a"
+          strokeDasharray="276.46015351590177 552.9203070318035"
+          strokeLinecap="round"
+          strokeWidth={12}
+          transform="matrix(6.123233995736766e-17, -1, 1, 6.123233995736766e-17, 0, 200)"
+        />
+      </svg>
+      <span
+        className="algae-ui-progress-text algae-ui-progress-content"
+      >
+        50%
+      </span>
+    </div>
+  </span>,
+]
+`;
