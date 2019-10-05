@@ -63,10 +63,8 @@ const CircleProgress: React.FunctionComponent<CircleProgressProps> = (
                 strokeDasharray: arcGenerator(radius!, 1, 270),
                 transform: rotateMatrixGenerator(
                   135,
-                  outRadius,
-                  outRadius,
-                  outRadius,
-                  outRadius
+                  { x: outRadius, y: outRadius },
+                  { x: outRadius, y: outRadius }
                 )
               }
             : {})}
@@ -83,17 +81,13 @@ const CircleProgress: React.FunctionComponent<CircleProgressProps> = (
             type === 'dashboard'
               ? rotateMatrixGenerator(
                   135,
-                  outRadius,
-                  outRadius,
-                  outRadius,
-                  outRadius
+                  { x: outRadius, y: outRadius },
+                  { x: outRadius, y: outRadius }
                 )
               : rotateMatrixGenerator(
                   -90,
-                  outRadius,
-                  outRadius,
-                  outRadius,
-                  outRadius
+                  { x: outRadius, y: outRadius },
+                  { x: outRadius, y: outRadius }
                 )
           }
           strokeDasharray={arcGenerator(
