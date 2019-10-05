@@ -15,10 +15,10 @@ interface CircleProgressProps {
   type?: 'circle' | 'dashboard';
   radius?: number;
   strokeWidth?: number;
-  backgroundStroke?: string;
-  progressStroke?: string;
+  backgroundColor?: string;
+  strokeColor?: string;
   strokeLinecap?: 'round' | 'square';
-  percentage: number;
+  percent: number;
   value?: string;
   showInfo?: boolean;
   status?: 'normal' | 'success' | 'fail';
@@ -31,10 +31,10 @@ const CircleProgress: React.FunctionComponent<CircleProgressProps> = (
     type,
     radius,
     strokeWidth,
-    backgroundStroke,
-    progressStroke,
+    backgroundColor,
+    strokeColor,
     strokeLinecap,
-    percentage,
+    percent,
     value,
     showInfo,
     status
@@ -55,8 +55,8 @@ const CircleProgress: React.FunctionComponent<CircleProgressProps> = (
           cy={outRadius}
           r={radius}
           strokeWidth={strokeWidth}
-          stroke={backgroundStroke}
-          strokeLinecap="round"
+          stroke={backgroundColor}
+          strokeLinecap={strokeLinecap}
           fill="none"
           {...(type === 'dashboard'
             ? {
@@ -76,7 +76,7 @@ const CircleProgress: React.FunctionComponent<CircleProgressProps> = (
           cy={outRadius}
           r={radius}
           strokeWidth={strokeWidth}
-          stroke={progressStroke}
+          stroke={strokeColor}
           strokeLinecap={strokeLinecap}
           fill="none"
           transform={
@@ -98,7 +98,7 @@ const CircleProgress: React.FunctionComponent<CircleProgressProps> = (
           }
           strokeDasharray={arcGenerator(
             radius!,
-            percentage,
+            percent / 100,
             type === 'dashboard' ? 270 : 360
           )}
         />
@@ -106,7 +106,7 @@ const CircleProgress: React.FunctionComponent<CircleProgressProps> = (
       {showInfo &&
         (status === 'normal' ? (
           <span className={classNames(sc('text'), sc('content'))}>
-            {value !== undefined ? value : `${Math.floor(percentage * 100)}%`}
+            {value !== undefined ? value : `${Math.floor(percent)}%`}
           </span>
         ) : status === 'success' ? (
           <span className={classNames(sc('icon'), sc('content'))}>
@@ -136,17 +136,17 @@ CircleProgress.propTypes = {
   type: PropTypes.oneOf(['circle', 'dashboard']),
   radius: PropTypes.number,
   strokeWidth: PropTypes.number,
-  backgroundStroke: PropTypes.string,
-  progressStroke: PropTypes.string,
+  backgroundColor: PropTypes.string,
+  strokeColor: PropTypes.string,
   strokeLinecap: PropTypes.oneOf(['square', 'round']),
-  percentage: PropTypes.number.isRequired
+  percent: PropTypes.number.isRequired
 };
 CircleProgress.defaultProps = {
   type: 'circle',
   radius: 88,
   strokeWidth: 12,
-  backgroundStroke: '#E5E5E5',
-  progressStroke: '#506DFE'
+  backgroundColor: '#E5E5E5',
+  strokeColor: '#506DFE'
 };
 
 export default CircleProgress;

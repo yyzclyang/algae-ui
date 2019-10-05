@@ -17,6 +17,8 @@
   }
   & > .algae-ui-progress-text {
     color: $secondary-color;
+    line-height: 18px;
+    white-space: nowrap;
   }
   & > .algae-ui-progress-icon {
   }

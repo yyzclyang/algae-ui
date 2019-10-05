@@ -7,10 +7,10 @@ import './style/normalProgress.scss';
 const sc = scopedClassMaker('algae-ui-progress');
 
 interface NormalProgressProps {
-  backgroundStroke?: string;
-  progressStroke?: string;
+  backgroundColor?: string;
+  strokeColor?: string;
   strokeLinecap?: 'round' | 'square';
-  percentage: number;
+  percent: number;
   value?: string;
   showInfo?: boolean;
   status?: 'normal' | 'success' | 'fail';
@@ -20,10 +20,10 @@ const NormalProgress: React.FunctionComponent<NormalProgressProps> = (
   props: NormalProgressProps
 ) => {
   const {
-    backgroundStroke,
-    progressStroke,
+    backgroundColor,
+    strokeColor,
     strokeLinecap,
-    percentage,
+    percent,
     value,
     showInfo,
     status
@@ -34,14 +34,14 @@ const NormalProgress: React.FunctionComponent<NormalProgressProps> = (
       <div
         className={classNames(sc('rail'))}
         style={{
-          background: backgroundStroke
+          background: backgroundColor
         }}
       >
         <div
           className={classNames(sc())}
           style={{
-            background: progressStroke,
-            width: `${percentage * 100}%`,
+            background: strokeColor,
+            width: `${percent}%`,
             borderRadius: strokeLinecap === 'round' ? '4px' : '0'
           }}
         />
@@ -49,7 +49,7 @@ const NormalProgress: React.FunctionComponent<NormalProgressProps> = (
       {showInfo &&
         (status === 'normal' ? (
           <span className={classNames(sc('text'), sc('content'))}>
-            {value !== undefined ? value : `${Math.floor(percentage * 100)}%`}
+            {value !== undefined ? value : `${Math.floor(percent)}%`}
           </span>
         ) : status === 'success' ? (
           <span className={classNames(sc('icon'), sc('content'))}>
@@ -77,15 +77,15 @@ const NormalProgress: React.FunctionComponent<NormalProgressProps> = (
 NormalProgress.displayName = 'NormalProgress';
 
 NormalProgress.propTypes = {
-  backgroundStroke: PropTypes.string,
-  progressStroke: PropTypes.string,
+  backgroundColor: PropTypes.string,
+  strokeColor: PropTypes.string,
   strokeLinecap: PropTypes.oneOf(['square', 'round']),
-  percentage: PropTypes.number.isRequired
+  percent: PropTypes.number.isRequired
 };
 
 NormalProgress.defaultProps = {
-  backgroundStroke: '#E5E5E5',
-  progressStroke: '#506DFE'
+  backgroundColor: '#E5E5E5',
+  strokeColor: '#506DFE'
 };
 
 export default NormalProgress;

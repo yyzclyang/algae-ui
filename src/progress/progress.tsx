@@ -14,20 +14,24 @@ interface ProgressProps {
   value?: string;
   status?: 'normal' | 'success' | 'fail';
   strokeLinecap?: 'square' | 'round';
+  backgroundColor?: string;
+  strokeColor?: string;
 }
 
 const Progress: React.FunctionComponent<ProgressProps> = (
   props: ProgressProps
 ) => {
-  const { type, percent, status, ...restProps } = props;
+  const { type, percent, status, strokeColor, ...restProps } = props;
 
   return (
     <span className={classNames(sc('container'))}>
       {type === 'normal' ? (
         <NormalProgress
-          percentage={(percent > 100 ? 100 : percent < 0 ? 0 : percent) / 100}
-          progressStroke={
-            status === 'normal'
+          percent={percent > 100 ? 100 : percent < 0 ? 0 : percent}
+          strokeColor={
+            strokeColor !== undefined
+              ? strokeColor
+              : status === 'normal'
               ? '#506DFE'
               : status === 'success'
               ? '#20BAA4'
@@ -38,9 +42,11 @@ const Progress: React.FunctionComponent<ProgressProps> = (
         />
       ) : (
         <CircleProgress
-          percentage={(percent > 100 ? 100 : percent < 0 ? 0 : percent) / 100}
-          progressStroke={
-            status === 'normal'
+          percent={percent > 100 ? 100 : percent < 0 ? 0 : percent}
+          strokeColor={
+            strokeColor !== undefined
+              ? strokeColor
+              : status === 'normal'
               ? '#506DFE'
               : status === 'success'
               ? '#20BAA4'
@@ -62,13 +68,16 @@ Progress.propTypes = {
   showInfo: PropTypes.bool,
   value: PropTypes.string,
   status: PropTypes.oneOf(['normal', 'success', 'fail']),
-  strokeLinecap: PropTypes.oneOf(['square', 'round'])
+  strokeLinecap: PropTypes.oneOf(['square', 'round']),
+  backgroundColor: PropTypes.string,
+  strokeColor: PropTypes.string
 };
 Progress.defaultProps = {
   type: 'normal',
   showInfo: true,
   status: 'normal',
-  strokeLinecap: 'round'
+  strokeLinecap: 'round',
+  backgroundColor: '#E5E5E5'
 };
 
 export default Progress;
