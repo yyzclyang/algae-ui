@@ -11,20 +11,13 @@
     left: 0;
   }
   & > .algae-ui-scroll-bar {
-    border-radius: 4px;
     position: absolute;
     opacity: 0;
+    transition: opacity 0.5s ease-in-out;
   }
   &:hover > .algae-ui-scroll-bar {
-    animation: scroll-bar-visible 0.5s linear forwards;
-  }
-}
-
-@keyframes scroll-bar-visible {
-  0% {
-    opacity: 0;
-  }
-  100% {
+    zoom: 1;
+    filter: alpha(opacity=50);
     opacity: 1;
   }
 }
