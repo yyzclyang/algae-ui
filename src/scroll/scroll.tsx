@@ -93,6 +93,7 @@ const Scroll: React.FunctionComponent<ScrollProps> = (props: ScrollProps) => {
       <div
         className="algae-ui-scroll-bar"
         style={{
+          borderRadius: `${scrollBarWidth! / 2}px`,
           right: `${rightGap}px`,
           width: `${scrollBarWidth}px`,
           height: `${scrollBarHeight}px`,
@@ -108,7 +109,7 @@ Scroll.displayName = 'Scroll';
 
 Scroll.defaultProps = {
   verticalGap: 0,
-  rightGap: 4,
+  rightGap: 0,
   scrollBarWidth: 8,
   scrollBarColor: '#666'
 };
