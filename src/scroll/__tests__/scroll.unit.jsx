@@ -19,7 +19,7 @@ describe('Scroll', () => {
         </div>
       </Scroll>
     );
-    expect(component.find('.algae-ui-scroll-wrapper')).toHaveLength(1);
+    expect(component.find('.algae-ui-scroll-container')).toHaveLength(1);
     expect(component.find('.algae-ui-scroll')).toHaveLength(1);
     expect(component.find('p')).toHaveLength(3);
   });

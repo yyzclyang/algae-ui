@@ -36,15 +36,6 @@ const ScrollExample: React.FunctionComponent = () => {
         <Api
           data={[
             [
-              'verticalGap',
-              <>
-                滚动条可移动区域与<code>Scroll</code>区域的上下间距，单位为
-                <code>px</code>
-              </>,
-              'number',
-              '0'
-            ],
-            [
               'rightGap',
               <>
                 滚动条可移动区域与<code>Scroll</code>区域的右间距，单位为

@@ -1,6 +1,6 @@
 @import '../../style/theme';
 
-.algae-ui-scroll-wrapper {
+.algae-ui-scroll-container {
   overflow: hidden;
   position: relative;
   & > .algae-ui-scroll {
@@ -10,12 +10,18 @@
     bottom: 0;
     left: 0;
   }
-  & > .algae-ui-scroll-bar {
+  & > .algae-ui-scroll-track {
+    background: #ffffff;
     position: absolute;
+    right: 0;
+    height: 100%;
     opacity: 0;
-    transition: opacity 0.5s ease-in-out;
+    transition: opacity 1s ease-in-out;
+    & > .algae-ui-scroll-bar {
+      position: absolute;
+    }
   }
-  &:hover > .algae-ui-scroll-bar {
+  &:hover .algae-ui-scroll-track {
     zoom: 1;
     filter: alpha(opacity=50);
     opacity: 1;
