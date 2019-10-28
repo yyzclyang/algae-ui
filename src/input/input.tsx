@@ -36,14 +36,29 @@ class Input extends React.Component<InputProps> {
   clearIconOnClick: React.MouseEventHandler = (
     e: React.MouseEvent<SVGAElement>
   ) => {
+    const inputEvent = Object.create(e);
+    inputEvent.target = this.inputNode;
+    inputEvent.currentTarget = this.inputNode;
+    this.inputNode.value = '';
+    this.inputOnChange(inputEvent as React.ChangeEvent<HTMLInputElement>);
+
     const { clearFn } = this.props;
     this.inputNode.focus();
     clearFn && clearFn(e);
   };
 
+  inputOnChange: React.ChangeEventHandler = (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const { onChange } = this.props;
+    onChange && onChange(e);
+  };
+
   renderInput() {
     const {
       className,
+      value,
+      onChange,
       allowClear,
       clearFn,
       wrapperClassName,
@@ -51,7 +66,7 @@ class Input extends React.Component<InputProps> {
       style,
       ...rest
     } = this.props;
-    const hasSufNode: boolean = !!allowClear;
+    const hasSufNode: boolean = Boolean(allowClear);
     const inputStyle = hasSufNode ? { paddingRight: '32px' } : {};
     return (
       <span className={classNames('algae-ui-input-wrapper', wrapperClassName)}>
@@ -60,6 +75,8 @@ class Input extends React.Component<InputProps> {
           className={classNames('algae-ui-input', className)}
           style={{ ...inputStyle, ...style }}
           ref={this.saveInputNode}
+          value={value}
+          onChange={this.inputOnChange}
           {...rest}
         />
         {hasSufNode && (

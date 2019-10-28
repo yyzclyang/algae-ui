@@ -6,6 +6,7 @@ exports[`Input 渲染一个 Input 1`] = `
 >
   <input
     className="algae-ui-input"
+    onChange={[Function]}
     style={Object {}}
     type="text"
   />

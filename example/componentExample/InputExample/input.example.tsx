@@ -45,7 +45,7 @@ const InputExample: React.FunctionComponent = () => {
           <div className="code-demo-column">
             <CodeDemo
               title="带清除图标"
-              content={<p>带清除图标的输入框，点击触发的函数需单独传入。</p>}
+              content={<p>带清除图标的输入框。</p>}
               code={code2.default}
             >
               <CodeDemo2 />
