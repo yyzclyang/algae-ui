@@ -1,0 +1,114 @@
+@import '../../style/theme';
+
+.algae-ui-step-wrapper {
+  padding: 8px;
+  .algae-ui-step {
+    display: flex;
+    overflow: hidden;
+    .algae-ui-step-icon-wrapper {
+      .algae-ui-step-icon {
+        display: inline-block;
+        text-align: center;
+        line-height: 28px;
+        width: 32px;
+        height: 32px;
+        font-size: 16px;
+        border-radius: 16px;
+        border: {
+          width: 2px;
+          style: solid;
+        }
+      }
+    }
+    .algae-ui-step-content {
+      padding-left: 8px;
+      .algae-ui-step-title {
+        display: inline-block;
+        color: $primary-color;
+        font-size: 20px;
+        padding: 4px 8px 4px 0;
+        position: relative;
+        .algae-ui-step-subTitle {
+          color: $medium-color;
+          font-size: 16px;
+          margin-left: 8px;
+          padding: 6px 0;
+        }
+        &:after {
+          content: '';
+          display: block;
+          position: absolute;
+          width: 9999px;
+          height: 1px;
+          background: $fill;
+          top: 50%;
+          left: 100%;
+        }
+      }
+      .algae-ui-step-description {
+        font-size: 14px;
+        color: $medium-color;
+        margin: 8px 0;
+        line-height: 1.5;
+        max-width: 160px;
+      }
+    }
+    &.algae-ui-step-waiting {
+      .algae-ui-step-icon {
+        color: $fill;
+        border-color: $fill;
+      }
+      .algae-ui-step-title {
+        color: $assistant-color;
+      }
+    }
+    &.algae-ui-step-pending {
+      .algae-ui-step-icon {
+        background: $theme-color;
+        color: #ffffff;
+        border-color: $theme-color;
+      }
+      .algae-ui-step-title {
+        color: #000000;
+        font-weight: 500;
+        .algae-ui-step-subTitle {
+          font-weight: normal;
+        }
+      }
+    }
+    &.algae-ui-step-success {
+      .algae-ui-step-icon {
+        border: none;
+      }
+      .algae-ui-icon {
+        fill: $success;
+        width: 32px;
+        height: 32px;
+      }
+      .algae-ui-step-title {
+        &:after {
+          background: $theme-color;
+        }
+      }
+    }
+    &.algae-ui-step-fail {
+      .algae-ui-step-icon {
+        border: none;
+      }
+      .algae-ui-icon {
+        fill: $danger;
+        width: 32px;
+        height: 32px;
+      }
+      .algae-ui-step-title {
+        color: $danger;
+        .algae-ui-step-subTitle {
+          color: $danger;
+        }
+      }
+      .algae-ui-step-description {
+        color: $danger;
+      }
+    }
+  }
+}
