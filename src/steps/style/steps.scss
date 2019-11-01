@@ -1,0 +1,16 @@
+@import '../../style/theme';
+
+.algae-ui-steps {
+  display: flex;
+  .algae-ui-step-wrapper {
+    flex-grow: 1000;
+    flex-shrink: 1;
+    &:last-child {
+      flex-grow: 1;
+      flex-shrink: 1;
+      .algae-ui-step-title:after {
+        display: none !important;
+      }
+    }
+  }
+}
