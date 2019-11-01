@@ -23,6 +23,7 @@ import FormExample from './componentExample/FormExample';
 import AvatarExample from './componentExample/AvatarExample';
 import BadgeExample from './componentExample/BadgeExample';
 import ProgressExample from './componentExample/ProgressExample';
+import StepsExample from './componentExample/StepsExample';
 
 import './img/logo.svg';
 import './img/logo_text.svg';
@@ -65,6 +66,7 @@ ReactDOM.render(
             <li>
               <div className="component-group component-list">导航</div>
               <NavLink to="/affix">Affix 固钉</NavLink>
+              <NavLink to="/steps">Steps 步骤条</NavLink>
             </li>
             <li>
               <div className="component-group component-list">数据录入</div>
@@ -116,6 +118,7 @@ ReactDOM.render(
           <Route path="/avatar" component={AvatarExample} />
           <Route path="/badge" component={BadgeExample} />
           <Route path="/progress" component={ProgressExample} />
+          <Route path="/steps" component={StepsExample} />
         </Content>
         <Footer className="main-footer">&copy; YyzclYang</Footer>
       </Layout>
