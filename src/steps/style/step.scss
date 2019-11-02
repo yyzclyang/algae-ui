@@ -58,15 +58,25 @@
         color: $fill;
         border-color: $fill;
       }
+      .algae-ui-icon {
+        fill: $fill;
+        width: 32px;
+        height: 32px;
+      }
       .algae-ui-step-title {
         color: $assistant-color;
       }
     }
-    &.algae-ui-step-pending {
+    &.algae-ui-step-process {
       .algae-ui-step-icon {
         background: $theme-color;
         color: #ffffff;
         border-color: $theme-color;
+      }
+      .algae-ui-icon {
+        fill: $fill;
+        width: 32px;
+        height: 32px;
       }
       .algae-ui-step-title {
         color: #000000;

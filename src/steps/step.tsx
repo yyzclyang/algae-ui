@@ -9,11 +9,12 @@ const sc = scopedClassMaker('algae-ui-step');
 interface StepProps {
   className?: string;
   style?: React.CSSProperties;
-  icon?: React.ReactNode | string;
+  icon?: React.ReactElement | string;
+  defaultIcon?: string;
   title: string;
   subTitle?: string;
   description?: string;
-  status?: 'waiting' | 'pending' | 'success' | 'fail';
+  status?: 'waiting' | 'process' | 'success' | 'fail';
   disabled?: boolean;
   onClick?: React.MouseEventHandler<HTMLDivElement>;
 }
@@ -23,6 +24,7 @@ const Step: React.FunctionComponent<StepProps> = (props: StepProps) => {
     className,
     style,
     icon,
+    defaultIcon,
     title,
     subTitle,
     description,
@@ -46,14 +48,16 @@ const Step: React.FunctionComponent<StepProps> = (props: StepProps) => {
         style={style}
       >
         <div className={classNames(sc('icon-wrapper'))}>
-          {typeof icon !== 'string' ? (
+          {React.isValidElement(icon) ? (
             icon
           ) : status === 'success' ? (
             <Icon type="check-circle" />
           ) : status === 'fail' ? (
             <Icon type="close-circle" />
           ) : (
-            <span className={classNames(sc('icon'))}>{icon}</span>
+            <span className={classNames(sc('icon'))}>
+              {icon || defaultIcon}
+            </span>
           )}
         </div>
         <div className={classNames(sc('content'))}>
@@ -74,11 +78,12 @@ Step.displayName = 'Step';
 Step.propTypes = {
   className: PropTypes.string,
   style: PropTypes.object,
-  icon: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+  icon: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+  defaultIcon: PropTypes.string,
   title: PropTypes.string.isRequired,
   subTitle: PropTypes.string,
   description: PropTypes.string,
-  status: PropTypes.oneOf(['waiting', 'pending', 'success', 'fail']),
+  status: PropTypes.oneOf(['waiting', 'process', 'success', 'fail']),
   disabled: PropTypes.bool,
   onClick: PropTypes.func
 };
