@@ -2,13 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { classNames, scopedClassMaker } from '../utils/index';
 import './style/steps.scss';
+import { StatusTypes } from './step';
 
 const sc = scopedClassMaker('algae-ui-steps');
 
 interface StepsProps {
   className?: string;
   current?: number;
-  status?: 'waiting' | 'process' | 'success' | 'fail';
+  status?: StatusTypes;
   onChange?: (current: number) => void;
   children: React.ReactNode;
 }

@@ -6,6 +6,8 @@ import './style/step.scss';
 
 const sc = scopedClassMaker('algae-ui-step');
 
+export type StatusTypes = 'waiting' | 'process' | 'success' | 'fail';
+
 interface StepProps {
   className?: string;
   style?: React.CSSProperties;
@@ -14,7 +16,7 @@ interface StepProps {
   title: string;
   subTitle?: string;
   description?: string;
-  status?: 'waiting' | 'process' | 'success' | 'fail';
+  status?: StatusTypes;
   disabled?: boolean;
   onClick?: React.MouseEventHandler<HTMLDivElement>;
 }
