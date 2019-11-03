@@ -74,7 +74,7 @@
         border-color: $theme-color;
       }
       .algae-ui-icon {
-        fill: $fill;
+        fill: $theme-color;
         width: 32px;
         height: 32px;
       }
@@ -97,7 +97,7 @@
       }
       .algae-ui-step-title {
         &:after {
-          background: $theme-color;
+          background: $success;
         }
       }
     }

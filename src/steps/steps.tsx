@@ -20,29 +20,34 @@ const Steps: React.FunctionComponent<StepsProps> = (props: StepsProps) => {
   return (
     <div className={classNames(sc(), className)}>
       {React.Children.map(children, (child, index) => {
-        return current! < index
-          ? React.cloneElement(child as React.ReactElement, {
-              status: 'waiting',
-              defaultIcon: String(index + 1),
-              onClick: () => {
-                onChange && onChange(index);
-              }
-            })
-          : current === index
-          ? React.cloneElement(child as React.ReactElement, {
-              status: status || 'process',
-              defaultIcon: String(index + 1),
-              onClick: () => {
-                onChange && onChange(index);
-              }
-            })
-          : React.cloneElement(child as React.ReactElement, {
-              status: 'success',
-              defaultIcon: String(index + 1),
-              onClick: () => {
-                onChange && onChange(index);
-              }
-            });
+        return React.isValidElement(child)
+          ? current! < index
+            ? React.cloneElement(child, {
+                status: 'waiting',
+                icon: String(index + 1),
+                onClick: () => {
+                  onChange && onChange(index);
+                },
+                ...child.props
+              })
+            : current === index
+            ? React.cloneElement(child, {
+                status: status || 'process',
+                icon: String(index + 1),
+                onClick: () => {
+                  onChange && onChange(index);
+                },
+                ...child.props
+              })
+            : React.cloneElement(child, {
+                status: 'success',
+                icon: String(index + 1),
+                onClick: () => {
+                  onChange && onChange(index);
+                },
+                ...child.props
+              })
+          : child;
       })}
     </div>
   );

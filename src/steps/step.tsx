@@ -12,10 +12,10 @@ interface StepProps {
   className?: string;
   style?: React.CSSProperties;
   icon?: React.ReactElement | string;
-  defaultIcon?: string;
   title: string;
   subTitle?: string;
   description?: string;
+  defaultStatus?: StatusTypes;
   status?: StatusTypes;
   disabled?: boolean;
   onClick?: React.MouseEventHandler<HTMLDivElement>;
@@ -26,14 +26,15 @@ const Step: React.FunctionComponent<StepProps> = (props: StepProps) => {
     className,
     style,
     icon,
-    defaultIcon,
     title,
     subTitle,
     description,
-    status,
+    defaultStatus,
     disabled,
     onClick
   } = props;
+
+  const status = props.status || defaultStatus;
 
   const handleClick: React.MouseEventHandler<HTMLDivElement> = (e) => {
     if (disabled) {
@@ -57,9 +58,7 @@ const Step: React.FunctionComponent<StepProps> = (props: StepProps) => {
           ) : status === 'fail' ? (
             <Icon type="close-circle" />
           ) : (
-            <span className={classNames(sc('icon'))}>
-              {icon || defaultIcon}
-            </span>
+            <span className={classNames(sc('icon'))}>{icon}</span>
           )}
         </div>
         <div className={classNames(sc('content'))}>
@@ -81,16 +80,16 @@ Step.propTypes = {
   className: PropTypes.string,
   style: PropTypes.object,
   icon: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-  defaultIcon: PropTypes.string,
   title: PropTypes.string.isRequired,
   subTitle: PropTypes.string,
   description: PropTypes.string,
   status: PropTypes.oneOf(['waiting', 'process', 'success', 'fail']),
+  defaultStatus: PropTypes.oneOf(['waiting', 'process', 'success', 'fail']),
   disabled: PropTypes.bool,
   onClick: PropTypes.func
 };
 Step.defaultProps = {
-  status: 'waiting'
+  defaultStatus: 'waiting'
 };
 
 export default Step;
