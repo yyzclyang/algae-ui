@@ -5,6 +5,12 @@ import './steps.example.scss';
 
 import CodeDemo1 from './steps.codeDemo1';
 const code1 = require('!!raw-loader!./steps.codeDemo1.tsx');
+import CodeDemo2 from './steps.codeDemo2';
+const code2 = require('!!raw-loader!./steps.codeDemo2.tsx');
+import CodeDemo3 from './steps.codeDemo3';
+const code3 = require('!!raw-loader!./steps.codeDemo3.tsx');
+import CodeDemo4 from './steps.codeDemo4';
+const code4 = require('!!raw-loader!./steps.codeDemo4.tsx');
 
 const StepsExample: React.FunctionComponent = () => {
   return (
@@ -28,12 +34,68 @@ const StepsExample: React.FunctionComponent = () => {
             >
               <CodeDemo1 />
             </CodeDemo>
+            <CodeDemo
+              title="带图标的步骤条"
+              content={
+                <p>
+                  通过设置<code>Step</code>的<code>icon</code>
+                  属性，可以启用自定义图标
+                </p>
+              }
+              code={code2.default}
+            >
+              <CodeDemo2 />
+            </CodeDemo>
+            <CodeDemo
+              title="步骤切换"
+              content={<p>通常用来表示一个流程的处理</p>}
+              code={code3.default}
+            >
+              <CodeDemo3 />
+            </CodeDemo>
+            <CodeDemo
+              title="错误的 Step"
+              content={
+                <p>
+                  使用<code>Step</code>的<code>status</code>
+                  属性来制定当前步骤的状态
+                </p>
+              }
+              code={code4.default}
+            >
+              <CodeDemo4 />
+            </CodeDemo>
           </div>
         </div>
       </section>
       <section>
         <h2>API</h2>
-        <Api data={[]} />
+        <h3>Steps</h3>
+        <Api
+          data={[
+            ['className', '类名', 'string', '-'],
+            ['current', '指定当前的步骤', 'number', '0'],
+            [
+              'status',
+              '指定当前步骤的状态',
+              'waiting | process | success | fail',
+              '-'
+            ]
+          ]}
+        />
+        <h3>Step</h3>
+        <Api
+          data={[
+            ['className', '类名', 'string', '-'],
+            ['style', '样式', 'React.CSSProperties', '-'],
+            ['title', '标题', 'string', '-'],
+            ['subTitle', '子标题', 'string', '-'],
+            ['description', '详情描述', 'string', '-'],
+            ['status', '制定状态', 'waiting | process | success | fail', '-'],
+            ['icon', '图标的类型', 'string|ReactNode', '-'],
+            ['disabled', '禁用点击', 'boolean', 'false']
+          ]}
+        />
       </section>
     </div>
   );

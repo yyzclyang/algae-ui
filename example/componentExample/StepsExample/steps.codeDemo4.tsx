@@ -4,7 +4,7 @@ import { Steps, Step } from 'ROOT/src';
 export default () => {
   return (
     <div className="steps-example-list">
-      <Steps current={1}>
+      <Steps current={1} status="fail">
         <Step title="success step" description="This is a description" />
         <Step
           title="process step"
