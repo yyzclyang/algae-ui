@@ -25,6 +25,7 @@ const Steps: React.FunctionComponent<StepsProps> = (props: StepsProps) => {
             ? React.cloneElement(child, {
                 status: 'waiting',
                 icon: String(index + 1),
+                disabled: !(onChange || child.props.onClick),
                 ...child.props,
                 onClick: (e: React.MouseEvent<HTMLDivElement>) => {
                   child.props.onClick && child.props.onClick(e);
@@ -35,6 +36,7 @@ const Steps: React.FunctionComponent<StepsProps> = (props: StepsProps) => {
             ? React.cloneElement(child, {
                 status: status || 'process',
                 icon: String(index + 1),
+                disabled: !(onChange || child.props.onClick),
                 ...child.props,
                 onClick: (e: React.MouseEvent<HTMLDivElement>) => {
                   child.props.onClick && child.props.onClick(e);
@@ -44,6 +46,7 @@ const Steps: React.FunctionComponent<StepsProps> = (props: StepsProps) => {
             : React.cloneElement(child, {
                 status: 'success',
                 icon: String(index + 1),
+                disabled: !(onChange || child.props.onClick),
                 ...child.props,
                 onClick: (e: React.MouseEvent<HTMLDivElement>) => {
                   child.props.onClick && child.props.onClick(e);
