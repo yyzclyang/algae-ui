@@ -5,6 +5,10 @@
   .algae-ui-step {
     display: flex;
     overflow: hidden;
+    cursor: pointer;
+    &.algae-ui-step-disabled {
+      cursor: default;
+    }
     .algae-ui-step-icon-wrapper {
       .algae-ui-step-icon {
         display: inline-block;
@@ -94,11 +98,6 @@
         fill: $success;
         width: 32px;
         height: 32px;
-      }
-      .algae-ui-step-title {
-        &:after {
-          background: $success;
-        }
       }
     }
     &.algae-ui-step-fail {

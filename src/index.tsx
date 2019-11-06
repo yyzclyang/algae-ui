@@ -39,4 +39,4 @@ export { default as Badge } from './badge';
 export { default as Progress } from './progress';
 
 export { default as Steps } from './steps';
-export { Step } from './steps';
+export { Step, StatusTypes } from './steps';

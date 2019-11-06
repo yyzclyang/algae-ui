@@ -46,7 +46,12 @@ const Step: React.FunctionComponent<StepProps> = (props: StepProps) => {
   return (
     <div className={sc('wrapper')}>
       <div
-        className={classNames(sc(), sc(status), className)}
+        className={classNames(
+          sc(),
+          sc(status),
+          sc(disabled ? 'disabled' : ''),
+          className
+        )}
         onClick={handleClick}
         style={style}
       >
