@@ -11,6 +11,8 @@ import CodeDemo3 from './steps.codeDemo3';
 const code3 = require('!!raw-loader!./steps.codeDemo3.tsx');
 import CodeDemo4 from './steps.codeDemo4';
 const code4 = require('!!raw-loader!./steps.codeDemo4.tsx');
+import CodeDemo5 from './steps.codeDemo5';
+const code5 = require('!!raw-loader!./steps.codeDemo5.tsx');
 
 const StepsExample: React.FunctionComponent = () => {
   return (
@@ -64,6 +66,17 @@ const StepsExample: React.FunctionComponent = () => {
               code={code4.default}
             >
               <CodeDemo4 />
+            </CodeDemo>
+            <CodeDemo
+              title="可点击的 Step"
+              content={
+                <p>
+                  通过点击<code>Step</code>来改变当前的步骤和状态
+                </p>
+              }
+              code={code5.default}
+            >
+              <CodeDemo5 />
             </CodeDemo>
           </div>
         </div>

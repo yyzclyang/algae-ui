@@ -27,7 +27,9 @@ export default () => {
       <Button onClick={onClickNext} buttonType="primary">
         Next
       </Button>
-      {current > 0 && <Button onClick={onClickPrevious}>Previous</Button>}
+      <Button onClick={onClickPrevious} disabled={current <= 0}>
+        Previous
+      </Button>
     </div>
   );
 };
