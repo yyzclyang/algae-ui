@@ -93,6 +93,12 @@ const StepsExample: React.FunctionComponent = () => {
               '指定当前步骤的状态',
               'waiting | process | success | fail',
               '-'
+            ],
+            [
+              'onChange',
+              '点击切换步骤时的回调',
+              '(current: number) => void',
+              '-'
             ]
           ]}
         />
@@ -105,8 +111,8 @@ const StepsExample: React.FunctionComponent = () => {
             ['subTitle', '子标题', 'string', '-'],
             ['description', '详情描述', 'string', '-'],
             ['status', '制定状态', 'waiting | process | success | fail', '-'],
-            ['icon', '图标的类型', 'string|ReactNode', '-'],
-            ['disabled', '禁用点击', 'boolean', 'false']
+            ['icon', '图标的类型', 'string | ReactNode', '-'],
+            ['disabled', '禁用点击', 'boolean', '-']
           ]}
         />
       </section>
