@@ -21,9 +21,9 @@ const Steps: React.FunctionComponent<StepsProps> = (props: StepsProps) => {
     <div className={classNames(sc(), className)}>
       {React.Children.map(children, (child, index) => {
         return React.isValidElement(child)
-          ? current! < index
+          ? index < current!
             ? React.cloneElement(child, {
-                status: 'waiting',
+                status: 'success',
                 icon: String(index + 1),
                 disabled: !(onChange || child.props.onClick),
                 ...child.props,
@@ -32,7 +32,7 @@ const Steps: React.FunctionComponent<StepsProps> = (props: StepsProps) => {
                   onChange && onChange(index);
                 }
               })
-            : current === index
+            : index === current
             ? React.cloneElement(child, {
                 status: status || 'process',
                 icon: String(index + 1),
@@ -44,7 +44,7 @@ const Steps: React.FunctionComponent<StepsProps> = (props: StepsProps) => {
                 }
               })
             : React.cloneElement(child, {
-                status: 'success',
+                status: 'waiting',
                 icon: String(index + 1),
                 disabled: !(onChange || child.props.onClick),
                 ...child.props,
