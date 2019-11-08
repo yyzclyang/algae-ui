@@ -10,15 +10,16 @@ interface StepsProps {
   className?: string;
   current?: number;
   status?: StatusTypes;
+  direction?: 'horizontal' | 'vertical';
   onChange?: (current: number) => void;
   children: React.ReactNode;
 }
 
 const Steps: React.FunctionComponent<StepsProps> = (props: StepsProps) => {
-  const { className, current, status, onChange, children } = props;
+  const { className, current, status, direction, onChange, children } = props;
 
   return (
-    <div className={classNames(sc(), className)}>
+    <div className={classNames(sc(), sc(direction), className)}>
       {React.Children.map(children, (child, index) => {
         return React.isValidElement(child)
           ? index < current!

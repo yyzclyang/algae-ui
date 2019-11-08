@@ -13,6 +13,8 @@ import CodeDemo4 from './steps.codeDemo4';
 const code4 = require('!!raw-loader!./steps.codeDemo4.tsx');
 import CodeDemo5 from './steps.codeDemo5';
 const code5 = require('!!raw-loader!./steps.codeDemo5.tsx');
+import CodeDemo6 from './steps.codeDemo6';
+const code6 = require('!!raw-loader!./steps.codeDemo6.tsx');
 
 const StepsExample: React.FunctionComponent = () => {
   return (
@@ -77,6 +79,17 @@ const StepsExample: React.FunctionComponent = () => {
               code={code5.default}
             >
               <CodeDemo5 />
+            </CodeDemo>
+            <CodeDemo
+              title="垂直的步骤条"
+              content={
+                <p>
+                  通过设置<code>direction</code>来变化步骤条的方向
+                </p>
+              }
+              code={code6.default}
+            >
+              <CodeDemo6 />
             </CodeDemo>
           </div>
         </div>
