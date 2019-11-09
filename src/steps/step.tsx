@@ -56,15 +56,17 @@ const Step: React.FunctionComponent<StepProps> = (props: StepProps) => {
         style={style}
       >
         <div className={classNames(sc('icon-wrapper'))}>
-          {React.isValidElement(icon) ? (
-            icon
-          ) : status === 'success' ? (
-            <Icon type="check-circle" />
-          ) : status === 'fail' ? (
-            <Icon type="close-circle" />
-          ) : (
-            <span className={classNames(sc('icon'))}>{icon}</span>
-          )}
+          <div className={classNames(sc('icon-content'))}>
+            {React.isValidElement(icon) ? (
+              icon
+            ) : status === 'success' ? (
+              <Icon type="check-circle" />
+            ) : status === 'fail' ? (
+              <Icon type="close-circle" />
+            ) : (
+              <span className={classNames(sc('icon'))}>{icon}</span>
+            )}
+          </div>
         </div>
         <div className={classNames(sc('content'))}>
           <div className={classNames(sc('title'))}>

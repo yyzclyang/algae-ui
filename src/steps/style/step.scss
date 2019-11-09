@@ -121,3 +121,44 @@
     }
   }
 }
+
+.algae-ui-steps-vertical {
+  flex-direction: column;
+  .algae-ui-step-wrapper {
+    .algae-ui-step-icon-wrapper {
+      .algae-ui-step-icon-content {
+        width: 32px;
+        height: 32px;
+        position: relative;
+        &:after {
+          content: '';
+          display: block;
+          position: absolute;
+          width: 1px;
+          height: 9999px;
+          background: $fill;
+          top: 150%;
+          left: 50%;
+        }
+      }
+    }
+    .algae-ui-step-content {
+      padding-left: 8px;
+      .algae-ui-step-title {
+        &:after {
+          display: none;
+        }
+      }
+      .algae-ui-step-description {
+        max-width: 9999px;
+      }
+    }
+    &:last-child {
+      .algae-ui-step-icon-content {
+        &:after {
+          display: none;
+        }
+      }
+    }
+  }
+}
