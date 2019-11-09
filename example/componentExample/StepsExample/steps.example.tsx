@@ -108,6 +108,12 @@ const StepsExample: React.FunctionComponent = () => {
               '-'
             ],
             [
+              'direction',
+              '制定步骤条的方向',
+              'horizontal | vertical',
+              'horizontal'
+            ],
+            [
               'onChange',
               '点击切换步骤时的回调',
               '(current: number) => void',
