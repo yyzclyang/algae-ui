@@ -10,17 +10,24 @@
       cursor: default;
     }
     .algae-ui-step-icon-wrapper {
-      .algae-ui-step-icon {
-        display: inline-block;
-        text-align: center;
-        line-height: 28px;
-        width: 32px;
-        height: 32px;
-        font-size: 16px;
-        border-radius: 16px;
-        border: {
-          width: 2px;
-          style: solid;
+      .algae-ui-step-icon-content {
+        position: relative;
+        .algae-ui-step-icon {
+          display: inline-block;
+          text-align: center;
+          line-height: 28px;
+          width: 32px;
+          height: 32px;
+          font-size: 16px;
+          border-radius: 16px;
+          border: {
+            width: 2px;
+            style: solid;
+          }
+        }
+        .algae-ui-icon {
+          width: 32px;
+          height: 32px;
         }
       }
     }
@@ -31,22 +38,11 @@
         color: $primary-color;
         font-size: 20px;
         padding: 4px 8px 4px 0;
-        position: relative;
         .algae-ui-step-subTitle {
           color: $medium-color;
           font-size: 16px;
           margin-left: 8px;
           padding: 6px 0;
-        }
-        &:after {
-          content: '';
-          display: block;
-          position: absolute;
-          width: 9999px;
-          height: 1px;
-          background: $fill;
-          top: 50%;
-          left: 100%;
         }
       }
       .algae-ui-step-description {
@@ -54,7 +50,6 @@
         color: $medium-color;
         margin: 8px 0;
         line-height: 1.5;
-        max-width: 160px;
       }
     }
     &.algae-ui-step-waiting {
@@ -64,8 +59,6 @@
       }
       .algae-ui-icon {
         fill: $fill;
-        width: 32px;
-        height: 32px;
       }
       .algae-ui-step-title {
         color: $assistant-color;
@@ -79,8 +72,6 @@
       }
       .algae-ui-icon {
         fill: $theme-color;
-        width: 32px;
-        height: 32px;
       }
       .algae-ui-step-title {
         color: #000000;
@@ -96,8 +87,6 @@
       }
       .algae-ui-icon {
         fill: $success;
-        width: 32px;
-        height: 32px;
       }
     }
     &.algae-ui-step-fail {
@@ -106,8 +95,6 @@
       }
       .algae-ui-icon {
         fill: $danger;
-        width: 32px;
-        height: 32px;
       }
       .algae-ui-step-title {
         color: $danger;
@@ -122,6 +109,40 @@
   }
 }
 
+.algae-ui-steps-horizontal {
+  .algae-ui-step-wrapper {
+    .algae-ui-step-content {
+      .algae-ui-step-title {
+        position: relative;
+        &:after {
+          content: '';
+          display: block;
+          position: absolute;
+          width: 9999px;
+          height: 1px;
+          background: $fill;
+          top: 50%;
+          left: 100%;
+        }
+      }
+      .algae-ui-step-description {
+        max-width: 160px;
+      }
+    }
+    .algae-ui-step {
+      &.algae-ui-step-success {
+        .algae-ui-step-content {
+          .algae-ui-step-title {
+            &:after {
+              background: $success;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 .algae-ui-steps-vertical {
   flex-direction: column;
   .algae-ui-step-wrapper {
@@ -129,7 +150,6 @@
       .algae-ui-step-icon-content {
         width: 32px;
         height: 32px;
-        position: relative;
         &:after {
           content: '';
           display: block;
@@ -142,21 +162,21 @@
         }
       }
     }
-    .algae-ui-step-content {
-      padding-left: 8px;
-      .algae-ui-step-title {
-        &:after {
-          display: none;
-        }
-      }
-      .algae-ui-step-description {
-        max-width: 9999px;
-      }
-    }
     &:last-child {
       .algae-ui-step-icon-content {
         &:after {
           display: none;
+        }
+      }
+    }
+    .algae-ui-step {
+      &.algae-ui-step-success {
+        .algae-ui-step-icon-wrapper {
+          .algae-ui-step-icon-content {
+            &:after {
+              background: $success;
+            }
+          }
         }
       }
     }
