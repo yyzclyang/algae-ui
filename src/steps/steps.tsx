@@ -64,11 +64,13 @@ Steps.propTypes = {
   className: PropTypes.string,
   current: PropTypes.number,
   status: PropTypes.oneOf(['waiting', 'process', 'success', 'fail']),
+  direction: PropTypes.oneOf(['horizontal', 'vertical']),
   onChange: PropTypes.func,
   children: PropTypes.node
 };
 Steps.defaultProps = {
-  current: 0
+  current: 0,
+  direction: 'horizontal'
 };
 
 export default Steps;
