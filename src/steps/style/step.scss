@@ -140,6 +140,18 @@
         }
       }
     }
+
+    .algae-ui-step.algae-ui-step-current {
+      &.algae-ui-step-success {
+        .algae-ui-step-content {
+          .algae-ui-step-title {
+            &:after {
+              background: $fill;
+            }
+          }
+        }
+      }
+    }
   }
 }
 

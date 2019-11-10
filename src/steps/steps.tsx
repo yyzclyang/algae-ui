@@ -42,7 +42,10 @@ const Steps: React.FunctionComponent<StepsProps> = (props: StepsProps) => {
                 onClick: (e: React.MouseEvent<HTMLDivElement>) => {
                   child.props.onClick && child.props.onClick(e);
                   onChange && onChange(index);
-                }
+                },
+                className: `algae-ui-step-current${
+                  child.props.className ? ` ${child.props.className}` : ''
+                }`
               })
             : React.cloneElement(child, {
                 status: 'waiting',
