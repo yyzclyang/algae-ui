@@ -47,7 +47,7 @@ exports[`Steps 渲染垂直 Steps 1`] = `
     className="algae-ui-step-wrapper"
   >
     <div
-      className="algae-ui-step algae-ui-step-process algae-ui-step-disabled"
+      className="algae-ui-step algae-ui-step-process algae-ui-step-disabled algae-ui-step-current"
       onClick={[Function]}
     >
       <div
@@ -249,7 +249,7 @@ exports[`Steps 渲染普通 Steps 1`] = `
     className="algae-ui-step-wrapper"
   >
     <div
-      className="algae-ui-step algae-ui-step-success algae-ui-step-disabled"
+      className="algae-ui-step algae-ui-step-success algae-ui-step-disabled algae-ui-step-current"
       onClick={[Function]}
     >
       <div
@@ -371,7 +371,7 @@ exports[`Steps 渲染自定义图标的 Steps 1`] = `
     className="algae-ui-step-wrapper"
   >
     <div
-      className="algae-ui-step algae-ui-step-process algae-ui-step-disabled"
+      className="algae-ui-step algae-ui-step-process algae-ui-step-disabled algae-ui-step-current"
       onClick={[Function]}
     >
       <div
