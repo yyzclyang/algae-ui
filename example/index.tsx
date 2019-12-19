@@ -100,6 +100,7 @@ ReactDOM.render(
           </div>
         </Header>
         <Content className="main-content">
+          <Route exact path="/" component={Introduction} />
           <Route path="/introduction" component={Introduction} />
           <Route path="/get-start" component={GetStart} />
           <Route path="/icon" component={IconExample} />
