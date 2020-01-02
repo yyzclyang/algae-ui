@@ -2,8 +2,7 @@ name: Publish
 
 on:
   release:
-    types: [published]
-    branches: 
+    branches:
       - master
     tags:
       - v*.*.*
