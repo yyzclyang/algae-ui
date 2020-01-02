@@ -1,4 +1,4 @@
-name: test library
+name: UnitTest
 
 on: [push]
 
