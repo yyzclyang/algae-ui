@@ -11,7 +11,7 @@
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack-dev-server --config webpack.config.dev.js",
     "build": "rimraf lib && cross-env NODE_ENV=production webpack --config webpack.config.prod.js && mv -f lib/src/* lib && rimraf lib/src",
-    "doc": "cross-env NODE_ENV=production rimraf docs && webpack --config webpack.config.doc.js && rimraf lib",
+    "docs": "rimraf docs && cross-env NODE_ENV=production webpack --config webpack.config.doc.js && rimraf lib",
     "test": "cross-env NODE_ENV=test jest --config=jest.config.js --runInBand",
     "ci": "cross-env NODE_ENV=test JEST_JUNIT_OUTPUT=./test-results/jest/results.xml jest --config=jest.config.ci.js"
   },
