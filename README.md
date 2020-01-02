@@ -3,7 +3,6 @@
 ## A Component Library for React.js。
 一套用于学习的 `React` UI 库。
 
-[![CircleCI](https://circleci.com/gh/YyzclYang/algae-ui.svg?style=svg)](https://circleci.com/gh/YyzclYang/algae-ui)
 [![Github](https://img.shields.io/github/license/YyzclYang/algae-ui.svg)](https://github.com/YyzclYang/algae-ui)
 [![npm](https://img.shields.io/npm/v/algae-ui.svg)](https://www.npmjs.com/package/algae-ui)
 
