@@ -1,17 +1,13 @@
 name: Publish
 
 on:
-  release:
-    branches:
-      - master
+  push:
     tags:
-      - v*.*.*
+      - v*
 
 jobs:
   setup:
-    
     runs-on: ubuntu-latest
-    
     steps:
       - name: wheckout
         uses: actions/checkout@master
@@ -26,7 +22,7 @@ jobs:
       - name: install dependencies
         if: steps.node_modules_cache_id.outputs.cache-hit != 'true'
         run: yarn install
-        
+
   publish:
     runs-on: ubuntu-latest
     steps:
@@ -38,10 +34,10 @@ jobs:
         with:
           path: node_modules
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-        
+
       - name: build
         run: yarn build
-        
+
       - name: publish
         run: |
           npm config set //registry.npmjs.org/:_authToken=$NPM_AUTH_TOKEN
