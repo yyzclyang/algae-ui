@@ -13,21 +13,21 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - name: Checkout
+      - name: wheckout
         uses: actions/checkout@master
 
-      - name: Cache node_modules
+      - name: cache node_modules
         id: node_modules_cache_id
         uses: actions/cache@v1
         with:
           path: node_modules
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
 
-      - name: Install Dependencies
+      - name: install dependencies
         if: steps.node_modules_cache_id.outputs.cache-hit != 'true'
         run: yarn install
         
-  test:
+  publish:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
@@ -39,10 +39,10 @@ jobs:
           path: node_modules
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
         
-      - name: Build
+      - name: build
         run: yarn build
         
-      - name: Publish
+      - name: publish
         run: |
           npm config set //registry.npmjs.org/:_authToken=$NPM_AUTH_TOKEN
           npm publish

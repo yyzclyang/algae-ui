@@ -1,6 +1,6 @@
 name: UnitTest
 
-on: [push]
+on: [push, pull_request]]
 
 jobs:
   setup:
@@ -8,17 +8,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: checkout
         uses: actions/checkout@master
 
-      - name: Cache node_modules
+      - name: cache node_modules
         id: node_modules_cache_id
         uses: actions/cache@v1
         with:
           path: node_modules
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
 
-      - name: Install Dependencies
+      - name: install dependencies
         if: steps.node_modules_cache_id.outputs.cache-hit != 'true'
         run: yarn install
         
@@ -34,7 +34,7 @@ jobs:
           path: node_modules
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
         
-      - name: Test
+      - name: test
         run: yarn ci
     needs: setup
     
