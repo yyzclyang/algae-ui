@@ -121,7 +121,11 @@ ReactDOM.render(
           <Route path="/progress" component={ProgressExample} />
           <Route path="/steps" component={StepsExample} />
         </Content>
-        <Footer className="main-footer">&copy; YyzclYang</Footer>
+        <Footer className="main-footer">
+          <a href="http://www.beian.miit.gov.cn" target="_blank">
+            ICP许可证号 粤ICP备19127738号
+          </a>
+        </Footer>
       </Layout>
     </Layout>
   </Router>,
