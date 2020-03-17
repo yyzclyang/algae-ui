@@ -3,7 +3,6 @@
   "version": "0.1.14",
   "description": "A Component Library for React.js.",
   "main": "lib/index.js",
-  "type": "module",
   "types": "lib/index.d.ts",
   "typing": "lib/index.d.ts",
   "files": [
@@ -13,8 +12,8 @@
     "start": "cross-env NODE_ENV=development webpack-dev-server --config webpack.config.dev.js",
     "build": "rimraf lib && cross-env NODE_ENV=production webpack --config webpack.config.prod.js && mv -f lib/src/* lib && rimraf lib/src",
     "docs": "rimraf docs && cross-env NODE_ENV=production webpack --config webpack.config.doc.js && rimraf lib",
-    "test": "cross-env NODE_ENV=test jest --config=jest.config.js --runInBand",
-    "ci": "cross-env NODE_ENV=test JEST_JUNIT_OUTPUT=./test-results/jest/results.xml jest --config=jest.config.ci.js"
+    "test": "jest",
+    "ci": "jest --coverage"
   },
   "repository": {
     "type": "git",
@@ -67,7 +66,6 @@
     "file-loader": "^4.0.0",
     "html-webpack-plugin": "^3.2.0",
     "jest": "^24.8.0",
-    "jest-junit": "^6.4.0",
     "mini-css-extract-plugin": "^0.9.0",
     "node-sass": "^4.12.0",
     "prettier": "^1.18.2",
