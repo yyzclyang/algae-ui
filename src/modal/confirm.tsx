@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import Button from '../button';
-import { Icon } from '../index';
+import Icon from '../icon';
 import { classNames } from '../utils';
 import './style/confirm.scss';
 

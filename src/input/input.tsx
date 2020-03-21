@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Icon } from '../index';
+import Icon from '../icon';
 import classNames from '../utils/classNames';
 import './style/input.scss';
 

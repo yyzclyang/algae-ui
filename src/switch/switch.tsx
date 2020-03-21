@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import classNames from '../utils/classNames';
-import { Icon } from '../index';
+import Icon from '../icon';
 import './style/switch.scss';
 
 interface SwitchProps {
