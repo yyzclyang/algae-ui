@@ -40,3 +40,6 @@ export { default as Progress } from './progress';
 
 export { default as Steps } from './steps';
 export { Step, StatusTypes } from './steps';
+
+export { default as Tree } from './tree';
+export { SourceDataItem } from './tree';
