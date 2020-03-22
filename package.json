@@ -9,7 +9,7 @@
     "lib/**/*"
   ],
   "scripts": {
-    "start": "cross-env NODE_ENV=development webpack-dev-server --config webpack.config.dev.js",
+    "start": "cross-env NODE_ENV=development webpack-dev-server --hot --config webpack.config.dev.js",
     "build": "rimraf lib && cross-env NODE_ENV=production webpack --config webpack.config.prod.js && mv -f lib/src/* lib && rimraf lib/src",
     "docs": "rimraf docs && cross-env NODE_ENV=production webpack --config webpack.config.doc.js && rimraf lib",
     "test": "jest",
@@ -38,8 +38,9 @@
     "react-dom": ">=16.9.0"
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.4.5",
-    "@babel/preset-react": "^7.0.0",
+    "@babel/preset-env": "^7.9.0",
+    "@babel/preset-react": "^7.9.1",
+    "@hot-loader/react-dom": "^16.13.0",
     "@testing-library/react-hooks": "^2.0.1",
     "@types/enzyme": "^3.9.3",
     "@types/enzyme-adapter-react-16": "^1.0.5",
@@ -72,6 +73,7 @@
     "prism-react-renderer": "^0.1.7",
     "raw-loader": "^3.0.0",
     "react-element-to-jsx-string": "^14.0.2",
+    "react-hot-loader": "^4.12.20",
     "react-router-dom": "^5.0.1",
     "react-test-renderer": "^16.9.0",
     "rimraf": "^3.0.0",
