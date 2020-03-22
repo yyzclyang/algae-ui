@@ -1,0 +1,9 @@
+@import '../../style/theme';
+
+.algae-ui-tree-item {
+  padding-left: 2em;
+  &-icon {
+    width: 1.2em;
+    height: 1.4em;
+  }
+}
