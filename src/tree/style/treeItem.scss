@@ -2,8 +2,38 @@
 
 .algae-ui-tree-item {
   padding-left: 2em;
-  &-icon {
-    width: 1.2em;
-    height: 1.4em;
+  & > .algae-ui-tree-item-content {
+    display: flex;
+    align-items: center;
+    & > .algae-ui-tree-item-switcher {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      height: 18px;
+      width: 18px;
+      transition: transform 0.5s;
+      cursor: pointer;
+      &.open {
+        transform: rotate(-90deg);
+      }
+      &.close {
+        transform: rotate(0);
+      }
+      & > .algae-ui-tree-item-switch {
+        width: 0.8em;
+        height: 0.8em;
+      }
+    }
+    & > .algae-ui-tree-item-icon {
+      width: 1.2em;
+      height: 1.4em;
+    }
+  }
+  & > .algae-ui-tree-item-children {
+    transition: height 0.5s;
+    overflow: hidden;
+    &.close {
+      height: 0 !important;
+    }
   }
 }

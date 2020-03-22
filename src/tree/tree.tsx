@@ -1,20 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './style/tree.scss';
 import { classNames, scopedClassMaker } from '../utils';
-import TreeItem from 'ROOT/src/tree/treeItem';
+import TreeItem, { TreeItemSourceData } from './treeItem';
+import './style/tree.scss';
 
 const sc = scopedClassMaker('algae-ui-tree');
 
-export interface SourceDataItem {
-  text: string;
-  value: string;
-  icon?: string | React.ReactNode;
-  children?: SourceDataItem[];
-}
 interface TreeProps {
   className?: string;
-  sourceData: SourceDataItem[];
+  sourceData: TreeItemSourceData[];
 }
 
 const Tree: React.FC<TreeProps> = (props: TreeProps) => {
@@ -24,7 +18,7 @@ const Tree: React.FC<TreeProps> = (props: TreeProps) => {
     <div className={classNames(sc(), className)}>
       <div className={sc('list')}>
         {sourceData.map((treeData) => (
-          <TreeItem key={treeData.value} data={treeData} level={0} />
+          <TreeItem key={treeData.value} sourceData={treeData} level={0} />
         ))}
       </div>
     </div>
