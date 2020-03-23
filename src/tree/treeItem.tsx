@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { classNames, scopedClassMaker, useUpdate } from '../utils';
 import Icon from '../icon';
 import './style/treeItem.scss';
+import Checkbox from '../checkbox';
 
 const sc = scopedClassMaker('algae-ui-tree-item');
 
@@ -16,11 +17,22 @@ interface TreeItemProps {
   className?: string;
   sourceData: TreeItemSourceData;
   level: number;
+  checkable: boolean;
+  checked: boolean;
+  checkValue: string[];
   expanded?: boolean;
 }
 
 const TreeItem: React.FC<TreeItemProps> = (props: TreeItemProps) => {
-  const { className, sourceData, level, expanded: initialExpand } = props;
+  const {
+    className,
+    sourceData,
+    level,
+    expanded: initialExpand,
+    checkable,
+    checked,
+    checkValue
+  } = props;
 
   const [expanded, setExpanded] = useState<boolean>(initialExpand!);
   const expandSwitcherOnClick: React.MouseEventHandler<HTMLInputElement> = () => {
@@ -60,12 +72,19 @@ const TreeItem: React.FC<TreeItemProps> = (props: TreeItemProps) => {
   return (
     <div className={classNames(sc(), className)}>
       <div className={sc('content')}>
-        {sourceData.children && (
+        {sourceData.children ? (
           <span
             className={classNames(sc('switcher'), expanded ? 'open' : 'close')}
             onClick={expandSwitcherOnClick}
           >
             <Icon className={classNames(sc('switch'))} type="triangle-down" />
+          </span>
+        ) : (
+          <span className={sc('switcher-empty')} />
+        )}
+        {checkable && (
+          <span className={sc('checker')}>
+            <Checkbox className={sc('check-box')} checked={checked} />
           </span>
         )}
         {typeof sourceData.icon === 'string' ? (
@@ -85,6 +104,9 @@ const TreeItem: React.FC<TreeItemProps> = (props: TreeItemProps) => {
               key={childrenTreeData.value}
               sourceData={childrenTreeData}
               level={level + 1}
+              checkable={checkable}
+              checked={checkValue!.includes(childrenTreeData.value)}
+              checkValue={checkValue}
             />
           ))}
         </div>
@@ -106,6 +128,8 @@ TreeItem.propTypes = {
   expanded: PropTypes.bool
 };
 TreeItem.defaultProps = {
+  checkable: false,
+  checked: false,
   expanded: true
 };
 

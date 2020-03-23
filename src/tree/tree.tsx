@@ -8,17 +8,26 @@ const sc = scopedClassMaker('algae-ui-tree');
 
 interface TreeProps {
   className?: string;
+  checkable?: boolean;
+  checkValue?: string[];
   sourceData: TreeItemSourceData[];
 }
 
 const Tree: React.FC<TreeProps> = (props: TreeProps) => {
-  const { className, sourceData } = props;
+  const { className, checkable, checkValue, sourceData } = props;
 
   return (
     <div className={classNames(sc(), className)}>
       <div className={sc('list')}>
         {sourceData.map((treeData) => (
-          <TreeItem key={treeData.value} sourceData={treeData} level={0} />
+          <TreeItem
+            key={treeData.value}
+            sourceData={treeData}
+            level={0}
+            checkable={checkable!}
+            checked={checkValue!.includes(treeData.value)}
+            checkValue={checkValue!}
+          />
         ))}
       </div>
     </div>
@@ -32,7 +41,9 @@ Tree.propTypes = {
 };
 
 Tree.defaultProps = {
-  sourceData: []
+  sourceData: [],
+  checkable: false,
+  checkValue: []
 };
 
 export default Tree;

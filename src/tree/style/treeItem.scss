@@ -1,7 +1,7 @@
 @import '../../style/theme';
 
 .algae-ui-tree-item {
-  padding-left: 2em;
+  padding-left: 1.5em;
   & > .algae-ui-tree-item-content {
     display: flex;
     align-items: center;
@@ -23,10 +23,21 @@
         width: 0.8em;
         height: 0.8em;
       }
+      &-empty {
+        display: inline-block;
+        height: 18px;
+        width: 18px;
+      }
+    }
+    & > .algae-ui-tree-item-checker {
+      display: inline-block;
+      margin-right: 8px;
+      margin-left: 4px;
     }
     & > .algae-ui-tree-item-icon {
       width: 1.2em;
       height: 1.4em;
+      margin-right: 4px;
     }
   }
   & > .algae-ui-tree-item-children {
