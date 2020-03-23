@@ -1,6 +1,6 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
-import { classNames, scopedClassMaker } from '../utils';
+import { classNames, scopedClassMaker, useUpdate } from '../utils';
 import Icon from '../icon';
 import './style/treeItem.scss';
 
@@ -23,18 +23,39 @@ const TreeItem: React.FC<TreeItemProps> = (props: TreeItemProps) => {
   const { className, sourceData, level, expanded: initialExpand } = props;
 
   const [expanded, setExpanded] = useState<boolean>(initialExpand!);
-  const expandOnClick: React.MouseEventHandler<HTMLInputElement> = () => {
+  const expandSwitcherOnClick: React.MouseEventHandler<HTMLInputElement> = () => {
     setExpanded((prevExpand) => !prevExpand);
   };
 
   const childrenRef = useRef<HTMLDivElement>(null);
-  useEffect(() => {
+  useUpdate(() => {
     if (!childrenRef.current) {
       return;
     }
-    const { height } = childrenRef.current.getBoundingClientRect();
-    childrenRef.current.style.height = height + 'px';
-  }, []);
+    const afterExpand = () => {
+      if (!childrenRef.current) {
+        return;
+      }
+      childrenRef.current.style.height = 'auto';
+      childrenRef.current.removeEventListener('transitionend', afterExpand);
+    };
+    if (expanded) {
+      childrenRef.current.style.height = 'auto';
+      const { height } = childrenRef.current.getBoundingClientRect();
+      childrenRef.current.style.height = '0px';
+      childrenRef.current.getBoundingClientRect();
+      childrenRef.current.style.height = height + 'px';
+      childrenRef.current.addEventListener('transitionend', afterExpand);
+    } else {
+      const { height } = childrenRef.current.getBoundingClientRect();
+      childrenRef.current.style.height = height + 'px';
+      childrenRef.current.getBoundingClientRect();
+      childrenRef.current.style.height = '0px';
+    }
+    return () => {
+      childrenRef.current?.removeEventListener('transitionend', afterExpand);
+    };
+  }, [expanded]);
 
   return (
     <div className={classNames(sc(), className)}>
@@ -42,7 +63,7 @@ const TreeItem: React.FC<TreeItemProps> = (props: TreeItemProps) => {
         {sourceData.children && (
           <span
             className={classNames(sc('switcher'), expanded ? 'open' : 'close')}
-            onClick={expandOnClick}
+            onClick={expandSwitcherOnClick}
           >
             <Icon className={classNames(sc('switch'))} type="triangle-down" />
           </span>

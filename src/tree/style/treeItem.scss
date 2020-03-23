@@ -14,10 +14,10 @@
       transition: transform 0.5s;
       cursor: pointer;
       &.open {
-        transform: rotate(-90deg);
+        transform: rotate(0);
       }
       &.close {
-        transform: rotate(0);
+        transform: rotate(-90deg);
       }
       & > .algae-ui-tree-item-switch {
         width: 0.8em;
@@ -32,8 +32,8 @@
   & > .algae-ui-tree-item-children {
     transition: height 0.5s;
     overflow: hidden;
-    &.close {
-      height: 0 !important;
-    }
+    //&.close {
+    //  height: 0 !important;
+    //}
   }
 }
