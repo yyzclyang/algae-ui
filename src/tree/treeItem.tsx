@@ -98,7 +98,7 @@ const TreeItem: React.FC<TreeItemProps> = (props: TreeItemProps) => {
           </span>
         )}
         {typeof sourceData.icon === 'string' ? (
-          <Icon className={sc('icon')} type={sourceData.icon} />
+          <Icon type={sourceData.icon} />
         ) : (
           sourceData.icon
         )}
