@@ -19,7 +19,8 @@ interface TreeItemProps {
   level: number;
   checkable: boolean;
   checked: boolean;
-  checkValue: string[];
+  selectedValues: string[];
+  onSelect: (checked: boolean, value: string) => void;
   expanded?: boolean;
 }
 
@@ -31,12 +32,17 @@ const TreeItem: React.FC<TreeItemProps> = (props: TreeItemProps) => {
     expanded: initialExpand,
     checkable,
     checked,
-    checkValue
+    selectedValues,
+    onSelect
   } = props;
 
   const [expanded, setExpanded] = useState<boolean>(initialExpand!);
   const expandSwitcherOnClick: React.MouseEventHandler<HTMLInputElement> = () => {
     setExpanded((prevExpand) => !prevExpand);
+  };
+
+  const onChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
+    onSelect(e.target.checked, sourceData.value);
   };
 
   const childrenRef = useRef<HTMLDivElement>(null);
@@ -84,7 +90,11 @@ const TreeItem: React.FC<TreeItemProps> = (props: TreeItemProps) => {
         )}
         {checkable && (
           <span className={sc('checker')}>
-            <Checkbox className={sc('check-box')} checked={checked} />
+            <Checkbox
+              className={sc('check-box')}
+              checked={checked}
+              onChange={onChange}
+            />
           </span>
         )}
         {typeof sourceData.icon === 'string' ? (
@@ -105,8 +115,9 @@ const TreeItem: React.FC<TreeItemProps> = (props: TreeItemProps) => {
               sourceData={childrenTreeData}
               level={level + 1}
               checkable={checkable}
-              checked={checkValue!.includes(childrenTreeData.value)}
-              checkValue={checkValue}
+              checked={selectedValues!.includes(childrenTreeData.value)}
+              selectedValues={selectedValues}
+              onSelect={onSelect}
             />
           ))}
         </div>

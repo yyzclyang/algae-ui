@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { classNames, scopedClassMaker } from '../utils';
+import { classNames, scopedClassMaker, useControlState } from '../utils';
 import TreeItem, { TreeItemSourceData } from './treeItem';
 import './style/tree.scss';
 
@@ -9,12 +9,31 @@ const sc = scopedClassMaker('algae-ui-tree');
 interface TreeProps {
   className?: string;
   checkable?: boolean;
-  checkValue?: string[];
+  selectedValues?: string[];
   sourceData: TreeItemSourceData[];
 }
 
 const Tree: React.FC<TreeProps> = (props: TreeProps) => {
-  const { className, checkable, checkValue, sourceData } = props;
+  const {
+    className,
+    checkable,
+    selectedValues: initialSelectedValues,
+    sourceData
+  } = props;
+
+  const [selectedValues, setSelectedValues] = useControlState(
+    [],
+    initialSelectedValues
+  );
+  const onSelect = (checked: boolean, value: string) => {
+    if (checked) {
+      setSelectedValues((prevSelectedValues) => [...prevSelectedValues, value]);
+    } else {
+      setSelectedValues((prevSelectedValues) =>
+        prevSelectedValues.filter((selectedValue) => selectedValue !== value)
+      );
+    }
+  };
 
   return (
     <div className={classNames(sc(), className)}>
@@ -25,8 +44,9 @@ const Tree: React.FC<TreeProps> = (props: TreeProps) => {
             sourceData={treeData}
             level={0}
             checkable={checkable!}
-            checked={checkValue!.includes(treeData.value)}
-            checkValue={checkValue!}
+            checked={selectedValues!.includes(treeData.value)}
+            selectedValues={selectedValues!}
+            onSelect={onSelect}
           />
         ))}
       </div>
@@ -42,8 +62,7 @@ Tree.propTypes = {
 
 Tree.defaultProps = {
   sourceData: [],
-  checkable: false,
-  checkValue: []
+  checkable: false
 };
 
 export default Tree;
