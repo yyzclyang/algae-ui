@@ -10,6 +10,7 @@ interface TreeProps {
   className?: string;
   checkable?: boolean;
   selectedValues?: string[];
+  onSelect?: (selectedValues: string[]) => void;
   sourceData: TreeItemSourceData[];
 }
 
@@ -27,11 +28,15 @@ const Tree: React.FC<TreeProps> = (props: TreeProps) => {
   );
   const onSelect = (checked: boolean, value: string) => {
     if (checked) {
-      setSelectedValues((prevSelectedValues) => [...prevSelectedValues, value]);
+      const newSelectedValues = [...selectedValues, value];
+      setSelectedValues(newSelectedValues);
+      props.onSelect && props.onSelect(newSelectedValues);
     } else {
-      setSelectedValues((prevSelectedValues) =>
-        prevSelectedValues.filter((selectedValue) => selectedValue !== value)
+      const newSelectedValues = selectedValues.filter(
+        (selectedValue) => selectedValue !== value
       );
+      setSelectedValues(newSelectedValues);
+      props.onSelect && props.onSelect(newSelectedValues);
     }
   };
 
