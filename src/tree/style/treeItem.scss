@@ -43,8 +43,8 @@
   & > .algae-ui-tree-item-children {
     transition: height 0.5s;
     overflow: hidden;
-    //&.close {
-    //  height: 0 !important;
-    //}
+    &.close {
+      height: 0;
+    }
   }
 }

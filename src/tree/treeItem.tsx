@@ -10,6 +10,7 @@ const sc = scopedClassMaker('algae-ui-tree-item');
 export interface TreeItemSourceData {
   text: string;
   value: string;
+  expanded?: boolean;
   icon?: string | React.ReactElement;
   children?: TreeItemSourceData[];
 }
@@ -21,15 +22,14 @@ interface TreeItemProps {
   checked: boolean;
   selectedValues: string[];
   onSelect: (checked: boolean, value: string) => void;
-  expanded?: boolean;
 }
 
 const TreeItem: React.FC<TreeItemProps> = (props: TreeItemProps) => {
   const {
     className,
     sourceData,
+    sourceData: { expanded: initialExpand = true },
     level,
-    expanded: initialExpand,
     checkable,
     checked,
     selectedValues,
@@ -65,6 +65,7 @@ const TreeItem: React.FC<TreeItemProps> = (props: TreeItemProps) => {
       childrenRef.current.style.height = height + 'px';
       childrenRef.current.addEventListener('transitionend', afterExpand);
     } else {
+      childrenRef.current.style.height = 'auto';
       const { height } = childrenRef.current.getBoundingClientRect();
       childrenRef.current.style.height = height + 'px';
       childrenRef.current.getBoundingClientRect();
@@ -133,15 +134,14 @@ TreeItem.propTypes = {
     text: PropTypes.string.isRequired,
     value: PropTypes.string.isRequired,
     icon: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-    children: PropTypes.array
+    children: PropTypes.array,
+    expanded: PropTypes.bool
   }).isRequired,
-  level: PropTypes.number.isRequired,
-  expanded: PropTypes.bool
+  level: PropTypes.number.isRequired
 };
 TreeItem.defaultProps = {
   checkable: false,
-  checked: false,
-  expanded: true
+  checked: false
 };
 
 export default TreeItem;
