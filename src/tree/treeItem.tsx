@@ -12,6 +12,7 @@ export interface TreeItemSourceData {
   value: string;
   expanded?: boolean;
   icon?: string | React.ReactElement;
+  disabledCheckbox?: boolean;
   children?: TreeItemSourceData[];
 }
 interface TreeItemProps {
@@ -94,6 +95,7 @@ const TreeItem: React.FC<TreeItemProps> = (props: TreeItemProps) => {
             <Checkbox
               className={sc('check-box')}
               checked={checked}
+              disabled={sourceData.disabledCheckbox}
               onChange={onChange}
             />
           </span>
@@ -134,10 +136,14 @@ TreeItem.propTypes = {
     text: PropTypes.string.isRequired,
     value: PropTypes.string.isRequired,
     icon: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-    children: PropTypes.array,
-    expanded: PropTypes.bool
+    expanded: PropTypes.bool,
+    disabledCheckbox: PropTypes.bool,
+    children: PropTypes.array
   }).isRequired,
-  level: PropTypes.number.isRequired
+  level: PropTypes.number.isRequired,
+  checkable: PropTypes.bool.isRequired,
+  checked: PropTypes.bool.isRequired,
+  selectedValues: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired
 };
 TreeItem.defaultProps = {
   checkable: false,
