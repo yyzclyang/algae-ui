@@ -85,6 +85,7 @@
       }
     }
     & > .algae-ui-checkbox {
+      background: transparentize($fill, 0.85);
       cursor: not-allowed;
       & > .algae-ui-checkbox-input {
         cursor: not-allowed;
