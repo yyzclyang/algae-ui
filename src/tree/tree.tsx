@@ -19,6 +19,7 @@ const Tree: React.FC<TreeProps> = (props: TreeProps) => {
     className,
     checkable,
     selectedValues: initialSelectedValues,
+    onSelect,
     sourceData
   } = props;
 
@@ -26,18 +27,9 @@ const Tree: React.FC<TreeProps> = (props: TreeProps) => {
     [],
     initialSelectedValues
   );
-  const onSelect = (checked: boolean, value: string) => {
-    if (checked) {
-      const newSelectedValues = [...selectedValues, value];
-      setSelectedValues(newSelectedValues);
-      props.onSelect && props.onSelect(newSelectedValues);
-    } else {
-      const newSelectedValues = selectedValues.filter(
-        (selectedValue) => selectedValue !== value
-      );
-      setSelectedValues(newSelectedValues);
-      props.onSelect && props.onSelect(newSelectedValues);
-    }
+  const onTreeSelect = (selectedValues: string[]) => {
+    setSelectedValues(selectedValues);
+    onSelect && onSelect(selectedValues);
   };
 
   return (
@@ -51,7 +43,7 @@ const Tree: React.FC<TreeProps> = (props: TreeProps) => {
             checkable={checkable!}
             checked={selectedValues!.includes(treeData.value)}
             selectedValues={selectedValues!}
-            onSelect={onSelect}
+            onTreeSelect={onTreeSelect}
           />
         ))}
       </div>

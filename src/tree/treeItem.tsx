@@ -22,7 +22,7 @@ interface TreeItemProps {
   checkable: boolean;
   checked: boolean;
   selectedValues: string[];
-  onSelect: (checked: boolean, value: string) => void;
+  onTreeSelect: (selectedValues: string[]) => void;
 }
 
 const TreeItem: React.FC<TreeItemProps> = (props: TreeItemProps) => {
@@ -34,7 +34,7 @@ const TreeItem: React.FC<TreeItemProps> = (props: TreeItemProps) => {
     checkable,
     checked,
     selectedValues,
-    onSelect
+    onTreeSelect
   } = props;
 
   const [expanded, setExpanded] = useState<boolean>(initialExpand!);
@@ -43,7 +43,16 @@ const TreeItem: React.FC<TreeItemProps> = (props: TreeItemProps) => {
   };
 
   const onChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
-    onSelect(e.target.checked, sourceData.value);
+    if (e.target.checked) {
+      onTreeSelect && onTreeSelect([...selectedValues, sourceData.value]);
+    } else {
+      onTreeSelect &&
+        onTreeSelect(
+          selectedValues.filter(
+            (selectedValue) => selectedValue !== sourceData.value
+          )
+        );
+    }
   };
 
   const childrenRef = useRef<HTMLDivElement>(null);
@@ -120,7 +129,7 @@ const TreeItem: React.FC<TreeItemProps> = (props: TreeItemProps) => {
               checkable={checkable}
               checked={selectedValues!.includes(childrenTreeData.value)}
               selectedValues={selectedValues}
-              onSelect={onSelect}
+              onTreeSelect={onTreeSelect}
             />
           ))}
         </div>
