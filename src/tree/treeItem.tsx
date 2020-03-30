@@ -7,6 +7,17 @@ import Checkbox from '../checkbox';
 
 const sc = scopedClassMaker('algae-ui-tree-item');
 
+const collectChildrenValues = (sourceData: TreeItemSourceData): string[] => {
+  return (
+    sourceData.children?.reduce((result: string[], childSourceData) => {
+      return result.concat(
+        childSourceData.value,
+        childSourceData.children ? collectChildrenValues(childSourceData) : []
+      );
+    }, []) ?? []
+  );
+};
+
 export interface TreeItemSourceData {
   text: string;
   value: string;
@@ -43,13 +54,21 @@ const TreeItem: React.FC<TreeItemProps> = (props: TreeItemProps) => {
   };
 
   const onChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
+    const childrenValues = collectChildrenValues(sourceData);
     if (e.target.checked) {
-      onTreeSelect && onTreeSelect([...selectedValues, sourceData.value]);
+      onTreeSelect &&
+        onTreeSelect(
+          Array.from(
+            new Set([...selectedValues, sourceData.value, ...childrenValues])
+          )
+        );
     } else {
       onTreeSelect &&
         onTreeSelect(
           selectedValues.filter(
-            (selectedValue) => selectedValue !== sourceData.value
+            (selectedValue) =>
+              selectedValue !== sourceData.value &&
+              !childrenValues.includes(selectedValue)
           )
         );
     }
