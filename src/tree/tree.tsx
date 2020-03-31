@@ -29,6 +29,9 @@ const Tree: React.FC<TreeProps> = (props: TreeProps) => {
   );
   const onTreeSelect = (selectedValues: string[]) => {
     setSelectedValues(selectedValues);
+    onTreeItemSelect(selectedValues);
+  };
+  const onTreeItemSelect = (selectedValues: string[]) => {
     onSelect && onSelect(selectedValues);
   };
 
@@ -44,6 +47,7 @@ const Tree: React.FC<TreeProps> = (props: TreeProps) => {
             checked={selectedValues!.includes(treeData.value)}
             selectedValues={selectedValues!}
             onTreeSelect={onTreeSelect}
+            onTreeItemSelect={onTreeItemSelect}
           />
         ))}
       </div>

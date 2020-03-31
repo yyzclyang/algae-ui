@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useState, useMemo, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { classNames, scopedClassMaker, useToggle, useUpdate } from '../utils';
 import Icon from '../icon';
@@ -7,15 +7,38 @@ import Checkbox from '../checkbox';
 
 const sc = scopedClassMaker('algae-ui-tree-item');
 
-const collectChildrenValues = (sourceData: TreeItemSourceData): string[] => {
+const collectDescendantValues = (sourceData: TreeItemSourceData): string[] => {
   return (
     sourceData.children?.reduce((result: string[], childSourceData) => {
       return result.concat(
         childSourceData.value,
-        childSourceData.children ? collectChildrenValues(childSourceData) : []
+        childSourceData.children ? collectDescendantValues(childSourceData) : []
       );
     }, []) ?? []
   );
+};
+const calculatorCommonValues = (
+  selectedValues: string[],
+  descendantValues: string[]
+): string[] => {
+  return descendantValues.filter((descendantValue) =>
+    selectedValues.includes(descendantValue)
+  );
+};
+type CheckedStatus = 'checked' | 'indeterminate' | 'none';
+const judgeCheckedStatus = (
+  selectedValues: string[],
+  descendantValues: string[]
+): CheckedStatus => {
+  const commonValuesLength = calculatorCommonValues(
+    selectedValues,
+    descendantValues
+  ).length;
+  return commonValuesLength > 0
+    ? commonValuesLength < descendantValues.length
+      ? 'indeterminate'
+      : 'checked'
+    : 'none';
 };
 
 export interface TreeItemSourceData {
@@ -34,6 +57,7 @@ interface TreeItemProps {
   checked: boolean;
   selectedValues: string[];
   onTreeSelect: (selectedValues: string[]) => void;
+  onTreeItemSelect: (selectedValues: string[]) => void;
 }
 
 const TreeItem: React.FC<TreeItemProps> = (props: TreeItemProps) => {
@@ -48,30 +72,37 @@ const TreeItem: React.FC<TreeItemProps> = (props: TreeItemProps) => {
     onTreeSelect
   } = props;
 
+  const [isIndeterminate, setIsIndeterminate] = useState<boolean>(false);
   const [expanded, toggleExpanded] = useToggle(initialExpand);
   const expandSwitcherOnClick: React.MouseEventHandler<HTMLInputElement> = () => {
     toggleExpanded();
   };
 
+  const descendantValues = useMemo(() => collectDescendantValues(sourceData), [
+    sourceData
+  ]);
   const onChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
-    const childrenValues = collectChildrenValues(sourceData);
-    if (e.target.checked) {
-      onTreeSelect &&
-        onTreeSelect(
-          Array.from(
-            new Set([...selectedValues, sourceData.value, ...childrenValues])
-          )
+    const newSelectedValues = e.target.checked
+      ? Array.from(
+          new Set([...selectedValues, sourceData.value, ...descendantValues])
+        )
+      : selectedValues.filter(
+          (selectedValue) =>
+            selectedValue !== sourceData.value &&
+            !descendantValues.includes(selectedValue)
         );
-    } else {
-      onTreeSelect &&
-        onTreeSelect(
-          selectedValues.filter(
-            (selectedValue) =>
-              selectedValue !== sourceData.value &&
-              !childrenValues.includes(selectedValue)
+    props.onTreeItemSelect(newSelectedValues);
+  };
+  const onTreeItemSelect = (selectedValues: string[]) => {
+    const checkedStatus = judgeCheckedStatus(selectedValues, descendantValues);
+    props.onTreeItemSelect(
+      checkedStatus === 'checked'
+        ? [...selectedValues, sourceData.value]
+        : selectedValues.filter(
+            (selectedValue) => selectedValue !== sourceData.value
           )
-        );
-    }
+    );
+    setIsIndeterminate(checkedStatus === 'indeterminate');
   };
 
   const childrenRef = useRef<HTMLDivElement>(null);
@@ -125,6 +156,7 @@ const TreeItem: React.FC<TreeItemProps> = (props: TreeItemProps) => {
               checked={checked}
               disabled={sourceData.disabledCheckbox}
               onChange={onChange}
+              indeterminate={isIndeterminate}
             />
           </span>
         )}
@@ -149,6 +181,7 @@ const TreeItem: React.FC<TreeItemProps> = (props: TreeItemProps) => {
               checked={selectedValues!.includes(childrenTreeData.value)}
               selectedValues={selectedValues}
               onTreeSelect={onTreeSelect}
+              onTreeItemSelect={onTreeItemSelect}
             />
           ))}
         </div>
