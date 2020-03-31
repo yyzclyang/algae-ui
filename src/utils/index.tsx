@@ -10,3 +10,4 @@ export { default as arcGenerator } from './arcGenerator';
 export { default as useUpdate } from './useUpdate';
 export { default as useControlState } from './useControlState';
 export { default as useDiffuseAnimation } from './useDiffuseAnimation';
+export { default as useToggle } from './useToggle';

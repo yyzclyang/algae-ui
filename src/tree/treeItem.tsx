@@ -1,6 +1,6 @@
-import React, { useState, useRef } from 'react';
+import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
-import { classNames, scopedClassMaker, useUpdate } from '../utils';
+import { classNames, scopedClassMaker, useToggle, useUpdate } from '../utils';
 import Icon from '../icon';
 import './style/treeItem.scss';
 import Checkbox from '../checkbox';
@@ -48,9 +48,9 @@ const TreeItem: React.FC<TreeItemProps> = (props: TreeItemProps) => {
     onTreeSelect
   } = props;
 
-  const [expanded, setExpanded] = useState<boolean>(initialExpand!);
+  const [expanded, toggleExpanded] = useToggle(initialExpand);
   const expandSwitcherOnClick: React.MouseEventHandler<HTMLInputElement> = () => {
-    setExpanded((prevExpand) => !prevExpand);
+    toggleExpanded();
   };
 
   const onChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
