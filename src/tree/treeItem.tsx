@@ -84,7 +84,13 @@ const TreeItem: React.FC<TreeItemProps> = (props: TreeItemProps) => {
   const {
     className,
     sourceData,
-    sourceData: { expanded: initialExpand = true },
+    sourceData: {
+      value,
+      text,
+      expanded: initialExpand = true,
+      icon,
+      disabledCheckbox
+    },
     level,
     checkable,
     checked,
@@ -101,13 +107,10 @@ const TreeItem: React.FC<TreeItemProps> = (props: TreeItemProps) => {
   const onChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
     const descendantValues = collectDescendantValues(sourceData, true);
     const newSelectedValues = e.target.checked
-      ? Array.from(
-          new Set([...selectedValues, sourceData.value, ...descendantValues])
-        )
+      ? Array.from(new Set([...selectedValues, value, ...descendantValues]))
       : selectedValues.filter(
           (selectedValue) =>
-            selectedValue !== sourceData.value &&
-            !descendantValues.includes(selectedValue)
+            selectedValue !== value && !descendantValues.includes(selectedValue)
         );
     setIsIndeterminate(false);
     props.onTreeItemSelect(newSelectedValues);
@@ -117,17 +120,10 @@ const TreeItem: React.FC<TreeItemProps> = (props: TreeItemProps) => {
     const checkedStatus = judgeCheckedStatus(selectedValues, descendantValues);
     props.onTreeItemSelect(
       checkedStatus === 'checked'
-        ? [
-            ...selectedValues,
-            ...(sourceData.disabledCheckbox ? [] : [sourceData.value])
-          ]
-        : selectedValues.filter(
-            (selectedValue) => selectedValue !== sourceData.value
-          )
+        ? [...selectedValues, ...(disabledCheckbox ? [] : [value])]
+        : selectedValues.filter((selectedValue) => selectedValue !== value)
     );
-    setIsIndeterminate(
-      !sourceData.disabledCheckbox && checkedStatus === 'indeterminate'
-    );
+    setIsIndeterminate(!disabledCheckbox && checkedStatus === 'indeterminate');
   };
 
   const childrenRef = useRef<HTMLDivElement>(null);
@@ -179,25 +175,21 @@ const TreeItem: React.FC<TreeItemProps> = (props: TreeItemProps) => {
             <Checkbox
               className={sc('check-box')}
               checked={checked}
-              disabled={sourceData.disabledCheckbox}
+              disabled={disabledCheckbox}
               onChange={onChange}
               indeterminate={isIndeterminate}
             />
           </span>
         )}
-        {typeof sourceData.icon === 'string' ? (
-          <Icon type={sourceData.icon} />
-        ) : (
-          sourceData.icon
-        )}
-        <span className={sc('text')}>{sourceData.text}</span>
+        {typeof icon === 'string' ? <Icon type={icon} /> : icon}
+        <span className={sc('text')}>{text}</span>
       </div>
       {sourceData.children && (
         <div
           ref={childrenRef}
           className={classNames(sc('children'), expanded ? 'open' : 'close')}
         >
-          {sourceData.children?.map((childrenTreeData) => (
+          {sourceData.children.map((childrenTreeData) => (
             <TreeItem
               key={childrenTreeData.value}
               sourceData={childrenTreeData}
