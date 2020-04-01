@@ -73,6 +73,7 @@ interface TreeItemProps {
   className?: string;
   sourceData: TreeItemSourceData;
   level: number;
+  autoCheck?: boolean;
   checkable: boolean;
   checked: boolean;
   selectedValues: string[];
@@ -92,6 +93,7 @@ const TreeItem: React.FC<TreeItemProps> = (props: TreeItemProps) => {
       disabledCheckbox
     },
     level,
+    autoCheck,
     checkable,
     checked,
     selectedValues,
@@ -105,7 +107,9 @@ const TreeItem: React.FC<TreeItemProps> = (props: TreeItemProps) => {
   };
 
   const onChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
-    const descendantValues = collectDescendantValues(sourceData, true);
+    const descendantValues = autoCheck
+      ? collectDescendantValues(sourceData, true)
+      : [];
     const newSelectedValues = e.target.checked
       ? Array.from(new Set([...selectedValues, value, ...descendantValues]))
       : selectedValues.filter(
@@ -116,6 +120,11 @@ const TreeItem: React.FC<TreeItemProps> = (props: TreeItemProps) => {
     props.onTreeItemSelect(newSelectedValues);
   };
   const onTreeItemSelect = (selectedValues: string[]) => {
+    if (!autoCheck) {
+      props.onTreeItemSelect(selectedValues);
+      return;
+    }
+    // 自动选取的状态下根据后代的选中情况来影响自身的选中情况
     const descendantValues = collectDescendantValues(sourceData);
     const checkedStatus = judgeCheckedStatus(selectedValues, descendantValues);
     props.onTreeItemSelect(

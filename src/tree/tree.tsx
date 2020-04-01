@@ -8,6 +8,7 @@ const sc = scopedClassMaker('algae-ui-tree');
 
 interface TreeProps {
   className?: string;
+  autoCheck?: boolean;
   checkable?: boolean;
   selectedValues?: string[];
   onSelect?: (selectedValues: string[]) => void;
@@ -17,6 +18,7 @@ interface TreeProps {
 const Tree: React.FC<TreeProps> = (props: TreeProps) => {
   const {
     className,
+    autoCheck,
     checkable,
     selectedValues: initialSelectedValues,
     onSelect,
@@ -29,10 +31,10 @@ const Tree: React.FC<TreeProps> = (props: TreeProps) => {
   );
   const onTreeSelect = (selectedValues: string[]) => {
     setSelectedValues(selectedValues);
-    onTreeItemSelect(selectedValues);
   };
   const onTreeItemSelect = (selectedValues: string[]) => {
     onSelect && onSelect(selectedValues);
+    onTreeSelect(selectedValues);
   };
 
   return (
@@ -42,6 +44,7 @@ const Tree: React.FC<TreeProps> = (props: TreeProps) => {
           <TreeItem
             key={treeData.value}
             sourceData={treeData}
+            autoCheck={autoCheck}
             level={0}
             checkable={checkable!}
             checked={selectedValues!.includes(treeData.value)}
