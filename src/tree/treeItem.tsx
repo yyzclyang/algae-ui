@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { classNames, scopedClassMaker, useToggle, useUpdate } from '../utils';
 import Icon from '../icon';
@@ -7,16 +7,31 @@ import Checkbox from '../checkbox';
 
 const sc = scopedClassMaker('algae-ui-tree-item');
 
-const collectDescendantValues = (sourceData: TreeItemSourceData): string[] => {
+/**
+ * 收集后代所有元素的值
+ * @param sourceData 当前元素的 sourceData
+ * @param excludesDisabled 是否排除不可选择元素的值
+ */
+const collectDescendantValues = (
+  sourceData: TreeItemSourceData,
+  excludesDisabled: boolean = false
+): string[] => {
   return (
     sourceData.children?.reduce((result: string[], childSourceData) => {
       return result.concat(
-        childSourceData.value,
+        excludesDisabled && childSourceData.disabledCheckbox
+          ? []
+          : childSourceData.value,
         childSourceData.children ? collectDescendantValues(childSourceData) : []
       );
     }, []) ?? []
   );
 };
+/**
+ * 计算已选中的值与后代元素的值的交集，判断后代的选择情况。全部选中？部分选中？全都没选中？
+ * @param selectedValues 已选中的值
+ * @param descendantValues 后代元素的值
+ */
 const calculatorCommonValues = (
   selectedValues: string[],
   descendantValues: string[]
@@ -26,6 +41,11 @@ const calculatorCommonValues = (
   );
 };
 type CheckedStatus = 'checked' | 'indeterminate' | 'none';
+/**
+ * 根据后代元素的选择情况来判断当前元素的状态子影响父
+ * @param selectedValues 已选中的值
+ * @param descendantValues 后代元素的值
+ */
 const judgeCheckedStatus = (
   selectedValues: string[],
   descendantValues: string[]
@@ -78,10 +98,8 @@ const TreeItem: React.FC<TreeItemProps> = (props: TreeItemProps) => {
     toggleExpanded();
   };
 
-  const descendantValues = useMemo(() => collectDescendantValues(sourceData), [
-    sourceData
-  ]);
   const onChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
+    const descendantValues = collectDescendantValues(sourceData, true);
     const newSelectedValues = e.target.checked
       ? Array.from(
           new Set([...selectedValues, sourceData.value, ...descendantValues])
@@ -91,18 +109,25 @@ const TreeItem: React.FC<TreeItemProps> = (props: TreeItemProps) => {
             selectedValue !== sourceData.value &&
             !descendantValues.includes(selectedValue)
         );
+    setIsIndeterminate(false);
     props.onTreeItemSelect(newSelectedValues);
   };
   const onTreeItemSelect = (selectedValues: string[]) => {
+    const descendantValues = collectDescendantValues(sourceData);
     const checkedStatus = judgeCheckedStatus(selectedValues, descendantValues);
     props.onTreeItemSelect(
       checkedStatus === 'checked'
-        ? [...selectedValues, sourceData.value]
+        ? [
+            ...selectedValues,
+            ...(sourceData.disabledCheckbox ? [] : [sourceData.value])
+          ]
         : selectedValues.filter(
             (selectedValue) => selectedValue !== sourceData.value
           )
     );
-    setIsIndeterminate(checkedStatus === 'indeterminate');
+    setIsIndeterminate(
+      !sourceData.disabledCheckbox && checkedStatus === 'indeterminate'
+    );
   };
 
   const childrenRef = useRef<HTMLDivElement>(null);
