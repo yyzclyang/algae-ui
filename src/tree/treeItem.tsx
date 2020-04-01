@@ -77,7 +77,6 @@ interface TreeItemProps {
   checkable: boolean;
   checked: boolean;
   selectedValues: string[];
-  onTreeSelect: (selectedValues: string[]) => void;
   onTreeItemSelect: (selectedValues: string[]) => void;
 }
 
@@ -96,8 +95,7 @@ const TreeItem: React.FC<TreeItemProps> = (props: TreeItemProps) => {
     autoCheck,
     checkable,
     checked,
-    selectedValues,
-    onTreeSelect
+    selectedValues
   } = props;
 
   const [isIndeterminate, setIsIndeterminate] = useState<boolean>(false);
@@ -206,7 +204,6 @@ const TreeItem: React.FC<TreeItemProps> = (props: TreeItemProps) => {
               checkable={checkable}
               checked={selectedValues!.includes(childrenTreeData.value)}
               selectedValues={selectedValues}
-              onTreeSelect={onTreeSelect}
               onTreeItemSelect={onTreeItemSelect}
             />
           ))}
