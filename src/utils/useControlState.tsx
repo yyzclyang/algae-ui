@@ -8,9 +8,8 @@ const useControlState: <S>(
   initialState,
   controlState?
 ) => {
-  const [state, setState] = useState(
-    controlState !== undefined ? controlState : initialState
-  );
+  const [state, setState] = useState(controlState ?? initialState);
+
   useUpdate(() => {
     if (controlState !== undefined) {
       setState(controlState);
@@ -19,9 +18,12 @@ const useControlState: <S>(
 
   return [
     state,
-    (value) => {
+    (setStateAction) => {
+      if (setStateAction instanceof Function) {
+        setStateAction(state);
+      }
       if (controlState === undefined) {
-        setState(value);
+        setState(setStateAction);
       }
     }
   ];
