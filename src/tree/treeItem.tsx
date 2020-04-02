@@ -22,7 +22,9 @@ const collectDescendantValues = (
         excludesDisabled && childSourceData.disabledCheckbox
           ? []
           : childSourceData.value,
-        childSourceData.children ? collectDescendantValues(childSourceData) : []
+        childSourceData.children
+          ? collectDescendantValues(childSourceData, excludesDisabled)
+          : []
       );
     }, []) ?? []
   );
@@ -201,6 +203,7 @@ const TreeItem: React.FC<TreeItemProps> = (props: TreeItemProps) => {
               key={childrenTreeData.value}
               sourceData={childrenTreeData}
               level={level + 1}
+              autoCheck={autoCheck}
               checkable={checkable}
               checked={selectedValues!.includes(childrenTreeData.value)}
               selectedValues={selectedValues}
