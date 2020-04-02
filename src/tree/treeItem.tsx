@@ -76,6 +76,7 @@ interface TreeItemProps {
   sourceData: TreeItemSourceData;
   level: number;
   autoCheck?: boolean;
+  switcherIcons: [string | React.ReactElement, string | React.ReactElement];
   checkable: boolean;
   checked: boolean;
   selectedValues: string[];
@@ -95,6 +96,7 @@ const TreeItem: React.FC<TreeItemProps> = (props: TreeItemProps) => {
     },
     level,
     autoCheck,
+    switcherIcons,
     checkable,
     checked,
     selectedValues
@@ -166,6 +168,16 @@ const TreeItem: React.FC<TreeItemProps> = (props: TreeItemProps) => {
     };
   }, [expanded]);
 
+  const renderSwitcherIcon = (
+    icon: string | React.ReactElement
+  ): React.ReactElement => {
+    return typeof icon === 'string' ? (
+      <Icon className={classNames(sc('switch'))} type={icon} />
+    ) : (
+      icon
+    );
+  };
+
   return (
     <div className={classNames(sc(), className)}>
       <div className={sc('content')}>
@@ -174,10 +186,9 @@ const TreeItem: React.FC<TreeItemProps> = (props: TreeItemProps) => {
             className={classNames(sc('switcher'))}
             onClick={expandSwitcherOnClick}
           >
-            <Icon
-              className={classNames(sc('switch'))}
-              type={expanded ? 'triangle-down' : 'triangle-right'}
-            />
+            {expanded
+              ? renderSwitcherIcon(switcherIcons[0])
+              : renderSwitcherIcon(switcherIcons[1])}
           </span>
         ) : (
           <span className={sc('switcher-empty')} />
@@ -207,6 +218,7 @@ const TreeItem: React.FC<TreeItemProps> = (props: TreeItemProps) => {
               sourceData={childrenTreeData}
               level={level + 1}
               autoCheck={autoCheck}
+              switcherIcons={switcherIcons}
               checkable={checkable}
               checked={selectedValues!.includes(childrenTreeData.value)}
               selectedValues={selectedValues}

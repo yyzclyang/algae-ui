@@ -10,6 +10,7 @@ interface TreeProps {
   className?: string;
   autoCheck?: boolean;
   checkable?: boolean;
+  switcherIcons?: [string | React.ReactElement, string | React.ReactElement];
   defaultValues?: string[];
   selectedValues?: string[];
   onSelect?: (selectedValues: string[]) => void;
@@ -21,6 +22,7 @@ const Tree: React.FC<TreeProps> = (props: TreeProps) => {
     className,
     autoCheck,
     checkable,
+    switcherIcons,
     defaultValues,
     selectedValues: initialSelectedValues,
     onSelect,
@@ -46,8 +48,9 @@ const Tree: React.FC<TreeProps> = (props: TreeProps) => {
           <TreeItem
             key={treeData.value}
             sourceData={treeData}
-            autoCheck={autoCheck}
             level={0}
+            autoCheck={autoCheck}
+            switcherIcons={switcherIcons ?? ['triangle-down', 'triangle-right']}
             checkable={checkable!}
             checked={selectedValues!.includes(treeData.value)}
             selectedValues={selectedValues!}
