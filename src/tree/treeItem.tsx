@@ -171,10 +171,13 @@ const TreeItem: React.FC<TreeItemProps> = (props: TreeItemProps) => {
       <div className={sc('content')}>
         {sourceData.children ? (
           <span
-            className={classNames(sc('switcher'), expanded ? 'open' : 'close')}
+            className={classNames(sc('switcher'))}
             onClick={expandSwitcherOnClick}
           >
-            <Icon className={classNames(sc('switch'))} type="triangle-down" />
+            <Icon
+              className={classNames(sc('switch'))}
+              type={expanded ? 'triangle-down' : 'triangle-right'}
+            />
           </span>
         ) : (
           <span className={sc('switcher-empty')} />

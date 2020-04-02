@@ -13,12 +13,6 @@
       width: 18px;
       transition: transform 0.5s;
       cursor: pointer;
-      &.open {
-        transform: rotate(0);
-      }
-      &.close {
-        transform: rotate(-90deg);
-      }
       & > .algae-ui-tree-item-switch {
         width: 0.8em;
         height: 0.8em;
