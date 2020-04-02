@@ -6,7 +6,7 @@ module.exports = merge(baseConfig, {
   mode: 'production',
   devtool: 'source-map',
   entry: {
-    index: './src/index.tsx'
+    index: './src/index.ts'
   },
   output: {
     path: path.resolve(__dirname, 'lib'),
