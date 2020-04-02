@@ -5,7 +5,7 @@ import './index.scss';
 import StartDemo from './start.codeDemo';
 const code = require('!!raw-loader!./start.codeDemo.tsx');
 
-export default () => (
+const GetStart: React.FC = () => (
   <div className="get-start-page">
     <section>
       <h1>开始使用</h1>
@@ -37,3 +37,5 @@ export default () => (
     </section>
   </div>
 );
+
+export default GetStart;
