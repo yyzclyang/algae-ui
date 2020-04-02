@@ -10,6 +10,7 @@ interface TreeProps {
   className?: string;
   autoCheck?: boolean;
   checkable?: boolean;
+  defaultValues?: string[];
   selectedValues?: string[];
   onSelect?: (selectedValues: string[]) => void;
   sourceData: TreeItemSourceData[];
@@ -20,13 +21,14 @@ const Tree: React.FC<TreeProps> = (props: TreeProps) => {
     className,
     autoCheck,
     checkable,
+    defaultValues,
     selectedValues: initialSelectedValues,
     onSelect,
     sourceData
   } = props;
 
   const [selectedValues, setSelectedValues] = useControlState(
-    [],
+    defaultValues,
     initialSelectedValues
   );
   const onTreeSelect = (selectedValues: string[]) => {
@@ -64,8 +66,10 @@ Tree.propTypes = {
 };
 
 Tree.defaultProps = {
-  sourceData: [],
-  checkable: false
+  autoCheck: false,
+  checkable: false,
+  defaultValues: [],
+  sourceData: []
 };
 
 export default Tree;
