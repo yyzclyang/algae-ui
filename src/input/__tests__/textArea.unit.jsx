@@ -1,11 +1,11 @@
 import React from 'react';
-import * as renderer from 'react-test-renderer';
+import TestRenderer from 'react-test-renderer';
 import { mount } from 'enzyme';
 import { TextArea } from '../index';
 
 describe('TextArea', () => {
   it('渲染一个 TextArea', () => {
-    const component = renderer.create(<TextArea />).toJSON();
+    const component = TestRenderer.create(<TextArea />).toJSON();
     expect(component).toMatchSnapshot();
   });
 

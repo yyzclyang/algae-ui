@@ -1,37 +1,37 @@
 import React from 'react';
-import * as renderer from 'react-test-renderer';
-import Checkbox from '../index';
+import TestRenderer from 'react-test-renderer';
 import { mount } from 'enzyme';
+import { Checkbox } from '../index';
 
 describe('Checkbox', () => {
   it('渲染一个 Checkbox', () => {
-    const component = renderer.create(<Checkbox>radio</Checkbox>).toJSON();
+    const component = TestRenderer.create(<Checkbox>radio</Checkbox>).toJSON();
     expect(component).toMatchSnapshot();
   });
 
   it('接受 checked', () => {
-    const component = renderer
-      .create(<Checkbox checked>radio</Checkbox>)
-      .toJSON();
+    const component = TestRenderer.create(
+      <Checkbox checked>radio</Checkbox>
+    ).toJSON();
     expect(component).toMatchSnapshot();
   });
 
   it('接受 indeterminate', () => {
-    const component = renderer
-      .create(<Checkbox indeterminate>radio</Checkbox>)
-      .toJSON();
+    const component = TestRenderer.create(
+      <Checkbox indeterminate>radio</Checkbox>
+    ).toJSON();
     expect(component).toMatchSnapshot();
   });
 
   it('接受 disabled', () => {
-    const component = renderer
-      .create(<Checkbox disabled>radio</Checkbox>)
-      .toJSON();
+    const component = TestRenderer.create(
+      <Checkbox disabled>radio</Checkbox>
+    ).toJSON();
     expect(component).toMatchSnapshot();
   });
 
   it('不传递子节点', () => {
-    const component = renderer.create(<Checkbox disabled />).toJSON();
+    const component = TestRenderer.create(<Checkbox disabled />).toJSON();
     expect(component).toMatchSnapshot();
   });
 

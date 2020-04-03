@@ -1,28 +1,26 @@
 import React from 'react';
-import * as renderer from 'react-test-renderer';
-import Rate from '../index';
+import TestRenderer from 'react-test-renderer';
 import { mount } from 'enzyme';
+import { Rate } from '../index';
 
 describe('Rate', () => {
   it('渲染一个最基本的 Rate', () => {
-    const component = renderer.create(<Rate />).toJSON();
+    const component = TestRenderer.create(<Rate />).toJSON();
     expect(component).toMatchSnapshot();
   });
 
   it('渲染一个带参数的 Rate', () => {
-    const component = renderer
-      .create(
-        <Rate
-          value={2}
-          count={5}
-          allowClear
-          allowHalf
-          className="test"
-          tips={['terrible', 'bad', 'normal', 'good', 'wonderful']}
-          disabled
-        />
-      )
-      .toJSON();
+    const component = TestRenderer.create(
+      <Rate
+        value={2}
+        count={5}
+        allowClear
+        allowHalf
+        className="test"
+        tips={['terrible', 'bad', 'normal', 'good', 'wonderful']}
+        disabled
+      />
+    ).toJSON();
     expect(component).toMatchSnapshot();
   });
 

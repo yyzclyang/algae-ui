@@ -1,12 +1,12 @@
 import React from 'react';
-import * as renderer from 'react-test-renderer';
+import TestRenderer from 'react-test-renderer';
 import { mount } from 'enzyme';
-import Input from '../index';
-import Button from '../../button';
+import { Input } from '../index';
+import { Button } from '../../button';
 
 describe('Input', () => {
   it('渲染一个 Input', () => {
-    const component = renderer.create(<Input />).toJSON();
+    const component = TestRenderer.create(<Input />).toJSON();
     expect(component).toMatchSnapshot();
   });
 

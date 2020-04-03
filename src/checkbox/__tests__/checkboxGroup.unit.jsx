@@ -1,18 +1,16 @@
 import React from 'react';
-import * as renderer from 'react-test-renderer';
+import TestRenderer from 'react-test-renderer';
 import { mount } from 'enzyme';
-import Checkbox, { CheckboxGroup } from '../index';
+import { Checkbox, CheckboxGroup } from '../index';
 
 describe('RadioGroup', () => {
   it('渲染一个 RadioGroup', () => {
-    const component = renderer
-      .create(
-        <CheckboxGroup>
-          <Checkbox>radio1</Checkbox>
-          <Checkbox>radio2</Checkbox>
-        </CheckboxGroup>
-      )
-      .toJSON();
+    const component = TestRenderer.create(
+      <CheckboxGroup>
+        <Checkbox>radio1</Checkbox>
+        <Checkbox>radio2</Checkbox>
+      </CheckboxGroup>
+    ).toJSON();
     expect(component).toMatchSnapshot();
   });
 
@@ -22,44 +20,40 @@ describe('RadioGroup', () => {
       { label: 'b', value: 'b' },
       { label: 'c', value: 'c', disabled: true }
     ];
-    const component = renderer
-      .create(<CheckboxGroup options={options} />)
-      .toJSON();
-    const component2 = renderer
-      .create(<CheckboxGroup disabled options={options} />)
-      .toJSON();
+    const component = TestRenderer.create(
+      <CheckboxGroup options={options} />
+    ).toJSON();
+    const component2 = TestRenderer.create(
+      <CheckboxGroup disabled options={options} />
+    ).toJSON();
     expect(component).toMatchSnapshot();
     expect(component2).toMatchSnapshot();
   });
 
   it('接受 name disabled', () => {
-    const component = renderer
-      .create(
-        <CheckboxGroup name="test" disabled>
-          <Checkbox>radio1</Checkbox>
-          <Checkbox>radio2</Checkbox>
-        </CheckboxGroup>
-      )
-      .toJSON();
+    const component = TestRenderer.create(
+      <CheckboxGroup name="test" disabled>
+        <Checkbox>radio1</Checkbox>
+        <Checkbox>radio2</Checkbox>
+      </CheckboxGroup>
+    ).toJSON();
     expect(component).toMatchSnapshot();
   });
 
   it('children 为 string', () => {
-    const component = renderer
-      .create(<CheckboxGroup>radio</CheckboxGroup>)
-      .toJSON();
+    const component = TestRenderer.create(
+      <CheckboxGroup>radio</CheckboxGroup>
+    ).toJSON();
     expect(component).toMatchSnapshot();
   });
 
   it('接受 value', () => {
-    const component = renderer
-      .create(
-        <CheckboxGroup value={['1']}>
-          <Checkbox value="1">radio1</Checkbox>
-          <Checkbox value="2">radio2</Checkbox>
-        </CheckboxGroup>
-      )
-      .toJSON();
+    const component = TestRenderer.create(
+      <CheckboxGroup value={['1']}>
+        <Checkbox value="1">radio1</Checkbox>
+        <Checkbox value="2">radio2</Checkbox>
+      </CheckboxGroup>
+    ).toJSON();
     expect(component).toMatchSnapshot();
   });
 
@@ -69,9 +63,9 @@ describe('RadioGroup', () => {
       { label: 'b', value: 'b' },
       { label: 'c', value: 'c', disabled: true }
     ];
-    const component = renderer
-      .create(<CheckboxGroup value={['a']} options={options} />)
-      .toJSON();
+    const component = TestRenderer.create(
+      <CheckboxGroup value={['a']} options={options} />
+    ).toJSON();
     expect(component).toMatchSnapshot();
   });
 

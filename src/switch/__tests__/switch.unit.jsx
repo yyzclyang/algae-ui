@@ -1,42 +1,40 @@
 import React from 'react';
-import * as renderer from 'react-test-renderer';
-import Switch from '../index';
-import { Icon } from '../../index';
+import TestRenderer from 'react-test-renderer';
 import { mount } from 'enzyme/build';
+import { Switch } from '../index';
+import { Icon } from '../../index';
 
 describe('Switch', () => {
   it('渲染一个基本的 Switch', () => {
-    const component = renderer.create(<Switch />).toJSON();
+    const component = TestRenderer.create(<Switch />).toJSON();
     expect(component).toMatchSnapshot();
   });
 
   it('渲染一个禁用的 Switch', () => {
-    const component = renderer.create(<Switch disabled />).toJSON();
+    const component = TestRenderer.create(<Switch disabled />).toJSON();
     expect(component).toMatchSnapshot();
   });
 
   it('渲染一个 loading 状态的 Switch', () => {
-    const component = renderer.create(<Switch loading />).toJSON();
+    const component = TestRenderer.create(<Switch loading />).toJSON();
     expect(component).toMatchSnapshot();
   });
 
   it('渲染一个选中状态内容为 string 的 Switch', () => {
-    const component = renderer
-      .create(<Switch defaultChecked checkedEl="开" uncheckedEl="关" />)
-      .toJSON();
+    const component = TestRenderer.create(
+      <Switch defaultChecked checkedEl="开" uncheckedEl="关" />
+    ).toJSON();
     expect(component).toMatchSnapshot();
   });
 
   it('渲染一个选中状态内容为 React.Element 的 Switch', () => {
-    const component = renderer
-      .create(
-        <Switch
-          defaultChecked
-          checkedEl={<Icon type="check" />}
-          uncheckedEl={<Icon type="close" />}
-        />
-      )
-      .toJSON();
+    const component = TestRenderer.create(
+      <Switch
+        defaultChecked
+        checkedEl={<Icon type="check" />}
+        uncheckedEl={<Icon type="close" />}
+      />
+    ).toJSON();
     expect(component).toMatchSnapshot();
   });
 

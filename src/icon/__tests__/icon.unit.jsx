@@ -1,11 +1,11 @@
 import React from 'react';
-import * as renderer from 'react-test-renderer';
-import Icon from '../index';
+import TestRenderer from 'react-test-renderer';
 import { mount } from 'enzyme';
+import { Icon } from '../index';
 
 describe('icon', () => {
   it('渲染一个 type 为 wechat 的 Icon', () => {
-    const json = renderer.create(<Icon type="wechat" />).toJSON();
+    const json = TestRenderer.create(<Icon type="wechat" />).toJSON();
     expect(json).toMatchSnapshot();
   });
 
@@ -17,7 +17,7 @@ describe('icon', () => {
     );
     const HeartIcon = (props) => <Icon component={HeartSvg} {...props} />;
 
-    const json = renderer.create(<HeartIcon />).toJSON();
+    const json = TestRenderer.create(<HeartIcon />).toJSON();
     expect(json).toMatchSnapshot();
   });
 
@@ -26,7 +26,7 @@ describe('icon', () => {
       scriptUrl: '//at.alicdn.com/t/font_1286458_yno7x32gand.js'
     });
 
-    const json = renderer.create(<IconFont type="icon-clear" />).toJSON();
+    const json = TestRenderer.create(<IconFont type="icon-clear" />).toJSON();
     expect(json).toMatchSnapshot();
   });
 

@@ -1,13 +1,13 @@
 import React from 'react';
-import * as renderer from 'react-test-renderer';
-import Button from '../index';
+import TestRenderer from 'react-test-renderer';
 import { mount } from 'enzyme';
+import { Button } from '../index';
 
 describe('Button', () => {
   it('buttonType 为 primary', () => {
-    const component = renderer
-      .create(<Button buttonType="primary">button</Button>)
-      .toJSON();
+    const component = TestRenderer.create(
+      <Button buttonType="primary">button</Button>
+    ).toJSON();
     expect(component).toMatchSnapshot();
   });
 

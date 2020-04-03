@@ -1,8 +1,8 @@
 import React from 'react';
-import * as renderer from 'react-test-renderer';
+import TestRenderer from 'react-test-renderer';
 import { mount } from 'enzyme';
-import Form from '../index';
-import Button from '../../button';
+import { Form } from '../index';
+import { Button } from '../../button';
 
 const getForm = (onChange, onSubmit) => {
   const formData = {
@@ -39,7 +39,12 @@ const getForm = (onChange, onSubmit) => {
 
 describe('Form', () => {
   it('渲染一个 Form', () => {
-    const component = renderer.create(getForm(() => {}, () => {})).toJSON();
+    const component = TestRenderer.create(
+      getForm(
+        () => {},
+        () => {}
+      )
+    ).toJSON();
     expect(component).toMatchSnapshot();
   });
 

@@ -1,23 +1,25 @@
 import React from 'react';
-import * as renderer from 'react-test-renderer';
+import TestRenderer from 'react-test-renderer';
 import { mount } from 'enzyme';
 import { Search } from '../index';
 
 describe('Search', () => {
   it('渲染一个 Search', () => {
-    const component = renderer
-      .create(<Search searchButton="Search" />)
-      .toJSON();
+    const component = TestRenderer.create(
+      <Search searchButton="Search" />
+    ).toJSON();
     expect(component).toMatchSnapshot();
   });
 
   it('渲染一个 Search2', () => {
-    const component = renderer.create(<Search searchButton={true} />).toJSON();
+    const component = TestRenderer.create(
+      <Search searchButton={true} />
+    ).toJSON();
     expect(component).toMatchSnapshot();
   });
 
   it('渲染一个 Search3', () => {
-    const component = renderer.create(<Search />).toJSON();
+    const component = TestRenderer.create(<Search />).toJSON();
     expect(component).toMatchSnapshot();
   });
 

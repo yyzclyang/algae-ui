@@ -1,5 +1,5 @@
 import React from 'react';
-import message from '../index';
+import { message } from '../index';
 
 describe('message', () => {
   it('message.info', function() {

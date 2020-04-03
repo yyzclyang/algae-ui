@@ -1,26 +1,30 @@
 import React from 'react';
-import * as renderer from 'react-test-renderer';
-import Radio from '../index';
+import TestRenderer from 'react-test-renderer';
 import { mount } from 'enzyme';
+import { Radio } from '../index';
 
 describe('Radio', () => {
   it('渲染一个 Radio', () => {
-    const component = renderer.create(<Radio>radio</Radio>).toJSON();
+    const component = TestRenderer.create(<Radio>radio</Radio>).toJSON();
     expect(component).toMatchSnapshot();
   });
 
   it('接受 checked', () => {
-    const component = renderer.create(<Radio checked>radio</Radio>).toJSON();
+    const component = TestRenderer.create(
+      <Radio checked>radio</Radio>
+    ).toJSON();
     expect(component).toMatchSnapshot();
   });
 
   it('接受 disabled', () => {
-    const component = renderer.create(<Radio disabled>radio</Radio>).toJSON();
+    const component = TestRenderer.create(
+      <Radio disabled>radio</Radio>
+    ).toJSON();
     expect(component).toMatchSnapshot();
   });
 
   it('不传递子节点', () => {
-    const component = renderer.create(<Radio disabled />).toJSON();
+    const component = TestRenderer.create(<Radio disabled />).toJSON();
     expect(component).toMatchSnapshot();
   });
 
