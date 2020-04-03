@@ -2,14 +2,12 @@ const path = require('path');
 const merge = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const devConfig = require('./webpack.config.dev');
 const baseConfig = require('./webpack.config');
 
-module.exports = merge(baseConfig, {
+module.exports = merge(baseConfig, devConfig, {
   mode: 'production',
   devtool: 'source-map',
-  entry: {
-    index: './example/index.tsx'
-  },
   output: {
     path: path.resolve(__dirname, 'docs'),
     filename: 'static/js/[name].[hash].js',
@@ -64,9 +62,9 @@ module.exports = merge(baseConfig, {
   plugins: [
     new HtmlWebpackPlugin({
       title: 'algae-ui',
-      template: './example/index.html',
+      template: './site/index.html',
       filename: 'index.html',
-      favicon: './example/img/favicon.ico',
+      favicon: './site/img/favicon.ico',
       hash: true, //防止缓存
       minify: {
         removeComments: true, //删除Html注释

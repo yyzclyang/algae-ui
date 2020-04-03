@@ -12,7 +12,8 @@
     "rootDir": ".",
     "outDir": "lib",
     "paths": {
-      "ROOT/*": ["./*"]
+      "ROOT/*": ["./*"],
+      "algae-ui": ["./src"]
     },
     "forceConsistentCasingInFileNames": true,
     "noImplicitReturns": true,
@@ -24,8 +25,9 @@
     // https://github.com/Microsoft/TypeScript/issues/28762#issuecomment-443406607
     // "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
+    "types": ["react", "react-dom", "node"],
     "noUnusedLocals": true
   },
-  "include": ["src/**/*", "src/types/custom.d.ts"],
+  "include": ["src/**/*"],
   "exclude": ["node_modules", "lib", "*.js"]
 }

@@ -22,7 +22,7 @@ $ yarn add algae-ui
 ```javascript
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Button } from 'algae-ui/lib';
+import { Button } from 'algae-ui';
 
 ReactDOM.render(
   <div>
