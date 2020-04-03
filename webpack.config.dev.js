@@ -15,7 +15,7 @@ module.exports = merge(baseConfig, {
   resolve: {
     alias: {
       'react-dom': '@hot-loader/react-dom',
-      'algae-ui': path.resolve(__dirname, 'src')
+      'algae-ui': path.resolve(__dirname, 'components')
     }
   }
 });

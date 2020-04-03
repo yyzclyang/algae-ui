@@ -13,7 +13,7 @@
     "outDir": "lib",
     "paths": {
       "ROOT/*": ["./*"],
-      "algae-ui": ["./src"]
+      "algae-ui": ["./components"]
     },
     "forceConsistentCasingInFileNames": true,
     "noImplicitReturns": true,
@@ -28,6 +28,6 @@
     "types": ["react", "react-dom", "node"],
     "noUnusedLocals": true
   },
-  "include": ["src/**/*"],
+  "include": ["components/**/*"],
   "exclude": ["node_modules", "lib", "*.js"]
 }

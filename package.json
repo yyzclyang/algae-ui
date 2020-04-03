@@ -3,15 +3,15 @@
   "version": "0.1.14",
   "description": "A Component Library for React.js.",
   "main": "lib/index.js",
-  "types": "lib/index.d.ts",
-  "typing": "lib/index.d.ts",
+  "types": "lib/types/index.d.ts",
+  "typing": "lib/types/index.d.ts",
   "files": [
     "lib/**/*"
   ],
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack-dev-server --hot --config webpack.config.dev.js",
-    "build": "rimraf lib && cross-env NODE_ENV=production webpack --config webpack.config.prod.js && mv -f lib/src/* lib && rimraf lib/src",
-    "docs": "rimraf docs && cross-env NODE_ENV=production webpack --config webpack.config.doc.js && rimraf lib",
+    "build": "rimraf lib && cross-env NODE_ENV=production webpack --config webpack.config.prod.js && mv lib/components lib/types ",
+    "docs": "rimraf docs && cross-env NODE_ENV=production webpack --config webpack.config.doc.js",
     "test": "jest",
     "ci": "jest --coverage"
   },
