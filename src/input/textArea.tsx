@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import classNames from '../utils/classNames';
 import './style/textarea.scss';
 
@@ -23,12 +22,6 @@ const TextArea: React.FunctionComponent<TextAreaProps> = (
 };
 
 TextArea.displayName = 'TextArea';
-
-TextArea.propTypes = {
-  value: PropTypes.string,
-  defaultValue: PropTypes.string
-};
-
 TextArea.defaultProps = {
   cols: 32,
   rows: 4

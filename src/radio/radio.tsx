@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
-import classNames from '../utils/classNames';
+import { classNames } from '../utils';
 import './style/radio.scss';
 
 interface RadioProps extends React.InputHTMLAttributes<HTMLInputElement> {
@@ -75,16 +74,6 @@ const Radio: React.FunctionComponent<RadioProps> = (props: RadioProps) => {
 };
 
 Radio.displayName = 'Radio';
-
-Radio.propTypes = {
-  className: PropTypes.string,
-  checked: PropTypes.bool,
-  defaultChecked: PropTypes.bool,
-  disabled: PropTypes.bool,
-  onChange: PropTypes.func,
-  children: PropTypes.node
-};
-
 Radio.defaultProps = {
   defaultChecked: false,
   disabled: false

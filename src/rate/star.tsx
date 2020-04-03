@@ -1,6 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import classNames from '../utils/classNames';
+import { classNames } from '../utils';
 import './style/star.scss';
 
 export type StarTypeValue = 'none' | 'half' | 'full';
@@ -48,10 +47,6 @@ const Star: React.FunctionComponent<StarProps> = (props: StarProps) => {
 };
 
 Star.displayName = 'Star';
-Star.propTypes = {
-  type: PropTypes.oneOf(['none', 'half', 'full']),
-  style: PropTypes.object
-};
 Star.defaultProps = {
   type: 'none'
 };

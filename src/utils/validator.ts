@@ -1,24 +1,24 @@
-import { FormValue, Field, Rule, MessageType } from '../form/form';
+import { FormValue, Field, Rule, FormMessageType } from '../form';
 
-interface ValidateMessage {
-  type: MessageType;
+interface ValidateFormMessage {
+  type: FormMessageType;
   message: string;
 }
 
-export interface ValidateMessageGroup {
-  [key: string]: ValidateMessage[];
+export interface ValidateFormMessageGroup {
+  [key: string]: ValidateFormMessage[];
 }
 
 const validator = (
   formValue: FormValue,
   fields: Field[]
-): Promise<ValidateMessageGroup> =>
+): Promise<ValidateFormMessageGroup> =>
   Promise.all(
     fields.map((field) =>
       Promise.all(
         [
           Promise.resolve({ type: 'success', message: field.type }) as Promise<
-            ValidateMessage
+            ValidateFormMessage
           >
         ].concat(
           field.rules
@@ -42,7 +42,10 @@ const validator = (
       }))
   );
 
-const validateMethod = (data: string, rule: Rule): Promise<ValidateMessage> => {
+const validateMethod = (
+  data: string,
+  rule: Rule
+): Promise<ValidateFormMessage> => {
   switch (rule.type) {
     case 'required': {
       return Promise.resolve({

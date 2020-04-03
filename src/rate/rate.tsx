@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import Star from './star';
-import { useControlState } from '../utils';
-import classNames from '../utils/classNames';
-import scopedClassMaker from '../utils/scopedClassMaker';
+import { classNames, scopedClassMaker, useControlState } from '../utils';
 import './style/rate.scss';
 
 const sc = scopedClassMaker('algae-ui-rate');
@@ -160,19 +157,6 @@ const Rate: React.FunctionComponent<RateProps> = (props: RateProps) => {
 };
 
 Rate.displayName = 'Rate';
-Rate.propTypes = {
-  className: PropTypes.string,
-  style: PropTypes.object,
-  count: PropTypes.number,
-  value: PropTypes.number,
-  defaultValue: PropTypes.number,
-  disabled: PropTypes.bool,
-  tips: PropTypes.array,
-  allowClear: PropTypes.bool,
-  allowHalf: PropTypes.bool,
-  onChange: PropTypes.func,
-  onHoverChange: PropTypes.func
-};
 Rate.defaultProps = {
   count: 5,
   defaultValue: 0,

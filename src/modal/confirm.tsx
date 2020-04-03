@@ -1,8 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import PropTypes from 'prop-types';
-import Button from '../button';
-import Icon from '../icon';
+import { Button } from '../button';
+import { Icon } from '../icon';
 import { classNames } from '../utils';
 import './style/confirm.scss';
 
@@ -61,18 +60,6 @@ ConfirmDialog.defaultProps = {
   title: '温馨提示',
   closeOnClickMask: false,
   children: null
-};
-
-ConfirmDialog.propTypes = {
-  visible: PropTypes.bool.isRequired,
-  title: PropTypes.string,
-  iconType: PropTypes.string,
-  iconStyle: PropTypes.object,
-  className: PropTypes.string,
-  onClose: PropTypes.func.isRequired,
-  closeOnClickMask: PropTypes.bool,
-  buttons: PropTypes.array,
-  children: PropTypes.node.isRequired
 };
 
 interface ConfirmButtonProps {
@@ -178,22 +165,6 @@ const confirm = ({
     destroy: onClose,
     update
   };
-};
-
-const confirmButton = {
-  buttonType: PropTypes.oneOf(['default', 'primary', 'success', 'danger']),
-  ghost: PropTypes.bool,
-  onClick: PropTypes.func.isRequired,
-  content: PropTypes.string.isRequired
-};
-
-confirm.prototype = {
-  title: PropTypes.string,
-  content: PropTypes.node.isRequired,
-  iconType: PropTypes.string,
-  iconStyle: PropTypes.object,
-  okButton: PropTypes.shape(confirmButton),
-  cancelButton: PropTypes.shape(confirmButton)
 };
 
 export default confirm;

@@ -1,7 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import './style/badge.scss';
 import { classNames, scopedClassMaker } from '../utils';
+import './style/badge.scss';
 
 const sc = scopedClassMaker('algae-ui-badge');
 
@@ -52,15 +51,6 @@ const Badge: React.FunctionComponent<BadgeProps> = (props: BadgeProps) => {
 };
 
 Badge.displayName = 'Badge';
-
-Badge.propTypes = {
-  count: PropTypes.oneOfType([PropTypes.number, PropTypes.element]),
-  showZero: PropTypes.bool,
-  overflowCount: PropTypes.number,
-  dot: PropTypes.bool,
-  children: PropTypes.node
-};
-
 Badge.defaultProps = {
   showZero: false,
   overflowCount: 99

@@ -1,20 +1,17 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import Input, { InputProps } from '../input/input';
+import { Input, InputProps } from '../input';
 import {
   scopedClassMaker,
   classNames,
   isNonEmptyArray,
   validator,
-  ValidateMessageGroup
+  ValidateFormMessageGroup
 } from '../utils';
-
 import './style/form.scss';
 
 const sc = scopedClassMaker('algae-ui-form');
 
-export type MessageType = 'success' | 'warning' | 'error';
-
+export type FormMessageType = 'success' | 'warning' | 'error';
 export type Rule = (
   | { type: 'required'; match: boolean }
   | { type: 'minLength' | 'maxLength'; match: number }
@@ -22,22 +19,20 @@ export type Rule = (
   | {
       type: 'custom';
       match: (value: string) => boolean | Promise<boolean>;
-    }) & {
-  messageType?: MessageType;
+    }
+) & {
+  messageType?: FormMessageType;
   message: string;
 };
-
 export interface Field {
   type: string;
   label: string;
   input: InputProps;
   rules?: Rule[];
 }
-
 export interface FormValue {
   [key: string]: string;
 }
-
 interface FormProps {
   value: FormValue;
   fields: Field[];
@@ -50,7 +45,7 @@ const Form: React.FunctionComponent<FormProps> = (props: FormProps) => {
   const { value, fields, buttons, onChange } = props;
 
   const [validateMessageGroup, setValidateMessageGroup] = useState<
-    ValidateMessageGroup
+    ValidateFormMessageGroup
   >({});
 
   const onSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
@@ -113,20 +108,5 @@ const Form: React.FunctionComponent<FormProps> = (props: FormProps) => {
 };
 
 Form.displayName = 'Form';
-
-Form.propTypes = {
-  value: PropTypes.objectOf(PropTypes.string.isRequired).isRequired,
-  fields: PropTypes.arrayOf(
-    PropTypes.shape({
-      type: PropTypes.string.isRequired,
-      label: PropTypes.string.isRequired,
-      input: PropTypes.object.isRequired,
-      rules: PropTypes.array
-    }).isRequired
-  ).isRequired,
-  buttons: PropTypes.node,
-  onSubmit: PropTypes.func.isRequired,
-  onChange: PropTypes.func.isRequired
-};
 
 export default Form;

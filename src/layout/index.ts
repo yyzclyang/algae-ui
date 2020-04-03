@@ -1,7 +1,5 @@
-export { default } from './layout';
-
-import Header from './header';
-import Content from './content';
-import Footer from './footer';
-import Side from './side';
-export { Header, Content, Footer, Side };
+export { default as Layout } from './layout';
+export { default as Header } from './header';
+export { default as Side } from './side';
+export { default as Content } from './content';
+export { default as Footer } from './footer';

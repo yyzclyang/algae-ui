@@ -1,6 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import Icon from '../icon';
+import { Icon } from '../icon';
 import {
   classNames,
   scopedClassMaker,
@@ -126,15 +125,6 @@ const CircleProgress: React.FunctionComponent<CircleProgressProps> = (
 };
 
 CircleProgress.displayName = 'CircleProgress';
-CircleProgress.propTypes = {
-  type: PropTypes.oneOf(['circle', 'dashboard']),
-  radius: PropTypes.number,
-  strokeWidth: PropTypes.number,
-  backgroundColor: PropTypes.string,
-  strokeColor: PropTypes.string,
-  strokeLinecap: PropTypes.oneOf(['square', 'round']),
-  percent: PropTypes.number.isRequired
-};
 CircleProgress.defaultProps = {
   type: 'circle',
   radius: 88,

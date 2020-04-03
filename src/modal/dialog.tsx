@@ -1,9 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import PropTypes from 'prop-types';
-import './style/dialog.scss';
-import Icon from '../icon';
+import { Icon } from '../icon';
 import { classNames } from '../utils';
+import './style/dialog.scss';
 
 export interface DialogProps {
   visible: boolean;
@@ -66,23 +65,11 @@ const Dialog: React.FunctionComponent<DialogProps> = (props: DialogProps) => {
 };
 
 Dialog.displayName = 'Dialog';
-
 Dialog.defaultProps = {
   visible: false,
   closable: true,
   closeOnClickMask: false,
   children: null
-};
-
-Dialog.propTypes = {
-  visible: PropTypes.bool.isRequired,
-  closable: PropTypes.bool,
-  className: PropTypes.string,
-  title: PropTypes.string,
-  onClose: PropTypes.func.isRequired,
-  closeOnClickMask: PropTypes.bool,
-  buttons: PropTypes.array,
-  children: PropTypes.node.isRequired
 };
 
 export default Dialog;

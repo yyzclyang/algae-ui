@@ -1,8 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { classNames, scopedClassMaker } from '../utils/index';
-import './style/steps.scss';
 import { StatusTypes } from './step';
+import { classNames, scopedClassMaker } from '../utils';
+import './style/steps.scss';
 
 const sc = scopedClassMaker('algae-ui-steps');
 
@@ -63,14 +62,6 @@ const Steps: React.FunctionComponent<StepsProps> = (props: StepsProps) => {
   );
 };
 Steps.displayName = 'Steps';
-Steps.propTypes = {
-  className: PropTypes.string,
-  current: PropTypes.number,
-  status: PropTypes.oneOf(['waiting', 'process', 'success', 'fail']),
-  direction: PropTypes.oneOf(['horizontal', 'vertical']),
-  onChange: PropTypes.func,
-  children: PropTypes.node
-};
 Steps.defaultProps = {
   current: 0,
   direction: 'horizontal'

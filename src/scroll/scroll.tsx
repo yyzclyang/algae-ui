@@ -1,5 +1,4 @@
 import React, { useState, useRef, useEffect } from 'react';
-import PropTypes from 'prop-types';
 import { classNames, scopedClassMaker, getScrollBarWidth } from '../utils';
 import './style/scroll.scss';
 
@@ -110,18 +109,10 @@ const Scroll: React.FunctionComponent<ScrollProps> = (props: ScrollProps) => {
 };
 
 Scroll.displayName = 'Scroll';
-
 Scroll.defaultProps = {
   rightGap: 2,
   scrollBarWidth: 8,
   scrollBarColor: '#666'
-};
-
-Scroll.propTypes = {
-  rightGap: PropTypes.number,
-  scrollBarWidth: PropTypes.number,
-  scrollBarColor: PropTypes.string,
-  onScroll: PropTypes.func
 };
 
 export default Scroll;

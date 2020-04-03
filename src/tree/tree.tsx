@@ -1,7 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { classNames, scopedClassMaker, useControlState } from '../utils';
 import TreeItem, { TreeItemSourceData } from './treeItem';
+import { classNames, scopedClassMaker, useControlState } from '../utils';
 import './style/tree.scss';
 
 const sc = scopedClassMaker('algae-ui-tree');
@@ -63,11 +62,6 @@ const Tree: React.FC<TreeProps> = (props: TreeProps) => {
 };
 
 Tree.displayName = 'Tree';
-
-Tree.propTypes = {
-  sourceData: PropTypes.array.isRequired
-};
-
 Tree.defaultProps = {
   autoCheck: false,
   checkable: false,

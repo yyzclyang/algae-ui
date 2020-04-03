@@ -1,6 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import classNames from '../utils/classNames';
+import { classNames } from '../utils';
 import Radio from './radio';
 
 interface Option {
@@ -8,7 +7,6 @@ interface Option {
   value: string;
   disabled?: boolean;
 }
-
 interface RadioGroupProps {
   className?: string;
   value?: string;
@@ -98,13 +96,5 @@ const RadioGroup: React.FunctionComponent<RadioGroupProps> = (
 };
 
 RadioGroup.displayName = 'RadioGroup';
-
-RadioGroup.propTypes = {
-  className: PropTypes.string,
-  value: PropTypes.string,
-  onChange: PropTypes.func,
-  disabled: PropTypes.bool,
-  options: PropTypes.array
-};
 
 export default RadioGroup;

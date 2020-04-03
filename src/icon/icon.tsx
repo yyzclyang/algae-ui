@@ -1,8 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { classNames } from '../utils';
 import './importIcons';
 import './icon.scss';
-import classNames from '../utils/classNames';
 
 interface SvgProps extends React.SVGAttributes<SVGElement> {
   type?: string;
@@ -41,12 +40,6 @@ interface CreateFromIconfontCNProps {
 }
 
 class Icon extends React.Component<IconProps> {
-  static propTypes = {
-    type: PropTypes.string,
-    component: PropTypes.element,
-    rotate: PropTypes.number,
-    style: PropTypes.object
-  };
   static displayName = 'Icon';
 
   static createFromIconfontCN: (

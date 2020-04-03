@@ -1,6 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import Icon from '../icon';
+import { Icon } from '../icon';
 import { classNames, scopedClassMaker } from '../utils';
 import './style/normalProgress.scss';
 
@@ -75,14 +74,6 @@ const NormalProgress: React.FunctionComponent<NormalProgressProps> = (
 };
 
 NormalProgress.displayName = 'NormalProgress';
-
-NormalProgress.propTypes = {
-  backgroundColor: PropTypes.string,
-  strokeColor: PropTypes.string,
-  strokeLinecap: PropTypes.oneOf(['square', 'round']),
-  percent: PropTypes.number.isRequired
-};
-
 NormalProgress.defaultProps = {
   backgroundColor: '#E5E5E5',
   strokeColor: '#506DFE'

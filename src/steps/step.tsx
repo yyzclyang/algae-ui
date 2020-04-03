@@ -1,13 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { Icon } from '../icon';
 import { classNames, scopedClassMaker } from '../utils/index';
-import Icon from '../icon';
 import './style/step.scss';
 
 const sc = scopedClassMaker('algae-ui-step');
 
 export type StatusTypes = 'waiting' | 'process' | 'success' | 'fail';
-
 interface StepProps {
   className?: string;
   style?: React.CSSProperties;
@@ -83,18 +81,6 @@ const Step: React.FunctionComponent<StepProps> = (props: StepProps) => {
 };
 
 Step.displayName = 'Step';
-Step.propTypes = {
-  className: PropTypes.string,
-  style: PropTypes.object,
-  icon: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-  title: PropTypes.string.isRequired,
-  subTitle: PropTypes.string,
-  description: PropTypes.string,
-  status: PropTypes.oneOf(['waiting', 'process', 'success', 'fail']),
-  defaultStatus: PropTypes.oneOf(['waiting', 'process', 'success', 'fail']),
-  disabled: PropTypes.bool,
-  onClick: PropTypes.func
-};
 Step.defaultProps = {
   defaultStatus: 'waiting'
 };

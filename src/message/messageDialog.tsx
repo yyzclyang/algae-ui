@@ -1,9 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import PropTypes from 'prop-types';
-import Icon from '../icon';
-import './style/message.scss';
+import { Icon } from '../icon';
 import { classNames, scopedClassMaker } from '../utils';
+import './style/message.scss';
 
 const sc = scopedClassMaker('algae-ui-message');
 
@@ -42,12 +41,5 @@ const MessageDialog: React.FunctionComponent<MessageDialogProps> = (
 };
 
 MessageDialog.displayName = 'MessageDialog';
-MessageDialog.propTypes = {
-  className: PropTypes.string,
-  visible: PropTypes.bool.isRequired,
-  iconType: PropTypes.string,
-  iconStyle: PropTypes.object,
-  children: PropTypes.oneOfType([PropTypes.string, PropTypes.element])
-};
 
 export default MessageDialog;

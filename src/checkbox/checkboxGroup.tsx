@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
-import classNames from '../utils/classNames';
-import scopedClassMaker from '../utils/scopedClassMaker';
+import { classNames, scopedClassMaker } from '../utils';
 import Checkbox from './checkbox';
 
 const sc = scopedClassMaker('algae-ui-checkbox-group');
@@ -11,7 +9,6 @@ interface Option {
   value: string;
   disabled?: boolean;
 }
-
 interface CheckboxGroupProps {
   className?: string;
   value?: string[];
@@ -113,13 +110,6 @@ const CheckboxGroup: React.FunctionComponent<CheckboxGroupProps> = (
 };
 
 CheckboxGroup.displayName = 'CheckboxGroup';
-CheckboxGroup.propTypes = {
-  className: PropTypes.string,
-  value: PropTypes.array,
-  onChange: PropTypes.func,
-  disabled: PropTypes.bool,
-  options: PropTypes.array
-};
 CheckboxGroup.defaultProps = {
   disabled: false
 };

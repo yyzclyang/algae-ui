@@ -72,7 +72,10 @@ type messageFunction = (
   closeCallback?: () => void
 ) => () => void;
 type messageFunctionGenerator = (type: MessageType) => messageFunction;
-const messagePropsList = {
+
+const messagePropsList: {
+  [key in MessageType]: { iconType: string; background: string };
+} = {
   info: {
     iconType: 'info-circle',
     background: '#1890ff'

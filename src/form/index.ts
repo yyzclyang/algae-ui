@@ -1,2 +1,2 @@
-export { default } from './form';
-export { FormValue, Field } from './form';
+export { default as Form } from './form';
+export { FormMessageType, Rule, FormValue, Field } from './form';

@@ -1,7 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import './style/buttonGroup.scss';
 import { classNames } from '../utils';
+import './style/buttonGroup.scss';
 
 interface ButtonGroupProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode;
@@ -23,9 +22,5 @@ const ButtonGroup: React.FunctionComponent<ButtonGroupProps> = (
 };
 
 ButtonGroup.displayName = 'ButtonGroup';
-
-ButtonGroup.propTypes = {
-  children: PropTypes.node
-};
 
 export default ButtonGroup;

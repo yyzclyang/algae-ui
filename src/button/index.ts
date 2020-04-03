@@ -1,4 +1,2 @@
-import ButtonGroup from './buttonGroup';
-
-export { default } from './button';
-export { ButtonGroup };
+export { default as Button } from './button';
+export { default as ButtonGroup } from './buttonGroup';

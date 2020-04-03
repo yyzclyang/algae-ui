@@ -1,6 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import classNames from '../utils/classNames';
+import { classNames } from '../utils';
 import './style/affix.scss';
 
 interface AffixProps {
@@ -18,10 +17,7 @@ interface State {
 
 class Affix extends React.Component<AffixProps, State> {
   static displayName = 'Affix';
-  static propTypes = {
-    offsetTop: PropTypes.number,
-    onChange: PropTypes.func
-  };
+
   static defaultProps = {
     offsetTop: 0,
     target: () => (typeof window !== 'undefined' ? window : null)

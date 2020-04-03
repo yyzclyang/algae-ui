@@ -1,7 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import Icon from '../icon';
-import classNames from '../utils/classNames';
+import { Icon } from '../icon';
+import { classNames } from '../utils';
 import './style/input.scss';
 
 export interface InputProps
@@ -16,14 +15,6 @@ export interface InputProps
 
 class Input extends React.Component<InputProps> {
   static displayName = Input;
-  static propTypes = {
-    value: PropTypes.string,
-    onChange: PropTypes.func,
-    allowClear: PropTypes.bool,
-    clearFn: PropTypes.func,
-    wrapperClassName: PropTypes.string,
-    inputAfterNode: PropTypes.node
-  };
   static defaultProps = {
     allowClear: false
   };

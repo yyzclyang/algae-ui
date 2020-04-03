@@ -1,8 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import Icon from '../icon';
-import './style/button.scss';
+import { Icon } from '../icon';
 import { classNames, useDiffuseAnimation } from '../utils';
+import './style/button.scss';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   buttonType?: 'default' | 'primary' | 'success' | 'danger';
@@ -70,22 +69,11 @@ const Button: React.FunctionComponent<ButtonProps> = (props: ButtonProps) => {
 };
 
 Button.displayName = 'Button';
-
 Button.defaultProps = {
   buttonType: 'default',
   loading: false,
   iconPosition: 'left',
   ghost: false
-};
-
-Button.propTypes = {
-  buttonType: PropTypes.oneOf(['default', 'primary', 'success', 'danger']),
-  icon: PropTypes.string,
-  loading: PropTypes.bool,
-  ghost: PropTypes.bool,
-  onClick: PropTypes.func,
-  full: PropTypes.bool,
-  children: PropTypes.node
 };
 
 export default Button;

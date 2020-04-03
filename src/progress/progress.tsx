@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import NormalProgress from './normalProgress';
 import CircleProgress from './circleProgress';
 import { classNames, scopedClassMaker } from '../utils';
@@ -62,16 +61,6 @@ const Progress: React.FunctionComponent<ProgressProps> = (
 };
 
 Progress.displayName = 'Progress';
-Progress.propTypes = {
-  type: PropTypes.oneOf(['normal', 'circle', 'dashboard']),
-  percent: PropTypes.number.isRequired,
-  showInfo: PropTypes.bool,
-  value: PropTypes.string,
-  status: PropTypes.oneOf(['normal', 'success', 'fail']),
-  strokeLinecap: PropTypes.oneOf(['square', 'round']),
-  backgroundColor: PropTypes.string,
-  strokeColor: PropTypes.string
-};
 Progress.defaultProps = {
   type: 'normal',
   showInfo: true,

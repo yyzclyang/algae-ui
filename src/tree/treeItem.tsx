@@ -1,9 +1,8 @@
 import React, { useState, useRef } from 'react';
-import PropTypes from 'prop-types';
+import { Icon } from '../icon';
+import { Checkbox } from '../checkbox';
 import { classNames, scopedClassMaker, useToggle, useUpdate } from '../utils';
-import Icon from '../icon';
 import './style/treeItem.scss';
-import Checkbox from '../checkbox';
 
 const sc = scopedClassMaker('algae-ui-tree-item');
 
@@ -232,21 +231,6 @@ const TreeItem: React.FC<TreeItemProps> = (props: TreeItemProps) => {
 };
 
 TreeItem.displayName = 'TreeItem';
-TreeItem.propTypes = {
-  className: PropTypes.string,
-  sourceData: PropTypes.shape({
-    text: PropTypes.string.isRequired,
-    value: PropTypes.string.isRequired,
-    icon: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-    expanded: PropTypes.bool,
-    disabledCheckbox: PropTypes.bool,
-    children: PropTypes.array
-  }).isRequired,
-  level: PropTypes.number.isRequired,
-  checkable: PropTypes.bool.isRequired,
-  checked: PropTypes.bool.isRequired,
-  selectedValues: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired
-};
 TreeItem.defaultProps = {
   checkable: false,
   checked: false

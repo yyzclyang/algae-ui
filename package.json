@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/YyzclYang/algae-ui.git"
+    "url": "git+https://github.com/yyzclyang/algae-ui.git"
   },
   "keywords": [
     "react",
@@ -27,15 +27,12 @@
   "author": "YyzclYang",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/YyzclYang/algae-ui/issues"
+    "url": "https://github.com/yyzclyang/algae-ui/issues"
   },
-  "homepage": "https://github.com/YyzclYang/algae-ui#readme",
-  "dependencies": {
-    "prop-types": "^15.7.2"
-  },
+  "homepage": "https://github.com/yyzclyang/algae-ui#readme",
   "peerDependencies": {
-    "react": ">=16.9.0",
-    "react-dom": ">=16.9.0"
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.9.0",

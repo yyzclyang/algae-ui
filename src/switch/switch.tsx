@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
-import classNames from '../utils/classNames';
-import Icon from '../icon';
+import { Icon } from '../icon';
+import { classNames } from '../utils';
 import './style/switch.scss';
 
 interface SwitchProps {
@@ -96,19 +95,6 @@ const Switch: React.FunctionComponent<SwitchProps> = (props: SwitchProps) => {
 };
 
 Switch.displayName = 'Switch';
-
-Switch.propTypes = {
-  checked: PropTypes.bool,
-  defaultChecked: PropTypes.bool,
-  disabled: PropTypes.bool,
-  loading: PropTypes.bool,
-  onChange: PropTypes.func,
-  onClick: PropTypes.func,
-  className: PropTypes.string,
-  checkedEl: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
-  uncheckedEl: PropTypes.oneOfType([PropTypes.element, PropTypes.string])
-};
-
 Switch.defaultProps = {
   defaultChecked: false,
   disabled: false,

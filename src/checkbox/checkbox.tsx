@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
-import classNames from '../utils/classNames';
-import scopedClassMaker from '../utils/scopedClassMaker';
+import { classNames, scopedClassMaker } from '../utils';
 import './style/checkbox.scss';
 
 const sc = scopedClassMaker('algae-ui-checkbox');
@@ -77,15 +75,6 @@ const Checkbox: React.FunctionComponent<CheckboxProps> = (
 };
 
 Checkbox.displayName = 'Checkbox';
-Checkbox.propTypes = {
-  value: PropTypes.string,
-  checked: PropTypes.bool,
-  defaultChecked: PropTypes.bool,
-  disabled: PropTypes.bool,
-  indeterminate: PropTypes.bool,
-  onChange: PropTypes.func,
-  children: PropTypes.string
-};
 Checkbox.defaultProps = {
   defaultChecked: false,
   indeterminate: false

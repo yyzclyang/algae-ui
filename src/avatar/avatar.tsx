@@ -1,8 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import Icon from '../icon';
-import './style/avatar.scss';
+import { Icon } from '../icon';
 import { classNames, scopedClassMaker } from '../utils';
+import './style/avatar.scss';
 
 const sc = scopedClassMaker('algae-ui-avatar');
 
@@ -47,21 +46,10 @@ const Avatar: React.FunctionComponent<AvatarProps> = (props: AvatarProps) => {
 };
 
 Avatar.displayName = 'Avatar';
-
 Avatar.defaultProps = {
   icon: 'avatar',
   shape: 'circle',
   size: 32
-};
-
-Avatar.propTypes = {
-  icon: PropTypes.string,
-  size: PropTypes.number,
-  shape: PropTypes.oneOf(['circle', 'square']),
-  src: PropTypes.string,
-  alt: PropTypes.string,
-  style: PropTypes.object,
-  children: PropTypes.string
 };
 
 export default Avatar;
