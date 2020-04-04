@@ -115,7 +115,11 @@ const IconExample: React.FunctionComponent = () => {
               content={
                 <p>
                   对于使用
-                  <a href="https://www.iconfont.cn/" target="_Blank">
+                  <a
+                    href="https://www.iconfont.cn/"
+                    target="_Blank"
+                    rel="noopener noreferrer"
+                  >
                     iconfont.cn
                   </a>
                   的用户，通过设置<code>createFromIconfontCN</code>

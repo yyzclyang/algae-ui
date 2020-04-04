@@ -58,7 +58,6 @@ const messageExpandFunction = (props: MessageExpandFunctionProps) => {
       {message}
     </MessageDialog>
   );
-
   const messageMountNode = document.createElement('div');
   ReactDOM.render(MessageCom, messageMountNode);
 

@@ -1,6 +1,5 @@
 import React from 'react';
-import { TreeItemSourceData, Tree } from 'algae-ui';
-import { Icon } from 'algae-ui';
+import { Icon, TreeItemSourceData, Tree } from 'algae-ui';
 
 export default () => {
   const sourceData: TreeItemSourceData[] = [

@@ -135,9 +135,7 @@ const Rate: React.FunctionComponent<RateProps> = (props: RateProps) => {
     });
   };
 
-  const rateMouseLeave: React.MouseEventHandler<HTMLDivElement> = (
-    e: React.MouseEvent<HTMLDivElement>
-  ) => {
+  const rateMouseLeave: React.MouseEventHandler<HTMLDivElement> = () => {
     if (disabled) {
       return;
     }

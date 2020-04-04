@@ -27,9 +27,9 @@ const Avatar: React.FunctionComponent<AvatarProps> = (props: AvatarProps) => {
         ...(!!src ? { background: 'transparent' } : {})
       }}
     >
-      {!!children ? (
+      {children ? (
         children
-      ) : !!src ? (
+      ) : src ? (
         <img className={sc('image')} src={src} alt={alt} />
       ) : (
         <Icon

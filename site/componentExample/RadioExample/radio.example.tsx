@@ -77,7 +77,8 @@ const RadioExample: React.FunctionComponent = () => {
         <h3>Radio</h3>
         <p>
           <code>Radio</code>拓展自
-          <code>&lt;input type="radio" /&gt;</code>，除了以下 <code>Api</code>
+          <code>&lt;input type=&quot;radio&quot; /&gt;</code>，除了以下{' '}
+          <code>Api</code>
           ，还支持<code>input</code>的其他<code>Api</code>。
         </p>
         <Api

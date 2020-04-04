@@ -90,7 +90,7 @@ const ProgressExample: React.FunctionComponent = () => {
               title="圆角/方角边缘"
               content={
                 <p>
-                  通过设置<code>strokeLinecap="square|round"</code>
+                  通过设置<code>strokeLinecap=&quot;square|round&quot;</code>
                   可以调整进度条边缘的形状，默认为<code>round</code>
                 </p>
               }

@@ -90,6 +90,12 @@ const validateMethod = (
             message: !matchResult ? rule.message : ''
           });
     }
+    default: {
+      return Promise.resolve({
+        type: 'error',
+        message: '验证类型错误'
+      });
+    }
   }
 };
 

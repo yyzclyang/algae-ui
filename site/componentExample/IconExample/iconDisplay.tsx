@@ -7,7 +7,9 @@ interface IconItemProps {
   type: string;
 }
 
-const IconItem: React.FunctionComponent<IconItemProps> = (props) => {
+const IconItem: React.FunctionComponent<IconItemProps> = (
+  props: IconItemProps
+) => {
   const { type } = props;
 
   const [copyVisible, setCopyVisible] = useState<boolean>(false);

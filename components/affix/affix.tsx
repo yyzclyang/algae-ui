@@ -44,11 +44,7 @@ class Affix extends React.Component<AffixProps, State> {
     this.setAffixWrapperElSize(this.affixEl.getBoundingClientRect());
   }
 
-  componentDidUpdate(
-    prevProps: Readonly<AffixProps>,
-    prevState: Readonly<State>,
-    snapshot?: any
-  ): void {
+  componentDidUpdate() {
     const { prevTarget } = this.state;
     const newTarget = this.props.target!() || null;
     if (prevTarget !== newTarget) {

@@ -25,7 +25,11 @@ const Introduction: React.FunctionComponent = () => (
       <h2>支持环境</h2>
       <p>
         由于本库采用了 React 的新特性
-        <a href="https://reactjs.org/docs/hooks-intro.html" target="_Blank">
+        <a
+          href="https://reactjs.org/docs/hooks-intro.html"
+          target="_Blank"
+          rel="noopener noreferrer"
+        >
           Hook
         </a>
         ， 所以请保证 React 的版本为 16.8 及以上。
@@ -35,11 +39,19 @@ const Introduction: React.FunctionComponent = () => (
       <h2>使用 TypeScript</h2>
       <p>
         <code>algae-ui</code>使用
-        <a href="https://www.typescriptlang.org/" target="_Blank">
+        <a
+          href="https://www.typescriptlang.org/"
+          target="_Blank"
+          rel="noopener noreferrer"
+        >
           TypeScript
         </a>
         编写。
-        <a href="https://www.typescriptlang.org/" target="_Blank">
+        <a
+          href="https://www.typescriptlang.org/"
+          target="_Blank"
+          rel="noopener noreferrer"
+        >
           TypeScript
         </a>
         带来了可选的静态类型检查以及最新的 ECMAScript

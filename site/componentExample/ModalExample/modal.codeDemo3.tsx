@@ -6,7 +6,7 @@ export default () => {
     Modal.info({
       title: 'this is title',
       content: 'some message',
-      onClick: (e) => {
+      onClick: () => {
         console.log('点击了');
       }
     });
@@ -15,7 +15,7 @@ export default () => {
     Modal.success({
       title: 'this is title',
       content: 'some message',
-      onClick: (e) => {
+      onClick: () => {
         console.log('点击了');
       }
     });
@@ -24,7 +24,7 @@ export default () => {
     Modal.error({
       title: 'this is title',
       content: 'some message',
-      onClick: (e) => {
+      onClick: () => {
         console.log('点击了');
       }
     });
@@ -33,7 +33,7 @@ export default () => {
     Modal.warning({
       title: 'this is title',
       content: 'some message',
-      onClick: (e) => {
+      onClick: () => {
         console.log('点击了');
       }
     });

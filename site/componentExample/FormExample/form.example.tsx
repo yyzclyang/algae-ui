@@ -81,7 +81,7 @@ const SwitchExample: React.FunctionComponent = () => {
               'buttons',
               <>
                 <code>Form</code>表单的按钮组，提交按钮需要设置
-                <code>type = 'submit'</code>
+                <code>type = &quot;submit&quot;</code>
               </>,
               'React.ReactNode',
               '-'

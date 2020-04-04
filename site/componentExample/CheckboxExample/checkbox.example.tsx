@@ -83,7 +83,7 @@ const CheckboxExample: React.FunctionComponent = () => {
         <h3>Checkbox</h3>
         <p>
           <code>Checkbox</code>拓展自
-          <code>&lt;input type="checkbox" /&gt;</code>，除了以下
+          <code>&lt;input type=&quot;checkbox&quot; /&gt;</code>，除了以下
           <code>Api</code>
           ，还支持<code>input</code>的其他<code>Api</code>。
         </p>

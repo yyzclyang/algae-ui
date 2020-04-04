@@ -94,7 +94,11 @@ const App: React.FC = () => (
       <Layout className="site-main">
         <Header className="main-header">
           <div className="github">
-            <a href="https://github.com/yyzclyang/algae-ui" target="_blank">
+            <a
+              href="https://github.com/yyzclyang/algae-ui"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Icon type="github" className="github-icon" />
             </a>
           </div>
@@ -123,7 +127,11 @@ const App: React.FC = () => (
           <Route path="/tree" component={TreeExample} />
         </Content>
         <Footer className="main-footer">
-          <a href="http://www.beian.miit.gov.cn" target="_blank">
+          <a
+            href="http://www.beian.miit.gov.cn"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             ICP许可证号 粤ICP备19127738号
           </a>
         </Footer>

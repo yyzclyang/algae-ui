@@ -94,13 +94,19 @@ const confirm = ({
   cancelButton
 }: ConfirmProps) => {
   const onClose = () => {
-    ReactDOM.render(React.cloneElement(confirmCom, { visible: false }), div);
-    ReactDOM.unmountComponentAtNode(div);
-    div.remove();
+    ReactDOM.render(
+      React.cloneElement(confirmCom, { visible: false }),
+      mountNode
+    );
+    ReactDOM.unmountComponentAtNode(mountNode);
+    mountNode.remove();
   };
 
   const update = ({ title, content }: UpdateProps) => {
-    ReactDOM.render(React.cloneElement(confirmCom, { title }, content), div);
+    ReactDOM.render(
+      React.cloneElement(confirmCom, { title }, content),
+      mountNode
+    );
   };
 
   const onOkClick: React.MouseEventHandler = (
@@ -157,9 +163,9 @@ const confirm = ({
     </ConfirmDialog>
   );
 
-  const div = document.createElement('div');
-  document.body.append(div);
-  ReactDOM.render(confirmCom, div);
+  const mountNode = document.createElement('div');
+  document.body.append(mountNode);
+  ReactDOM.render(confirmCom, mountNode);
 
   return {
     destroy: onClose,
