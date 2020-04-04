@@ -24,11 +24,23 @@ describe('useControlState 函数', () => {
     expect(result.current[0]).toBe(0);
   });
 
+  test('测试受控时 useControlState 返回的函数不能改变返回的值，但会执行', () => {
+    const spy = jest.fn();
+    const { result } = renderHook(() => useControlState(1, 0));
+    act(() => {
+      result.current[1](() => {
+        spy();
+      });
+    });
+    expect(spy).toBeCalled();
+  });
+
   test('测试受控时 useControlState 返回的值随受控值变化而变化', () => {
-    let value = 0;
-    const { result, rerender } = renderHook(() => useControlState(1, value));
-    value = 10;
-    rerender();
+    const { result, rerender } = renderHook(
+      (props) => useControlState(1, props.value),
+      { initialProps: { value: 0 } }
+    );
+    rerender({ value: 10 });
     expect(result.current[0]).toBe(10);
   });
 });
