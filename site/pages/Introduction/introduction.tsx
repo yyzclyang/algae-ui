@@ -61,8 +61,7 @@ const Introduction: React.FunctionComponent = () => (
     <section>
       <h2>依赖</h2>
       <p>
-        <code>algae-ui</code>只依赖 React、ReactDOM 两个核心库以及使用 PropTypes
-        进行类型检查。
+        <code>algae-ui</code>只依赖 React、ReactDOM 两个核心库。
       </p>
     </section>
   </div>
