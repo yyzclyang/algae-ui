@@ -2,12 +2,12 @@ const path = require('path');
 const merge = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const devConfig = require('./webpack.config.dev');
 const baseConfig = require('./webpack.config');
 
-module.exports = merge(baseConfig, devConfig, {
+module.exports = merge(baseConfig, {
   mode: 'production',
   devtool: 'source-map',
+  entry: { index: './site/index.tsx' },
   output: {
     path: path.resolve(__dirname, 'docs'),
     filename: 'static/js/[name].[hash].js',
@@ -76,5 +76,11 @@ module.exports = merge(baseConfig, devConfig, {
       filename: 'static/css/index.[hash].css',
       chunkFilename: 'static/chunks/[id].css'
     })
-  ]
+  ],
+  resolve: {
+    alias: {
+      'react-dom': '@hot-loader/react-dom',
+      'algae-ui': path.resolve(__dirname, 'components')
+    }
+  }
 });
