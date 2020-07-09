@@ -1,3 +1,4 @@
+const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 const path = require('path');
 
 module.exports = {
@@ -30,5 +31,6 @@ module.exports = {
         use: ['file-loader']
       }
     ]
-  }
+  },
+  plugins: [new HardSourceWebpackPlugin()]
 };
