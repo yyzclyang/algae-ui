@@ -12,7 +12,7 @@ module.exports = merge(baseConfig, {
     path: path.resolve(__dirname, 'docs'),
     filename: 'static/js/[name].[hash].js',
     chunkFilename: 'static/chunks/[name].[hash].js',
-    publicPath: 'http://cdn.yyzcl.cn/algae-ui'
+    publicPath: '//cdn.yyzcl.cn/algae-ui'
   },
   module: {
     rules: [
