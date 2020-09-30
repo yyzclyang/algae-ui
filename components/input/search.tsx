@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Input from './input';
-import { Button } from '../button';
+import Button from '../button';
 
 interface SearchProps extends React.InputHTMLAttributes<HTMLInputElement> {
   onSearch?: (arg: string) => void;

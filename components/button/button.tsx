@@ -1,5 +1,5 @@
 import React from 'react';
-import { Icon } from '../icon';
+import Icon from '../icon';
 import { classNames, useDiffuseAnimation } from '../utils';
 import './style/button.scss';
 

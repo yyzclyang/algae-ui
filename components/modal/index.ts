@@ -1,2 +1,2 @@
 export { default as confirm } from './confirm';
-export { default as Modal } from './modal';
+export { default } from './modal';

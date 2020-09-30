@@ -1,1 +1,1 @@
-export { default as Scroll } from './scroll';
+export { default } from './scroll';

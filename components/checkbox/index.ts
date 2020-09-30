@@ -1,2 +1,2 @@
-export { default as Checkbox } from './checkbox';
+export { default } from './checkbox';
 export { default as CheckboxGroup } from './checkboxGroup';

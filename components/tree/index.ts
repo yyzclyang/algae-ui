@@ -1,2 +1,2 @@
-export { default as Tree } from './tree';
+export { default } from './tree';
 export { TreeItemSourceData } from './treeItem';
