@@ -3,26 +3,6 @@ import { hot } from 'react-hot-loader/root';
 import { HashRouter as Router, Route, NavLink } from 'react-router-dom';
 import { Layout, Content, Footer, Header, Side, Icon, Scroll } from 'algae-ui';
 import { GetStart, Introduction } from './pages';
-import {
-  AffixExample,
-  AvatarExample,
-  BadgeExample,
-  ButtonExample,
-  CheckboxExample,
-  FormExample,
-  IconExample,
-  InputExample,
-  LayoutExample,
-  MessageExample,
-  ModalExample,
-  ProgressExample,
-  RadioExample,
-  RateExample,
-  ScrollExample,
-  StepsExample,
-  SwitchExample,
-  TreeExample
-} from './componentExample';
 import './app.scss';
 import './img/logo.svg';
 import './img/logo_text.svg';
@@ -65,6 +45,7 @@ const App: React.FC = () => (
             <li>
               <div className="component-group component-list">导航</div>
               <NavLink to="/affix">Affix 固钉</NavLink>
+              <NavLink to="/pagination">Pagination 分页</NavLink>
               <NavLink to="/steps">Steps 步骤条</NavLink>
             </li>
             <li>
@@ -107,24 +88,26 @@ const App: React.FC = () => (
           <Route exact path="/" component={Introduction} />
           <Route path="/introduction" component={Introduction} />
           <Route path="/get-start" component={GetStart} />
-          <Route path="/affix" component={AffixExample} />
-          <Route path="/avatar" component={AvatarExample} />
-          <Route path="/badge" component={BadgeExample} />
-          <Route path="/button" component={ButtonExample} />
-          <Route path="/checkbox" component={CheckboxExample} />
-          <Route path="/form" component={FormExample} />
-          <Route path="/icon" component={IconExample} />
-          <Route path="/input" component={InputExample} />
-          <Route path="/layout" component={LayoutExample} />
-          <Route path="/message" component={MessageExample} />
-          <Route path="/modal" component={ModalExample} />
-          <Route path="/progress" component={ProgressExample} />
-          <Route path="/radio" component={RadioExample} />
-          <Route path="/rate" component={RateExample} />
-          <Route path="/scroll" component={ScrollExample} />
-          <Route path="/steps" component={StepsExample} />
-          <Route path="/switch" component={SwitchExample} />
-          <Route path="/tree" component={TreeExample} />
+          {((rc) => {
+            return rc.keys().map((path) => {
+              return (
+                <Route
+                  key={path}
+                  path={path.replace(
+                    /^\.\/componentExample\/([A-Z])([a-zA-Z]*)(Example)\/index.ts$/,
+                    (match, p1, p2) => '/' + p1.toLowerCase() + p2
+                  )}
+                  component={rc(path).default}
+                />
+              );
+            });
+          })(
+            require.context(
+              './',
+              true,
+              /^\.\/componentExample\/([a-zA-Z]+Example)\/index\.ts$/
+            )
+          )}
         </Content>
         <Footer className="main-footer">
           <a

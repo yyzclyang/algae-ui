@@ -1,1 +1,1 @@
-export { default as TreeExample } from './tree.example';
+export { default } from './tree.example';

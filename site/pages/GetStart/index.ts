@@ -1,1 +1,1 @@
-export { default as GetStart } from './getStart';
+export { default } from './getStart';

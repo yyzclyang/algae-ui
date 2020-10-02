@@ -21,9 +21,9 @@ const code8 = require('!!raw-loader!./progress.codeDemo8.tsx');
 
 const ProgressExample: React.FunctionComponent = () => {
   return (
-    <div className="avatar-example-page">
+    <div className="progress-example-page">
       <section>
-        <h1>Progress进度条</h1>
+        <h1>Progress 进度条</h1>
         <p>展示操作的当前进度。</p>
       </section>
       <section>
