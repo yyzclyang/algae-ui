@@ -1,0 +1,57 @@
+@import '../../style/theme';
+
+.algae-ui-pagination-wrapper {
+  & > .algae-ui-pagination-page-list {
+    & > .algae-ui-pagination-page-item {
+      margin: 0 4px;
+      display: inline-block;
+      cursor: pointer;
+      font-size: 14px;
+      color: $primary-color;
+      width: 32px;
+      height: 32px;
+      line-height: 32px;
+      text-align: center;
+      border: 1px solid $fill;
+      border-radius: 2px;
+      &.active,
+      &:hover {
+        color: $theme-color;
+        border-color: $theme-color;
+      }
+    }
+    & > .algae-ui-pagination-page-item-ellipsis {
+      position: relative;
+      margin: 0 4px;
+      display: inline-block;
+      cursor: pointer;
+      font-size: 14px;
+      color: $primary-color;
+      width: 32px;
+      height: 32px;
+      line-height: 32px;
+      text-align: center;
+      border-radius: 2px;
+      &:hover {
+        color: $theme-color;
+        &::after {
+          position: absolute;
+          top: 0;
+          left: 0;
+          font-size: 14px;
+          width: 32px;
+          height: 32px;
+          line-height: 32px;
+          background-color: #ffffff;
+          display: inline-block;
+        }
+      }
+      &.algae-ui-pagination-page-item-prev:hover::after {
+        content: '<';
+      }
+      &.algae-ui-pagination-page-item-next:hover::after {
+        content: '>';
+      }
+    }
+  }
+}

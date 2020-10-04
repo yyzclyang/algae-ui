@@ -27,6 +27,8 @@ export { MessageType } from './message';
 export { default as Modal } from './modal';
 export { confirm } from './modal';
 
+export { default as Pagination } from './pagination';
+
 export { default as Progress } from './progress';
 
 export { default as Radio } from './radio';
