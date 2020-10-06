@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { classNames, scopedClassMaker, useControlState } from '../utils';
 import './style/pagination.scss';
 
@@ -52,7 +52,9 @@ interface PaginationProps {
 const Pagination: React.FC<PaginationProps> = (props: PaginationProps) => {
   const { className, current, pageSize = 10, total, onChange } = props;
   const [currentPage, setCurrentPage] = useControlState(1, current);
-  const pageList = pageListGenerator(currentPage, pageSize, total);
+  const pageList = useMemo(() => {
+    return pageListGenerator(currentPage, pageSize, total);
+  }, [currentPage, pageSize, total]);
 
   return (
     <div className={classNames(sc('wrapper'), className)}>
