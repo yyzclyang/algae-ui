@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { Scroll } from '../index';
+import Scroll from '../index';
 
 global.MutationObserver = class {
   constructor(callback) {}

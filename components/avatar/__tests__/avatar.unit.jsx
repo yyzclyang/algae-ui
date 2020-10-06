@@ -1,6 +1,6 @@
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
-import { Avatar } from '../index';
+import Avatar from '../index';
 
 describe('Avatar', () => {
   it('渲染默认 Avatar', () => {

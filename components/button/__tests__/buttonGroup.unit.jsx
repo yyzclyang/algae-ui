@@ -1,6 +1,6 @@
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
-import { Button, ButtonGroup } from '../index';
+import Button, { ButtonGroup } from '../index';
 
 describe('ButtonGroup', () => {
   it('渲染 ButtonGroup', () => {

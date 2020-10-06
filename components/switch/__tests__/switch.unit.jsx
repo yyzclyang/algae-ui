@@ -1,7 +1,7 @@
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
 import { mount } from 'enzyme/build';
-import { Switch } from '../index';
+import Switch from '../index';
 import { Icon } from '../../index';
 
 describe('Switch', () => {

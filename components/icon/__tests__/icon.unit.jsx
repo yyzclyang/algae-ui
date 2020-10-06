@@ -1,7 +1,7 @@
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
 import { mount } from 'enzyme';
-import { Icon } from '../index';
+import Icon from '../index';
 
 describe('icon', () => {
   it('渲染一个 type 为 wechat 的 Icon', () => {

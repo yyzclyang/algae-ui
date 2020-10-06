@@ -1,8 +1,8 @@
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
 import { mount } from 'enzyme';
-import { Input } from '../index';
-import { Button } from '../../button';
+import Input from '../index';
+import { Button } from '../../index';
 
 describe('Input', () => {
   it('渲染一个 Input', () => {

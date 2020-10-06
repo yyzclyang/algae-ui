@@ -1,6 +1,6 @@
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
-import { Progress } from '../index';
+import Progress from '../index';
 
 describe('Progress', () => {
   it('渲染普通 Progress', () => {

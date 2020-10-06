@@ -1,7 +1,7 @@
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
 import { mount } from 'enzyme';
-import { Button } from '../index';
+import Button from '../index';
 
 describe('Button', () => {
   it('buttonType 为 primary', () => {

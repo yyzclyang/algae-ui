@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactTestUtils from 'react-dom/test-utils';
 import { mount } from 'enzyme';
-import { confirm, Modal } from '../index';
-import { Button } from '../../button';
+import Modal, { confirm } from '../index';
+import { Button } from '../../index';
 
 const getModal = () => {
   let visible = true;

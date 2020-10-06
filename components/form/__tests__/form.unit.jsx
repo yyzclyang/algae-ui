@@ -1,8 +1,8 @@
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
 import { mount } from 'enzyme';
-import { Form } from '../index';
-import { Button } from '../../button';
+import Form from '../index';
+import { Button } from '../../index';
 
 const getForm = (onChange, onSubmit) => {
   const formData = {

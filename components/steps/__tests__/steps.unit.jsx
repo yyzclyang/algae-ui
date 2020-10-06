@@ -1,7 +1,7 @@
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
 import { mount } from 'enzyme';
-import { Step, Steps } from '../index';
+import Steps, { Step } from '../index';
 import { Icon } from '../../index';
 
 describe('Steps', () => {

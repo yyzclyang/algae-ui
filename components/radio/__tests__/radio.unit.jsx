@@ -1,7 +1,7 @@
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
 import { mount } from 'enzyme';
-import { Radio } from '../index';
+import Radio from '../index';
 
 describe('Radio', () => {
   it('渲染一个 Radio', () => {

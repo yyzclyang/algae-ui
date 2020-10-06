@@ -1,7 +1,7 @@
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
 import { mount } from 'enzyme';
-import { Checkbox, CheckboxGroup } from '../index';
+import Checkbox, { CheckboxGroup } from '../index';
 
 describe('RadioGroup', () => {
   it('渲染一个 RadioGroup', () => {

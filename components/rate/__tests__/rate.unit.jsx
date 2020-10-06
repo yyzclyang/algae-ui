@@ -1,7 +1,7 @@
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
 import { mount } from 'enzyme';
-import { Rate } from '../index';
+import Rate from '../index';
 
 describe('Rate', () => {
   it('渲染一个最基本的 Rate', () => {

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import TestRenderer from 'react-test-renderer';
 import { mount } from 'enzyme/build';
-import { Tree } from '../index';
+import Tree from '../index';
 import { Icon } from '../../index';
 
 beforeAll(() => {

@@ -1,7 +1,7 @@
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
 import { shallow } from 'enzyme';
-import { Layout, Header, Content, Footer, Side } from '../index';
+import Layout, { Header, Content, Footer, Side } from '../index';
 
 describe('Layout', () => {
   it('渲染 Layout', () => {
