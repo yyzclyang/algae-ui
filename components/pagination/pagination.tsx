@@ -4,10 +4,8 @@ import './style/pagination.scss';
 
 function pageListGenerator(
   currentPage: number,
-  pageSize: number,
-  total: number
+  maxPage: number
 ): Array<number | 'prev' | 'next'> {
-  const maxPage = Math.ceil(total / pageSize) || 1;
   const midPageList = [
     currentPage - 2,
     currentPage - 1,
@@ -51,10 +49,11 @@ interface PaginationProps {
 
 const Pagination: React.FC<PaginationProps> = (props: PaginationProps) => {
   const { className, current, pageSize = 10, total, onChange } = props;
+  const maxPage = Math.ceil(total / pageSize) || 1;
   const [currentPage, setCurrentPage] = useControlState(1, current);
   const pageList = useMemo(() => {
-    return pageListGenerator(currentPage, pageSize, total);
-  }, [currentPage, pageSize, total]);
+    return pageListGenerator(currentPage, maxPage);
+  }, [currentPage, maxPage]);
 
   return (
     <div className={classNames(sc('wrapper'), className)}>
@@ -81,6 +80,16 @@ const Pagination: React.FC<PaginationProps> = (props: PaginationProps) => {
                 sc(`page-item-${page}`)
               )}
               key={page}
+              onClick={() => {
+                const nextPage = currentPage + 5 * (page === 'next' ? 1 : -1);
+                setCurrentPage(() => {
+                  return nextPage < 1
+                    ? 1
+                    : nextPage > maxPage
+                    ? maxPage
+                    : nextPage;
+                });
+              }}
             >
               •••
             </span>
