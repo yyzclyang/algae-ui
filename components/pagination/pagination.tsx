@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useCallback, useMemo } from 'react';
 import { classNames, scopedClassMaker, useControlState } from '../utils';
 import './style/pagination.scss';
 
@@ -50,10 +50,31 @@ interface PaginationProps {
 const Pagination: React.FC<PaginationProps> = (props: PaginationProps) => {
   const { className, current, pageSize = 10, total, onChange } = props;
   const maxPage = Math.ceil(total / pageSize) || 1;
-  const [currentPage, setCurrentPage] = useControlState(1, current);
+  const getTruePage = useCallback(
+    (page: number) => {
+      return page < 1 ? 1 : page > maxPage ? maxPage : page;
+    },
+    [maxPage]
+  );
+  const [currentPage, setCurrentPage] = useControlState(
+    1,
+    current === undefined ? undefined : getTruePage(current)
+  );
   const pageList = useMemo(() => {
     return pageListGenerator(currentPage, maxPage);
   }, [currentPage, maxPage]);
+
+  const setPage = useCallback(
+    (page: number) => {
+      if (page === currentPage) {
+        return;
+      }
+      const truePage = getTruePage(page);
+      setCurrentPage(truePage);
+      onChange && onChange(truePage);
+    },
+    [currentPage, maxPage, onChange, getTruePage]
+  );
 
   return (
     <div className={classNames(sc('wrapper'), className)}>
@@ -64,11 +85,11 @@ const Pagination: React.FC<PaginationProps> = (props: PaginationProps) => {
               key={page}
               className={classNames(
                 sc('page-item'),
+                sc(`page-item-${page}`),
                 currentPage === page ? 'active' : ''
               )}
               onClick={() => {
-                setCurrentPage(page);
-                onChange && onChange(page);
+                setPage(page);
               }}
             >
               {page}
@@ -82,13 +103,7 @@ const Pagination: React.FC<PaginationProps> = (props: PaginationProps) => {
               key={page}
               onClick={() => {
                 const nextPage = currentPage + 5 * (page === 'next' ? 1 : -1);
-                setCurrentPage(() => {
-                  return nextPage < 1
-                    ? 1
-                    : nextPage > maxPage
-                    ? maxPage
-                    : nextPage;
-                });
+                setPage(nextPage);
               }}
             >
               •••
