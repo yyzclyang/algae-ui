@@ -80,6 +80,23 @@ const Pagination: React.FC<PaginationProps> = (props: PaginationProps) => {
   return (
     <div className={classNames(sc('wrapper'), className)}>
       <div className={classNames(sc('page-list'))}>
+        {maxPage > 1 && (
+          <span
+            className={classNames(
+              sc('page-item'),
+              sc('page-item-action'),
+              sc('page-item-action-left'),
+              disable || currentPage === 1
+                ? sc('page-item-disable')
+                : sc('page-item-able')
+            )}
+            onClick={() => {
+              setPage(currentPage - 1);
+            }}
+          >
+            &lt;
+          </span>
+        )}
         {pageList.map((page) =>
           typeof page === 'number' ? (
             <span
@@ -114,6 +131,23 @@ const Pagination: React.FC<PaginationProps> = (props: PaginationProps) => {
               •••
             </span>
           )
+        )}
+        {maxPage > 1 && (
+          <span
+            className={classNames(
+              sc('page-item'),
+              sc('page-item-action'),
+              sc('page-item-action-right'),
+              disable || currentPage === maxPage
+                ? sc('page-item-disable')
+                : sc('page-item-able')
+            )}
+            onClick={() => {
+              setPage(currentPage + 1);
+            }}
+          >
+            &gt;
+          </span>
         )}
       </div>
     </div>

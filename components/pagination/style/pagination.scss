@@ -2,7 +2,8 @@
 
 .algae-ui-pagination-wrapper {
   & > .algae-ui-pagination-page-list {
-    & > .algae-ui-pagination-page-item-normal {
+    & > .algae-ui-pagination-page-item-normal,
+    & > .algae-ui-pagination-page-item-action {
       margin: 0 4px;
       display: inline-block;
       cursor: pointer;
