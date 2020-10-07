@@ -41,6 +41,7 @@ const sc = scopedClassMaker('algae-ui-pagination');
 
 interface PaginationProps {
   className?: string;
+  disable?: boolean;
   current?: number;
   pageSize?: number;
   total: number;
@@ -48,7 +49,7 @@ interface PaginationProps {
 }
 
 const Pagination: React.FC<PaginationProps> = (props: PaginationProps) => {
-  const { className, current, pageSize = 10, total, onChange } = props;
+  const { className, disable, current, pageSize = 10, total, onChange } = props;
   const maxPage = Math.ceil(total / pageSize) || 1;
   const getTruePage = useCallback(
     (page: number) => {
@@ -66,14 +67,14 @@ const Pagination: React.FC<PaginationProps> = (props: PaginationProps) => {
 
   const setPage = useCallback(
     (page: number) => {
-      if (page === currentPage) {
+      if (page === currentPage || disable) {
         return;
       }
       const truePage = getTruePage(page);
       setCurrentPage(truePage);
       onChange && onChange(truePage);
     },
-    [currentPage, maxPage, onChange, getTruePage]
+    [disable, currentPage, maxPage, onChange, getTruePage]
   );
 
   return (
@@ -85,6 +86,8 @@ const Pagination: React.FC<PaginationProps> = (props: PaginationProps) => {
               key={page}
               className={classNames(
                 sc('page-item'),
+                sc('page-item-normal'),
+                disable ? sc('page-item-disable') : sc('page-item-able'),
                 sc(`page-item-${page}`),
                 currentPage === page ? 'active' : ''
               )}
@@ -97,8 +100,10 @@ const Pagination: React.FC<PaginationProps> = (props: PaginationProps) => {
           ) : (
             <span
               className={classNames(
+                sc('page-item'),
                 sc('page-item-ellipsis'),
-                sc(`page-item-${page}`)
+                disable ? sc('page-item-disable') : sc('page-item-able'),
+                sc(`page-item-ellipsis-${page}`)
               )}
               key={page}
               onClick={() => {
