@@ -1,0 +1,131 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pagination 渲染普通 Pagination 1`] = `
+<div
+  className="algae-ui-pagination-wrapper"
+>
+  <div
+    className="algae-ui-pagination-page-list"
+  >
+    <span
+      className="algae-ui-pagination-page-item algae-ui-pagination-page-item-action algae-ui-pagination-page-item-action-left algae-ui-pagination-page-item-able"
+      onClick={[Function]}
+    >
+      &lt;
+    </span>
+    <span
+      className="algae-ui-pagination-page-item algae-ui-pagination-page-item-normal algae-ui-pagination-page-item-able algae-ui-pagination-page-item-1"
+      onClick={[Function]}
+    >
+      1
+    </span>
+    <span
+      className="algae-ui-pagination-page-item algae-ui-pagination-page-item-normal algae-ui-pagination-page-item-able algae-ui-pagination-page-item-2 active"
+      onClick={[Function]}
+    >
+      2
+    </span>
+    <span
+      className="algae-ui-pagination-page-item algae-ui-pagination-page-item-normal algae-ui-pagination-page-item-able algae-ui-pagination-page-item-3"
+      onClick={[Function]}
+    >
+      3
+    </span>
+    <span
+      className="algae-ui-pagination-page-item algae-ui-pagination-page-item-normal algae-ui-pagination-page-item-able algae-ui-pagination-page-item-4"
+      onClick={[Function]}
+    >
+      4
+    </span>
+    <span
+      className="algae-ui-pagination-page-item algae-ui-pagination-page-item-normal algae-ui-pagination-page-item-able algae-ui-pagination-page-item-5"
+      onClick={[Function]}
+    >
+      5
+    </span>
+    <span
+      className="algae-ui-pagination-page-item algae-ui-pagination-page-item-action algae-ui-pagination-page-item-action-right algae-ui-pagination-page-item-able"
+      onClick={[Function]}
+    >
+      &gt;
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Pagination 渲染更多分页的 Pagination 1`] = `
+<div
+  className="algae-ui-pagination-wrapper"
+>
+  <div
+    className="algae-ui-pagination-page-list"
+  >
+    <span
+      className="algae-ui-pagination-page-item algae-ui-pagination-page-item-action algae-ui-pagination-page-item-action-left algae-ui-pagination-page-item-able"
+      onClick={[Function]}
+    >
+      &lt;
+    </span>
+    <span
+      className="algae-ui-pagination-page-item algae-ui-pagination-page-item-normal algae-ui-pagination-page-item-able algae-ui-pagination-page-item-1"
+      onClick={[Function]}
+    >
+      1
+    </span>
+    <span
+      className="algae-ui-pagination-page-item algae-ui-pagination-page-item-ellipsis algae-ui-pagination-page-item-able algae-ui-pagination-page-item-ellipsis-prev"
+      onClick={[Function]}
+    >
+      •••
+    </span>
+    <span
+      className="algae-ui-pagination-page-item algae-ui-pagination-page-item-normal algae-ui-pagination-page-item-able algae-ui-pagination-page-item-5"
+      onClick={[Function]}
+    >
+      5
+    </span>
+    <span
+      className="algae-ui-pagination-page-item algae-ui-pagination-page-item-normal algae-ui-pagination-page-item-able algae-ui-pagination-page-item-6"
+      onClick={[Function]}
+    >
+      6
+    </span>
+    <span
+      className="algae-ui-pagination-page-item algae-ui-pagination-page-item-normal algae-ui-pagination-page-item-able algae-ui-pagination-page-item-7 active"
+      onClick={[Function]}
+    >
+      7
+    </span>
+    <span
+      className="algae-ui-pagination-page-item algae-ui-pagination-page-item-normal algae-ui-pagination-page-item-able algae-ui-pagination-page-item-8"
+      onClick={[Function]}
+    >
+      8
+    </span>
+    <span
+      className="algae-ui-pagination-page-item algae-ui-pagination-page-item-normal algae-ui-pagination-page-item-able algae-ui-pagination-page-item-9"
+      onClick={[Function]}
+    >
+      9
+    </span>
+    <span
+      className="algae-ui-pagination-page-item algae-ui-pagination-page-item-ellipsis algae-ui-pagination-page-item-able algae-ui-pagination-page-item-ellipsis-next"
+      onClick={[Function]}
+    >
+      •••
+    </span>
+    <span
+      className="algae-ui-pagination-page-item algae-ui-pagination-page-item-normal algae-ui-pagination-page-item-able algae-ui-pagination-page-item-15"
+      onClick={[Function]}
+    >
+      15
+    </span>
+    <span
+      className="algae-ui-pagination-page-item algae-ui-pagination-page-item-action algae-ui-pagination-page-item-action-right algae-ui-pagination-page-item-able"
+      onClick={[Function]}
+    >
+      &gt;
+    </span>
+  </div>
+</div>
+`;
