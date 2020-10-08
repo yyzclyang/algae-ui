@@ -67,10 +67,10 @@ const Pagination: React.FC<PaginationProps> = (props: PaginationProps) => {
 
   const setPage = useCallback(
     (page: number) => {
-      if (page === currentPage || disable) {
+      const truePage = getTruePage(page);
+      if (truePage === currentPage || disable) {
         return;
       }
-      const truePage = getTruePage(page);
       setCurrentPage(truePage);
       onChange && onChange(truePage);
     },
