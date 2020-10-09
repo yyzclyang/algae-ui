@@ -7,6 +7,58 @@ import './app.scss';
 import './img/logo.svg';
 import './img/logo_text.svg';
 
+const componentNavList = [
+  {
+    classification: '通用',
+    componentList: [
+      { component: 'Button', name: '按钮' },
+      { component: 'Icon', name: '图标' }
+    ]
+  },
+  {
+    classification: '布局',
+    componentList: [
+      { component: 'Layout', name: '布局' },
+      { component: 'Scroll', name: '滚动条' }
+    ]
+  },
+  {
+    classification: '导航',
+    componentList: [
+      { component: 'Affix', name: '固钉' },
+      { component: 'Pagination', name: '分页' },
+      { component: 'Steps', name: '步骤条' }
+    ]
+  },
+  {
+    classification: '数据录入',
+    componentList: [
+      { component: 'Checkbox', name: '多选框' },
+      { component: 'Form', name: '表单' },
+      { component: 'Input', name: '输入框' },
+      { component: 'Radio', name: '单选框' },
+      { component: 'Rate', name: '评分' },
+      { component: 'Progress', name: '进度条' },
+      { component: 'Switch', name: '开关' }
+    ]
+  },
+  {
+    classification: '数据展示',
+    componentList: [
+      { component: 'Avatar', name: '头像' },
+      { component: 'Badge', name: '徽标数' },
+      { component: 'Tree', name: '树形控件' }
+    ]
+  },
+  {
+    classification: '反馈',
+    componentList: [
+      { component: 'Message', name: '消息' },
+      { component: 'Modal', name: '对话框' }
+    ]
+  }
+];
+
 const App: React.FC = () => (
   <Router>
     <Layout className="site-page">
@@ -32,43 +84,21 @@ const App: React.FC = () => (
             </li>
           </ul>
           <ul className="component-list-ul">
-            <li>
-              <div className="component-group component-list">通用</div>
-              <NavLink to="/button">Button 按钮</NavLink>
-              <NavLink to="/icon">Icon 图标</NavLink>
-            </li>
-            <li>
-              <div className="component-group component-list">布局</div>
-              <NavLink to="/layout">Layout 布局</NavLink>
-              <NavLink to="/scroll">Scroll 滚动条</NavLink>
-            </li>
-            <li>
-              <div className="component-group component-list">导航</div>
-              <NavLink to="/affix">Affix 固钉</NavLink>
-              <NavLink to="/pagination">Pagination 分页</NavLink>
-              <NavLink to="/steps">Steps 步骤条</NavLink>
-            </li>
-            <li>
-              <div className="component-group component-list">数据录入</div>
-              <NavLink to="/checkbox">Checkbox 多选框</NavLink>
-              <NavLink to="/form">Form 表单</NavLink>
-              <NavLink to="/input">Input 输入框</NavLink>
-              <NavLink to="/radio">Radio 单选框</NavLink>
-              <NavLink to="/rate">Rate 评分</NavLink>
-              <NavLink to="/progress">Progress 进度条</NavLink>
-              <NavLink to="/switch">Switch 开关</NavLink>
-            </li>
-            <li>
-              <div className="component-group component-list">数据展示</div>
-              <NavLink to="/avatar">Avatar 头像</NavLink>
-              <NavLink to="/badge">Badge 徽标数</NavLink>
-              <NavLink to="/tree">Tree 树形控件</NavLink>
-            </li>
-            <li>
-              <div className="component-group component-list">反馈</div>
-              <NavLink to="/message">Message 消息</NavLink>
-              <NavLink to="/modal">Modal 对话框</NavLink>
-            </li>
+            {componentNavList.map(({ classification, componentList }) => (
+              <li key={classification}>
+                <div className="component-group component-list">
+                  {classification}
+                </div>
+                {componentList.map(({ component, name }) => (
+                  <NavLink
+                    key={component}
+                    to={`/${component.toLocaleLowerCase()}`}
+                  >
+                    {`${component} ${name}`}
+                  </NavLink>
+                ))}
+              </li>
+            ))}
           </ul>
         </Scroll>
       </Side>
