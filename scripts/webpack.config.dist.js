@@ -8,7 +8,7 @@ module.exports = merge(baseConfig, {
   mode: 'production',
   devtool: 'source-map',
   entry: {
-    index: './components/index.ts'
+    index: './index.ts'
   },
   output: {
     filename: `algae@${pkg.version}.js`,
