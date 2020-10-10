@@ -1,6 +1,6 @@
 import React from 'react';
 import { classNames } from '../utils';
-import './importIcons';
+import importSvg from './importSvg';
 import './icon.scss';
 
 interface SvgProps extends React.SVGAttributes<SVGElement> {
@@ -40,6 +40,11 @@ interface CreateFromIconfontCNProps {
 }
 
 class Icon extends React.Component<IconProps> {
+  constructor(props: IconProps) {
+    super(props);
+    importSvg();
+  }
+
   static displayName = 'Icon';
 
   static createFromIconfontCN: (
@@ -52,7 +57,11 @@ class Icon extends React.Component<IconProps> {
 }
 
 Icon.createFromIconfontCN = ({ scriptUrl }) => {
+  if (document.getElementById(scriptUrl)) {
+    return SvgIcon;
+  }
   const script = document.createElement('script');
+  script.id = scriptUrl;
   script.type = 'text/javascript';
   script.src = scriptUrl;
   document.body.appendChild(script);
