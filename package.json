@@ -3,14 +3,16 @@
   "version": "0.1.14",
   "description": "A Component Library for React.js.",
   "main": "lib/index.js",
-  "types": "lib/types/index.d.ts",
-  "typing": "lib/types/index.d.ts",
+  "module": "es/index.js",
+  "typings": "lib/index.d.ts",
   "files": [
-    "lib/**/*"
+    "lib",
+    "es",
+    "dist"
   ],
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack-dev-server --hot --config webpack.config.dev.js",
-    "build": "rimraf lib && cross-env NODE_ENV=production webpack --config webpack.config.prod.js && mv lib/components lib/types ",
+    "dist": "rimraf dist && cross-env NODE_ENV=production webpack --config webpack.config.prod.js",
     "docs": "rimraf docs && cross-env NODE_ENV=production webpack --config webpack.config.docs.js",
     "lint:lib": "eslint --ext .ts,.tsx,.js,.jsx  components",
     "lint:site": "eslint --ext .ts,.tsx,.js,.jsx  site",

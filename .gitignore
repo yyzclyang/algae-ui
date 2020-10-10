@@ -3,6 +3,7 @@
 /.vscode
 /dist/*
 /lib/*
+/es/*
 /test-results/
 
 # Logs

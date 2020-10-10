@@ -1,16 +1,13 @@
 {
   "compilerOptions": {
-    "declaration": true,
-    "declarationDir": "lib",
     "sourceMap": true,
     "baseUrl": ".",
     "module": "esnext",
     "target": "es5",
-    "lib": ["es6", "dom"],
+    "lib": ["esnext", "dom"],
     "jsx": "react",
     "moduleResolution": "node",
     "rootDir": ".",
-    "outDir": "lib",
     "paths": {
       "ROOT/*": ["./*"],
       "algae-ui": ["./components"]
