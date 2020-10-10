@@ -9,7 +9,7 @@ module.exports = merge(baseConfig, {
   devtool: 'source-map',
   entry: { index: './site/index.tsx' },
   output: {
-    path: path.resolve(__dirname, 'docs'),
+    path: path.resolve(__dirname, '../docs'),
     filename: 'static/js/[name].[hash].js',
     chunkFilename: 'static/chunks/[name].[hash].js',
     publicPath: '//cdn.yyzcl.cn/algae-ui'
@@ -80,7 +80,7 @@ module.exports = merge(baseConfig, {
   resolve: {
     alias: {
       'react-dom': '@hot-loader/react-dom',
-      'algae-ui': path.resolve(__dirname, 'components')
+      'algae-ui': path.resolve(__dirname, '../components')
     }
   }
 });

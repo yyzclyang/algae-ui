@@ -1,7 +1,7 @@
 const merge = require('webpack-merge');
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const pkg = require('./package.json');
+const pkg = require('../package.json');
 const baseConfig = require('./webpack.config');
 
 module.exports = merge(baseConfig, {
@@ -12,7 +12,7 @@ module.exports = merge(baseConfig, {
   },
   output: {
     filename: `algae@${pkg.version}.js`,
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, '../dist'),
     library: 'algae-ui',
     libraryTarget: 'umd',
     globalObject: 'this'

@@ -11,9 +11,9 @@
     "dist"
   ],
   "scripts": {
-    "start": "cross-env NODE_ENV=development webpack-dev-server --hot --config webpack.config.dev.js",
-    "dist": "rimraf dist && cross-env NODE_ENV=production webpack --config webpack.config.prod.js",
-    "docs": "rimraf docs && cross-env NODE_ENV=production webpack --config webpack.config.docs.js",
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --hot --config scripts/webpack.config.dev.js",
+    "dist": "rimraf dist && cross-env NODE_ENV=production webpack --config scripts/webpack.config.prod.js",
+    "docs": "rimraf docs && cross-env NODE_ENV=production webpack --config scripts/webpack.config.docs.js",
     "lint:lib": "eslint --ext .ts,.tsx,.js,.jsx  components",
     "lint:site": "eslint --ext .ts,.tsx,.js,.jsx  site",
     "test": "jest",
