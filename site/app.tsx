@@ -3,6 +3,7 @@ import { hot } from 'react-hot-loader/root';
 import { HashRouter as Router, Route, NavLink } from 'react-router-dom';
 import { Layout, Content, Footer, Header, Side, Icon, Scroll } from 'algae-ui';
 import { GetStart, Introduction } from './pages';
+import './style/importComponentStyle';
 import './app.scss';
 import './img/logo.svg';
 import './img/logo_text.svg';
