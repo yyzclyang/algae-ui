@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Icon from '../icon';
 import { classNames } from '../utils';
-import './style/switch.scss';
 
 interface SwitchProps {
   checked?: boolean;

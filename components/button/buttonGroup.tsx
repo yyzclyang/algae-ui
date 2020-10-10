@@ -1,6 +1,5 @@
 import React from 'react';
 import { classNames } from '../utils';
-import './style/buttonGroup.scss';
 
 interface ButtonGroupProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode;

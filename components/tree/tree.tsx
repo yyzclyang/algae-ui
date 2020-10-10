@@ -1,7 +1,6 @@
 import React from 'react';
 import TreeItem, { TreeItemSourceData } from './treeItem';
 import { classNames, scopedClassMaker, useControlState } from '../utils';
-import './style/tree.scss';
 
 const sc = scopedClassMaker('algae-ui-tree');
 

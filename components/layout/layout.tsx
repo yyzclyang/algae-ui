@@ -1,7 +1,6 @@
 import React from 'react';
 import Side from './side';
 import { classNames, scopedClassMaker } from '../utils';
-import './style/layout.scss';
 
 const sc = scopedClassMaker('algae-ui-layout');
 

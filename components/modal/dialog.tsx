@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Icon from '../icon';
 import { classNames } from '../utils';
-import './style/dialog.scss';
 
 export interface DialogProps {
   visible: boolean;

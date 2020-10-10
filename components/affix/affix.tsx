@@ -1,6 +1,5 @@
 import React from 'react';
 import { classNames } from '../utils';
-import './style/affix.scss';
 
 interface AffixProps {
   offsetTop?: number;

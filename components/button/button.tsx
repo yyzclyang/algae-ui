@@ -1,7 +1,6 @@
 import React from 'react';
 import Icon from '../icon';
 import { classNames, useDiffuseAnimation } from '../utils';
-import './style/button.scss';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   buttonType?: 'default' | 'primary' | 'success' | 'danger';

@@ -2,7 +2,6 @@ import React, { useState, useRef } from 'react';
 import Icon from '../icon';
 import Checkbox from '../checkbox';
 import { classNames, scopedClassMaker, useToggle, useUpdate } from '../utils';
-import './style/treeItem.scss';
 
 const sc = scopedClassMaker('algae-ui-tree-item');
 

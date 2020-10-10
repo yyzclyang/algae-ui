@@ -2,7 +2,6 @@ import React from 'react';
 import NormalProgress from './normalProgress';
 import CircleProgress from './circleProgress';
 import { classNames, scopedClassMaker } from '../utils';
-import './style/progress.scss';
 
 const sc = scopedClassMaker('algae-ui-progress');
 

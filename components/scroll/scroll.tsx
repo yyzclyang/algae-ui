@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { classNames, scopedClassMaker, getScrollBarWidth } from '../utils';
-import './style/scroll.scss';
 
 const sc = scopedClassMaker('algae-ui-scroll');
 

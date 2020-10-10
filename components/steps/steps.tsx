@@ -1,7 +1,6 @@
 import React from 'react';
 import { StatusTypes } from './step';
 import { classNames, scopedClassMaker } from '../utils';
-import './style/steps.scss';
 
 const sc = scopedClassMaker('algae-ui-steps');
 

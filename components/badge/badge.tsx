@@ -1,6 +1,5 @@
 import React from 'react';
 import { classNames, scopedClassMaker } from '../utils';
-import './style/badge.scss';
 
 const sc = scopedClassMaker('algae-ui-badge');
 

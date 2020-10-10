@@ -1,6 +1,5 @@
 import React from 'react';
 import { classNames } from '../utils';
-import './style/star.scss';
 
 export type StarTypeValue = 'none' | 'half' | 'full';
 

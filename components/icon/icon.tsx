@@ -1,7 +1,6 @@
 import React from 'react';
 import { classNames } from '../utils';
 import importSvg from './importSvg';
-import './icon.scss';
 
 interface SvgProps extends React.SVGAttributes<SVGElement> {
   type?: string;

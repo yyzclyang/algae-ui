@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { classNames, scopedClassMaker } from '../utils';
-import './style/checkbox.scss';
 
 const sc = scopedClassMaker('algae-ui-checkbox');
 

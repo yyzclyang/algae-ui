@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Star from './star';
 import { classNames, scopedClassMaker, useControlState } from '../utils';
-import './style/rate.scss';
 
 const sc = scopedClassMaker('algae-ui-rate');
 

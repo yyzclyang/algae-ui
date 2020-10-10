@@ -7,7 +7,6 @@ import {
   validator,
   ValidateFormMessageGroup
 } from '../utils';
-import './style/form.scss';
 
 const sc = scopedClassMaker('algae-ui-form');
 

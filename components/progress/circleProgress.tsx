@@ -6,7 +6,6 @@ import {
   rotateMatrixGenerator,
   arcGenerator
 } from '../utils';
-import './style/circleProgress.scss';
 
 const sc = scopedClassMaker('algae-ui-progress');
 

@@ -1,7 +1,6 @@
 import React from 'react';
 import Icon from '../icon';
 import { classNames, scopedClassMaker } from '../utils';
-import './style/avatar.scss';
 
 const sc = scopedClassMaker('algae-ui-avatar');
 

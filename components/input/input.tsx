@@ -1,7 +1,6 @@
 import React from 'react';
 import Icon from '../icon';
 import { classNames } from '../utils';
-import './style/input.scss';
 
 export interface InputProps
   extends React.InputHTMLAttributes<HTMLInputElement> {

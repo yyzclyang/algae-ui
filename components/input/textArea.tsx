@@ -1,6 +1,5 @@
 import React from 'react';
 import classNames from '../utils/classNames';
-import './style/textarea.scss';
 
 interface TextAreaProps
   extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {

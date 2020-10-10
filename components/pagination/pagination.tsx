@@ -1,6 +1,5 @@
 import React, { useCallback, useMemo } from 'react';
 import { classNames, scopedClassMaker, useControlState } from '../utils';
-import './style/pagination.scss';
 
 function pageListGenerator(
   currentPage: number,

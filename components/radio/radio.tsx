@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { classNames } from '../utils';
-import './style/radio.scss';
 
 interface RadioProps extends React.InputHTMLAttributes<HTMLInputElement> {
   className?: string;

@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Icon from '../icon';
 import { classNames, scopedClassMaker } from '../utils';
-import './style/message.scss';
 
 const sc = scopedClassMaker('algae-ui-message');
 
