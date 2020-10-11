@@ -5,13 +5,10 @@
   "main": "lib/index.js",
   "module": "es/index.js",
   "typings": "lib/index.d.ts",
-  "files": [
-    "lib",
-    "es",
-    "dist"
-  ],
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --hot --config scripts/webpack.config.dev.js",
+    "build": "npm run compile && npm run dist",
+    "compile": "gulp --gulpfile scripts/gulpfile.js",
     "dist": "rimraf dist && cross-env NODE_ENV=production webpack --config scripts/webpack.config.dist.js",
     "docs": "rimraf docs && cross-env NODE_ENV=production webpack --config scripts/webpack.config.docs.js",
     "lint:lib": "eslint --ext .ts,.tsx,.js,.jsx  components",
@@ -19,6 +16,18 @@
     "test": "jest",
     "ci": "jest --coverage"
   },
+  "files": [
+    "es",
+    "lib",
+    "dist",
+    "LICENSE"
+  ],
+  "sideEffects": [
+    "dist/*",
+    "lib/*",
+    "es/*",
+    "*.scss"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/yyzclyang/algae-ui.git"
@@ -39,8 +48,12 @@
     "react-dom": ">=16.8.0"
   },
   "devDependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.10.4",
+    "@babel/plugin-proposal-object-rest-spread": "^7.11.0",
+    "@babel/plugin-transform-runtime": "^7.11.5",
     "@babel/preset-env": "^7.9.0",
     "@babel/preset-react": "^7.9.1",
+    "@babel/preset-typescript": "^7.10.4",
     "@hot-loader/react-dom": "^16.13.0",
     "@testing-library/react-hooks": "^2.0.1",
     "@types/enzyme": "^3.9.3",
@@ -75,6 +88,13 @@
     "eslint-plugin-react": "^7.19.0",
     "eslint-plugin-react-hooks": "^3.0.0",
     "file-loader": "^4.0.0",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-postcss": "^9.0.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-replace": "^1.0.0",
+    "gulp-sass": "^4.1.0",
+    "gulp-typescript": "^6.0.0-alpha.1",
     "hard-source-webpack-plugin": "^0.13.1",
     "html-webpack-plugin": "^3.2.0",
     "jest": "^24.8.0",
