@@ -1,5 +1,8 @@
 const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
+
+const isDev = () => process.env.NODE_ENV !== 'production';
 
 module.exports = {
   resolve: {
@@ -24,7 +27,17 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        use: ['style-loader', 'css-loader', 'sass-loader']
+        use: [
+          isDev() ? 'style-loader' : MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: true
+            }
+          },
+          'postcss-loader',
+          'sass-loader'
+        ]
       },
       {
         test: /\.(png|jpeg|jpg|gif|ico)$/,

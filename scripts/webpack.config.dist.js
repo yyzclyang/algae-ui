@@ -17,23 +17,6 @@ module.exports = merge(baseConfig, {
     libraryTarget: 'umd',
     globalObject: 'this'
   },
-  module: {
-    rules: [
-      {
-        test: /\.scss$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          {
-            loader: 'css-loader',
-            options: {
-              sourceMap: true
-            }
-          },
-          'sass-loader'
-        ]
-      }
-    ]
-  },
   externals: {
     react: {
       commonjs: 'react',
