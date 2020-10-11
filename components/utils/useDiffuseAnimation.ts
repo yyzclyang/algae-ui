@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import '../style/diffuseAnimation.scss';
 
 const useDiffuseAnimation: () => [string, () => void] = () => {
   const [animationClassName, setAnimationClassName] = useState<string>('');
