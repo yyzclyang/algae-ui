@@ -1,7 +1,6 @@
 const merge = require('webpack-merge');
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const pkg = require('../package.json');
 const baseConfig = require('./webpack.config');
 
 module.exports = merge(baseConfig, {
@@ -11,7 +10,7 @@ module.exports = merge(baseConfig, {
     index: './index.ts'
   },
   output: {
-    filename: `algae@${pkg.version}.js`,
+    filename: `index.js`,
     path: path.resolve(__dirname, '../dist'),
     library: 'algae-ui',
     libraryTarget: 'umd',
@@ -33,7 +32,7 @@ module.exports = merge(baseConfig, {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: `algae@${pkg.version}.css`,
+      filename: `index.css`,
       chunkFilename: '[id].css'
     })
   ]
